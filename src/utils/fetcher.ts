@@ -1,13 +1,6 @@
-import instance from "./axios";
+import axios from "axios";
 
-const fetcher = async (url: any) => {
-  const response = await instance({
-    method: "get",
-    url: url,
-    data: {},
-  });
-
-  return response.data;
-};
+const fetcher = (url: string) =>
+  axios.get(url).then((response) => response.data);
 
 export default fetcher;

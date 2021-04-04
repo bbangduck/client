@@ -1,31 +1,19 @@
-import React from "react";
+import React, { useCallback } from "react";
 import * as Styled from "./TestComponent.style";
-import { useSelector } from "react-redux";
-import {
-  decrease,
-  increase,
-  increaseDouble,
-} from "../../stores/testReducer/testReducer";
-//types
-import { ReducerType } from "../../stores/rootReducer";
-import { useClickNumber } from "./../../hooks/useClickNumber";
+import useCounter from "./../../hooks/useCounter";
 
 const TestComponent = () => {
-  const value = useSelector<ReducerType, number>(
-    (state) => state.testReducer.value
-  );
+  const { data, mutate } = useCounter();
 
-  const [increament] = useClickNumber({ reducer: increase });
-  const [decreament] = useClickNumber({ reducer: decrease });
-  const [doubleUp] = useClickNumber({ reducer: increaseDouble, payload: 2 });
+  const up = useCallback(() => mutate(data + 1), [data]);
+  const down = useCallback(() => mutate(data - 1), [data]);
 
   return (
     <div>
       <Styled.Ptag>test</Styled.Ptag>
-      <p>{value}</p>
-      <button onClick={increament}>+</button>
-      <button onClick={decreament}>-</button>
-      <button onClick={doubleUp}>doubleUp</button>
+      <p>{data}</p>
+      <button onClick={up}>up</button>
+      <button onClick={down}>down</button>
     </div>
   );
 };

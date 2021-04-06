@@ -1,8 +1,8 @@
-import React from "react";
-import { GlobalStyle } from "./styles/globalStyles";
-import { ThemeProvider } from "styled-components";
-import theme from "./styles/theme";
-import RootPage from "./pages/RootPage";
+import React from 'react';
+import { GlobalStyle } from './styles/globalStyles';
+import { ThemeProvider } from 'styled-components';
+import theme from './styles/theme';
+import RootPage from './pages/RootPage';
 
 const App = () => {
   return (

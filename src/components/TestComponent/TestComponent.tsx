@@ -1,6 +1,6 @@
-import React, { useCallback } from "react";
-import * as Styled from "./TestComponent.style";
-import useCounter from "./../../hooks/useCounter";
+import React, { useCallback } from 'react';
+import * as Styled from './TestComponent.style';
+import useCounter from './../../hooks/useCounter';
 
 const TestComponent = () => {
   const { data, mutate } = useCounter();

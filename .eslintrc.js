@@ -3,11 +3,10 @@ module.exports = {
   plugins: ['@typescript-eslint', 'prettier'],
   extends: [
     'airbnb',
-    'plugin:import/errors',
-    'plugin:import/warnings',
-    'plugin:prettier/recommended',
+    'airbnb/hooks',
     'plugin:@typescript-eslint/recommended',
-    'prettier/@typescript-eslint',
+    'plugin:prettier/recommended',
+    'prettier',
   ],
   rules: {
     'linebreak-style': 0,

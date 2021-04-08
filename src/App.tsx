@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './styles/globalStyles';
 import theme from './styles/theme';
 import RootPage from './pages/RootPage';
 
-const App = () => {
+const App = (): ReactElement => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />

@@ -1,8 +1,8 @@
-import React, { useCallback } from 'react';
+import React, { ReactElement, useCallback } from 'react';
 import * as Styled from './TestComponent.style';
 import useCounter from '../../hooks/useCounter';
 
-const TestComponent = () => {
+const TestComponent = (): ReactElement => {
   const { data, mutate } = useCounter();
 
   const up = useCallback(() => mutate(data + 1), [data, mutate]);

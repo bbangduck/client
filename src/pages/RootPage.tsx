@@ -1,25 +1,25 @@
 import React, { ReactElement } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import MainPage from './MainPage';
-import MapPage from './MapPage';
-import MyPage from './MyPage';
-import MyPageClause from './MypageClause';
-import MyPagePolicy from './MyPagePolicy';
-import MyPageProfile from './MyPageProfile';
-import MyPageUpdate from './MyPageUpdate';
-import ThemeReviewPage from './ThemeReviewPage';
-import ThemeDetailPage from './ThemeDetailPage';
-import ThemePage from './ThemePage';
-import MyPageDeleteAccount from './MyPageDeleteAccount';
-import MyPageStatus from './MyPageStatus';
-import MyPageTendency from './MyPageTendency';
-import MyPageAchieve from './MyPageAchieve';
-import MyPageTheme from './MyPageTheme';
-import MyPageQuestions from './MyPageQuestions';
-import MyPageNotice from './MyPageNotice';
-import MyPageNoticeDetail from './MyPageNoticeDetail';
-import MyPageSignUp from './MyPageSignUp';
-import MyPageLastSignUp from './MyPageLastSignUp';
+import MainPage from './main/MainPage';
+import MapPage from './map/MapPage';
+import MyPage from './myPages/MyPage';
+import MyPageClause from './myPages/update/MypageClause';
+import MyPagePolicy from './myPages/update/MyPagePolicy';
+import MyPageProfile from './myPages/mypage/MyPageProfile';
+import MyPageUpdate from './myPages/update/MyPageUpdate';
+import ThemeReviewPage from './theme/ThemeReviewPage';
+import ThemeDetailPage from './theme/ThemeDetailPage';
+import ThemePage from './theme/ThemePage';
+import MyPageDeleteAccount from './myPages/update/MyPageDeleteAccount';
+import MyPageStatus from './myPages/mypage/MyPageStatus';
+import MyPageTendency from './myPages/mypage/MyPageTendency';
+import MyPageAchieve from './myPages/mypage/MyPageAchieve';
+import MyPageTheme from './myPages/mypage/MyPageTheme';
+import MyPageQuestions from './myPages/mypage/MyPageQuestions';
+import MyPageNotice from './myPages/notice/MyPageNotice';
+import MyPageNoticeDetail from './myPages/notice/MyPageNoticeDetail';
+import MyPageSignUp from './myPages/auth/MyPageSignUp';
+import MyPageLastSignUp from './myPages/auth/MyPageLastSignUp';
 
 const RootPage = (): ReactElement => {
   return (

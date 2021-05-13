@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Button } from '../../atoms';
-import './header.css';
 
 export interface HeaderProps {
   user?: () => boolean;

@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import EscapeNotices from '../../molecules/EscapeNotice';
 import MyPageHeader from '../../molecules/MyPageHeader';
 import AboutMe from '../../organisms/AboutMe';
 import EscapeBadges from '../../organisms/EscapeBadges';
@@ -15,7 +16,7 @@ const MyPageTemplate = (): ReactElement => {
       <EscapeTendency />
       <EscapeBadges />
       <EscapeThemes />
-      <p>모큘러스</p>
+      <EscapeNotices />
       <p>모큘러스</p>
     </section>
   );

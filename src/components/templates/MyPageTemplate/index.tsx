@@ -1,9 +1,10 @@
 import React, { ReactElement } from 'react';
+import MyPageHeader from '../../molecules/MyPageHeader';
 
 const MyPageTemplate = (): ReactElement => {
   return (
     <section>
-      <p>모큘러스</p>
+      <MyPageHeader />
       <p>올가니즘1</p>
       <p>올가니즘2</p>
       <p>올가니즘3</p>

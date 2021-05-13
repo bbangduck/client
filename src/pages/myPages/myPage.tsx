@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import MyPageTemplate from '../../components/templates/MyPageTemplate/MyPageTemplate';
+import MyPageTemplate from '../../components/templates/MyPageTemplate';
 
 const MyPage = (): ReactElement => {
   return (

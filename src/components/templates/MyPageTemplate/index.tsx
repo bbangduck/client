@@ -1,11 +1,12 @@
 import React, { ReactElement } from 'react';
 import MyPageHeader from '../../molecules/MyPageHeader';
+import AboutMe from '../../organisms/AboutMe';
 
 const MyPageTemplate = (): ReactElement => {
   return (
     <section>
       <MyPageHeader />
-      <p>올가니즘1</p>
+      <AboutMe />
       <p>올가니즘2</p>
       <p>올가니즘3</p>
       <p>올가니즘4</p>

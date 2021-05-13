@@ -4,6 +4,7 @@ import AboutMe from '../../organisms/AboutMe';
 import EscapeBadges from '../../organisms/EscapeBadges';
 import EscapeStatus from '../../organisms/EscapeStatus';
 import EscapeTendency from '../../organisms/EscapeTendency';
+import EscapeThemes from '../../organisms/EscapeThemes';
 
 const MyPageTemplate = (): ReactElement => {
   return (
@@ -13,7 +14,7 @@ const MyPageTemplate = (): ReactElement => {
       <EscapeStatus />
       <EscapeTendency />
       <EscapeBadges />
-      <p>올가니즘5</p>
+      <EscapeThemes />
       <p>모큘러스</p>
       <p>모큘러스</p>
     </section>

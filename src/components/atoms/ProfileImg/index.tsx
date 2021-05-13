@@ -6,7 +6,7 @@ interface Props {
   img?: string;
 }
 const ProfileImg = ({ img }: Props): ReactElement => {
-  return <S.Img src={img || iconx1} alt="profileImage" />;
+  return <S.Img src={img || iconx1} alt="프로필 사진" />;
 };
 
 export default ProfileImg;

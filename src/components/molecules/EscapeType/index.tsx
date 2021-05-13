@@ -9,7 +9,7 @@ interface Props {
 const EscapeType = ({ icon, content, count }: Props): ReactElement => {
   return (
     <S.Container>
-      <S.Img src={icon} alt="doorIcon" />
+      <S.Img src={icon} alt="현황 이미지" />
       <S.PTag>{content}</S.PTag>
       <S.SpanTag>{count}</S.SpanTag>
     </S.Container>

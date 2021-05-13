@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 import MyPageHeader from '../../molecules/MyPageHeader';
 import AboutMe from '../../organisms/AboutMe';
+import EscapeBadges from '../../organisms/EscapeBadges';
 import EscapeStatus from '../../organisms/EscapeStatus';
 import EscapeTendency from '../../organisms/EscapeTendency';
 
@@ -11,7 +12,7 @@ const MyPageTemplate = (): ReactElement => {
       <AboutMe />
       <EscapeStatus />
       <EscapeTendency />
-      <p>올가니즘4</p>
+      <EscapeBadges />
       <p>올가니즘5</p>
       <p>모큘러스</p>
       <p>모큘러스</p>

@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react';
 import MyPageSubTitle from '../../molecules/MyPageSubTitle';
 import Tendency from '../../atoms/Tendency';
 import * as S from './style';
+import MyPageGuide from '../../atoms/MyPageGuide';
 
 const EscapeTendency = (): ReactElement => {
   const tendency: { id: number; item: string }[] | any = [
@@ -12,7 +13,7 @@ const EscapeTendency = (): ReactElement => {
   ];
 
   const suggestTendency = () => {
-    return <S.PTag>방탈출을 진행하고 성향 분석을 해보세요.</S.PTag>;
+    return <MyPageGuide content="방탈출을 진행하고 성향 분석을 해보세요." />;
   };
 
   const showTendencyList = () => {

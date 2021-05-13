@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react';
 import MyPageHeader from '../../molecules/MyPageHeader';
 import AboutMe from '../../organisms/AboutMe';
 import EscapeStatus from '../../organisms/EscapeStatus';
+import EscapeTendency from '../../organisms/EscapeTendency';
 
 const MyPageTemplate = (): ReactElement => {
   return (
@@ -9,7 +10,7 @@ const MyPageTemplate = (): ReactElement => {
       <MyPageHeader />
       <AboutMe />
       <EscapeStatus />
-      <p>올가니즘3</p>
+      <EscapeTendency />
       <p>올가니즘4</p>
       <p>올가니즘5</p>
       <p>모큘러스</p>

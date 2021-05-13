@@ -1,8 +1,13 @@
 import Styled from 'styled-components';
 
-export const Container = Styled.div`
+interface ContainerProps {
+  item?: any;
+  trueMg: string;
+  falseMg: string;
+}
+export const Container = Styled.div<ContainerProps>`
   height:40px;
-  margin-bottom:12px;
+  margin-bottom:${({ item, trueMg, falseMg }) => (item ? trueMg : falseMg)};
   display:flex;
   justify-content:space-between;
   align-items:center;

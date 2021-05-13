@@ -7,9 +7,9 @@ export const Container = Styled.div`
   background-color: ${({ theme }) => theme.colors.bgColor[1]};
 `;
 
-type PTagProps = {
+interface PTagProps {
   content?: string;
-};
+}
 export const PTag = Styled.p<PTagProps>`
   font-size:${({ theme }) => theme.sizes.font[1]};
   line-height: 1.5;

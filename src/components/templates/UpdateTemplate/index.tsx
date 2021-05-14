@@ -1,14 +1,16 @@
 import React, { ReactElement } from 'react';
+import * as S from './style';
+import UpdateFooter from '../../molecules/UpdateFooter';
 import UpdateHeader from '../../molecules/UpdateHeader';
 import UpdateCenter from '../../organisms/UpdateCenter';
 
 const UpdateTemplate = (): ReactElement => {
   return (
-    <div>
+    <S.Section>
       <UpdateHeader content="설정" />
       <UpdateCenter />
-      <p>모큘러스</p>
-    </div>
+      <UpdateFooter />
+    </S.Section>
   );
 };
 

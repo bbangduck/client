@@ -1,10 +1,12 @@
 import React, { ReactElement } from 'react';
+import UpdateHeader from '../../molecules/UpdateHeader';
+import BadgeList from '../../organisms/BedgeList';
 
 const BedgeTemplate = (): ReactElement => {
   return (
     <section>
-      <p>모큘러스</p>
-      <p>오가니즘</p>
+      <UpdateHeader content="획득 배지" />
+      <BadgeList />
     </section>
   );
 };

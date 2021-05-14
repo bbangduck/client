@@ -1,11 +1,13 @@
 import React, { ReactElement } from 'react';
+import UpdateHeader from '../../molecules/UpdateHeader';
+import MyStatusList from '../../organisms/MyStatusList';
 
 const StatusTemplate = (): ReactElement => {
   return (
-    <div>
-      <p>모큘러스</p>
-      <p>오가니즘</p>
-    </div>
+    <section>
+      <UpdateHeader content="내 방탈출" />
+      <MyStatusList />
+    </section>
   );
 };
 

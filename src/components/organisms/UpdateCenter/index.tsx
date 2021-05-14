@@ -32,7 +32,7 @@ const UpdateCenter = (): ReactElement => {
         icon={right}
         color={darkColor}
         fontWeight="bold"
-        onClick={() => history.push('/mypage/update')}
+        onClick={() => history.push('/mypage/clause')}
       />
       <S.Box>
         <RouteBtn content="로그아웃" color={lightColor} fontWeight="normal" />

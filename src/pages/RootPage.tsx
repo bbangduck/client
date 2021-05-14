@@ -6,6 +6,7 @@ const MyPage = lazy(() => import('./myPages/MyPage'));
 const StatusPage = lazy(() => import('./myPages/mypage/StatusPage'));
 const BedgePage = lazy(() => import('./myPages/mypage/BedgePage'));
 const NoticePage = lazy(() => import('./myPages/mypage/NoticePage'));
+const NoticePage2 = lazy(() => import('./myPages/mypage/NoticePage2'));
 const UpdatePage = lazy(() => import('./myPages/update/UpdatePage'));
 const ProfilePage = lazy(() => import('./myPages/update/ProfilePage'));
 const PolicyPage = lazy(() => import('./myPages/update/PolicyPage'));
@@ -25,6 +26,7 @@ const RootPage = (): ReactElement => {
           <Route path="/mypage/bedges" component={BedgePage} /> {/* 24 */}
           {/* 공지사항 */}
           <Route exact path="/mypage/notice" component={NoticePage} /> {/* 25 */}
+          <Route exact path="/mypage/notice/:number" component={NoticePage2} /> {/* 26 */}
           {/* 설정 */}
           <Route path="/mypage/update" component={UpdatePage} /> {/* 15 */}
           <Route path="/mypage/profile" component={ProfilePage} /> {/* 14 */}

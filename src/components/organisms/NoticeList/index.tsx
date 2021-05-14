@@ -37,8 +37,8 @@ const NoticeList = (): ReactElement => {
   return (
     <S.Container>
       <ul>
-        {noticeList.map(({ id, title, date }) => (
-          <NoticeItem key={id} title={title} date={date} />
+        {noticeList.map(({ id, title, date, content }) => (
+          <NoticeItem key={id} title={title} date={date} pageNumber={id} content={content} />
         ))}
       </ul>
     </S.Container>

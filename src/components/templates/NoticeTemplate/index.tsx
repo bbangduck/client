@@ -1,10 +1,12 @@
 import React, { ReactElement } from 'react';
+import UpdateHeader from '../../molecules/UpdateHeader';
+import NoticeList from '../../organisms/NoticeList';
 
 const NoticeTemplate = (): ReactElement => {
   return (
     <section>
-      <p>모큘러스</p>
-      <p>오가니즘</p>
+      <UpdateHeader content="공지사항" />
+      <NoticeList />
     </section>
   );
 };

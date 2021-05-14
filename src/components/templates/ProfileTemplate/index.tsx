@@ -1,14 +1,15 @@
 import React, { ReactElement } from 'react';
 import ProfileImg from '../../molecules/ProfileImg';
 import UpdateHeader from '../../molecules/UpdateHeader';
+import UpdateList from '../../organisms/ProfileList';
 
 const ProfileTemplate = (): ReactElement => {
   return (
-    <div>
+    <section>
       <UpdateHeader content="프로필 설정" />
       <ProfileImg />
-      <p>오가니즘</p>
-    </div>
+      <UpdateList />
+    </section>
   );
 };
 

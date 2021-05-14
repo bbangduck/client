@@ -1,13 +1,13 @@
 import React, { ReactElement } from 'react';
+import UpdateHeader from '../../molecules/UpdateHeader';
+import NoticeContent from '../../organisms/NoticeContent';
 
 const NoticeTemplate2 = (): ReactElement => {
   return (
-    <div>
-      <p>asdsadasdsadasddasd</p>
-      <p>asdsadasdsadasddasd</p>
-      <p>asdsadasdsadasddasd</p>
-      <p>asdsadasdsadasddasd</p>
-    </div>
+    <section>
+      <UpdateHeader />
+      <NoticeContent />
+    </section>
   );
 };
 

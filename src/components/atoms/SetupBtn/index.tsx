@@ -7,7 +7,7 @@ const SetupBtn = (): ReactElement => {
   const history = useHistory();
 
   const onSetupClick = () => {
-    history.push('');
+    history.push('/mypage/update');
   };
 
   return (

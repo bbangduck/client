@@ -1,12 +1,16 @@
 import React, { ReactElement } from 'react';
+import BottomBtn from '../../atoms/BottomBtn';
+import RemoveContent from '../../molecules/RemoveContent';
+import UpdateHeader from '../../molecules/UpdateHeader';
+import * as S from './style';
 
 const RemoveAccountTemplate = (): ReactElement => {
   return (
-    <div>
-      <p>모큘러스</p>
-      <p>오가니즘</p>
-      <p>아톰</p>
-    </div>
+    <S.Container>
+      <UpdateHeader content="회원탈퇴" />
+      <RemoveContent />
+      <BottomBtn content="다음" onClick={() => console.log(1)} />
+    </S.Container>
   );
 };
 

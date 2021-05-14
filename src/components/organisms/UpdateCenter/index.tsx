@@ -25,7 +25,7 @@ const UpdateCenter = (): ReactElement => {
         icon={right}
         color={darkColor}
         fontWeight="bold"
-        onClick={() => history.push('/mypage/update')}
+        onClick={() => history.push('/mypage/policy')}
       />
       <RouteBtn
         content="이용약관"

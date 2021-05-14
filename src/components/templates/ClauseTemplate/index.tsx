@@ -1,11 +1,13 @@
 import React, { ReactElement } from 'react';
+import UpdateHeader from '../../molecules/UpdateHeader';
+import ClauseContent from '../../organisms/ClauseContent';
 
 const ClauseTemplate = (): ReactElement => {
   return (
-    <div>
-      <p>모큘러스</p>
-      <p>오가니즘</p>
-    </div>
+    <section>
+      <UpdateHeader />
+      <ClauseContent />
+    </section>
   );
 };
 

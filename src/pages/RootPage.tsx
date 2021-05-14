@@ -4,6 +4,7 @@ import TestComponent from '../components/TestComponent/TestComponent';
 
 const MyPage = lazy(() => import('./myPages/MyPage'));
 const UpdatePage = lazy(() => import('./myPages/update/UpdatePage'));
+const ProfilePage = lazy(() => import('./myPages/update/ProfilePage'));
 
 const RootPage = (): ReactElement => {
   return (
@@ -14,6 +15,7 @@ const RootPage = (): ReactElement => {
           {/* 마이페이지 */}
           <Route exact path="/mypage" component={MyPage} /> {/* 11 */}
           <Route path="/mypage/update" component={UpdatePage} /> {/* 15 */}
+          <Route path="/mypage/profile" component={ProfilePage} /> {/* 14 */}
         </Switch>
       </Router>
     </Suspense>

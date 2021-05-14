@@ -16,7 +16,12 @@ const EscapeNotices = (): ReactElement => {
         </S.LeftIconBox>
         <S.PTag>{notice.length > 22 ? `${shortedNotice}..` : notice}</S.PTag>
       </S.Box>
-      <img onClick={() => history.push('/')} src={right} alt="공지사항 더보기" style={{ cursor: 'pointer' }} />
+      <img
+        onClick={() => history.push('/mypage/notice')}
+        src={right}
+        alt="공지사항 더보기"
+        style={{ cursor: 'pointer' }}
+      />
     </S.Section>
   );
 };

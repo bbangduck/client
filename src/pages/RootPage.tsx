@@ -8,6 +8,7 @@ const ProfilePage = lazy(() => import('./myPages/update/ProfilePage'));
 const PolicyPage = lazy(() => import('./myPages/update/PolicyPage'));
 const ClausePage = lazy(() => import('./myPages/update/ClausePage'));
 const RemoveAccountPage = lazy(() => import('./myPages/update/RemoveAccountPage'));
+const RemoveAccountPage2 = lazy(() => import('./myPages/update/RemoveAccountPage2'));
 
 const RootPage = (): ReactElement => {
   return (
@@ -22,6 +23,7 @@ const RootPage = (): ReactElement => {
           <Route path="/mypage/policy" component={PolicyPage} /> {/* 16 */}
           <Route path="/mypage/clause" component={ClausePage} /> {/* 17 */}
           <Route exact path="/mypage/removeAccount" component={RemoveAccountPage} /> {/* 18 */}
+          <Route path="/mypage/removeAccount/2" component={RemoveAccountPage2} /> {/* ? */}
         </Switch>
       </Router>
     </Suspense>

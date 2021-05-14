@@ -2,7 +2,7 @@ import React, { ReactElement, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import TestComponent from '../components/TestComponent/TestComponent';
 
-const MyPage = lazy(() => import('./myPages/myPage'));
+const MyPage = lazy(() => import('./myPages/MyPage'));
 
 const RootPage = (): ReactElement => {
   return (

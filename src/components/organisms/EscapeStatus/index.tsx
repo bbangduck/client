@@ -13,7 +13,7 @@ const EscapeStatus = (): ReactElement => {
 
   return (
     <S.Section>
-      <MyPageSubTitle content="방탈출 현황" page="/" trueMargin="12px" falseMargin="12px" />
+      <MyPageSubTitle content="방탈출 현황" page="/mypage/status" trueMargin="12px" falseMargin="12px" />
       <S.ItemBox>
         <EscapeType icon={door1} content="Challenge" count={challengeCount} />
         <EscapeType icon={door2} content="Success" count={SuccessCount} />

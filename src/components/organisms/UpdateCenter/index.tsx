@@ -18,7 +18,7 @@ const UpdateCenter = (): ReactElement => {
         icon={right}
         color={darkColor}
         fontWeight="bold"
-        onClick={() => history.push('/mypage/update')}
+        onClick={() => history.push('/mypage/profile')}
       />
       <RouteBtn
         content="개인정보 처리방침"

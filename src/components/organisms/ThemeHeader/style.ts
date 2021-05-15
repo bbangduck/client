@@ -2,6 +2,8 @@ import Styled from 'styled-components';
 
 export const Header = Styled.header`
   position: relative;
+  height:616px;
+  margin-bottom:16px;
 `;
 
 export const Bg = Styled.div`
@@ -15,9 +17,7 @@ export const Bg = Styled.div`
 
 export const Container = Styled.div`
   width:100%;
-  position: absolute;
-  left:0;
-  top:455px;
+  transform:translateY(379px);
 `;
 
 export const TotalBox = Styled.div`

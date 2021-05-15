@@ -1,6 +1,9 @@
 import Styled from 'styled-components';
 
-export const Like = Styled.div`
+interface LikeProps {
+  shadow?: boolean;
+}
+export const Like = Styled.div<LikeProps>`
   width: 56px;
   height: 31px;
   background-color: ${({ theme }) => theme.colors.fontGray[1]};
@@ -8,6 +11,7 @@ export const Like = Styled.div`
   align-items:center;
   justify-content:center;
   margin-right:8px;
+  box-shadow: ${({ shadow }) => shadow && '0 5px 10px 0 rgba(0, 0, 0, 0.05)'};
 `;
 
 export const Img = Styled.img`

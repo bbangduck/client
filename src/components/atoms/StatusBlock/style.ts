@@ -3,6 +3,8 @@ import Styled from 'styled-components';
 interface ContainerProps {
   border: boolean;
   padding: number;
+  bgColor?: string;
+  shadow?: boolean;
 }
 export const Container = Styled.div<ContainerProps>`
   height:31px;
@@ -12,6 +14,8 @@ export const Container = Styled.div<ContainerProps>`
   align-items:center;
   justify-content:center;
   margin-right:8px;
+  background-color:${({ bgColor }) => bgColor};
+  box-shadow: ${({ shadow }) => shadow && '0 5px 10px 0 rgba(0, 0, 0, 0.05)'};
 `;
 
 interface SpanProps {

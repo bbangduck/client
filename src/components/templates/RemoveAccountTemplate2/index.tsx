@@ -4,6 +4,7 @@ import RemoveBottom from '../../molecules/RemoveBottom';
 import Remove2Content from '../../molecules/RemoveContent2';
 import UpdateHeader from '../../molecules/UpdateHeader';
 import Modal from '../../organisms/Modal';
+import left from '../../../assets/images/arrow/left.png';
 import * as S from './style';
 
 const RemoveAccountTemplate2 = (): ReactElement => {
@@ -11,7 +12,7 @@ const RemoveAccountTemplate2 = (): ReactElement => {
 
   return (
     <S.Section>
-      <UpdateHeader content="회원탈퇴" />
+      <UpdateHeader content="회원탈퇴" arrow={left} />
       <Remove2Content />
       <RemoveBottom setModalState={setModalOn} />
       {modalOn ? (

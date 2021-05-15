@@ -20,7 +20,7 @@ const StatusItemBottom = (): ReactElement => {
         </S.Li>
       </S.Ul>
       <S.HashBox>
-        <InfoBox content={`#${content}`} bgColor="#f4f4f9" color="#9c9c9c" />
+        <InfoBox content={`#${content}`} bgColor="#f4f4f9" color="#9c9c9c" marginRight={9} />
       </S.HashBox>
     </div>
   );

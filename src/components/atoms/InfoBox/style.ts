@@ -2,6 +2,7 @@ import Styled from 'styled-components';
 
 interface BoxProps {
   bgColor: string;
+  marginRight: number;
 }
 export const Box = Styled.li<BoxProps>`
   height:26px;
@@ -11,7 +12,7 @@ export const Box = Styled.li<BoxProps>`
   padding: 4px 12px;
   border-radius: 4px;
   background-color: ${({ bgColor }) => bgColor};
-  margin-right:9px;
+  margin-right:${({ marginRight }) => `${marginRight}px`};
   margin-bottom:8px;
   `;
 

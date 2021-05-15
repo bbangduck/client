@@ -4,10 +4,11 @@ import starIcon from '../../../assets/images/star/star.png';
 
 interface Props {
   star: number;
+  shadow?: boolean;
 }
-const StarBox = ({ star }: Props): ReactElement => {
+const StarBox = ({ star, shadow }: Props): ReactElement => {
   return (
-    <S.Like>
+    <S.Like shadow={shadow}>
       <S.Img src={starIcon} alt="인기점수" />
       <S.Span>{star}</S.Span>
     </S.Like>

@@ -1,10 +1,11 @@
 import React, { ReactElement } from 'react';
+import ThemeHeader from '../../organisms/ThemeHeader';
 
 const ThemeDetailTemplate = (): ReactElement => {
   return (
-    <div>
-      <p>ss</p>
-    </div>
+    <section>
+      <ThemeHeader />
+    </section>
   );
 };
 

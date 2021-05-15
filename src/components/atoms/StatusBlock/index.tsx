@@ -3,11 +3,13 @@ import * as S from './style';
 
 interface Props {
   content: string;
+  color: string;
+  border: boolean;
 }
-const StatusBlock = ({ content }: Props): ReactElement => {
+const StatusBlock = ({ content, color, border }: Props): ReactElement => {
   return (
-    <S.Container>
-      <S.Span>{content}</S.Span>
+    <S.Container border={border}>
+      <S.Span color={color}>{content}</S.Span>
     </S.Container>
   );
 };

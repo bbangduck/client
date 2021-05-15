@@ -1,17 +1,23 @@
 import Styled from 'styled-components';
 
-export const Container = Styled.div`
+interface ContainerProps {
+  border: boolean;
+}
+export const Container = Styled.div<ContainerProps>`
   height:31px;
   padding: 0 16px;
-  border: solid 1px ${({ theme }) => theme.colors.bgColor[0]};
+  border: ${({ border, theme }) => (border ? `solid 1px ${theme.colors.bgColor[0]}` : null)};
   display:flex;
   align-items:center;
   justify-content:center;
 `;
 
-export const Span = Styled.span`
+interface SpanProps {
+  color: string;
+}
+export const Span = Styled.span<SpanProps>`
   font-family: Montserrat;
   font-size: ${({ theme }) => theme.sizes.font[1]};
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.fontGray[3]};
+  color: ${({ color }) => color};
 `;

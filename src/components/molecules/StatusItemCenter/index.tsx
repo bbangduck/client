@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import starIcon from '../../../assets/images/star/star.png';
+import StarBox from '../../atoms/StarBox';
 import StatusBlock from '../../atoms/StatusBlock';
 import * as S from './style';
 
@@ -22,14 +22,11 @@ const StatusItemCenter = ({ detailExist, title, location, star, time }: Props): 
           <S.Location>{location}</S.Location>
         </S.Top>
         <S.Bottom>
-          <S.Like>
-            <S.Img src={starIcon} alt="" />
-            <S.Span>{star}</S.Span>
-          </S.Like>
+          <StarBox star={star} />
           <S.HintBox>
             <S.Hint>NO HINT</S.Hint>
           </S.HintBox>
-          <StatusBlock content={time} />
+          <StatusBlock content={time} border color="#4b4b4b" />
         </S.Bottom>
       </S.RightBox>
     </S.Container>

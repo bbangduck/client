@@ -17,7 +17,7 @@ const MyStatusItem = ({ idNumber, date, detailExist, title, location, star, time
   return (
     <S.Li>
       <StatusItemTop idNumber={idNumber} date={date} />
-      <StatusItemCenter detailExist={detailExist} title={title} location={location} star={star} time={time} />
+      <StatusItemCenter detailExist={detailExist} title={title} location={location} star={star} time={time} hint={2} />
       {detailExist ? <StatusItemBottom /> : null}
     </S.Li>
   );

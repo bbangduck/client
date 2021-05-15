@@ -9,8 +9,9 @@ interface Props {
   location: string;
   star: number;
   time: string;
+  hint: number;
 }
-const StatusItemCenter = ({ detailExist, title, location, star, time }: Props): ReactElement => {
+const StatusItemCenter = ({ detailExist, title, location, star, time, hint }: Props): ReactElement => {
   return (
     <S.Container detailExist={detailExist}>
       <S.ImgBox>
@@ -23,10 +24,8 @@ const StatusItemCenter = ({ detailExist, title, location, star, time }: Props): 
         </S.Top>
         <S.Bottom>
           <StarBox star={star} />
-          <S.HintBox>
-            <S.Hint>NO HINT</S.Hint>
-          </S.HintBox>
-          <StatusBlock content={time} border color="#4b4b4b" />
+          <StatusBlock content={`${hint || `NO`} HINT`} border color="#4b4b4b" padding={12} />
+          <StatusBlock content={time} border color="#4b4b4b" padding={16} />
         </S.Bottom>
       </S.RightBox>
     </S.Container>

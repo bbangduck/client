@@ -2,14 +2,16 @@ import Styled from 'styled-components';
 
 interface ContainerProps {
   border: boolean;
+  padding: number;
 }
 export const Container = Styled.div<ContainerProps>`
   height:31px;
-  padding: 0 16px;
+  padding: ${({ padding }) => `0 ${padding}px`};
   border: ${({ border, theme }) => (border ? `solid 1px ${theme.colors.bgColor[0]}` : null)};
   display:flex;
   align-items:center;
   justify-content:center;
+  margin-right:8px;
 `;
 
 interface SpanProps {

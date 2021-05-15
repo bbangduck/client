@@ -9,7 +9,7 @@ const LoginBottom = (): ReactElement => {
   const history = useHistory();
 
   const onBtnClick = () => {
-    history.push('');
+    history.push('/login/clause');
   };
 
   return (

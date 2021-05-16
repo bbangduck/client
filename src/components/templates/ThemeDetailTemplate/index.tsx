@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import ThemeAnalysis from '../../molecules/ThemeAnalysis';
 import ThemeExplain from '../../molecules/ThemeExplain';
 import ThemeNav from '../../molecules/ThemeNav';
 import ThemeHeader from '../../organisms/ThemeHeader';
@@ -10,6 +11,7 @@ const ThemeDetailTemplate = (): ReactElement => {
       <ThemeHeader />
       <ThemeNav />
       <ThemeExplain />
+      <ThemeAnalysis />
     </section>
   );
 };

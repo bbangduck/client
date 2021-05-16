@@ -5,18 +5,19 @@ import * as S from './style';
 
 interface Props {
   content: string;
-  page: string;
+  page?: string;
   item?: any;
   trueMargin: string;
   falseMargin: string;
+  arrow?: boolean;
 }
-const MyPageSubTitle = ({ content, page, item, trueMargin, falseMargin }: Props): ReactElement => {
+const MyPageSubTitle = ({ content, page, item, trueMargin, falseMargin, arrow }: Props): ReactElement => {
   const history = useHistory();
 
   return (
     <S.Container item={item} trueMg={trueMargin} falseMg={falseMargin}>
       <S.H2>{content}</S.H2>
-      <S.Img src={right} alt="방탈출 현황 더보기" onClick={() => history.push(page)} />
+      {arrow && page && <S.Img src={right} alt="방탈출 현황 더보기" onClick={() => history.push(page)} />}
     </S.Container>
   );
 };

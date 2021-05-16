@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import ThemeExplain from '../../molecules/ThemeExplain';
 import ThemeNav from '../../molecules/ThemeNav';
 import ThemeHeader from '../../organisms/ThemeHeader';
 import * as S from './style';
@@ -8,6 +9,7 @@ const ThemeDetailTemplate = (): ReactElement => {
     <section>
       <ThemeHeader />
       <ThemeNav />
+      <ThemeExplain />
     </section>
   );
 };

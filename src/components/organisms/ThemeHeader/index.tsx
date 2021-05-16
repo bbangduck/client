@@ -25,7 +25,7 @@ const ThemeHeader = (): ReactElement => {
             </S.MapBox>
           </S.TotalBox>
           <S.H1Tag>[강남] 제로호텔L</S.H1Tag>
-          <S.H2Tag>제로월드 강남점</S.H2Tag>
+          <S.Location>제로월드 강남점</S.Location>
           <S.DetailBox>
             <InfoBox content="스릴러" bgColor="#f4f4f9" color="#151950" marginRight={4} />
             <InfoBox content="스릴러" bgColor="#f4f4f9" color="#151950" marginRight={4} />

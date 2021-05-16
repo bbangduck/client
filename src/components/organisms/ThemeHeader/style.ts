@@ -46,19 +46,19 @@ export const MapBox = Styled.div`
 `;
 
 export const H1Tag = Styled.h1`
-  font-size: 24px;
+  font-size: ${({ theme }) => theme.sizes.font[4]};
   font-weight: bold;
   letter-spacing: -0.24px;
-  color: #121212;
+  color: ${({ theme }) => theme.colors.fontGray[2]};
   margin-bottom:8px;
   line-height: 1.5;
 `;
 
-export const H2Tag = Styled.h2`
+export const Location = Styled.p`
   font-size: 18px;
   letter-spacing: -0.18px;
   text-align: left;
-  color: #121212;
+  color: ${({ theme }) => theme.colors.fontGray[2]};
   line-height: 1.5;
   margin-bottom:18px;
 `;

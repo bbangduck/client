@@ -8,7 +8,7 @@ const EscapeThemes = (): ReactElement => {
 
   return (
     <S.Section item={themes}>
-      <MyPageSubTitle content="관심 테마" page="/" item={themes} trueMargin="8px" falseMargin="40px" />
+      <MyPageSubTitle content="관심 테마" page="/" item={themes} trueMargin="8px" falseMargin="40px" arrow />
       {themes ? (
         <S.ThemesBox>
           <S.ImgBox>

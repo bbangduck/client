@@ -10,6 +10,7 @@ export const Nav = Styled.nav`
   align-items:center;
   transform: translateX(-20px);
   border-bottom:1px solid #ebebeb;
+  margin-bottom:48px;
 `;
 
 export const Box = Styled.div`
@@ -19,8 +20,8 @@ export const Box = Styled.div`
 `;
 
 export const PTag = Styled.p`
-  font-size: 14px;
+  font-size: ${({ theme }) => theme.sizes.font[2]};
   line-height: 1.43;
   letter-spacing: -0.14px;
-  color: #2b2b2b;
+  color: ${({ theme }) => theme.colors.fontGray[1]};
 `;

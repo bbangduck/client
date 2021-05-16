@@ -5,4 +5,5 @@ export const Section = Styled.section`
   padding:20px 20px 0;
   width:360px;
   transform:translateX(-20px);
+  padding-bottom:63px;
 `;

@@ -6,6 +6,7 @@ import ThemeNav from '../../molecules/ThemeNav';
 import ThemeHeader from '../../organisms/ThemeHeader';
 import ThemeReview from '../../organisms/ThemeReview';
 import { useThemeObserver } from '../../../hooks/useThemeObserver';
+import ReviewBottom from '../../molecules/ReviewBottom';
 
 const ThemeDetailTemplate = (): ReactElement => {
   const [navNumber, setNavNumber] = useState(1);
@@ -26,6 +27,7 @@ const ThemeDetailTemplate = (): ReactElement => {
         isRef={eventRef}
       />
       <ThemeReview isRef={reviewRef} />
+      <ReviewBottom />
     </section>
   );
 };

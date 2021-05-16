@@ -11,6 +11,7 @@ export const Nav = Styled.nav`
   transform: translateX(-20px);
   border-bottom:1px solid #ebebeb;
   margin-bottom:48px;
+  background-color:white;
 `;
 
 export const Box = Styled.div`

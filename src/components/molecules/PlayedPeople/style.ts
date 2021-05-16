@@ -36,9 +36,9 @@ export const ImgBox3 = Styled.div`
 `;
 
 export const PTag = Styled.p`
-  font-size: 14px;
+  font-size: ${({ theme }) => theme.sizes.font[2]};
   line-height: 1.86;
-  color: #2b2b2b;
+  color: ${({ theme }) => theme.colors.fontGray[1]};
 `;
 
 export const Span = Styled.span`

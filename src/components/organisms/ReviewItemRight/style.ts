@@ -20,23 +20,23 @@ export const NameBox = Styled.div`
 `;
 
 export const Name = Styled.p`
-  font-size: 14px;
+  font-size: ${({ theme }) => theme.sizes.font[2]};
   font-weight: bold;
   letter-spacing: -0.14px;
-  color: #4b4b4b;
+  color: ${({ theme }) => theme.colors.fontGray[3]};
 `;
 
 export const Brief = Styled.p`
-  font-size: 12px;
+  font-size: ${({ theme }) => theme.sizes.font[1]};
   font-weight: bold;
   letter-spacing: -0.12px;
-  color: #9c9c9c;
+  color: ${({ theme }) => theme.colors.fontGray[0]};
 `;
 
 export const Date = Styled.p`
-  font-size: 10px;
+  font-size: ${({ theme }) => theme.sizes.font[0]};
   letter-spacing: -0.1px;
-  color: #9c9c9c;
+  color: ${({ theme }) => theme.colors.fontGray[0]};
 `;
 
 export const Boxes = Styled.div`
@@ -45,10 +45,10 @@ export const Boxes = Styled.div`
 `;
 
 export const ReviewContent = Styled.div`
-  font-size: 12px;
+  font-size: ${({ theme }) => theme.sizes.font[1]};
   line-height: 2;
   letter-spacing: -0.12px;
-  color: #4b4b4b;
+  color: ${({ theme }) => theme.colors.fontGray[3]};
   position:relative;
   margin-bottom:12px;
 `;
@@ -65,10 +65,10 @@ export const MoreBox = Styled.div`
 `;
 
 export const More = Styled.p`
-  font-size: 12px;
+  font-size: ${({ theme }) => theme.sizes.font[1]};
   font-weight: bold;
   line-height: 2.17;
-  color: #2b2b2b;
+  color: ${({ theme }) => theme.colors.fontGray[1]};
 `;
 
 export const HashBox = Styled.ul`

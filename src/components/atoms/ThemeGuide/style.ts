@@ -24,7 +24,7 @@ interface PTagProps {
   color: string;
 }
 export const PTag = Styled.p<PTagProps>`
-  font-size: 12px;
+  font-size: ${({ theme }) => theme.sizes.font[1]};
   line-height: 1.5;
   letter-spacing: -0.12px;
   text-align: left;
@@ -36,5 +36,5 @@ export const Blank = Styled.div`
   height: 238px;
   border-radius: 8px;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.05);
-  background-color: #2b2b2b;
+  background-color: ${({ theme }) => theme.colors.fontGray[1]};;
 `;

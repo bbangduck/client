@@ -8,7 +8,7 @@ export const Box = Styled.div`
   display:flex;
   align-items:center;
   border-radius: 8px;
-  background-color: #f6f6f6;
+  background-color: ${({ theme }) => theme.colors.bgColor[1]};
   padding:12px;
   margin-bottom:22px;
 `;
@@ -18,11 +18,11 @@ export const Img = Styled.img`
 `;
 
 export const PTag = Styled.p`
-  font-size: 12px;
+  font-size: ${({ theme }) => theme.sizes.font[1]};
   line-height: 1.5;
   letter-spacing: -0.12px;
   text-align: left;
-  color: #9c9c9c;
+  color: ${({ theme }) => theme.colors.fontGray[0]};
 `;
 
 export const Blank = Styled.div`
@@ -30,5 +30,5 @@ export const Blank = Styled.div`
   height: 238px;
   border-radius: 8px;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.05);
-  background-color: #2b2b2b;
+  background-color: ${({ theme }) => theme.colors.fontGray[1]};
 `;

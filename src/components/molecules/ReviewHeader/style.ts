@@ -9,10 +9,10 @@ export const Container = Styled.div`
 `;
 
 export const PTag = Styled.p`
-  font-size: 16px;
+  font-size: ${({ theme }) => theme.sizes.font[3]};
   font-weight: bold;
   letter-spacing: -0.16px;
-  color: #121212;
+  color:  ${({ theme }) => theme.colors.fontGray[2]};
 `;
 
 export const Box = Styled.div`
@@ -25,7 +25,7 @@ export const Box = Styled.div`
 `;
 
 export const Span = Styled.span`
-  font-size: 12px;
-  color: #2b2b2b;
+  font-size:  ${({ theme }) => theme.sizes.font[1]};
+  color:  ${({ theme }) => theme.colors.fontGray[1]};
   margin-left:4px;
 `;

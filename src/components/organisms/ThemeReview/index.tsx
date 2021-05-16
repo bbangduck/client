@@ -6,13 +6,20 @@ import * as S from './style';
 
 interface Props {
   isRef: React.MutableRefObject<HTMLElement | null>;
+  event?: boolean;
 }
-const ThemeReview = ({ isRef }: Props): ReactElement => {
+const ThemeReview = ({ isRef, event }: Props): ReactElement => {
   return (
     <S.Section ref={isRef}>
       <PlayedPeople />
       <ReviewHeader />
-      <ReviewList />
+      {event ? (
+        <ReviewList />
+      ) : (
+        <S.EmptyBox>
+          <S.PTag>첫 리뷰를 남겨주세요</S.PTag>
+        </S.EmptyBox>
+      )}
     </S.Section>
   );
 };

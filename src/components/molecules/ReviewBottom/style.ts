@@ -33,9 +33,9 @@ export const CafeBox = Styled.div`
 `;
 
 export const PTag = Styled.p`
-  font-size: 14px;
+  font-size: ${({ theme }) => theme.sizes.font[2]};
   font-weight: bold;
-  color: #2b2b2b;
+  color: ${({ theme }) => theme.colors.fontGray[1]};
 `;
 
 export const ReviewBox = Styled.div`
@@ -47,7 +47,7 @@ export const ReviewBox = Styled.div`
 `;
 
 export const P = Styled.p`
-  font-size: 14px;
+  font-size: ${({ theme }) => theme.sizes.font[2]};
   font-weight: bold;
   color: #ffffff;
 `;

@@ -31,11 +31,14 @@ export const ThumbP = Styled.p`
   cursor:pointer;
 `;
 
-export const Box = Styled.div`
+interface BoxProps {
+  moreOn: boolean;
+}
+export const Box = Styled.div<BoxProps>`
   display:flex;
   align-items:center;
   justify-content:space-between;
-  margin-bottom:12px;
+  margin-bottom:${({ moreOn }) => (moreOn ? '12px' : '0')};
 `;
 
 export const CommentBox = Styled.div`

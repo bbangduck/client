@@ -38,7 +38,7 @@ const ReviewItemRight = (): ReactElement => {
         )}
       </S.ReviewContent>
       <ReviewSwiper />
-      {moreOn ? <ReviewMoreInfo /> : null}
+      <ReviewMoreInfo moreOn={moreOn} />
     </S.Container>
   );
 };

@@ -12,6 +12,7 @@ export const Nav = Styled.nav`
   border-bottom:1px solid #ebebeb;
   margin-bottom:48px;
   background-color:white;
+  z-index:1000;
 `;
 
 export const Box = Styled.div`

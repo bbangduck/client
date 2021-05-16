@@ -1,21 +1,24 @@
 import React, { ReactElement } from 'react';
 import * as S from './style';
 
-const ThemeNav = (): ReactElement => {
+interface Props {
+  position: number;
+}
+const ThemeNav = ({ position }: Props): ReactElement => {
+  const arr = [
+    { id: 1, content: '테마' },
+    { id: 2, content: '분석' },
+    { id: 3, content: '이벤트' },
+    { id: 4, content: '리뷰' },
+  ];
+
   return (
     <S.Nav>
-      <S.Box>
-        <S.PTag>테마</S.PTag>
-      </S.Box>
-      <S.Box>
-        <S.PTag>분석</S.PTag>
-      </S.Box>
-      <S.Box>
-        <S.PTag>이벤트</S.PTag>
-      </S.Box>
-      <S.Box>
-        <S.PTag>리뷰</S.PTag>
-      </S.Box>
+      {arr.map((ar) => (
+        <S.Box key={ar.id} border={position === ar.id}>
+          <S.PTag border={position === ar.id}>{ar.content}</S.PTag>
+        </S.Box>
+      ))}
     </S.Nav>
   );
 };

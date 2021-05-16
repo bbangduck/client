@@ -4,9 +4,12 @@ import pointMark from '../../../assets/images/pointmark/pointMark.png';
 import * as S from './style';
 import ThemeGuide from '../../atoms/ThemeGuide';
 
-const ThemeAnalysis = (): ReactElement => {
+interface Props {
+  isRef: React.MutableRefObject<HTMLElement | null>;
+}
+const ThemeAnalysis = ({ isRef }: Props): ReactElement => {
   return (
-    <S.Section>
+    <S.Section ref={isRef}>
       <MyPageSubTitle content="테마 분석" trueMargin="4px" />
       <ThemeGuide
         pointMark={pointMark}

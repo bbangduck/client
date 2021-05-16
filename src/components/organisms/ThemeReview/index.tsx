@@ -4,9 +4,12 @@ import ReviewHeader from '../../molecules/ReviewHeader';
 import ReviewList from '../ReviewList';
 import * as S from './style';
 
-const ThemeReview = (): ReactElement => {
+interface Props {
+  isRef: React.MutableRefObject<HTMLElement | null>;
+}
+const ThemeReview = ({ isRef }: Props): ReactElement => {
   return (
-    <S.Section>
+    <S.Section ref={isRef}>
       <PlayedPeople />
       <ReviewHeader />
       <ReviewList />

@@ -15,15 +15,24 @@ export const Nav = Styled.nav`
   z-index:1000;
 `;
 
-export const Box = Styled.div`
+interface BoxProps {
+  border: boolean;
+}
+export const Box = Styled.div<BoxProps>`
   height:40px;
-  border-bottom:2px solid black;
+  border-bottom:2px solid ${({ border }) => (border ? '#2b2b2b' : 'transparent')};
   padding:12px 0 8px 0;
+  transition:0.3s ;
 `;
 
-export const PTag = Styled.p`
+interface PTagProps {
+  border: boolean;
+}
+export const PTag = Styled.p<PTagProps>`
   font-size: ${({ theme }) => theme.sizes.font[2]};
   line-height: 1.43;
   letter-spacing: -0.14px;
   color: ${({ theme }) => theme.colors.fontGray[1]};
+  font-weight:${({ border }) => (border ? 'bold' : 'normal')};
+  transition:0.3s ;
 `;

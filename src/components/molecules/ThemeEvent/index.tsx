@@ -6,10 +6,11 @@ import * as S from './style';
 
 interface Props {
   event: string;
+  isRef: React.MutableRefObject<HTMLElement | null>;
 }
-const ThemeEvent = ({ event }: Props): ReactElement => {
+const ThemeEvent = ({ event, isRef }: Props): ReactElement => {
   return (
-    <S.Section>
+    <S.Section ref={isRef}>
       <MyPageSubTitle content="진행중 이벤트" />
       <S.PTag>{event}</S.PTag>
       <ThemeGuide

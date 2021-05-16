@@ -44,7 +44,7 @@ export const Boxes = Styled.div`
   margin-bottom:12px;
 `;
 
-export const ReviewContent = Styled.p`
+export const ReviewContent = Styled.div`
   font-size: 12px;
   line-height: 2;
   letter-spacing: -0.12px;

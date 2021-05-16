@@ -7,8 +7,8 @@ interface Props {
   content: string;
   page?: string;
   item?: any;
-  trueMargin: string;
-  falseMargin: string;
+  trueMargin?: string;
+  falseMargin?: string;
   arrow?: boolean;
 }
 const MyPageSubTitle = ({ content, page, item, trueMargin, falseMargin, arrow }: Props): ReactElement => {

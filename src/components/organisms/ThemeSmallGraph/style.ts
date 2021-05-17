@@ -21,7 +21,7 @@ export const Box = Styled.div`
 `;
 
 export const P = Styled.p`
-  font-size: 12px;
+  font-size: ${({ theme }) => theme.sizes.font[1]};
   letter-spacing: normal;
   color: #ffffff;
 `;
@@ -48,9 +48,9 @@ export const BottomBox = Styled.div`
 `;
 
 export const Left = Styled.p`
-  font-size: 12px;
+  font-size: ${({ theme }) => theme.sizes.font[1]};
   letter-spacing: -0.12px;
-  color: #9c9c9c;
+  color: ${({ theme }) => theme.colors.fontGray[0]};
 `;
 
 export const Span = Styled.span`
@@ -69,7 +69,7 @@ export const Right = Styled.div`
 `;
 
 export const IsPTag = Styled.p`
-  font-size: 12px;
+  font-size: ${({ theme }) => theme.sizes.font[1]};
   letter-spacing: -0.12px;
   color: #ffffff;
 `;
@@ -92,7 +92,7 @@ export const Img = Styled.img`
 `;
 
 export const PTag = Styled.p`
-  font-size: 12px;
+  font-size: ${({ theme }) => theme.sizes.font[1]};
   letter-spacing: -0.12px;
-  color: #9c9c9c;
+  color: ${({ theme }) => theme.colors.fontGray[0]};
 `;

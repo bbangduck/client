@@ -3,6 +3,7 @@ import MyPageSubTitle from '../MyPageSubTitle';
 import pointMark from '../../../assets/images/pointmark/pointMark.png';
 import * as S from './style';
 import ThemeGuide from '../../atoms/ThemeGuide';
+import ThemeSmallGraph from '../../organisms/ThemeSmallGraph';
 
 interface Props {
   isRef: React.MutableRefObject<HTMLElement | null>;
@@ -18,7 +19,7 @@ const ThemeAnalysis = ({ isRef }: Props): ReactElement => {
         bgColor="#f6f6f6"
         color="#9c9c9c"
       />
-      <S.Blank />
+      <ThemeSmallGraph />
     </S.Section>
   );
 };

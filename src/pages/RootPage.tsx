@@ -16,6 +16,7 @@ const RemoveAccountPage2 = lazy(() => import('./myPages/update/RemoveAccountPage
 const LoginPage = lazy(() => import('./login/LoginPage'));
 const LoginClausePage = lazy(() => import('./login/LoginClausePage'));
 const ThemeDetailPage = lazy(() => import('./themes/ThemeDetailPage'));
+const ThemeAnalysisPage = lazy(() => import('./themes/ThemeAnalysisPage'));
 
 const RootPage = (): ReactElement => {
   return (
@@ -41,7 +42,8 @@ const RootPage = (): ReactElement => {
           <Route exact path="/login" component={LoginPage} /> {/* 19 */}
           <Route path="/login/clause" component={LoginClausePage} /> {/* 21 */}
           {/* 테마 */}
-          <Route path="/theme/:name" component={ThemeDetailPage} /> {/* 4 */}
+          <Route exact path="/theme/:name" component={ThemeDetailPage} /> {/* 4 */}
+          <Route path="/theme/:name/analysis" component={ThemeAnalysisPage} /> {/* ? */}
         </Switch>
       </Router>
     </Suspense>

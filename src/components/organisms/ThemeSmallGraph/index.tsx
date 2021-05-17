@@ -1,7 +1,6 @@
 import React, { ReactElement } from 'react';
 import * as S from './style';
 import document from '../../../assets/images/document/document.png';
-import { Aside } from './style';
 
 const ThemeSmallGraph = (): ReactElement => {
   const graph = [
@@ -13,7 +12,7 @@ const ThemeSmallGraph = (): ReactElement => {
     { id: 6, title: 'SF', amount: 16 },
   ];
 
-  const totalValue = graph.reduce((acc: any, curr: any) => {
+  const totalValue = graph.reduce((acc: number[], curr: { id: number; title: string; amount: number }) => {
     if (!acc[0]) {
       acc[0] = curr.amount;
     } else if (acc[0] < curr.amount) {

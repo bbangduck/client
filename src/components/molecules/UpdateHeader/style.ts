@@ -1,12 +1,16 @@
 import Styled from 'styled-components';
 
-export const Header = Styled.header`
+interface HeaderProps {
+  img?: string;
+}
+export const Header = Styled.header<HeaderProps>`
   position:relative;
   height:56px;
   width:100%;
   display:flex;
   align-items:center;
   margin-bottom:20px;
+  justify-content:${({ img }) => (img ? ` space-between` : null)};
 `;
 
 export const ImgBox = Styled.div`
@@ -35,4 +39,8 @@ export const H1 = Styled.h1`
   line-height: 1.43;
   letter-spacing: -0.35px;
   color: ${({ theme }) => theme.colors.fontGray[1]};
+`;
+
+export const Img = Styled.img`
+  cursor:pointer;
 `;

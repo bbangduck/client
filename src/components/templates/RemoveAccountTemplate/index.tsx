@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import BottomBtn from '../../atoms/BottomBtn';
 import RemoveContent from '../../molecules/RemoveContent';
 import UpdateHeader from '../../molecules/UpdateHeader';
+import left from '../../../assets/images/arrow/left.png';
 import * as S from './style';
 
 const RemoveAccountTemplate = (): ReactElement => {
@@ -14,7 +15,7 @@ const RemoveAccountTemplate = (): ReactElement => {
 
   return (
     <S.Container>
-      <UpdateHeader content="회원탈퇴" />
+      <UpdateHeader content="회원탈퇴" arrow={left} />
       <RemoveContent />
       <BottomBtn content="다음" onClick={onNextClick} />
     </S.Container>

@@ -22,7 +22,7 @@ const EscapeTendency = (): ReactElement => {
 
   return (
     <S.Section tendency={tendency || false}>
-      <MyPageSubTitle content="방탕출 성향" page="/" item={tendency} trueMargin="8px" falseMargin="40px" />
+      <MyPageSubTitle content="방탕출 성향" page="/" item={tendency} trueMargin="8px" falseMargin="40px" arrow />
       <S.TendBox>{tendency ? showTendencyList() : suggestTendency()}</S.TendBox>
     </S.Section>
   );

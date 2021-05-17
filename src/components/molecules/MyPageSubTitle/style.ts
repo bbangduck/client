@@ -2,8 +2,8 @@ import Styled from 'styled-components';
 
 interface ContainerProps {
   item?: any;
-  trueMg: string;
-  falseMg: string;
+  trueMg?: string;
+  falseMg?: string;
 }
 export const Container = Styled.div<ContainerProps>`
   height:40px;

@@ -1,7 +1,10 @@
 import React, { ReactElement } from 'react';
+import InfoBox from '../../atoms/InfoBox';
 import * as S from './style';
 
 const StatusItemBottom = (): ReactElement => {
+  const content = '어려움';
+
   return (
     <div>
       <S.PTag>
@@ -17,9 +20,7 @@ const StatusItemBottom = (): ReactElement => {
         </S.Li>
       </S.Ul>
       <S.HashBox>
-        <S.Hash>
-          <S.Span>#아주어asdasd려움</S.Span>
-        </S.Hash>
+        <InfoBox content={`#${content}`} bgColor="#f4f4f9" color="#9c9c9c" marginRight={9} />
       </S.HashBox>
     </div>
   );

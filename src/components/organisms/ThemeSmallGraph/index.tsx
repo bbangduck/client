@@ -1,8 +1,11 @@
 import React, { ReactElement } from 'react';
+import { useHistory } from 'react-router-dom';
 import * as S from './style';
 import document from '../../../assets/images/document/document.png';
 
 const ThemeSmallGraph = (): ReactElement => {
+  const history = useHistory();
+
   const graph = [
     { id: 1, title: '스릴러', amount: 12 },
     { id: 2, title: '공포', amount: 6 },
@@ -44,7 +47,7 @@ const ThemeSmallGraph = (): ReactElement => {
             <S.Left>
               총 <S.Span>35</S.Span>명의 회원이 평가했어요!
             </S.Left>
-            <S.Right>
+            <S.Right onClick={() => history.push('/theme/:name/analysis')}>
               <S.IsPTag>자세히 보기</S.IsPTag>
             </S.Right>
           </S.BottomBox>

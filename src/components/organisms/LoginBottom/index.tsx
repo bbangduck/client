@@ -1,6 +1,7 @@
 import React, { ReactElement, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import useSWR from 'swr';
 import kakao from '../../../assets/images/kakao/kakao.png';
 import naver from '../../../assets/images/naver/naver.png';
 import Nav from '../../molecules/Nav';
@@ -13,7 +14,7 @@ const LoginBottom = (): ReactElement => {
     clientId: '6h_lueMPM6I11Blk3G4M',
     callbackUrl: 'http://localhost:3000/login',
     isPopup: false,
-    loginButton: { color: 'green', type: 3, height: 52 },
+    loginButton: { color: 'green', type: 1, height: 52 },
   });
   const naverLogin = () => {
     naverInit.init();
@@ -39,8 +40,9 @@ const LoginBottom = (): ReactElement => {
     });
   };
 
-  const onNaverLogin = () => {
-    console.log(1);
+  const onNaverLogin = async () => {
+    const naverBtn = document.querySelector('#naverIdLogin')?.firstChild as HTMLElement;
+    naverBtn?.click();
   };
 
   return (
@@ -49,12 +51,11 @@ const LoginBottom = (): ReactElement => {
         <img src={kakao} alt="카카오로그인" />
         카카오로 계속하기
       </S.Btn>
-      <div id="naverIdLogin">
-        <S.Btn2 id="naverIdLogin" type="button" onClick={onNaverLogin}>
-          <img src={naver} alt="네이버로그인" />
-          네이버로 계속하기
-        </S.Btn2>
-      </div>
+      <S.NaverBtn id="naverIdLogin" />
+      <S.Btn2 id="naverIdLogin" type="button" onClick={onNaverLogin}>
+        <img src={naver} alt="네이버로그인" />
+        네이버로 계속하기
+      </S.Btn2>
       <Nav />
     </S.Container>
   );

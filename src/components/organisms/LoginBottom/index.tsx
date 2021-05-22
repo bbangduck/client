@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import kakao from '../../../assets/images/kakao/kakao.png';
 import naver from '../../../assets/images/naver/naver.png';
@@ -8,8 +8,19 @@ import * as S from './style';
 const LoginBottom = (): ReactElement => {
   const history = useHistory();
 
+  useEffect(() => {
+    window.Kakao.init(process.env.REACT_APP_KAKAO_TOKEN);
+  }, []);
+
   const onBtnClick = () => {
-    history.push('/login/clause');
+    window.Kakao.Auth.login({
+      scope: 'profile,account_email',
+      success: (response: KakaoResType) => {
+        console.log(response);
+      },
+      fail: (err: string) => console.log(err),
+    });
+    // history.push('/login/clause');
   };
 
   return (

@@ -1,6 +1,8 @@
-import axios from "axios";
+import axios from 'axios';
 
-const fetcher = (url: string) =>
-  axios.get(url).then((response) => response.data);
+axios.defaults.baseURL = process.env.REACT_APP_URL || 'http://localhost:8080';
+
+const fetcher = (url: string): Promise<string> =>
+  axios.get(url, { withCredentials: true }).then((response) => response.data);
 
 export default fetcher;

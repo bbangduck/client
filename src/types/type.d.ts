@@ -1,5 +1,6 @@
 interface Window {
   Kakao: any;
+  naver: any;
 }
 
 interface NoticeItemInfoType {

@@ -41,7 +41,7 @@ const RootPage = (): ReactElement => {
           <Route path="/mypage/removeAccount/2" component={RemoveAccountPage2} /> {/* ? */}
           {/* 로그인 */}
           <Route exact path="/login" component={LoginPage} /> {/* 19 */}
-          <Route path="/login/sign-up" component={LoginSignUpPage} /> {/* ? */}
+          <Route path="/login/signUp" component={LoginSignUpPage} /> {/* ? */}
           <Route path="/login/clause" component={LoginClausePage} /> {/* 21 */}
           {/* 테마 */}
           <Route exact path="/theme/:name" component={ThemeDetailPage} /> {/* 4 */}

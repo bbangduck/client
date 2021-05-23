@@ -13,3 +13,7 @@ interface KakaoLoginInfoType {
     socialType: string;
   };
 }
+interface SignUpDataType {
+  email: string;
+  nickname: string;
+}

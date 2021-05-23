@@ -8,11 +8,6 @@ export const Container = Styled.div`
   transform:translateX(0px);
 `;
 
-export const NaverBtn = Styled.div`
-  position:absolute;
-  left:-100000px;
-`;
-
 export const Btn = Styled.button`
   display:flex;
   align-items:center;

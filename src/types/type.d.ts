@@ -5,3 +5,11 @@ interface NoticeItemInfoType {
     content: string;
   };
 }
+interface KakaoLoginInfoType {
+  userInfo: {
+    email: string;
+    nickname: string;
+    socialId: string;
+    socialType: string;
+  };
+}

@@ -14,8 +14,16 @@ const LoginBottom = (): ReactElement => {
     const option = 'width = 500, height = 500, top = 100, left = 200, location = no';
 
     const receiveMessage = (event: MessageEvent) => {
-      const result = event.data.data;
-      console.log(result);
+      const userInfo = event.data.data;
+      const { status } = event.data;
+      if (status === 1421) {
+        history.push({
+          pathname: '/login/sign-up',
+          state: { userInfo },
+        });
+      } else if (status === 1221) {
+        console.log('가입된 회원입니다.');
+      }
     };
 
     window.open(url, name, option);

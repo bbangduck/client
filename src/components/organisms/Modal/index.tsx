@@ -8,10 +8,20 @@ interface Props {
   title: string;
   content: string;
   btnContent: string;
+  onSubmitHandeler?: () => void;
 }
-const Modal = ({ clickOutsideClose, modalRef, setModalState, title, content, btnContent }: Props): ReactElement => {
+const Modal = ({
+  clickOutsideClose,
+  modalRef,
+  setModalState,
+  title,
+  content,
+  btnContent,
+  onSubmitHandeler,
+}: Props): ReactElement => {
   const onSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
+    if (onSubmitHandeler) onSubmitHandeler();
   };
 
   return (

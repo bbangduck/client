@@ -6,9 +6,23 @@ import UpdateHeader from '../../molecules/UpdateHeader';
 import Modal from '../../organisms/Modal';
 import left from '../../../assets/images/arrow/left.png';
 import * as S from './style';
+import axiosAPI from '../../../utils/axios';
+import removeSessionStorage from '../../../utils/removeSessionStorage';
 
 const RemoveAccountTemplate2 = (): ReactElement => {
   const [visibleContentRef, modalOn, setModalOn, clickOutside] = useClickOutside(false);
+
+  const onSignOut = async () => {
+    const userId = sessionStorage.getItem('bbangUserId');
+    await axiosAPI({
+      method: 'delete',
+      url: `/api/auth/${userId}/withdrawal`,
+    });
+
+    removeSessionStorage();
+    setModalOn(false);
+    // 회원탈퇴후 이동페이지로 이동
+  };
 
   return (
     <S.Section>
@@ -23,6 +37,7 @@ const RemoveAccountTemplate2 = (): ReactElement => {
           title="빵덕 회원 탈퇴"
           content="정말로 빵덕을 탈퇴하시겠어요?"
           btnContent="탈퇴"
+          onSubmitHandeler={onSignOut}
         />
       ) : null}
     </S.Section>

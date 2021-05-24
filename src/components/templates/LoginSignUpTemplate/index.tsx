@@ -4,6 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import axiosAPI from '../../../utils/axios';
 import schema from '../../../utils/signUpValidation';
+import setSessionStorage from '../../../utils/setSessionStorage';
 
 const LoginSignUpTemplate = (): ReactElement => {
   const location = useLocation<KakaoLoginInfoType | null>();
@@ -41,36 +42,26 @@ const LoginSignUpTemplate = (): ReactElement => {
   const onSignUp = async (datas: SignUpDataType) => {
     const data = { email: datas.email, nickname: datas.nickname, socialType: userSocialType, socialId: userSocialId };
 
-    try {
-      const response = await axiosAPI({
-        method: 'post',
-        url: `/api/auth/social/sign-up`,
-        data,
-      });
+    const response = await axiosAPI({
+      method: 'post',
+      url: `/api/auth/social/sign-up`,
+      data,
+    });
 
-      const accessTokens = response.data.data.tokenInfo.accessToken;
-      const accessToken = accessTokens.header.concat(accessTokens.payload, accessTokens.signature);
-      const { refreshToken } = response.data.data.tokenInfo;
+    const userId = response.data.data.memberInfo.memberId;
+    const accessTokens = response.data.data.tokenInfo.accessToken;
+    const accessToken = `${accessTokens.header}.${accessTokens.payload}.${accessTokens.signature}`;
+    const { refreshToken } = response.data.data.tokenInfo;
 
-      if (response.data.status === 2201) {
-        const userAnswer = window.confirm('저장하시겠습니까?');
-        if (userAnswer && accessToken && refreshToken) {
-          localStorage.setItem('bbangAT', accessToken);
-          localStorage.setItem('bbangRT', refreshToken);
-          // 회원가입 성공후 다음페이지로 이동예정
-          // history.push()
-        } else if (!userAnswer && accessToken && refreshToken) {
-          sessionStorage.setItem('bbangAT', accessToken);
-          sessionStorage.setItem('bbangRT', refreshToken);
-          // 회원가입 성공후 다음페이지로 이동예정
-          // history.push()
-        }
+    if (response.data.status === 2201) {
+      if (accessToken && refreshToken) {
+        setSessionStorage(accessToken, refreshToken, userId);
+        // 회원가입 성공후 다음페이지로 이동예정
+        // history.push()
       }
-
-      console.log(response);
-    } catch (err) {
-      // console.log(err);
     }
+
+    console.log(response);
   };
 
   if (!state?.userInfo) return <Redirect to="/login" />;

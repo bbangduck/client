@@ -9,7 +9,7 @@ const axiosAPI = axios.create({
 axiosAPI.interceptors.request.use(
   (config) => {
     const configResult = config;
-    const accessToken = localStorage.getItem('bbangAT') || sessionStorage.getItem('bbangAT');
+    const accessToken = sessionStorage.getItem('bbangAT');
 
     if (accessToken) {
       const headers = { 'X-AUTH-TOKEN': accessToken };
@@ -34,7 +34,7 @@ axiosAPI.interceptors.response.use(
     const originalRequest = config;
 
     if (status === 401) {
-      const refreshToken = localStorage.getItem('bbangRT') || sessionStorage.getItem('bbangRT');
+      const refreshToken = sessionStorage.getItem('bbangRT');
 
       axios({
         method: 'post',
@@ -42,13 +42,9 @@ axiosAPI.interceptors.response.use(
         headers: { refreshToken },
       }).then((response) => {
         const accessTokens = response.data.accessToken;
-        const accessToken = accessTokens.header.concat(accessTokens.payload, accessTokens.signature);
+        const accessToken = `${accessTokens.header}.${accessTokens.payload}.${accessTokens.signature}`;
 
-        if (localStorage.getItem('bbangAT')) {
-          localStorage.setItem('bbangAT', accessToken);
-        } else {
-          sessionStorage.setItem('bbangAT', accessToken);
-        }
+        sessionStorage.setItem('bbangAT', accessToken);
 
         originalRequest.headers = { 'X-AUTH-TOKEN': accessToken };
         return axios(originalRequest);

@@ -16,12 +16,16 @@ const LoginBottom = (): ReactElement => {
     const receiveMessage = (event: MessageEvent) => {
       const userInfo = event.data.data;
       const { status } = event.data;
+
       if (status === 1421) {
+        // 회원이 아닐경우 동의약관페이지로 이동
+
         history.push({
-          pathname: '/login/sign-up',
+          pathname: '/login/clause',
           state: { userInfo },
         });
       } else if (status === 1221) {
+        // 이미가입된 회원일경우 메인화면으로 가야함
         console.log('가입된 회원입니다.');
       }
     };

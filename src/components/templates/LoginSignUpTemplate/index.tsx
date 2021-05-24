@@ -2,15 +2,17 @@ import React, { ReactElement, useRef, useEffect } from 'react';
 import { useLocation, useHistory, Redirect } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import { axiosAPI } from '../../../utils/axios';
+import axiosAPI from '../../../utils/axios';
 import schema from '../../../utils/signUpValidation';
 
 const LoginSignUpTemplate = (): ReactElement => {
-  const emailRef = useRef<HTMLInputElement | null>(null);
-  const nicknameRef = useRef<HTMLInputElement | null>(null);
   const location = useLocation<KakaoLoginInfoType | null>();
   const history = useHistory();
   const { state } = location;
+  const userEmail = state?.userInfo.email;
+  const userNickname = state?.userInfo.nickname;
+  const userSocialType = state?.userInfo.socialType;
+  const userSocialId = state?.userInfo.socialId;
 
   const {
     register,
@@ -18,47 +20,49 @@ const LoginSignUpTemplate = (): ReactElement => {
     formState: { errors },
   } = useForm<SignUpDataType>({ resolver: yupResolver(schema) });
 
+  // 카카오로그인시 받은정보 화면에 출력
   useEffect(() => {
     const emailElement: HTMLInputElement | null = document.querySelector('#signUpEmail');
     const nicknameElement: HTMLInputElement | null = document.querySelector('#signUpNickname');
 
-    if (emailElement) emailElement.value = '소셜로그인 이메일주소';
-    if (nicknameElement) nicknameElement.value = '소셜로그인 닉네임';
-    // if (emailRef.current && state) {
-    //   const userEmail = state.userInfo.email;
-    //   emailRef.current.value = userEmail;
-    // }
-    // else if (nicknameRef.current && state) {
-    //   const userNickname = state.userInfo.email;
-    //   nicknameRef.current.value = userNickname;
-    // }
+    if (emailElement && userEmail) {
+      emailElement.value = userEmail;
+      emailElement.focus();
+      emailElement.blur();
+    }
+    if (nicknameElement && userNickname) {
+      nicknameElement.value = userNickname;
+      nicknameElement.focus();
+      nicknameElement.blur();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (errors) console.log(errors);
-  const onSignUp = (data: SignUpDataType) => {
-    if (data) console.log(data);
+  const onSignUp = async (datas: SignUpDataType) => {
+    const data = { email: datas.email, nickname: datas.nickname, socialType: userSocialType, socialId: userSocialId };
 
     // try {
-    //   const response = await axiosAPI({
-    //     method: 'post',
-    //     url: `/api/auth/social/sign-up`,
-    //     data: state?.userInfo,
-    //   });
+    const response = await axiosAPI({
+      method: 'post',
+      url: `/api/auth/social/sign-up`,
+      data,
+    });
 
-    //   const { accessToken } = await response.data.tokenInfo;
-
-    //   if (accessToken) {
-    //     localStorage.setItem('bbangAT', accessToken);
-    //     history.push({
-    //       pathname: '/login/clause',
-    //     });
-    //   }
+    const accessTokens = response.data.data.tokenInfo.accessToken;
+    const accessToken = accessTokens.header.concat(accessTokens.payload, accessTokens.signature);
+    const { refreshToken } = response.data.data.tokenInfo;
+    if (accessToken && refreshToken) {
+      localStorage.setItem('bbangAT', accessToken);
+      localStorage.setItem('bbangRT', refreshToken);
+      // 회원가입 성공후 다음페이지로 이동예정
+      // history.push()
+    }
     // } catch (err) {
-    //   console.error(err);
+    // console.log(err.name);
     // }
   };
 
-  // if (!state?.userInfo) return <Redirect to="/login" />;
+  if (!state?.userInfo) return <Redirect to="/login" />;
   return (
     <form onSubmit={handleSubmit(onSignUp)}>
       {/* eslint-disable-next-line react/jsx-props-no-spreading */}

@@ -1,5 +1,5 @@
 import React, { ReactElement, useState } from 'react';
-import { useHistory, Redirect } from 'react-router-dom';
+import { useHistory, Redirect, useLocation } from 'react-router-dom';
 import BottomBtn from '../../atoms/BottomBtn';
 import UpdateHeader from '../../molecules/UpdateHeader';
 import LoginClauseCheck from '../../organisms/LoginClauseCheck';
@@ -7,16 +7,21 @@ import left from '../../../assets/images/arrow/left.png';
 import * as S from './style';
 
 const LoginClauseTemplate = (): ReactElement => {
+  const location = useLocation();
   const history = useHistory();
   const [isChecked, setIsChecked] = useState(false);
+  const userInfo = location.state;
 
   const onAgree = () => {
-    if (localStorage.getItem('accessToken') && isChecked) {
-      history.push('/');
+    if (isChecked && userInfo) {
+      history.push({
+        pathname: '/login/signUp',
+        state: userInfo,
+      });
     }
   };
 
-  if (!localStorage.getItem('accessToken')) return <Redirect to="/login" />;
+  if (!userInfo) return <Redirect to="/login" />;
   return (
     <S.Section>
       <UpdateHeader arrow={left} />

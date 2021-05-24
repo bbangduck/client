@@ -14,6 +14,7 @@ const ClausePage = lazy(() => import('./myPages/update/ClausePage'));
 const RemoveAccountPage = lazy(() => import('./myPages/update/RemoveAccountPage'));
 const RemoveAccountPage2 = lazy(() => import('./myPages/update/RemoveAccountPage2'));
 const LoginPage = lazy(() => import('./login/LoginPage'));
+const LoginSignUpPage = lazy(() => import('./login/LoginSignUpPage'));
 const LoginClausePage = lazy(() => import('./login/LoginClausePage'));
 const ThemeDetailPage = lazy(() => import('./themes/ThemeDetailPage'));
 const ThemeAnalysisPage = lazy(() => import('./themes/ThemeAnalysisPage'));
@@ -40,6 +41,7 @@ const RootPage = (): ReactElement => {
           <Route path="/mypage/removeAccount/2" component={RemoveAccountPage2} /> {/* ? */}
           {/* 로그인 */}
           <Route exact path="/login" component={LoginPage} /> {/* 19 */}
+          <Route path="/login/signUp" component={LoginSignUpPage} /> {/* ? */}
           <Route path="/login/clause" component={LoginClausePage} /> {/* 21 */}
           {/* 테마 */}
           <Route exact path="/theme/:name" component={ThemeDetailPage} /> {/* 4 */}

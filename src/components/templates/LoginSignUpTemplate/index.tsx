@@ -4,6 +4,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import axiosAPI from '../../../utils/axios';
 import schema from '../../../utils/signUpValidation';
+import setSessionStorage from '../../../utils/setSessionStorage';
+import setLocalStorage from '../../../utils/setLocalStorage';
 
 const LoginSignUpTemplate = (): ReactElement => {
   const location = useLocation<KakaoLoginInfoType | null>();
@@ -48,6 +50,7 @@ const LoginSignUpTemplate = (): ReactElement => {
         data,
       });
 
+      const userId = response.data.data.memberInfo.memberId;
       const accessTokens = response.data.data.tokenInfo.accessToken;
       const accessToken = accessTokens.header.concat(accessTokens.payload, accessTokens.signature);
       const { refreshToken } = response.data.data.tokenInfo;
@@ -55,13 +58,11 @@ const LoginSignUpTemplate = (): ReactElement => {
       if (response.data.status === 2201) {
         const userAnswer = window.confirm('저장하시겠습니까?');
         if (userAnswer && accessToken && refreshToken) {
-          localStorage.setItem('bbangAT', accessToken);
-          localStorage.setItem('bbangRT', refreshToken);
+          setLocalStorage(accessToken, refreshToken, userId);
           // 회원가입 성공후 다음페이지로 이동예정
           // history.push()
         } else if (!userAnswer && accessToken && refreshToken) {
-          sessionStorage.setItem('bbangAT', accessToken);
-          sessionStorage.setItem('bbangRT', refreshToken);
+          setSessionStorage(accessToken, refreshToken, userId);
           // 회원가입 성공후 다음페이지로 이동예정
           // history.push()
         }

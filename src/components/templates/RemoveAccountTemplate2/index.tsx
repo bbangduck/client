@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import { Redirect } from 'react-router-dom';
 import { useClickOutside } from '../../../hooks/useClickOutside';
 import RemoveBottom from '../../molecules/RemoveBottom';
 import Remove2Content from '../../molecules/RemoveContent2';
@@ -8,6 +9,7 @@ import left from '../../../assets/images/arrow/left.png';
 import * as S from './style';
 import axiosWithToken from '../../../utils/axios';
 import removeSessionStorage from '../../../utils/removeSessionStorage';
+import userCheck from '../../../utils/userCheck';
 
 const RemoveAccountTemplate2 = (): ReactElement => {
   const [visibleContentRef, modalOn, setModalOn, clickOutside] = useClickOutside(false);
@@ -24,6 +26,7 @@ const RemoveAccountTemplate2 = (): ReactElement => {
     // 회원탈퇴후 이동페이지로 이동예정
   };
 
+  if (!userCheck()) return <Redirect to="/" />;
   return (
     <S.Section>
       <UpdateHeader content="회원탈퇴" arrow={left} />

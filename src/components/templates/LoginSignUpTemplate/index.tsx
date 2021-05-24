@@ -41,23 +41,32 @@ const LoginSignUpTemplate = (): ReactElement => {
 
   const onSignUp = async (datas: SignUpDataType) => {
     const data = { email: datas.email, nickname: datas.nickname, socialType: userSocialType, socialId: userSocialId };
+    try {
+      const response = await axiosAPI({
+        method: 'post',
+        url: `/api/auth/social/sign-up`,
+        data,
+      });
 
-    const response = await axiosAPI({
-      method: 'post',
-      url: `/api/auth/social/sign-up`,
-      data,
-    });
+      const userId = response.data.data.memberInfo.memberId;
+      const accessTokens = response.data.data.tokenInfo.accessToken;
+      const accessToken = `${accessTokens.header}.${accessTokens.payload}.${accessTokens.signature}`;
+      const { refreshToken } = response.data.data.tokenInfo;
 
-    const userId = response.data.data.memberInfo.memberId;
-    const accessTokens = response.data.data.tokenInfo.accessToken;
-    const accessToken = `${accessTokens.header}.${accessTokens.payload}.${accessTokens.signature}`;
-    const { refreshToken } = response.data.data.tokenInfo;
-
-    if (response.data.status === 2201) {
-      if (accessToken && refreshToken) {
-        setSessionStorage(accessToken, refreshToken, userId);
-        // 회원가입 성공후 다음페이지로 이동예정
-        // history.push()
+      if (response.data.status === 2201) {
+        if (accessToken && refreshToken) {
+          setSessionStorage(accessToken, refreshToken, userId);
+          // 회원가입 성공후 다음페이지로 이동예정
+          // history.push()
+        }
+      }
+    } catch (e) {
+      if (e.response.data.status === 2404) {
+        // 닉네임 중복
+      } else if (e.response.data.status === 2403) {
+        // 이메일 중복
+      } else if (e.response.data.status === 2405) {
+        // 소셜회원이 아님
       }
     }
   };

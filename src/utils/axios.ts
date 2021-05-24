@@ -2,11 +2,14 @@ import axios from 'axios';
 
 const baseURL = process.env.REACT_APP_URL;
 
-const axiosAPI = axios.create({
+export const axiosAPI = axios.create({
+  baseURL,
+});
+const axiosWithToken = axios.create({
   baseURL,
 });
 
-axiosAPI.interceptors.request.use(
+axiosWithToken.interceptors.request.use(
   (config) => {
     const configResult = config;
     const accessToken = sessionStorage.getItem('bbangAT');
@@ -21,7 +24,7 @@ axiosAPI.interceptors.request.use(
   (error) => Promise.reject(error),
 );
 
-axiosAPI.interceptors.response.use(
+axiosWithToken.interceptors.response.use(
   (response) => {
     return response;
   },
@@ -53,4 +56,4 @@ axiosAPI.interceptors.response.use(
   },
 );
 
-export default axiosAPI;
+export default axiosWithToken;

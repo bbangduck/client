@@ -2,7 +2,7 @@ import React, { ReactElement, useRef, useEffect } from 'react';
 import { useLocation, useHistory, Redirect } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import axiosAPI from '../../../utils/axios';
+import { axiosAPI } from '../../../utils/axios';
 import schema from '../../../utils/signUpValidation';
 import setSessionStorage from '../../../utils/setSessionStorage';
 
@@ -60,8 +60,6 @@ const LoginSignUpTemplate = (): ReactElement => {
         // history.push()
       }
     }
-
-    console.log(response);
   };
 
   if (!state?.userInfo) return <Redirect to="/login" />;

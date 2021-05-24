@@ -6,7 +6,7 @@ import UpdateHeader from '../../molecules/UpdateHeader';
 import Modal from '../../organisms/Modal';
 import left from '../../../assets/images/arrow/left.png';
 import * as S from './style';
-import axiosAPI from '../../../utils/axios';
+import axiosWithToken from '../../../utils/axios';
 import removeSessionStorage from '../../../utils/removeSessionStorage';
 
 const RemoveAccountTemplate2 = (): ReactElement => {
@@ -14,14 +14,14 @@ const RemoveAccountTemplate2 = (): ReactElement => {
 
   const onSignOut = async () => {
     const userId = sessionStorage.getItem('bbangUserId');
-    await axiosAPI({
+    await axiosWithToken({
       method: 'delete',
       url: `/api/auth/${userId}/withdrawal`,
     });
 
     removeSessionStorage();
     setModalOn(false);
-    // 회원탈퇴후 이동페이지로 이동
+    // 회원탈퇴후 이동페이지로 이동예정
   };
 
   return (

@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react';
 import { useHistory } from 'react-router-dom';
 import kakao from '../../../assets/images/kakao/kakao.png';
 import naver from '../../../assets/images/naver/naver.png';
+import setSessionStorage from '../../../utils/setSessionStorage';
 import Nav from '../../molecules/Nav';
 import * as S from './style';
 
@@ -19,14 +20,17 @@ const LoginBottom = (): ReactElement => {
 
       if (status === 1421) {
         // 회원이 아닐경우 동의약관페이지로 이동
-        console.log(userInfo);
         history.push({
           pathname: '/login/clause',
           state: { userInfo },
         });
       } else if (status === 1221) {
-        // 이미가입된 회원일경우 메인화면으로 가야함
-        console.log('가입된 회원입니다.');
+        const userId = event.data.data.memberId;
+        const accessTokens = event.data.data.accessToken;
+        const accessToken = `${accessTokens.header}.${accessTokens.payload}.${accessTokens.signature}`;
+        const { refreshToken } = event.data.data;
+        setSessionStorage(accessToken, refreshToken, userId);
+        // 이미가입된 회원일경우 메인화면으로 이동예정
       }
     };
 

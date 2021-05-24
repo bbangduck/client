@@ -4,10 +4,16 @@ import * as S from './style';
 interface Props {
   state: boolean;
   setState: React.Dispatch<React.SetStateAction<boolean>>;
+  toggleHandeler: () => void;
 }
-const ToggleBtn = ({ state, setState }: Props): ReactElement => {
+const ToggleBtn = ({ state, setState, toggleHandeler }: Props): ReactElement => {
+  const onToggle = () => {
+    setState((prev) => !prev);
+    toggleHandeler();
+  };
+
   return (
-    <S.ToggleBtn onClick={() => setState((prev) => !prev)}>
+    <S.ToggleBtn onClick={onToggle}>
       <S.Circle isClicked={state} />
     </S.ToggleBtn>
   );

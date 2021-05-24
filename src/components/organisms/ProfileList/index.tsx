@@ -8,11 +8,12 @@ import InputModal from '../../molecules/InPutModal';
 
 const UpdateList = (): ReactElement => {
   const [nicknameValue, setNicknameValue] = useState('');
+  const [introductionValue, setIntroductionValue] = useState('');
   const [nicknameModalRef, nicknameModalOn, setNicknameModalOn, nickNameClickOutside] = useClickOutside(false);
   const [introModalRef, introModalOn, setIntroModalOn, introClickOutside] = useClickOutside(false);
+  const userId = sessionStorage.getItem('bbangUserId');
 
   const onNicknameUpdate = async () => {
-    const userId = sessionStorage.getItem('bbangUserId');
     try {
       await axiosAPI({
         method: 'put',
@@ -23,6 +24,22 @@ const UpdateList = (): ReactElement => {
     } catch (err) {
       if (err.response.status === 400) {
         alert('닉네임을 입력해주세요');
+      }
+    }
+  };
+
+  const onIntroductionUpdate = async () => {
+    try {
+      const res = await axiosAPI({
+        method: 'put',
+        url: `/api/members/${userId}/descriptions`,
+        data: { description: introductionValue || null },
+      });
+      setIntroModalOn(false);
+      console.log(res.status);
+    } catch (err) {
+      if (err.response.status === 400) {
+        alert('자기소개를 입력해주세요');
       }
     }
   };
@@ -47,9 +64,15 @@ const UpdateList = (): ReactElement => {
           onValueChange={setNicknameValue}
         />
       ) : null}
-      {/* {introModalOn ? (
-        <InputModal clickOutsideClose={introClickOutside} modalRef={introModalRef} setModalState={setIntroModalOn} />
-      ) : null} */}
+      {introModalOn ? (
+        <InputModal
+          clickOutsideClose={introClickOutside}
+          modalRef={introModalRef}
+          setModalState={setIntroModalOn}
+          onUpdate={onIntroductionUpdate}
+          onValueChange={setIntroductionValue}
+        />
+      ) : null}
     </div>
   );
 };

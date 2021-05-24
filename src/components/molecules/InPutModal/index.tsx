@@ -5,23 +5,25 @@ interface Props {
   clickOutsideClose: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   modalRef: React.MutableRefObject<HTMLDivElement | null>;
   setModalState: React.Dispatch<React.SetStateAction<boolean>>;
+  onUpdate: () => void;
+  onValueChange: React.Dispatch<React.SetStateAction<string>>;
 }
-const InputModal = ({ clickOutsideClose, modalRef, setModalState }: Props): ReactElement => {
-  const [firstRender, setFirstRender] = useState(false);
+const InputModal = ({ clickOutsideClose, modalRef, setModalState, onUpdate, onValueChange }: Props): ReactElement => {
   const inputRef = useRef<null | HTMLInputElement>(null);
-
-  useEffect(() => {
-    setFirstRender(true);
-  }, []);
 
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.value = '빵덕 방린이에요';
     }
-  }, [firstRender]);
+  }, []);
 
   const onSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
+    onUpdate();
+  };
+
+  const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onValueChange(() => e.target.value);
   };
 
   return (
@@ -33,7 +35,7 @@ const InputModal = ({ clickOutsideClose, modalRef, setModalState }: Props): Reac
         <form>
           <S.Label htmlFor="nickname">
             <S.Span>닉네임</S.Span>
-            <S.Input type="text" id="nickname" name="nickname" ref={inputRef} />
+            <S.Input type="text" id="nickname" name="nickname" ref={inputRef} onChange={onInputChange} />
           </S.Label>
           <S.BtnBox>
             <S.LeftBtn type="button" onClick={() => setModalState(false)}>

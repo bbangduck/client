@@ -1,8 +1,8 @@
 import React, { ReactElement, useRef, useEffect } from 'react';
+import axios from 'axios';
 import { useLocation, useHistory, Redirect } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import { axiosAPI } from '../../../utils/axios';
 import schema from '../../../utils/signUpValidation';
 import setSessionStorage from '../../../utils/setSessionStorage';
 
@@ -41,10 +41,11 @@ const LoginSignUpTemplate = (): ReactElement => {
 
   const onSignUp = async (datas: SignUpDataType) => {
     const data = { email: datas.email, nickname: datas.nickname, socialType: userSocialType, socialId: userSocialId };
+    const baseURL = process.env.REACT_APP_URL;
     try {
-      const response = await axiosAPI({
+      const response = await axios({
         method: 'post',
-        url: `/api/auth/social/sign-up`,
+        url: `${baseURL}/api/auth/social/sign-up`,
         data,
       });
 
@@ -62,10 +63,13 @@ const LoginSignUpTemplate = (): ReactElement => {
       }
     } catch (e) {
       if (e.response.data.status === 2404) {
+        alert('닉네임이 존재합니다');
         // 닉네임 중복
       } else if (e.response.data.status === 2403) {
+        alert('이메일이 존재합니다');
         // 이메일 중복
       } else if (e.response.data.status === 2405) {
+        alert('카카오톡 회원이아닙니다');
         // 소셜회원이 아님
       }
     }

@@ -6,8 +6,8 @@ import theme from '../../../styles/theme';
 import right from '../../../assets/images/arrow/right.png';
 import { useClickOutside } from '../../../hooks/useClickOutside';
 import Modal from '../Modal';
-import axiosWithToken from '../../../utils/axios';
 import removeSessionStorage from '../../../utils/removeSessionStorage';
+import axiosAPI from '../../../utils/axios';
 
 const darkColor = theme.colors.fontGray[2];
 const lightColor = theme.colors.fontGray[0];
@@ -18,7 +18,7 @@ const UpdateCenter = (): ReactElement => {
 
   const onLogOut = async () => {
     const userId = sessionStorage.getItem('bbangUserId');
-    const response = await axiosWithToken({
+    await axiosAPI({
       method: 'get',
       url: `/api/auth/${userId}/sign-out`,
     });

@@ -7,16 +7,16 @@ import UpdateHeader from '../../molecules/UpdateHeader';
 import Modal from '../../organisms/Modal';
 import left from '../../../assets/images/arrow/left.png';
 import * as S from './style';
-import axiosWithToken from '../../../utils/axios';
 import removeSessionStorage from '../../../utils/removeSessionStorage';
 import userCheck from '../../../utils/userCheck';
+import axiosAPI from '../../../utils/axios';
 
 const RemoveAccountTemplate2 = (): ReactElement => {
   const [visibleContentRef, modalOn, setModalOn, clickOutside] = useClickOutside(false);
 
   const onSignOut = async () => {
     const userId = sessionStorage.getItem('bbangUserId');
-    await axiosWithToken({
+    await axiosAPI({
       method: 'delete',
       url: `/api/auth/${userId}/withdrawal`,
     });

@@ -7,7 +7,18 @@ const UpdateProfileImg = (): ReactElement => {
   const myImage = null;
 
   const updateImage = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target);
+    e.preventDefault();
+
+    if (e.target.files) {
+      const file = e.target.files[0].name;
+      const imageType = e.target.files[0].type;
+      const formData = new FormData();
+      console.log(e.target.files[0]);
+      // formData.append('files', file);
+      // formData.append('type', imageType);
+      // console.log(formData.get('files'));
+      // console.log(formData.get('type'));
+    }
   };
 
   return (
@@ -15,7 +26,7 @@ const UpdateProfileImg = (): ReactElement => {
       <img src={myImage || defaultImg} alt="프로필사진" />
       <S.IconBox htmlFor="profile-upload">
         <img src={camera} alt="사진 불러오기" />
-        <S.FileUpload type="file" id="profile-upload" onChange={updateImage} />
+        <S.FileUpload type="file" id="profile-upload" onChange={updateImage} accept="image/*" />
       </S.IconBox>
     </S.Container>
   );

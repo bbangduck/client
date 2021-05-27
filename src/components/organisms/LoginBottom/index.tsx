@@ -16,14 +16,14 @@ const LoginBottom = (): ReactElement => {
     const option = 'width = 500, height = 500, top = 100, left = 200, location = no';
 
     const receiveMessage = (event: MessageEvent) => {
-      const userInfo = event.data.data;
+      const socialInfo = event.data.data;
       const { status } = event.data;
 
       if (status === 1421) {
         // 회원이 아닐경우 동의약관페이지로 이동
         history.push({
           pathname: '/login/clause',
-          state: { userInfo },
+          state: { socialInfo },
         });
       } else if (status === 1221) {
         const userId = event.data.data.memberId;

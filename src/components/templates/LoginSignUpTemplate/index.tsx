@@ -5,15 +5,16 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import schema from '../../../utils/signUpValidation';
 import setSessionStorage from '../../../utils/setSessionStorage';
+import userExist from '../../../utils/userExist';
 
 const LoginSignUpTemplate = (): ReactElement => {
   const location = useLocation<KakaoLoginInfoType | null>();
   const history = useHistory();
   const { state } = location;
-  const userEmail = state?.userInfo.email;
-  const userNickname = state?.userInfo.nickname;
-  const userSocialType = state?.userInfo.socialType;
-  const userSocialId = state?.userInfo.socialId;
+  const userEmail = state?.socialInfo?.email;
+  const userNickname = state?.socialInfo?.nickname;
+  const userSocialType = state?.socialInfo?.socialType;
+  const userSocialId = state?.socialInfo?.socialId;
 
   const {
     register,
@@ -75,7 +76,8 @@ const LoginSignUpTemplate = (): ReactElement => {
     }
   };
 
-  if (!state?.userInfo) return <Redirect to="/login" />;
+  if (userExist()) return <Redirect to="/" />;
+  if (!state?.socialInfo) return <Redirect to="/login" />;
   return (
     <form onSubmit={handleSubmit(onSignUp)}>
       {/* eslint-disable-next-line react/jsx-props-no-spreading */}

@@ -6,7 +6,7 @@ interface NoticeItemInfoType {
   };
 }
 interface KakaoLoginInfoType {
-  userInfo: {
+  socialInfo: {
     email: string;
     nickname: string;
     socialId: string;

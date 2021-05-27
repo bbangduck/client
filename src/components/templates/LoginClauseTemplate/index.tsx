@@ -11,19 +11,19 @@ const LoginClauseTemplate = (): ReactElement => {
   const location = useLocation();
   const history = useHistory();
   const [isChecked, setIsChecked] = useState(false);
-  const userInfo = location.state;
+  const socialInfo = location.state;
 
   const onAgree = () => {
-    if (isChecked && userInfo) {
+    if (isChecked && socialInfo) {
       history.push({
         pathname: '/login/signUp',
-        state: userInfo,
+        state: socialInfo,
       });
     }
   };
 
   if (userExist()) return <Redirect to="/" />;
-  if (!userInfo) return <Redirect to="/login" />;
+  if (!socialInfo) return <Redirect to="/login" />;
   return (
     <S.Section>
       <UpdateHeader arrow={left} />

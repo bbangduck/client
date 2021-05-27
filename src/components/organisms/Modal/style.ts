@@ -9,6 +9,7 @@ export const Container = Styled.div`
   background-color: rgba(43, 43, 43, 0.6);
   display:flex;
   justify-content:center;
+  z-index:10;
 `;
 
 export const ModalBox = Styled.div`

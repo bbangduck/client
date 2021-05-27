@@ -1,4 +1,5 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
+import axiosAPI from '../../../utils/axios';
 import pen from '../../../assets/images/pen/pen.png';
 import UpdateItem from '../../molecules/UpdateItem';
 import CareerOn from '../../molecules/CareerOn/index';
@@ -6,8 +7,42 @@ import { useClickOutside } from '../../../hooks/useClickOutside';
 import InputModal from '../../molecules/InPutModal';
 
 const UpdateList = (): ReactElement => {
+  const [nicknameValue, setNicknameValue] = useState('');
+  const [introductionValue, setIntroductionValue] = useState('');
   const [nicknameModalRef, nicknameModalOn, setNicknameModalOn, nickNameClickOutside] = useClickOutside(false);
   const [introModalRef, introModalOn, setIntroModalOn, introClickOutside] = useClickOutside(false);
+  const userId = sessionStorage.getItem('bbangUserId');
+
+  const onNicknameUpdate = async () => {
+    try {
+      await axiosAPI({
+        method: 'put',
+        url: `/api/members/${userId}/nicknames`,
+        data: { nickname: nicknameValue },
+      });
+      setNicknameModalOn(false);
+    } catch (err) {
+      if (err.response.status === 400) {
+        alert('닉네임을 입력해주세요');
+      }
+    }
+  };
+
+  const onIntroductionUpdate = async () => {
+    try {
+      const res = await axiosAPI({
+        method: 'put',
+        url: `/api/members/${userId}/descriptions`,
+        data: { description: introductionValue || null },
+      });
+      setIntroModalOn(false);
+      console.log(res.status);
+    } catch (err) {
+      if (err.response.status === 400) {
+        alert('자기소개를 입력해주세요');
+      }
+    }
+  };
 
   return (
     <div>
@@ -25,10 +60,18 @@ const UpdateList = (): ReactElement => {
           clickOutsideClose={nickNameClickOutside}
           modalRef={nicknameModalRef}
           setModalState={setNicknameModalOn}
+          onUpdate={onNicknameUpdate}
+          onValueChange={setNicknameValue}
         />
       ) : null}
       {introModalOn ? (
-        <InputModal clickOutsideClose={introClickOutside} modalRef={introModalRef} setModalState={setIntroModalOn} />
+        <InputModal
+          clickOutsideClose={introClickOutside}
+          modalRef={introModalRef}
+          setModalState={setIntroModalOn}
+          onUpdate={onIntroductionUpdate}
+          onValueChange={setIntroductionValue}
+        />
       ) : null}
     </div>
   );

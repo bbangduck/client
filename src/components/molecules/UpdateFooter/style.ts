@@ -4,6 +4,7 @@ export const Footer = Styled.footer`
   position:absolute;
   bottom:0;
   height:91px;
+  z-index:1;
   `;
 
 export const PTag = Styled.p`

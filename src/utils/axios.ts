@@ -4,22 +4,10 @@ const baseURL = process.env.REACT_APP_URL;
 
 const axiosAPI = axios.create({
   baseURL,
-});
-
-axiosAPI.interceptors.request.use(
-  (config) => {
-    const configResult = config;
-    const accessToken = sessionStorage.getItem('bbangAT');
-
-    if (accessToken) {
-      const headers = { 'X-AUTH-TOKEN': accessToken };
-      configResult.headers = headers;
-    }
-
-    return configResult;
+  headers: {
+    'X-AUTH-TOKEN': sessionStorage.getItem('bbangAT'),
   },
-  (error) => Promise.reject(error),
-);
+});
 
 axiosAPI.interceptors.response.use(
   (response) => {
@@ -35,13 +23,12 @@ axiosAPI.interceptors.response.use(
 
     if (status === 401) {
       const refreshToken = sessionStorage.getItem('bbangRT');
-
       axios({
         method: 'post',
-        url: '/api/auth/refresh',
-        headers: { refreshToken },
+        url: `${baseURL}/api/auth/refresh`,
+        data: { refreshToken },
       }).then((response) => {
-        const accessTokens = response.data.accessToken;
+        const accessTokens = response.data.data.accessToken;
         const accessToken = `${accessTokens.header}.${accessTokens.payload}.${accessTokens.signature}`;
 
         sessionStorage.setItem('bbangAT', accessToken);
@@ -50,6 +37,7 @@ axiosAPI.interceptors.response.use(
         return axios(originalRequest);
       });
     }
+    return Promise.reject(error);
   },
 );
 

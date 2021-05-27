@@ -4,7 +4,7 @@ export const Container = Styled.button`
   background-color:white;
   border:none;
   outline:none;
-  width:90px;
+  width:72px;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -12,12 +12,12 @@ export const Container = Styled.button`
 `;
 
 export const ImgBox = Styled.div`
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   display:flex;
   justify-content:center;
   align-items:center;
-  background-color:lightgray;
+  margin-bottom:2px;
 `;
 
 export const Img = Styled.img`
@@ -26,7 +26,6 @@ export const Img = Styled.img`
 
 export const PTag = Styled.p`
   font-size: 10px;
-  font-weight: 500;
   line-height: 1.5;
-  color: #2b2b2b;
+  color: ${({ theme }) => theme.colors.fontGray[1]};
 `;

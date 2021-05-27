@@ -1,19 +1,20 @@
 import React, { ReactElement, useRef, useEffect } from 'react';
+import axios from 'axios';
 import { useLocation, useHistory, Redirect } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import axiosAPI from '../../../utils/axios';
 import schema from '../../../utils/signUpValidation';
 import setSessionStorage from '../../../utils/setSessionStorage';
+import userExist from '../../../utils/userExist';
 
 const LoginSignUpTemplate = (): ReactElement => {
   const location = useLocation<KakaoLoginInfoType | null>();
   const history = useHistory();
   const { state } = location;
-  const userEmail = state?.userInfo.email;
-  const userNickname = state?.userInfo.nickname;
-  const userSocialType = state?.userInfo.socialType;
-  const userSocialId = state?.userInfo.socialId;
+  const userEmail = state?.socialInfo?.email;
+  const userNickname = state?.socialInfo?.nickname;
+  const userSocialType = state?.socialInfo?.socialType;
+  const userSocialId = state?.socialInfo?.socialId;
 
   const {
     register,
@@ -41,30 +42,42 @@ const LoginSignUpTemplate = (): ReactElement => {
 
   const onSignUp = async (datas: SignUpDataType) => {
     const data = { email: datas.email, nickname: datas.nickname, socialType: userSocialType, socialId: userSocialId };
+    const baseURL = process.env.REACT_APP_URL;
+    try {
+      const response = await axios({
+        method: 'post',
+        url: `${baseURL}/api/auth/social/sign-up`,
+        data,
+      });
 
-    const response = await axiosAPI({
-      method: 'post',
-      url: `/api/auth/social/sign-up`,
-      data,
-    });
+      const userId = response.data.data.memberInfo.memberId;
+      const accessTokens = response.data.data.tokenInfo.accessToken;
+      const accessToken = `${accessTokens.header}.${accessTokens.payload}.${accessTokens.signature}`;
+      const { refreshToken } = response.data.data.tokenInfo;
 
-    const userId = response.data.data.memberInfo.memberId;
-    const accessTokens = response.data.data.tokenInfo.accessToken;
-    const accessToken = `${accessTokens.header}.${accessTokens.payload}.${accessTokens.signature}`;
-    const { refreshToken } = response.data.data.tokenInfo;
-
-    if (response.data.status === 2201) {
-      if (accessToken && refreshToken) {
-        setSessionStorage(accessToken, refreshToken, userId);
-        // 회원가입 성공후 다음페이지로 이동예정
-        // history.push()
+      if (response.data.status === 2201) {
+        if (accessToken && refreshToken) {
+          setSessionStorage(accessToken, refreshToken, userId);
+          // 회원가입 성공후 다음페이지로 이동예정
+          // history.push()
+        }
+      }
+    } catch (e) {
+      if (e.response.data.status === 2404) {
+        alert('닉네임이 존재합니다');
+        // 닉네임 중복
+      } else if (e.response.data.status === 2403) {
+        alert('이메일이 존재합니다');
+        // 이메일 중복
+      } else if (e.response.data.status === 2405) {
+        alert('카카오톡 회원이아닙니다');
+        // 소셜회원이 아님
       }
     }
-
-    console.log(response);
   };
 
-  if (!state?.userInfo) return <Redirect to="/login" />;
+  if (userExist()) return <Redirect to="/" />;
+  if (!state?.socialInfo) return <Redirect to="/login" />;
   return (
     <form onSubmit={handleSubmit(onSignUp)}>
       {/* eslint-disable-next-line react/jsx-props-no-spreading */}

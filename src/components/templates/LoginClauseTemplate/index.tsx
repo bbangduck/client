@@ -5,23 +5,25 @@ import UpdateHeader from '../../molecules/UpdateHeader';
 import LoginClauseCheck from '../../organisms/LoginClauseCheck';
 import left from '../../../assets/images/arrow/left.png';
 import * as S from './style';
+import userExist from '../../../utils/userExist';
 
 const LoginClauseTemplate = (): ReactElement => {
   const location = useLocation();
   const history = useHistory();
   const [isChecked, setIsChecked] = useState(false);
-  const userInfo = location.state;
+  const socialInfo = location.state;
 
   const onAgree = () => {
-    if (isChecked && userInfo) {
+    if (isChecked && socialInfo) {
       history.push({
         pathname: '/login/signUp',
-        state: userInfo,
+        state: socialInfo,
       });
     }
   };
 
-  if (!userInfo) return <Redirect to="/login" />;
+  if (userExist()) return <Redirect to="/" />;
+  if (!socialInfo) return <Redirect to="/login" />;
   return (
     <S.Section>
       <UpdateHeader arrow={left} />

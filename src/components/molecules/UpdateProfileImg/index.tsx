@@ -1,23 +1,43 @@
 import React, { ReactElement } from 'react';
+import axios from 'axios';
 import * as S from './style';
 import defaultImg from '../../../assets/images/profile/profile.png';
 import camera from '../../../assets/images/camera/camera.png';
+import axiosAPI from '../../../utils/axios';
 
 const UpdateProfileImg = (): ReactElement => {
   const myImage = null;
 
-  const updateImage = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const updateImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
 
     if (e.target.files) {
-      const file = e.target.files[0].name;
-      const imageType = e.target.files[0].type;
+      const uploadFile = e.target.files[0];
       const formData = new FormData();
-      console.log(e.target.files[0]);
-      // formData.append('files', file);
-      // formData.append('type', imageType);
-      // console.log(formData.get('files'));
-      // console.log(formData.get('type'));
+      formData.append('files', uploadFile);
+      // console.log(formData);
+      try {
+        const response = await axiosAPI({
+          method: 'post',
+          url: '/api/files/images',
+          data: formData,
+        });
+
+        const { fileId } = response.data.data[0];
+        const { fileName } = response.data.data[0];
+        const userId = sessionStorage.getItem('bbangUserId');
+        const res = await axiosAPI({
+          method: 'put',
+          url: `/api/members/${userId}/profiles/images`,
+          data: {
+            fileStorageId: fileId,
+            fileName,
+          },
+        });
+        console.log(res);
+      } catch (err) {
+        console.log(err.response);
+      }
     }
   };
 

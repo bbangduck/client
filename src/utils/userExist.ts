@@ -1,4 +1,4 @@
-const userCheck = (): boolean => {
+const userExist = (): boolean => {
   const userInfo = {
     aToken: sessionStorage.getItem('bbangAT'),
     rToken: sessionStorage.getItem('bbangRT'),
@@ -10,4 +10,4 @@ const userCheck = (): boolean => {
   return false;
 };
 
-export default userCheck;
+export default userExist;

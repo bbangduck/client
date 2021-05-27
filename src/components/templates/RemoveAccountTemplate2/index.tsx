@@ -8,7 +8,7 @@ import Modal from '../../organisms/Modal';
 import left from '../../../assets/images/arrow/left.png';
 import * as S from './style';
 import removeSessionStorage from '../../../utils/removeSessionStorage';
-import userCheck from '../../../utils/userCheck';
+import userExist from '../../../utils/userExist';
 import axiosAPI from '../../../utils/axios';
 
 const RemoveAccountTemplate2 = (): ReactElement => {
@@ -26,7 +26,7 @@ const RemoveAccountTemplate2 = (): ReactElement => {
     // 회원탈퇴후 이동페이지로 이동예정
   };
 
-  if (!userCheck()) return <Redirect to="/" />;
+  if (!userExist()) return <Redirect to="/" />;
   return (
     <S.Section>
       <UpdateHeader content="회원탈퇴" arrow={left} />

@@ -5,6 +5,7 @@ import UpdateHeader from '../../molecules/UpdateHeader';
 import LoginClauseCheck from '../../organisms/LoginClauseCheck';
 import left from '../../../assets/images/arrow/left.png';
 import * as S from './style';
+import userExist from '../../../utils/userExist';
 
 const LoginClauseTemplate = (): ReactElement => {
   const location = useLocation();
@@ -21,6 +22,7 @@ const LoginClauseTemplate = (): ReactElement => {
     }
   };
 
+  if (userExist()) return <Redirect to="/" />;
   if (!userInfo) return <Redirect to="/login" />;
   return (
     <S.Section>

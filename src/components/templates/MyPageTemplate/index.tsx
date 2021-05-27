@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { Redirect } from 'react-router-dom';
-import userCheck from '../../../utils/userCheck';
+import userExist from '../../../utils/userExist';
 import EscapeNotices from '../../molecules/EscapeNotice';
 import MyPageHeader from '../../molecules/MyPageHeader';
 import Nav from '../../molecules/Nav';
@@ -12,7 +12,7 @@ import EscapeThemes from '../../organisms/EscapeThemes';
 import * as S from './style';
 
 const MyPageTemplate = (): ReactElement => {
-  if (!userCheck()) return <Redirect to="/" />;
+  if (!userExist()) return <Redirect to="/" />;
   return (
     <S.Container>
       <MyPageHeader />

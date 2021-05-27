@@ -3,10 +3,10 @@ import { Redirect } from 'react-router-dom';
 import UpdateHeader from '../../molecules/UpdateHeader';
 import ClauseContent from '../../organisms/ClauseContent';
 import left from '../../../assets/images/arrow/left.png';
-import userCheck from '../../../utils/userCheck';
+import userExist from '../../../utils/userExist';
 
 const ClauseTemplate = (): ReactElement => {
-  if (!userCheck()) return <Redirect to="/" />;
+  if (!userExist()) return <Redirect to="/" />;
   return (
     <section>
       <UpdateHeader arrow={left} />

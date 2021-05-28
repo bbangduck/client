@@ -14,6 +14,9 @@ const UpdateProfileImg = (): ReactElement => {
         method: 'post',
         url: '/api/files/images',
         data: formData,
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
       });
 
       const { fileId } = response.data.data[0];
@@ -33,7 +36,7 @@ const UpdateProfileImg = (): ReactElement => {
     }
   };
 
-  const onChangeImg = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeImg = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
 
     if (e.target.files) {

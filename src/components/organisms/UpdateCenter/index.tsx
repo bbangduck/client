@@ -16,12 +16,23 @@ const UpdateCenter = (): ReactElement => {
   const history = useHistory();
   const [visibleContentRef, modalOn, setModalOn, clickOutside] = useClickOutside(false);
 
-  const onLogOut = async () => {
+  const logOutUser = async () => {
     const userId = sessionStorage.getItem('bbangUserId');
-    await axiosAPI({
-      method: 'get',
-      url: `/api/auth/${userId}/sign-out`,
-    });
+    try {
+      await axiosAPI({
+        method: 'get',
+        url: `/api/auth/${userId}/sign-out`,
+      });
+    } catch (err) {
+      if (err.response.status === 403) {
+        alert('탈퇴한 회원입니다.');
+        history.push('/');
+      }
+    }
+  };
+
+  const onLogOut = () => {
+    logOutUser();
     removeSessionStorage();
     setModalOn(false);
     // 로그아웃후 이동페이지로 이동예정

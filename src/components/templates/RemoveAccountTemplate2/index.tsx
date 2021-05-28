@@ -14,13 +14,16 @@ import axiosAPI from '../../../utils/axios';
 const RemoveAccountTemplate2 = (): ReactElement => {
   const [visibleContentRef, modalOn, setModalOn, clickOutside] = useClickOutside(false);
 
-  const onSignOut = async () => {
+  const signOutUser = async () => {
     const userId = sessionStorage.getItem('bbangUserId');
     await axiosAPI({
       method: 'delete',
       url: `/api/auth/${userId}/withdrawal`,
     });
+  };
 
+  const onSignOut = () => {
+    signOutUser();
     removeSessionStorage();
     setModalOn(false);
     // 회원탈퇴후 이동페이지로 이동예정

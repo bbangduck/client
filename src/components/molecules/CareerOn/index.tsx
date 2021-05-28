@@ -7,7 +7,7 @@ const CareerOn = (): ReactElement => {
   const [isClicked, setIsClicked] = useState(false);
   const userId = sessionStorage.getItem('bbangUserId');
 
-  const onToggle = async () => {
+  const onCareerToggle = async () => {
     await axiosAPI({
       method: 'put',
       url: `/api/members/${userId}/room-escape/recodes/open-yn`,
@@ -18,7 +18,7 @@ const CareerOn = (): ReactElement => {
     <S.Container>
       <S.Box>
         <S.H2>방탈출 기록 공개</S.H2>
-        <ToggleBtn state={isClicked} setState={setIsClicked} toggleHandeler={onToggle} />
+        <ToggleBtn state={isClicked} setState={setIsClicked} toggleHandeler={onCareerToggle} />
       </S.Box>
     </S.Container>
   );

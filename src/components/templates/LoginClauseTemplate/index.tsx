@@ -13,12 +13,16 @@ const LoginClauseTemplate = (): ReactElement => {
   const [isChecked, setIsChecked] = useState(false);
   const socialInfo = location.state;
 
+  const pushNextPage = () => {
+    history.push({
+      pathname: '/login/signUp',
+      state: socialInfo,
+    });
+  };
+
   const onAgree = () => {
     if (isChecked && socialInfo) {
-      history.push({
-        pathname: '/login/signUp',
-        state: socialInfo,
-      });
+      pushNextPage();
     }
   };
 

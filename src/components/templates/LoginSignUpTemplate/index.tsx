@@ -40,9 +40,15 @@ const LoginSignUpTemplate = (): ReactElement => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const onSignUp = async (datas: SignUpDataType) => {
-    const data = { email: datas.email, nickname: datas.nickname, socialType: userSocialType, socialId: userSocialId };
-    const baseURL = process.env.REACT_APP_URL;
+  const signUp = async (
+    baseURL: string,
+    data: {
+      email: string;
+      nickname: string;
+      socialType: string | undefined;
+      socialId: string | undefined;
+    },
+  ) => {
     try {
       const response = await axios({
         method: 'post',
@@ -58,8 +64,8 @@ const LoginSignUpTemplate = (): ReactElement => {
       if (response.data.status === 2201) {
         if (accessToken && refreshToken) {
           setSessionStorage(accessToken, refreshToken, userId);
-          // 회원가입 성공후 다음페이지로 이동예정
-          // history.push()
+          // 회원가입 성공후 다음페이지로 이동
+          history.push('/');
         }
       }
     } catch (e) {
@@ -74,6 +80,13 @@ const LoginSignUpTemplate = (): ReactElement => {
         // 소셜회원이 아님
       }
     }
+  };
+
+  const onSignUp = (datas: SignUpDataType) => {
+    const data = { email: datas.email, nickname: datas.nickname, socialType: userSocialType, socialId: userSocialId };
+    const baseURL = process.env.REACT_APP_URL;
+
+    if (baseURL) signUp(baseURL, data);
   };
 
   if (userExist()) return <Redirect to="/" />;

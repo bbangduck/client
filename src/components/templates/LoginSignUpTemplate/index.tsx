@@ -73,11 +73,14 @@ const LoginSignUpTemplate = (): ReactElement => {
         alert('닉네임이 존재합니다');
         // 닉네임 중복
       } else if (e.response.data.status === 2403) {
+        console.log(e.response);
         alert('이메일이 존재합니다');
         // 이메일 중복
       } else if (e.response.data.status === 2405) {
         alert('카카오톡 회원이아닙니다');
         // 소셜회원이 아님
+      } else {
+        history.push('/error');
       }
     }
   };

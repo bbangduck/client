@@ -1,11 +1,12 @@
 import React, { ReactElement } from 'react';
-import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 import * as S from './style';
 import defaultImg from '../../../assets/images/profile/profile.png';
 import camera from '../../../assets/images/camera/camera.png';
 import axiosAPI from '../../../utils/axios';
 
 const UpdateProfileImg = (): ReactElement => {
+  const history = useHistory();
   const myImage = null;
 
   const uploadImage = async (formData: FormData) => {
@@ -32,7 +33,7 @@ const UpdateProfileImg = (): ReactElement => {
         },
       });
     } catch (err) {
-      alert(err.response);
+      history.push('/error');
     }
   };
 

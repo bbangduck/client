@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import TestComponent from '../components/TestComponent/TestComponent';
 
 const MyPage = loadable(() => import('./myPages/MyPage'));
+const Page404 = loadable(() => import('./404/Page404'));
 const StatusPage = loadable(() => import('./myPages/mypage/StatusPage'));
 const BedgePage = loadable(() => import('./myPages/mypage/BedgePage'));
 const NoticePage = loadable(() => import('./myPages/mypage/NoticePage'));
@@ -26,6 +27,7 @@ const RootPage = (): ReactElement => {
       <Router>
         <Switch>
           <Route exact path="/" component={TestComponent} />
+          <Route exact path="/error" component={Page404} />
           {/* 마이페이지 */}
           <Route exact path="/mypage" component={MyPage} /> {/* 11 */}
           <Route path="/mypage/status" component={StatusPage} /> {/* 22 */}

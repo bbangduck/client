@@ -1,4 +1,5 @@
 import React, { ReactElement, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import axiosAPI from '../../../utils/axios';
 import pen from '../../../assets/images/pen/pen.png';
 import UpdateItem from '../../molecules/UpdateItem';
@@ -7,6 +8,8 @@ import { useClickOutside } from '../../../hooks/useClickOutside';
 import InputModal from '../../molecules/InPutModal';
 
 const UpdateList = (): ReactElement => {
+  const history = useHistory();
+
   const [nicknameValue, setNicknameValue] = useState('');
   const [introductionValue, setIntroductionValue] = useState('');
   const [nicknameModalRef, nicknameModalOn, setNicknameModalOn, nickNameClickOutside] = useClickOutside(false);
@@ -24,6 +27,8 @@ const UpdateList = (): ReactElement => {
     } catch (err) {
       if (err.response.status === 400) {
         alert('닉네임을 입력해주세요');
+      } else {
+        history.push('/error');
       }
     }
   };

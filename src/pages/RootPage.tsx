@@ -1,23 +1,24 @@
-import React, { ReactElement, lazy, Suspense } from 'react';
+import React, { ReactElement, Suspense } from 'react';
+import loadable from '@loadable/component';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import TestComponent from '../components/TestComponent/TestComponent';
 
-const MyPage = lazy(() => import('./myPages/MyPage'));
-const StatusPage = lazy(() => import('./myPages/mypage/StatusPage'));
-const BedgePage = lazy(() => import('./myPages/mypage/BedgePage'));
-const NoticePage = lazy(() => import('./myPages/mypage/NoticePage'));
-const NoticePage2 = lazy(() => import('./myPages/mypage/NoticePage2'));
-const UpdatePage = lazy(() => import('./myPages/update/UpdatePage'));
-const ProfilePage = lazy(() => import('./myPages/update/ProfilePage'));
-const PolicyPage = lazy(() => import('./myPages/update/PolicyPage'));
-const ClausePage = lazy(() => import('./myPages/update/ClausePage'));
-const RemoveAccountPage = lazy(() => import('./myPages/update/RemoveAccountPage'));
-const RemoveAccountPage2 = lazy(() => import('./myPages/update/RemoveAccountPage2'));
-const LoginPage = lazy(() => import('./login/LoginPage'));
-const LoginSignUpPage = lazy(() => import('./login/LoginSignUpPage'));
-const LoginClausePage = lazy(() => import('./login/LoginClausePage'));
-const ThemeDetailPage = lazy(() => import('./themes/ThemeDetailPage'));
-const ThemeAnalysisPage = lazy(() => import('./themes/ThemeAnalysisPage'));
+const MyPage = loadable(() => import('./myPages/MyPage'));
+const StatusPage = loadable(() => import('./myPages/mypage/StatusPage'));
+const BedgePage = loadable(() => import('./myPages/mypage/BedgePage'));
+const NoticePage = loadable(() => import('./myPages/mypage/NoticePage'));
+const NoticePage2 = loadable(() => import('./myPages/mypage/NoticePage2'));
+const UpdatePage = loadable(() => import('./myPages/update/UpdatePage'));
+const ProfilePage = loadable(() => import('./myPages/update/ProfilePage'));
+const PolicyPage = loadable(() => import('./myPages/update/PolicyPage'));
+const ClausePage = loadable(() => import('./myPages/update/ClausePage'));
+const RemoveAccountPage = loadable(() => import('./myPages/update/RemoveAccountPage'));
+const RemoveAccountPage2 = loadable(() => import('./myPages/update/RemoveAccountPage2'));
+const LoginPage = loadable(() => import('./login/LoginPage'));
+const LoginSignUpPage = loadable(() => import('./login/LoginSignUpPage'));
+const LoginClausePage = loadable(() => import('./login/LoginClausePage'));
+const ThemeDetailPage = loadable(() => import('./themes/ThemeDetailPage'));
+const ThemeAnalysisPage = loadable(() => import('./themes/ThemeAnalysisPage'));
 
 const RootPage = (): ReactElement => {
   return (

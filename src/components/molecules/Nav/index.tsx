@@ -15,7 +15,7 @@ const Nav = (): ReactElement => {
         <NavItem src={book} name="테마" />
         <NavItem src={map} name="지도" />
         <NavItem src={conversation} name="커뮤니티" />
-        <NavItem src={human} name="마이페이지" />
+        <NavItem src={human} name="마이페이지" pushTo="/mypage" />
       </S.Container>
     </nav>
   );

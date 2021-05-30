@@ -24,10 +24,7 @@ const UpdateCenter = (): ReactElement => {
         url: `/api/auth/${userId}/sign-out`,
       });
     } catch (err) {
-      if (err.response.status === 403) {
-        alert('탈퇴한 회원입니다.');
-        history.push('/');
-      }
+      history.push('/error');
     }
   };
 

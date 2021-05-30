@@ -1,17 +1,23 @@
 import React, { ReactElement, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import axiosAPI from '../../../utils/axios';
 import ToggleBtn from '../../atoms/ToggleBtn';
 import * as S from './style';
 
 const CareerOn = (): ReactElement => {
+  const history = useHistory();
   const [isClicked, setIsClicked] = useState(false);
   const userId = sessionStorage.getItem('bbangUserId');
 
   const onCareerToggle = async () => {
-    await axiosAPI({
-      method: 'put',
-      url: `/api/members/${userId}/room-escape/recodes/open-yn`,
-    });
+    try {
+      await axiosAPI({
+        method: 'put',
+        url: `/api/members/${userId}/room-escape/recodes/open-yn`,
+      });
+    } catch (err) {
+      history.push('/error');
+    }
   };
 
   return (

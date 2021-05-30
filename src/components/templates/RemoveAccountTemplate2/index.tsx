@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { useClickOutside } from '../../../hooks/useClickOutside';
 import RemoveBottom from '../../molecules/RemoveBottom';
 import Remove2Content from '../../molecules/RemoveContent2';
@@ -12,14 +12,19 @@ import userExist from '../../../utils/userExist';
 import axiosAPI from '../../../utils/axios';
 
 const RemoveAccountTemplate2 = (): ReactElement => {
+  const history = useHistory();
   const [visibleContentRef, modalOn, setModalOn, clickOutside] = useClickOutside(false);
 
   const signOutUser = async () => {
     const userId = sessionStorage.getItem('bbangUserId');
-    await axiosAPI({
-      method: 'delete',
-      url: `/api/auth/${userId}/withdrawal`,
-    });
+    try {
+      await axiosAPI({
+        method: 'delete',
+        url: `/api/auth/${userId}/withdrawal`,
+      });
+    } catch (err) {
+      history.push('/error');
+    }
   };
 
   const onSignOut = () => {

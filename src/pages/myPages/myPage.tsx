@@ -7,8 +7,6 @@ const MyPage = (): ReactElement => {
     <>
       <Helmet>
         <title>빵덕 - 마이페이지</title>
-        <link rel="icon" type="image/png" href="../../assets/images/logo/logo.png" />
-        <link rel="apple-touch-icon" type="image/png" href="../../assets/images/logo/logo.png" />
         <meta name="title" content="빵덕 마이페이지" />
         <meta
           name="description"

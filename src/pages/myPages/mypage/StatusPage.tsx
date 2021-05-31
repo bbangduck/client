@@ -12,8 +12,6 @@ const StatusPage = (): ReactElement => {
           name="description"
           content="빵덕 방탈출 현황, 카페지점과 테마,리뷰,성적 나의 방탈출 현황과 성적을 모두 확인가능합니다."
         />
-        <link rel="icon" type="image/png" href="../../assets/images/logo/logo.png" />
-        <link rel="apple-touch-icon" type="image/png" href="../../assets/images/logo/logo.png" />
       </Helmet>
       <StatusTemplate />
     </>

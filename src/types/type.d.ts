@@ -6,12 +6,10 @@ interface NoticeItemInfoType {
   };
 }
 interface KakaoLoginInfoType {
-  socialInfo: {
-    email: string;
-    nickname: string;
-    socialId: string;
-    socialType: string;
-  };
+  email: string;
+  nickname: string;
+  socialId: string;
+  socialType: string;
 }
 interface SignUpDataType {
   email: string;

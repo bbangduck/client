@@ -22,8 +22,8 @@ const LoginBottom = (): ReactElement => {
       if (status === 1421) {
         // 회원이 아닐경우 동의약관페이지로 이동
         history.push({
-          pathname: '/login/clause',
-          state: { socialInfo },
+          pathname: '/signup/clause',
+          state: socialInfo,
         });
       } else if (status === 1221) {
         const userId = event.data.data.memberId;

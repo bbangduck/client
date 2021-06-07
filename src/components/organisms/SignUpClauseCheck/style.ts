@@ -18,19 +18,26 @@ export const TopBox = Styled.div`
   cursor:pointer;
 `;
 
-interface PProps {
-  isChecked: boolean;
-}
-export const P = Styled.p<PProps>`
+export const P = Styled.p`
   font-size: 14px;
-  color: ${({ isChecked }) => (isChecked ? '#121212' : '#9c9c9c')};
+  color: #121212;
 `;
 
 interface CheckBoxProps {
   isChecked: boolean;
 }
 export const CheckBox = Styled.div<CheckBoxProps>`
+  width: 24px;
+  height: 24px;
   background-color: ${({ isChecked }) => (isChecked ? '#2b2b2b' : 'transparent')};
+  margin-right:8px;
+  border:1px solid ${({ isChecked }) => (isChecked ? 'none' : '#cbcbcb')};
+  display:flex;
+  justify-content:center;
+  align-items:center;
+`;
+
+export const CheckBox2 = Styled.div`
   margin-right:8px;
 `;
 
@@ -50,13 +57,10 @@ export const PTag = Styled.p<PTagProps>`
   margin-right:8px;
 `;
 
-interface SpanProps {
-  isChecked: boolean;
-}
-export const Span = Styled.span<SpanProps>`
+export const Span = Styled.span`
   font-size: 14px;
   letter-spacing: -0.14px;
-  color: ${({ isChecked }) => (isChecked ? '#121212' : '#9c9c9c')};
+  color:#9c9c9c;
   border-bottom:1px solid #9c9c9c;
   cursor:pointer;
 `;

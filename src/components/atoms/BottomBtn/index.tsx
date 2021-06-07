@@ -1,13 +1,14 @@
 import React, { ReactElement } from 'react';
 import * as S from './style';
 
-type Props = {
+interface Props {
   content: string;
-  onClick: () => void;
-};
+  onClick?: () => void;
+}
 const BottomBtn = ({ content, onClick }: Props): ReactElement => {
-  const onBtnClick = () => {
-    onClick();
+  const onBtnClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    // e.preventDefault();
+    if (onClick) onClick();
   };
 
   return (

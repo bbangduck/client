@@ -3,11 +3,11 @@ import { useHistory } from 'react-router-dom';
 import * as S from './style';
 import document from '../../../assets/images/document/document.png';
 
-interface ThemeSmallGraphProps {
+interface Props {
   pushTo: string;
   title?: string;
 }
-const ThemeSmallGraph = ({ pushTo, title }: ThemeSmallGraphProps): ReactElement => {
+const ThemeSmallGraph = ({ pushTo, title }: Props): ReactElement => {
   const history = useHistory();
 
   const graph = [

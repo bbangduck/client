@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import { Helmet } from 'react-helmet-async';
 import MyPageTemplate from '../../components/templates/MyPageTemplate';
 
-const MyPage = (): ReactElement => {
+const MyPages = (): ReactElement => {
   return (
     <>
       <Helmet>
@@ -18,4 +18,4 @@ const MyPage = (): ReactElement => {
   );
 };
 
-export default MyPage;
+export default MyPages;

@@ -1,11 +1,11 @@
 import React, { ReactElement } from 'react';
 import * as S from './style';
 
-type Props = {
+interface Props {
   title: string;
   subTitle: string;
   itemList: any[];
-};
+}
 const BadgeType = ({ title, subTitle, itemList }: Props): ReactElement => {
   return (
     <S.Section>

@@ -1,8 +1,8 @@
 import React, { ReactElement } from 'react';
 import { Helmet } from 'react-helmet-async';
-import LoginClauseTemplate from '../../components/templates/LoginClauseTemplate';
+import SignUpClauseTemplate from '../../components/templates/SignUpClauseTemplate';
 
-const LoginClausePage = (): ReactElement => {
+const SignUpClausePage = (): ReactElement => {
   return (
     <>
       <Helmet>
@@ -10,9 +10,9 @@ const LoginClausePage = (): ReactElement => {
         <meta name="title" content="빵덕 로그인 이용약관" />
         <meta name="description" content="빵덕 로그인 이용약관을 동의해주세요." />
       </Helmet>
-      <LoginClauseTemplate />
+      <SignUpClauseTemplate />
     </>
   );
 };
 
-export default LoginClausePage;
+export default SignUpClausePage;

@@ -2,11 +2,11 @@ import React, { ReactElement } from 'react';
 import { useHistory } from 'react-router-dom';
 import * as S from './style';
 
-type Props = {
+interface Props {
   content?: string;
   img?: string;
   arrow: string;
-};
+}
 const UpdateHeader = ({ content, img, arrow }: Props): ReactElement => {
   const history = useHistory();
 

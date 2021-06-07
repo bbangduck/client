@@ -2,12 +2,13 @@ import React, { ReactElement } from 'react';
 import * as S from './style';
 import whiteCheck from '../../../assets/images/check/white.png';
 import grayCheck from '../../../assets/images/check/gray.png';
+import darkGrayCheck from '../../../assets/images/check/darkGray.png';
 
-type Props = {
+interface Props {
   setIsChecked: React.Dispatch<React.SetStateAction<boolean>>;
   isChecked: boolean;
-};
-const LoginClauseCheck = ({ setIsChecked, isChecked }: Props): ReactElement => {
+}
+const SignUpClauseCheck = ({ setIsChecked, isChecked }: Props): ReactElement => {
   const checkHandeler = () => {
     setIsChecked((prev) => !prev);
   };
@@ -22,24 +23,24 @@ const LoginClauseCheck = ({ setIsChecked, isChecked }: Props): ReactElement => {
         <S.CheckBox isChecked={isChecked}>
           <img src={isChecked ? whiteCheck : grayCheck} alt="모두 동의체크" />
         </S.CheckBox>
-        <S.P isChecked={isChecked}>모두 동의 (선택 정보 포함)</S.P>
+        <S.P>모두 동의 (선택 정보 포함)</S.P>
       </S.TopBox>
       <S.Box>
-        <S.CheckBox isChecked={isChecked}>
-          <img src={grayCheck} alt="개인정보 처리방침 동의체크" />
-        </S.CheckBox>
+        <S.CheckBox2>
+          <img src={isChecked ? darkGrayCheck : grayCheck} alt="개인정보 처리방침 동의체크" />
+        </S.CheckBox2>
         <S.PTag isChecked={isChecked}>[필수] 개인정보 처리방침</S.PTag>
-        <S.Span isChecked={isChecked}>보기</S.Span>
+        <S.Span>보기</S.Span>
       </S.Box>
       <S.Box>
-        <S.CheckBox isChecked={isChecked}>
-          <img src={grayCheck} alt="이용약관 동의체크" />
-        </S.CheckBox>
+        <S.CheckBox2>
+          <img src={isChecked ? darkGrayCheck : grayCheck} alt="이용약관 동의체크" />
+        </S.CheckBox2>
         <S.PTag isChecked={isChecked}>[필수] 이용약관</S.PTag>
-        <S.Span isChecked={isChecked}>보기</S.Span>
+        <S.Span>보기</S.Span>
       </S.Box>
     </section>
   );
 };
 
-export default LoginClauseCheck;
+export default SignUpClauseCheck;

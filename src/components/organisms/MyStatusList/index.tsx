@@ -1,4 +1,6 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState, useEffect } from 'react';
+import { useClickOutside } from '../../../hooks/useClickOutside';
+import BottomModal from '../../molecules/BottomModal';
 import MyStatusItem from '../MyStatusItem';
 import * as S from './style';
 
@@ -41,6 +43,20 @@ const example = [
   },
 ];
 const MypageStatusList = (): ReactElement => {
+  const [visibleContentRef, modalOn, setModalOn, clickOutside] = useClickOutside(false);
+
+  const onUpdate = () => {
+    setModalOn(true);
+  };
+
+  useEffect(() => {
+    if (modalOn) {
+      document.body.style.overflowY = 'hidden';
+    } else {
+      document.body.style.overflowY = 'initial';
+    }
+  }, [modalOn]);
+
   return (
     <S.Ul>
       {example.map((item) => (
@@ -53,8 +69,18 @@ const MypageStatusList = (): ReactElement => {
           location={item.location}
           star={item.star}
           time={item.time}
+          onUpdate={onUpdate}
         />
       ))}
+      {modalOn ? (
+        <BottomModal
+          title="내 방탈출"
+          firstBtn="수정하기"
+          secondBtn="삭제하기"
+          visibleContentRef={visibleContentRef}
+          clickOutside={clickOutside}
+        />
+      ) : null}
     </S.Ul>
   );
 };

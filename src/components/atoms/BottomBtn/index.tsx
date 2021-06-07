@@ -1,10 +1,10 @@
 import React, { ReactElement } from 'react';
 import * as S from './style';
 
-type Props = {
+interface Props {
   content: string;
   onClick: () => void;
-};
+}
 const BottomBtn = ({ content, onClick }: Props): ReactElement => {
   const onBtnClick = () => {
     onClick();

@@ -5,7 +5,7 @@ import TestComponent from '../components/TestComponent/TestComponent';
 
 const isLoading = { fallback: <div>로딩쓰쓰쓰쓰쓰쓰쓰</div> };
 
-const MyPage = loadable(() => import('./myPages/MyPage'), isLoading);
+const MyPage = loadable(() => import('./myPages/MyPages'), isLoading);
 const Page404 = loadable(() => import('./404/Page404'), isLoading);
 const StatusPage = loadable(() => import('./myPages/mypage/StatusPage'), isLoading);
 const MyTendencyPage = loadable(() => import('./myPages/mypage/MyTendencyPage'), isLoading);
@@ -19,8 +19,10 @@ const ClausePage = loadable(() => import('./myPages/update/ClausePage'), isLoadi
 const RemoveAccountPage = loadable(() => import('./myPages/update/RemoveAccountPage'), isLoading);
 const RemoveAccountPage2 = loadable(() => import('./myPages/update/RemoveAccountPage2'), isLoading);
 const LoginPage = loadable(() => import('./login/LoginPage'), isLoading);
-const LoginSignUpPage = loadable(() => import('./login/LoginSignUpPage'), isLoading);
-const LoginClausePage = loadable(() => import('./login/LoginClausePage'), isLoading);
+// const LoginSignUpPage = loadable(() => import('./login/LoginSignUpPage'), isLoading);
+const SignUpClausePage = loadable(() => import('./login/SignUpClausePage'), isLoading);
+const SignUpEmailPage = loadable(() => import('./login/SignUpEmailPage'), isLoading);
+const SignUpNickNamePage = loadable(() => import('./login/SignUpNickNamePage'), isLoading);
 const ThemeDetailPage = loadable(() => import('./themes/ThemeDetailPage'), isLoading);
 const ThemeAnalysisPage = loadable(() => import('./themes/ThemeAnalysisPage'), isLoading);
 
@@ -47,8 +49,10 @@ const RootPage = (): ReactElement => {
         <Route path="/mypage/removeAccount/2" component={RemoveAccountPage2} /> {/* ? */}
         {/* 로그인 */}
         <Route exact path="/login" component={LoginPage} /> {/* 19 */}
-        <Route path="/login/clause" component={LoginClausePage} /> {/* 21 */}
-        <Route path="/login/signUp" component={LoginSignUpPage} /> {/* ? */}
+        <Route path="/signup/clause" component={SignUpClausePage} /> {/* 21 */}
+        <Route path="/signup/email" component={SignUpEmailPage} /> {/* ? */}
+        <Route path="/signup/nickname" component={SignUpNickNamePage} /> {/* ? */}
+        {/* <Route path="/login/signUp" component={LoginSignUpPage} /> ? */}
         {/* 테마 */}
         <Route exact path="/theme/:name" component={ThemeDetailPage} /> {/* 4 */}
         <Route path="/theme/:name/analysis" component={ThemeAnalysisPage} /> {/* ? */}

@@ -1,4 +1,4 @@
-import React, { ReactElement, useRef, useEffect } from 'react';
+import React, { ReactElement, useEffect } from 'react';
 import axios from 'axios';
 import { useLocation, useHistory, Redirect } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';

@@ -1,6 +1,7 @@
-import React, { ReactElement, useState, useEffect } from 'react';
+import React, { ReactElement, useEffect } from 'react';
 import { useClickOutside } from '../../../hooks/useClickOutside';
 import BottomModal from '../../molecules/BottomModal';
+import Modal from '../Modal';
 import MyStatusItem from '../MyStatusItem';
 import * as S from './style';
 
@@ -44,18 +45,29 @@ const example = [
 ];
 const MypageStatusList = (): ReactElement => {
   const [visibleContentRef, modalOn, setModalOn, clickOutside] = useClickOutside(false);
+  const [finalVisibleRef, finalModalOn, setFinalModalOn, finalClickOutside] = useClickOutside(false);
 
   const onUpdate = () => {
     setModalOn(true);
   };
 
   useEffect(() => {
-    if (modalOn) {
+    if (modalOn || finalModalOn) {
       document.body.style.overflowY = 'hidden';
     } else {
       document.body.style.overflowY = 'initial';
     }
-  }, [modalOn]);
+  }, [modalOn, finalModalOn]);
+
+  const onDelete = () => {
+    setModalOn(false);
+    setFinalModalOn(true);
+  };
+
+  const onFinalDelete = () => {
+    setFinalModalOn(false);
+    console.log('삭제');
+  };
 
   return (
     <S.Ul>
@@ -79,6 +91,18 @@ const MypageStatusList = (): ReactElement => {
           secondBtn="삭제하기"
           visibleContentRef={visibleContentRef}
           clickOutside={clickOutside}
+          onDelete={onDelete}
+        />
+      ) : null}
+      {finalModalOn ? (
+        <Modal
+          clickOutsideClose={finalClickOutside}
+          modalRef={finalVisibleRef}
+          setModalState={setFinalModalOn}
+          title="내 방탈출 삭제"
+          content="정말로 삭제하시겠습니까?"
+          btnContent="삭제"
+          onSubmitHandeler={onFinalDelete}
         />
       ) : null}
     </S.Ul>

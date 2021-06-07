@@ -3,15 +3,15 @@ import * as S from './style';
 
 interface Props {
   content: string;
-  onClick: () => void;
+  onClick?: () => void;
 }
 const BottomBtn = ({ content, onClick }: Props): ReactElement => {
   const onBtnClick = () => {
-    onClick();
+    if (onClick) onClick();
   };
 
   return (
-    <S.Container onClick={onBtnClick}>
+    <S.Container type="submit" onClick={onBtnClick}>
       <S.PTag>{content}</S.PTag>
     </S.Container>
   );

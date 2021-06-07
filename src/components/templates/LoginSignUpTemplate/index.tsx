@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useLocation, useHistory, Redirect } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import schema from '../../../utils/signUpValidation';
+import { schemaEmail } from '../../../utils/signUpValidation';
 import setSessionStorage from '../../../utils/setSessionStorage';
 import userExist from '../../../utils/userExist';
 
@@ -20,7 +20,7 @@ const LoginSignUpTemplate = (): ReactElement => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<SignUpDataType>({ resolver: yupResolver(schema) });
+  } = useForm<SignUpDataType>({ resolver: yupResolver(schemaEmail) });
 
   // 카카오로그인시 받은정보 화면에 출력
   useEffect(() => {

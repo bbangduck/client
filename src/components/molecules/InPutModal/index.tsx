@@ -1,4 +1,4 @@
-import React, { ReactElement, useRef, useEffect, useState } from 'react';
+import React, { ReactElement, useRef, useEffect } from 'react';
 import * as S from './style';
 
 interface Props {
@@ -7,8 +7,22 @@ interface Props {
   setModalState: React.Dispatch<React.SetStateAction<boolean>>;
   onUpdate: () => void;
   onValueChange: React.Dispatch<React.SetStateAction<string>>;
+  title: string;
+  subTitle: string;
+  inputError: boolean;
+  errorMessage: string;
 }
-const InputModal = ({ clickOutsideClose, modalRef, setModalState, onUpdate, onValueChange }: Props): ReactElement => {
+const InputModal = ({
+  clickOutsideClose,
+  modalRef,
+  setModalState,
+  onUpdate,
+  onValueChange,
+  title,
+  subTitle,
+  inputError,
+  errorMessage,
+}: Props): ReactElement => {
   const inputRef = useRef<null | HTMLInputElement>(null);
 
   useEffect(() => {
@@ -30,12 +44,20 @@ const InputModal = ({ clickOutsideClose, modalRef, setModalState, onUpdate, onVa
     <S.Container onClick={clickOutsideClose}>
       <S.ModalBox ref={modalRef}>
         <S.TitleBox>
-          <S.PTag>닉네임을 입력해주세요.</S.PTag>
+          <S.PTag>{title} 입력해주세요.</S.PTag>
         </S.TitleBox>
         <form>
           <S.Label htmlFor="nickname">
-            <S.Span>닉네임</S.Span>
-            <S.Input type="text" id="nickname" name="nickname" ref={inputRef} onChange={onInputChange} />
+            <S.Span inputError={inputError}>{subTitle}</S.Span>
+            <S.Input
+              type="text"
+              id="nickname"
+              name="nickname"
+              ref={inputRef}
+              onChange={onInputChange}
+              inputError={inputError}
+            />
+            {errorMessage ? <S.Span2>{errorMessage}</S.Span2> : null}
           </S.Label>
           <S.BtnBox>
             <S.LeftBtn type="button" onClick={() => setModalState(false)}>

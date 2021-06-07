@@ -4,7 +4,7 @@ interface SectionProps {
   item: number;
 }
 export const Section = Styled.section<SectionProps>`
-  margin-bottom:${({ item }) => (item ? '40px' : '64px')};
+  margin-bottom:${({ item }) => (item ? '20px' : '64px')};
 `;
 
 export const ThemesBox = Styled.ul`

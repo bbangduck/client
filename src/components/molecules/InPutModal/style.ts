@@ -40,16 +40,28 @@ export const Label = Styled.label`
   margin-bottom:25px;
 `;
 
-export const Span = Styled.span`
+interface SpanProps {
+  inputError: boolean;
+}
+export const Span = Styled.span<SpanProps>`
   font-size: ${({ theme }) => theme.sizes.font[0]};
-  color: ${({ theme }) => theme.colors.fontGray[0]};
+  color:  ${({ theme, inputError }) => (inputError ? '#ff5c53' : theme.colors.fontGray[0])};
   margin-bottom:7px;
 `;
 
-export const Input = Styled.input`
+export const Span2 = Styled.span`
+  font-size: ${({ theme }) => theme.sizes.font[0]};
+  color:#ff5c53;
+  margin-top:8px;
+`;
+
+interface InputProps {
+  inputError: boolean;
+}
+export const Input = Styled.input<InputProps>`
   height:27px;
   border:none;
-  border-bottom: solid 1px #cbcbcb;
+  border-bottom: solid 1px ${({ inputError }) => (inputError ? '#ff5c53' : '#cbcbcb')};
   outline:none;
   font-size: ${({ theme }) => theme.sizes.font[1]};
   color: ${({ theme }) => theme.colors.fontGray[3]};

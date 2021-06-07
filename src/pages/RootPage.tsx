@@ -8,6 +8,7 @@ const isLoading = { fallback: <div>로딩쓰쓰쓰쓰쓰쓰쓰</div> };
 const MyPage = loadable(() => import('./myPages/MyPage'), isLoading);
 const Page404 = loadable(() => import('./404/Page404'), isLoading);
 const StatusPage = loadable(() => import('./myPages/mypage/StatusPage'), isLoading);
+const MyTendencyPage = loadable(() => import('./myPages/mypage/MyTendencyPage'), isLoading);
 const BedgePage = loadable(() => import('./myPages/mypage/BedgePage'), isLoading);
 const NoticePage = loadable(() => import('./myPages/mypage/NoticePage'), isLoading);
 const NoticePage2 = loadable(() => import('./myPages/mypage/NoticePage2'), isLoading);
@@ -32,6 +33,7 @@ const RootPage = (): ReactElement => {
         {/* 마이페이지 */}
         <Route exact path="/mypage" component={MyPage} /> {/* 11 */}
         <Route path="/mypage/status" component={StatusPage} /> {/* 22 */}
+        <Route path="/mypage/tendency" component={MyTendencyPage} /> {/* 23 */}
         <Route path="/mypage/bedges" component={BedgePage} /> {/* 24 */}
         {/* 마이페이지 공지사항 */}
         <Route exact path="/mypage/notice" component={NoticePage} /> {/* 25 */}

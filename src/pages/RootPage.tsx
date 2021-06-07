@@ -16,10 +16,10 @@ const UpdatePage = loadable(() => import('./myPages/update/UpdatePage'), isLoadi
 const ProfilePage = loadable(() => import('./myPages/update/ProfilePage'), isLoading);
 const PolicyPage = loadable(() => import('./myPages/update/PolicyPage'), isLoading);
 const ClausePage = loadable(() => import('./myPages/update/ClausePage'), isLoading);
+const MyThemesPage = loadable(() => import('./myPages/mypage/MyThemesPage'), isLoading);
 const RemoveAccountPage = loadable(() => import('./myPages/update/RemoveAccountPage'), isLoading);
 const RemoveAccountPage2 = loadable(() => import('./myPages/update/RemoveAccountPage2'), isLoading);
 const LoginPage = loadable(() => import('./login/LoginPage'), isLoading);
-// const LoginSignUpPage = loadable(() => import('./login/LoginSignUpPage'), isLoading);
 const SignUpClausePage = loadable(() => import('./login/SignUpClausePage'), isLoading);
 const SignUpEmailPage = loadable(() => import('./login/SignUpEmailPage'), isLoading);
 const SignUpNickNamePage = loadable(() => import('./login/SignUpNickNamePage'), isLoading);
@@ -45,6 +45,7 @@ const RootPage = (): ReactElement => {
         <Route path="/mypage/profile" component={ProfilePage} /> {/* 14 */}
         <Route path="/mypage/policy" component={PolicyPage} /> {/* 16 */}
         <Route path="/mypage/clause" component={ClausePage} /> {/* 17 */}
+        <Route path="/mypage/themes" component={MyThemesPage} /> {/* ? */}
         <Route exact path="/mypage/removeAccount" component={RemoveAccountPage} /> {/* 18 */}
         <Route path="/mypage/removeAccount/2" component={RemoveAccountPage2} /> {/* ? */}
         {/* 로그인 */}
@@ -52,7 +53,6 @@ const RootPage = (): ReactElement => {
         <Route path="/signup/clause" component={SignUpClausePage} /> {/* 21 */}
         <Route path="/signup/email" component={SignUpEmailPage} /> {/* ? */}
         <Route path="/signup/nickname" component={SignUpNickNamePage} /> {/* ? */}
-        {/* <Route path="/login/signUp" component={LoginSignUpPage} /> ? */}
         {/* 테마 */}
         <Route exact path="/theme/:name" component={ThemeDetailPage} /> {/* 4 */}
         <Route path="/theme/:name/analysis" component={ThemeAnalysisPage} /> {/* ? */}

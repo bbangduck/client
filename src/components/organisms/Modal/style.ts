@@ -3,9 +3,9 @@ import Styled from 'styled-components';
 export const Container = Styled.div`
   position:fixed;
   bottom:0;
-  left:0;
-  width:100%;
+  width:360px;
   height:100%;
+  transform:translateX(-20px);
   background-color: rgba(43, 43, 43, 0.6);
   display:flex;
   justify-content:center;

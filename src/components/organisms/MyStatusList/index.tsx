@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect } from 'react';
+import React, { ReactElement } from 'react';
 import { useClickOutside } from '../../../hooks/useClickOutside';
 import BottomModal from '../../molecules/BottomModal';
 import Modal from '../Modal';
@@ -50,14 +50,6 @@ const MypageStatusList = (): ReactElement => {
   const onUpdate = () => {
     setModalOn(true);
   };
-
-  useEffect(() => {
-    if (modalOn || finalModalOn) {
-      document.body.style.overflowY = 'hidden';
-    } else {
-      document.body.style.overflowY = 'initial';
-    }
-  }, [modalOn, finalModalOn]);
 
   const onDelete = () => {
     setModalOn(false);

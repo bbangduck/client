@@ -23,9 +23,15 @@ const StatusItemCenter = ({ detailExist, title, location, star, time, hint }: Pr
           <S.Location>{location}</S.Location>
         </S.Top>
         <S.Bottom>
-          <StarBox star={star} />
-          <StatusBlock content={`${hint || `NO`} HINT`} border color="#4b4b4b" padding={12} />
-          <StatusBlock content={time} border color="#4b4b4b" padding={16} />
+          {detailExist ? (
+            <>
+              <StarBox star={star} />
+              <StatusBlock content={`${hint || `NO`} HINT`} border color="#4b4b4b" padding={12} />
+              <StatusBlock content={time} border color="#4b4b4b" padding={16} />
+            </>
+          ) : (
+            <StatusBlock content="Success" border color="#4b4b4b" padding={16} />
+          )}
         </S.Bottom>
       </S.RightBox>
     </S.Container>

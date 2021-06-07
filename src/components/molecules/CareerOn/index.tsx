@@ -1,31 +1,39 @@
 import React, { ReactElement, useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import axiosAPI from '../../../utils/axios';
-import ToggleBtn from '../../atoms/ToggleBtn';
 import * as S from './style';
+import unCheckedCircle from '../../../assets/images/check/unCheckedCircle.png';
+import checkedCircle from '../../../assets/images/check/checkedCircle.png';
 
 const CareerOn = (): ReactElement => {
-  const history = useHistory();
-  const [isClicked, setIsClicked] = useState(false);
-  const userId = sessionStorage.getItem('bbangUserId');
+  const [careerOpenList, setCareerOpenList] = useState([
+    { id: 1, content: '전체 공개', img: unCheckedCircle },
+    { id: 2, content: '친구에게만 공개', img: unCheckedCircle },
+    { id: 3, content: '나만 보기', img: unCheckedCircle },
+  ]);
 
-  const onCareerToggle = async () => {
-    try {
-      await axiosAPI({
-        method: 'put',
-        url: `/api/members/${userId}/room-escape/recodes/open-yn`,
+  const onCheck = (checkedId: number) => {
+    setCareerOpenList((prev) => {
+      return prev.map((openItem) => {
+        if (openItem.id === checkedId) {
+          return { ...openItem, img: checkedCircle };
+        }
+        return { ...openItem, img: unCheckedCircle };
       });
-    } catch (err) {
-      history.push('/error');
-    }
+    });
   };
 
   return (
     <S.Container>
-      <S.Box>
-        <S.H2>방탈출 기록 공개</S.H2>
-        <ToggleBtn state={isClicked} setState={setIsClicked} toggleHandeler={onCareerToggle} />
-      </S.Box>
+      <S.H2>방탈출 기록 공개</S.H2>
+      <ul>
+        {careerOpenList.map((item) => {
+          return (
+            <S.Li key={item.id} onClick={() => onCheck(item.id)}>
+              <S.PTag>{item.content}</S.PTag>
+              <S.Img src={item.img} alt={item.content} />
+            </S.Li>
+          );
+        })}
+      </ul>
     </S.Container>
   );
 };

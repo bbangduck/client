@@ -3,7 +3,11 @@ import { useHistory } from 'react-router-dom';
 import * as S from './style';
 import document from '../../../assets/images/document/document.png';
 
-const ThemeSmallGraph = (): ReactElement => {
+interface ThemeSmallGraphProps {
+  pushTo: string;
+  title?: string;
+}
+const ThemeSmallGraph = ({ pushTo, title }: ThemeSmallGraphProps): ReactElement => {
   const history = useHistory();
 
   const graph = [
@@ -33,6 +37,7 @@ const ThemeSmallGraph = (): ReactElement => {
     <>
       {graph ? (
         <S.Container>
+          <S.Title>{title}</S.Title>
           <S.GraphBox>
             {graph.map((item) => (
               <S.Box key={item.id}>
@@ -47,7 +52,7 @@ const ThemeSmallGraph = (): ReactElement => {
             <S.Left>
               총 <S.Span>35</S.Span>명의 회원이 평가했어요!
             </S.Left>
-            <S.Right onClick={() => history.push('/theme/:name/analysis')}>
+            <S.Right onClick={() => history.push(pushTo)}>
               <S.IsPTag>자세히 보기</S.IsPTag>
             </S.Right>
           </S.BottomBox>

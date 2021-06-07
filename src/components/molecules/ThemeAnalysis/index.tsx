@@ -19,7 +19,7 @@ const ThemeAnalysis = ({ isRef }: Props): ReactElement => {
         bgColor="#f6f6f6"
         color="#9c9c9c"
       />
-      <ThemeSmallGraph />
+      <ThemeSmallGraph pushTo="/theme/:name/analysis" />
     </S.Section>
   );
 };

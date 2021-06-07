@@ -1,8 +1,6 @@
 import Styled from 'styled-components';
 
 export const Section = Styled.section`
-  position:absolute;
-  top:172px;
   width: 320px;
   height: 242px;
   border-radius: 8px;

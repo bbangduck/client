@@ -6,6 +6,7 @@ export const Section = Styled.section`
   align-items: center;
   justify-content: space-between;
   border-top:1px solid #ebebeb;
+  margin-top:20px;
 `;
 
 export const Box = Styled.div`

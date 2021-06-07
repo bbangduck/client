@@ -4,7 +4,7 @@ import MyPageGuide from '../../atoms/MyPageGuide';
 import * as S from './style';
 
 const EscapeThemes = (): ReactElement => {
-  const themes = 1;
+  const themes = 10;
 
   return (
     <S.Section item={themes}>

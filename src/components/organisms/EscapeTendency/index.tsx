@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import MyPageSubTitle from '../../molecules/MyPageSubTitle';
-import Tendency from '../../atoms/Tendency';
+import HashBox from '../../atoms/HashBox';
 import * as S from './style';
 import MyPageGuide from '../../atoms/MyPageGuide';
 
@@ -17,7 +17,9 @@ const EscapeTendency = (): ReactElement => {
   };
 
   const showTendencyList = () => {
-    return tendency?.map((tend: { id: number; item: string }) => <Tendency key={tend.id} tendency={tend.item} />);
+    return tendency?.map((tend: { id: number; item: string }) => (
+      <HashBox key={tend.id} tendency={tend.item} bgColor="#2b2b2b" color="#ffffff" rightMargin="8px" />
+    ));
   };
 
   return (

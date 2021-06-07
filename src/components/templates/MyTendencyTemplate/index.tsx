@@ -1,10 +1,16 @@
 import React, { ReactElement } from 'react';
+import { Redirect } from 'react-router-dom';
+import userExist from '../../../utils/userExist';
+import MyTendencyTitle from '../../molecules/MyTendencyTitle';
+import TendencyIntro from '../../organisms/TendencyIntro';
 
 const MyTendencyTemplate = (): ReactElement => {
+  if (!userExist()) return <Redirect to="/" />;
   return (
-    <div>
-      <p>빵덕 분석</p>
-    </div>
+    <section>
+      <MyTendencyTitle />
+      <TendencyIntro />
+    </section>
   );
 };
 

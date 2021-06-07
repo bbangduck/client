@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import LoginSignUpTemplate from '../../components/templates/LoginSignUpTemplate';
 
 const LoginSignUpPage = (): ReactElement => {

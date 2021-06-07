@@ -6,9 +6,9 @@ const SignUpClausePage = (): ReactElement => {
   return (
     <>
       <Helmet>
-        <title>빵덕 - 로그인 이용약관</title>
-        <meta name="title" content="빵덕 로그인 이용약관" />
-        <meta name="description" content="빵덕 로그인 이용약관을 동의해주세요." />
+        <title>빵덕 - 회원가입 이용약관</title>
+        <meta name="title" content="빵덕 회원가입 이용약관" />
+        <meta name="description" content="빵덕 회원가입 이용약관을 동의해주세요." />
       </Helmet>
       <SignUpClauseTemplate />
     </>

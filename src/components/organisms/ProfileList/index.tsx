@@ -41,6 +41,11 @@ const UpdateList = (): ReactElement => {
         setNickNameError(() => {
           return { message, isError: true };
         });
+      } else if (err.response.status === 409) {
+        const message = '중복된 닉네임 입니다.';
+        setNickNameError(() => {
+          return { message, isError: true };
+        });
       } else {
         history.push('/error');
       }

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useLocation, useHistory, Redirect } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import { schemaEmail } from '../../../utils/signUpValidation';
+import { schema } from '../../../utils/validationSchema';
 import setSessionStorage from '../../../utils/setSessionStorage';
 import userExist from '../../../utils/userExist';
 
@@ -11,16 +11,16 @@ const LoginSignUpTemplate = (): ReactElement => {
   const location = useLocation<KakaoLoginInfoType | null>();
   const history = useHistory();
   const { state } = location;
-  const userEmail = state?.socialInfo?.email;
-  const userNickname = state?.socialInfo?.nickname;
-  const userSocialType = state?.socialInfo?.socialType;
-  const userSocialId = state?.socialInfo?.socialId;
+  const userEmail = state?.email;
+  const userNickname = state?.nickname;
+  const userSocialType = state?.socialType;
+  const userSocialId = state?.socialId;
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<SignUpDataType>({ resolver: yupResolver(schemaEmail) });
+  } = useForm<SignUpDataType>({ resolver: yupResolver(schema) });
 
   // 카카오로그인시 받은정보 화면에 출력
   useEffect(() => {
@@ -93,7 +93,7 @@ const LoginSignUpTemplate = (): ReactElement => {
   };
 
   if (userExist()) return <Redirect to="/" />;
-  if (!state?.socialInfo) return <Redirect to="/login" />;
+  if (!state) return <Redirect to="/login" />;
   return (
     <form onSubmit={handleSubmit(onSignUp)}>
       {/* eslint-disable-next-line react/jsx-props-no-spreading */}

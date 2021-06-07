@@ -8,7 +8,7 @@ import * as S from './style';
 import userExist from '../../../utils/userExist';
 
 const SignUpClauseTemplate = (): ReactElement => {
-  const location = useLocation();
+  const location = useLocation<KakaoLoginInfoType>();
   const history = useHistory();
   const [isChecked, setIsChecked] = useState(false);
   const socialInfo = location.state;

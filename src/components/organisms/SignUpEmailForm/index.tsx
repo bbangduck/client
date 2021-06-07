@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import BottomBtn from '../../atoms/BottomBtn';
-import { schemaEmail } from '../../../utils/signUpValidation';
+import { schemaEmail } from '../../../utils/validationSchema';
 import deleteIcon from '../../../assets/images/delete/delete.png';
 import * as S from './style';
 
@@ -31,7 +31,7 @@ const SignUpEmailForm = ({ userData }: Props): ReactElement => {
   };
 
   const onSignUp = (datas: { email: string }) => {
-    const newUserData = { ...userData, email: datas.email };
+    const newUserData = { ...userData, email: datas.email, nickname: '' };
 
     if (newUserData) {
       history.push({

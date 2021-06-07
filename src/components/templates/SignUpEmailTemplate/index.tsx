@@ -8,13 +8,10 @@ import SignUpEmailForm from '../../organisms/SignUpEmailForm';
 
 const SignUpEmailTemplate = (): ReactElement => {
   const location = useLocation<KakaoLoginInfoType>();
-  const {
-    socialInfo: { socialId, socialType },
-  } = location?.state;
-  const userData = { socialType, socialId };
+  const userData = location?.state;
 
   if (userExist()) return <Redirect to="/" />;
-  if (!socialId && !socialType) return <Redirect to="/login" />;
+  if (!userData) return <Redirect to="/login" />;
   return (
     <S.Section>
       <UpdateHeader arrow={left} />

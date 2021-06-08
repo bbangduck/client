@@ -1,11 +1,11 @@
 import Styled from 'styled-components';
 
 export const Container = Styled.div`
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
+  position:fixed;
+  bottom:0;
+  width:360px;
   height:100%;
+  transform:translateX(-20px);
   background-color: rgba(43, 43, 43, 0.6);
   display:flex;
   justify-content:center;
@@ -36,6 +36,7 @@ export const PTag = Styled.p`
 `;
 
 export const P = Styled.p`
+  line-height: 1.5;
   font-size: ${({ theme }) => theme.sizes.font[1]};
   color: ${({ theme }) => theme.colors.fontGray[3]};
   margin-bottom:24px;

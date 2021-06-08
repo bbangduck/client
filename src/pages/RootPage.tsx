@@ -16,10 +16,11 @@ const UpdatePage = loadable(() => import('./myPages/update/UpdatePage'), isLoadi
 const ProfilePage = loadable(() => import('./myPages/update/ProfilePage'), isLoading);
 const PolicyPage = loadable(() => import('./myPages/update/PolicyPage'), isLoading);
 const ClausePage = loadable(() => import('./myPages/update/ClausePage'), isLoading);
+const MyThemesPage = loadable(() => import('./myPages/mypage/MyThemesPage'), isLoading);
+const MyFriendsPage = loadable(() => import('./myPages/mypage/MyFriendsPage'), isLoading);
 const RemoveAccountPage = loadable(() => import('./myPages/update/RemoveAccountPage'), isLoading);
 const RemoveAccountPage2 = loadable(() => import('./myPages/update/RemoveAccountPage2'), isLoading);
 const LoginPage = loadable(() => import('./login/LoginPage'), isLoading);
-// const LoginSignUpPage = loadable(() => import('./login/LoginSignUpPage'), isLoading);
 const SignUpClausePage = loadable(() => import('./login/SignUpClausePage'), isLoading);
 const SignUpEmailPage = loadable(() => import('./login/SignUpEmailPage'), isLoading);
 const SignUpNickNamePage = loadable(() => import('./login/SignUpNickNamePage'), isLoading);
@@ -37,6 +38,8 @@ const RootPage = (): ReactElement => {
         <Route path="/mypage/status" component={StatusPage} /> {/* 22 */}
         <Route path="/mypage/tendency" component={MyTendencyPage} /> {/* 23 */}
         <Route path="/mypage/bedges" component={BedgePage} /> {/* 24 */}
+        <Route path="/mypage/themes" component={MyThemesPage} /> {/* ? */}
+        <Route path="/mypage/friends" component={MyFriendsPage} /> {/* ? */}
         {/* 마이페이지 공지사항 */}
         <Route exact path="/mypage/notice" component={NoticePage} /> {/* 25 */}
         <Route exact path="/mypage/notice/:number" component={NoticePage2} /> {/* 26 */}
@@ -52,7 +55,6 @@ const RootPage = (): ReactElement => {
         <Route path="/signup/clause" component={SignUpClausePage} /> {/* 21 */}
         <Route path="/signup/email" component={SignUpEmailPage} /> {/* ? */}
         <Route path="/signup/nickname" component={SignUpNickNamePage} /> {/* ? */}
-        {/* <Route path="/login/signUp" component={LoginSignUpPage} /> ? */}
         {/* 테마 */}
         <Route exact path="/theme/:name" component={ThemeDetailPage} /> {/* 4 */}
         <Route path="/theme/:name/analysis" component={ThemeAnalysisPage} /> {/* ? */}

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { ReactElement, useRef, useEffect } from 'react';
 import * as S from './style';
 
@@ -28,6 +29,7 @@ const InputModal = ({
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.value = '빵덕 방린이에요';
+      onValueChange(inputRef.current.value);
     }
   }, []);
 

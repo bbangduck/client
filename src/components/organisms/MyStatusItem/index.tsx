@@ -12,11 +12,12 @@ interface Props {
   location: string;
   star: number;
   time: string;
+  onUpdate: () => void;
 }
-const MyStatusItem = ({ idNumber, date, detailExist, title, location, star, time }: Props): ReactElement => {
+const MyStatusItem = ({ idNumber, date, detailExist, title, location, star, time, onUpdate }: Props): ReactElement => {
   return (
     <S.Li>
-      <StatusItemTop idNumber={idNumber} date={date} />
+      <StatusItemTop idNumber={idNumber} date={date} onUpdate={onUpdate} />
       <StatusItemCenter detailExist={detailExist} title={title} location={location} star={star} time={time} hint={2} />
       {detailExist ? <StatusItemBottom /> : null}
     </S.Li>

@@ -16,7 +16,7 @@ const UpdateCenter = (): ReactElement => {
   const history = useHistory();
   const [visibleContentRef, modalOn, setModalOn, clickOutside] = useClickOutside(false);
 
-  const logOutUser = async () => {
+  const logOutFetch = async () => {
     const userId = sessionStorage.getItem('bbangUserId');
     try {
       await axiosAPI({
@@ -29,10 +29,11 @@ const UpdateCenter = (): ReactElement => {
   };
 
   const onLogOut = () => {
-    logOutUser();
+    logOutFetch();
     removeSessionStorage();
     setModalOn(false);
     // 로그아웃후 이동페이지로 이동예정
+    history.push('/');
   };
 
   return (

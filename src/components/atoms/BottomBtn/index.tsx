@@ -6,8 +6,7 @@ interface Props {
   onClick?: () => void;
 }
 const BottomBtn = ({ content, onClick }: Props): ReactElement => {
-  const onBtnClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    // e.preventDefault();
+  const onBtnClick = () => {
     if (onClick) onClick();
   };
 

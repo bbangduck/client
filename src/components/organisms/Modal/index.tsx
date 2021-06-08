@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 import * as S from './style';
 
 interface Props {
@@ -30,7 +30,15 @@ const Modal = ({
         <S.TitleBox>
           <S.PTag>{title}</S.PTag>
         </S.TitleBox>
-        <S.P>{content}</S.P>
+        {title === '친구 삭제' ? (
+          <S.P>
+            {content.substr(0, content.length - 17)}
+            <br />
+            {content.substr(-17)}
+          </S.P>
+        ) : (
+          <S.P>{content}</S.P>
+        )}
         <S.BtnBox>
           <S.LeftBtn type="button" onClick={() => setModalState(false)}>
             취소

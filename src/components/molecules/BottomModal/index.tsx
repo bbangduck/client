@@ -3,7 +3,7 @@ import * as S from './style';
 
 interface Props {
   title: string;
-  firstBtn: string;
+  firstBtn?: string;
   secondBtn: string;
   visibleContentRef: React.MutableRefObject<HTMLDivElement | null>;
   clickOutside: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;

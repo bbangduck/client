@@ -4,6 +4,8 @@ import left from '../../../assets/images/arrow/left.png';
 import MyFriendsNav from '../../molecules/MyFriendsNav';
 import InputSearch from '../../molecules/InputSearch';
 import MyFriendsList from '../../organisms/MyFriendsList';
+import RequestFriends from '../../organisms/RequestFriends';
+import InputRequest from '../../molecules/InputRequest';
 
 const MyFriendsTemplate = (): ReactElement => {
   const [navClick, setNavClick] = useState(0);
@@ -18,12 +20,15 @@ const MyFriendsTemplate = (): ReactElement => {
       <UpdateHeader arrow={left} content="내 친구" />
       <MyFriendsNav navClick={navClick} setNavClick={setNavClick} />
       {!navClick ? (
-        <>
+        <div>
           <InputSearch onSearch={searchMyFriends} setInputValue={setMyFriendsInputValue} />
           <MyFriendsList />
-        </>
+        </div>
       ) : (
-        <p>나야</p>
+        <div>
+          <InputRequest />
+          <RequestFriends />
+        </div>
       )}
     </section>
   );

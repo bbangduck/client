@@ -7,15 +7,15 @@ interface Props {
 }
 const MyFriendsNav = ({ navClick, setNavClick }: Props): ReactElement => {
   const navOption = [
-    { id: 1, content: '친구 관리' },
-    { id: 2, content: '친구 신청' },
+    { id: 0, content: '친구 관리' },
+    { id: 1, content: '친구 신청' },
   ];
 
   const onNavClick = (clickedId: number) => {
     if (clickedId === 1) {
       setNavClick(1);
     } else {
-      setNavClick(2);
+      setNavClick(0);
     }
   };
 

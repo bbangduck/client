@@ -1,10 +1,20 @@
 import React, { ReactElement } from 'react';
+import MyFriendsItem from '../../molecules/MyFriendsItem';
 
 const MyFriendsList = (): ReactElement => {
   return (
-    <div>
-      <p>리스트</p>
-    </div>
+    <ul>
+      <MyFriendsItem />
+      <MyFriendsItem />
+      <MyFriendsItem />
+      <MyFriendsItem />
+      <MyFriendsItem />
+      <MyFriendsItem />
+      <MyFriendsItem />
+      <MyFriendsItem />
+      <MyFriendsItem />
+      <MyFriendsItem />
+    </ul>
   );
 };
 

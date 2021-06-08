@@ -36,6 +36,7 @@ export const PTag = Styled.p`
 `;
 
 export const P = Styled.p`
+  line-height: 1.5;
   font-size: ${({ theme }) => theme.sizes.font[1]};
   color: ${({ theme }) => theme.colors.fontGray[3]};
   margin-bottom:24px;

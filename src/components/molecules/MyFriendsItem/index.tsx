@@ -3,7 +3,10 @@ import image from '../../../assets/images/test/me.jpg';
 import more from '../../../assets/images/more/more.png';
 import * as S from './style';
 
-const MyFriendsItem = (): ReactElement => {
+interface Props {
+  onMoreClick: () => void;
+}
+const MyFriendsItem = ({ onMoreClick }: Props): ReactElement => {
   const contents = '탠커/즐겜러/스토리 덕후입니다 1줄이상입니다';
   const checkIntroLength = (content: string): string => {
     if (content.length > 20) {
@@ -11,6 +14,10 @@ const MyFriendsItem = (): ReactElement => {
       return newContent;
     }
     return content;
+  };
+
+  const onMoreClickHandeler = () => {
+    onMoreClick();
   };
 
   return (
@@ -25,7 +32,7 @@ const MyFriendsItem = (): ReactElement => {
           </S.Box>
         </div>
       </S.LeftBox>
-      <S.Img src={more} alt="친구 관리" />
+      <S.Img src={more} alt="친구 관리" onClick={onMoreClick} />
     </S.Li>
   );
 };

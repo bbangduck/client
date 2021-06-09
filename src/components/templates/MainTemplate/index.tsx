@@ -4,6 +4,7 @@ import Nav from '../../molecules/Nav';
 import AttentionTheme from '../../organisms/AttentionTheme';
 import MainNewThemes from '../../organisms/MainNewThemes';
 import Picks from '../../organisms/Picks';
+import ThemeWithReview from '../../organisms/ThemeWithReview';
 
 const MainTemplate = (): ReactElement => {
   return (
@@ -12,7 +13,7 @@ const MainTemplate = (): ReactElement => {
       <MainNewThemes />
       <Picks />
       <AttentionTheme />
-      <p>오가니즘</p>
+      <ThemeWithReview />
       <Nav />
     </section>
   );

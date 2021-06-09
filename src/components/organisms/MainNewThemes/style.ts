@@ -2,6 +2,7 @@ import Styled from 'styled-components';
 
 export const Section = Styled.section`
   margin-bottom:38px;
+  width:340px;
 `;
 
 export const H2 = Styled.h2`

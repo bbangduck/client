@@ -5,6 +5,7 @@ interface BoxProps {
   marginRight: number;
   marginBottom: number;
   borderRadius: number;
+  marginLeft: number;
 }
 export const Box = Styled.li<BoxProps>`
   height:26px;
@@ -15,6 +16,7 @@ export const Box = Styled.li<BoxProps>`
   border-radius: ${({ borderRadius }) => `${borderRadius}px`};
   background-color: ${({ bgColor }) => bgColor};
   margin-right:${({ marginRight }) => `${marginRight}px`};
+  margin-left:${({ marginLeft }) => `${marginLeft}px`};
   margin-bottom:${({ marginBottom }) => `${marginBottom}px`};
   `;
 

@@ -20,18 +20,10 @@ export const ImgBox1 = Styled.div`
 `;
 
 export const ImgBox2 = Styled.div`
-  width:40px;
-  height:40px;
-  background-color:gray;
-  border-radius:50%;
   transform:translateX(-12px);
 `;
 
 export const ImgBox3 = Styled.div`
-  width:40px;
-  height:40px;
-  background-color:black;
-  border-radius:50%;
   transform:translateX(-24px);
 `;
 

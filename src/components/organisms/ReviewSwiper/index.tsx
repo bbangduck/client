@@ -6,7 +6,7 @@ import * as S from './style';
 const ReviewSwiper = (): ReactElement => {
   return (
     <S.Container>
-      <Swiper spaceBetween={12} slidesPerView={3.5}>
+      <Swiper spaceBetween={-10} slidesPerView={3.5}>
         <SwiperSlide>
           <S.ImgBox />
         </SwiperSlide>

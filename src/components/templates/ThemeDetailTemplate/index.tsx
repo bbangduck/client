@@ -26,7 +26,7 @@ const ThemeDetailTemplate = (): ReactElement => {
         // 두 지점 중 한 지점 체험한 경우 50%할인"
         isRef={eventRef}
       />
-      <ThemeReview isRef={reviewRef} />
+      <ThemeReview isRef={reviewRef} event />
       <ReviewBottom />
     </section>
   );

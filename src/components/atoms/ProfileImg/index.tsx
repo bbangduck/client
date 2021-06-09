@@ -5,10 +5,10 @@ interface Props {
   image: string;
   width: number;
   height: number;
-  marginRight: number;
+  marginRight?: number;
 }
 const ProfileImg = ({ image, width, height, marginRight }: Props): ReactElement => {
-  return <S.Img image={image} width={width} height={height} marginRight={marginRight} />;
+  return <S.Img image={image} width={width} height={height} marginRight={marginRight || 0} />;
 };
 
 export default ProfileImg;

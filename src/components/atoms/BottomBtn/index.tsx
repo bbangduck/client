@@ -11,7 +11,7 @@ const BottomBtn = ({ content, onClick }: Props): ReactElement => {
   };
 
   return (
-    <S.Container onClick={onBtnClick}>
+    <S.Container onClick={onBtnClick} type="submit">
       <S.PTag>{content}</S.PTag>
     </S.Container>
   );

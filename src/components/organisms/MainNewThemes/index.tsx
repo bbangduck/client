@@ -10,26 +10,18 @@ const MainNewThemes = (): ReactElement => {
       <S.H2>이번달 신규테마</S.H2>
       <Swiper spaceBetween={-68}>
         <ul>
-          <li>
-            <SwiperSlide>
-              <NewThemeItem />
-            </SwiperSlide>
-          </li>
-          <li>
-            <SwiperSlide>
-              <NewThemeItem />
-            </SwiperSlide>
-          </li>
-          <li>
-            <SwiperSlide>
-              <NewThemeItem />
-            </SwiperSlide>
-          </li>
-          <li>
-            <SwiperSlide>
-              <NewThemeItem />
-            </SwiperSlide>
-          </li>
+          <SwiperSlide>
+            <NewThemeItem />
+          </SwiperSlide>
+          <SwiperSlide>
+            <NewThemeItem />
+          </SwiperSlide>
+          <SwiperSlide>
+            <NewThemeItem />
+          </SwiperSlide>
+          <SwiperSlide>
+            <NewThemeItem />
+          </SwiperSlide>
         </ul>
       </Swiper>
     </S.Section>

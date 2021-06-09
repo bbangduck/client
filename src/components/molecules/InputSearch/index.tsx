@@ -4,7 +4,7 @@ import deleteIcon from '../../../assets/images/delete/delete.png';
 import * as S from './style';
 
 interface Props {
-  onSearch: () => Promise<void>;
+  onSearch: () => void;
   setInputValue: React.Dispatch<React.SetStateAction<string>>;
   inputValue: string;
   placeholder: string;

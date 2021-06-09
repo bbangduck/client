@@ -1,4 +1,5 @@
 import React, { ReactElement, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import left from '../../../assets/images/arrow/left.png';
 import InputSearch from '../../molecules/InputSearch';
 import Nav from '../../molecules/Nav';
@@ -7,10 +8,17 @@ import SearchedSection from '../../organisms/SearchedSection';
 import * as S from './style';
 
 const SearchTemplate = (): ReactElement => {
+  const history = useHistory();
+
   const [inputValue, setInputValue] = useState('');
 
-  const Test = async () => {
-    console.log(1);
+  const onSearch = () => {
+    if (inputValue) {
+      history.push({
+        pathname: '/search/list',
+        state: { inputValue },
+      });
+    }
   };
 
   return (
@@ -22,7 +30,12 @@ const SearchTemplate = (): ReactElement => {
           <br />
           찾고 계신가요?
         </S.PTag>
-        <InputSearch onSearch={Test} setInputValue={setInputValue} placeholder="검색어 입력" inputValue={inputValue} />
+        <InputSearch
+          onSearch={onSearch}
+          setInputValue={setInputValue}
+          placeholder="검색어 입력"
+          inputValue={inputValue}
+        />
       </S.Box>
       <SearchedSection />
       <Nav />

@@ -1,19 +1,22 @@
 import Styled from 'styled-components';
 
-export const Form = Styled.form`
+interface FormProps {
+  isFocus: boolean;
+}
+export const Form = Styled.form<FormProps>`
   position:relative;
   display:flex;
   align-items:center;
   height:44px;
-  background:dodgerblue;
-  background-color:#f6f6f6;
+  background-color:${({ isFocus }) => (isFocus ? 'white' : '#f6f6f6')};
   margin-bottom:16px;
+  border:${({ isFocus }) => (isFocus ? '1px solid #2b2b2b' : 'none')};
 `;
 
 export const Input = Styled.input`
   width:100%;
   height:100%;
-  padding:0 48px 0 12px;
+  padding:0 80px 0 12px;
   border:none;
   background:none;
   outline:none;
@@ -23,6 +26,12 @@ export const Input = Styled.input`
     letter-spacing: -0.35px;
     color: #9c9c9c;
   }
+`;
+
+export const Img = Styled.img`
+  position:absolute;
+  right:46px;
+  cursor:pointer;
 `;
 
 export const Button = Styled.button`

@@ -1,21 +1,19 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 import search from '../../../assets/images/search/search.png';
+import deleteIcon from '../../../assets/images/delete/delete.png';
 import * as S from './style';
 
 interface Props {
   onSearch: () => Promise<void>;
   setInputValue: React.Dispatch<React.SetStateAction<string>>;
+  inputValue: string;
   placeholder: string;
 }
-const InputSearch = ({ onSearch, setInputValue, placeholder }: Props): ReactElement => {
+const InputSearch = ({ onSearch, setInputValue, placeholder, inputValue }: Props): ReactElement => {
+  const [isFocus, setIsFocus] = useState(false);
+
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let debounce = null;
-    if (debounce) {
-      clearTimeout(debounce);
-    }
-    debounce = setTimeout(() => {
-      setInputValue(e.target.value);
-    }, 500);
+    setInputValue(e.target.value);
   };
 
   const onSearchClick = (e: React.FormEvent<HTMLFormElement>) => {
@@ -24,8 +22,17 @@ const InputSearch = ({ onSearch, setInputValue, placeholder }: Props): ReactElem
   };
 
   return (
-    <S.Form onSubmit={onSearchClick}>
-      <S.Input type="text" placeholder={placeholder} onChange={onInputChange} />
+    <S.Form onSubmit={onSearchClick} isFocus={isFocus}>
+      <S.Input
+        type="text"
+        placeholder={placeholder}
+        onChange={onInputChange}
+        value={inputValue}
+        onFocus={() => setIsFocus(true)}
+        onBlur={() => setIsFocus(false)}
+        autoComplete="off"
+      />
+      {inputValue ? <S.Img src={deleteIcon} alt="삭제" onClick={() => setInputValue('')} /> : null}
       <S.Button type="submit">
         <img src={search} alt="찾기" />
       </S.Button>

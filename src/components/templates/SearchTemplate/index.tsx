@@ -22,7 +22,7 @@ const SearchTemplate = (): ReactElement => {
           <br />
           찾고 계신가요?
         </S.PTag>
-        <InputSearch onSearch={Test} setInputValue={setInputValue} placeholder="검색어 입력" />
+        <InputSearch onSearch={Test} setInputValue={setInputValue} placeholder="검색어 입력" inputValue={inputValue} />
       </S.Box>
       <SearchedSection />
       <Nav />

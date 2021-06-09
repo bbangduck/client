@@ -24,7 +24,7 @@ const MyFriendsTemplate = (): ReactElement => {
       <MyFriendsNav navClick={navClick} setNavClick={setNavClick} />
       {!navClick ? (
         <div>
-          <InputSearch onSearch={searchMyFriends} setInputValue={setMyFriendsInputValue} />
+          <InputSearch onSearch={searchMyFriends} setInputValue={setMyFriendsInputValue} placeholder="친구 검색" />
           <MyFriendsList />
         </div>
       ) : (

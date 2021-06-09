@@ -15,7 +15,14 @@ const ReviewMoreInfo = ({ moreOn }: Props): ReactElement => {
     <div>
       {moreOn ? (
         <S.HashBox>
-          <InfoBox content={`#${hash}`} bgColor="#f4f4f9" color="#9c9c9c" marginRight={9} />
+          <InfoBox
+            content={`#${hash}`}
+            bgColor="#f4f4f9"
+            color="#9c9c9c"
+            marginRight={9}
+            borderRadius={4}
+            marginBottom={8}
+          />
         </S.HashBox>
       ) : null}
       <S.Help>163명에게 도움이 됐어요.</S.Help>

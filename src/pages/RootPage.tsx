@@ -34,10 +34,10 @@ const RootPage = (): ReactElement => {
     <Router>
       <Switch>
         <Route exact path="/" component={() => <Redirect to="/home" />} />
+        <Route path="/test" component={TestComponent} />
         {/* 메인페이지 */}
         <Route path="/home" component={MainPage} />
         <Route path="/search" component={SearchPage} />
-        <Route path="/test" component={TestComponent} />
         {/* 에러페이지 */}
         <Route path="/error" component={Page404} />
         {/* 마이페이지 */}

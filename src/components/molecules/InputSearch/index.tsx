@@ -17,14 +17,17 @@ const InputSearch = ({ onSearch, setInputValue }: Props): ReactElement => {
     }, 500);
   };
 
-  const onSearchClick = () => {
+  const onSearchClick = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     onSearch();
   };
 
   return (
-    <S.Form>
+    <S.Form onSubmit={onSearchClick}>
       <S.Input type="text" placeholder="친구 검색" onChange={onInputChange} />
-      <S.Img src={search} alt="찾기" onClick={onSearchClick} />
+      <S.Button type="submit">
+        <img src={search} alt="찾기" />
+      </S.Button>
     </S.Form>
   );
 };

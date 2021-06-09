@@ -43,7 +43,7 @@ const Modal = ({
           <S.LeftBtn type="button" onClick={() => setModalState(false)}>
             취소
           </S.LeftBtn>
-          <S.RightBtn type="submit" onClick={onSubmit}>
+          <S.RightBtn type="button" onClick={onSubmit}>
             {btnContent}
           </S.RightBtn>
         </S.BtnBox>

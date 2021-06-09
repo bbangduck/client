@@ -25,8 +25,16 @@ export const Input = Styled.input`
   }
 `;
 
-export const Img = Styled.img`
+export const Button = Styled.button`
   position:absolute;
   right:12px;
   cursor:pointer;
+  width: 24px;
+  height: 24px;
+  border:none;
+  outline:none;
+  background-color:transparent;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 `;

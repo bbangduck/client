@@ -13,7 +13,7 @@ import EscapeThemes from '../../organisms/EscapeThemes';
 import * as S from './style';
 
 const MyPageTemplate = (): ReactElement => {
-  if (!userExist()) return <Redirect to="/" />;
+  if (!userExist()) return <Redirect to="/login" />;
   return (
     <S.Container>
       <MyPageHeader />

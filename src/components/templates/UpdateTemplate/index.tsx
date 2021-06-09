@@ -8,7 +8,7 @@ import left from '../../../assets/images/arrow/left.png';
 import userExist from '../../../utils/userExist';
 
 const UpdateTemplate = (): ReactElement => {
-  if (!userExist()) return <Redirect to="/" />;
+  if (!userExist()) return <Redirect to="/login" />;
   return (
     <S.Section>
       <UpdateHeader content="설정" arrow={left} />

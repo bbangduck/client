@@ -34,7 +34,7 @@ const RemoveAccountTemplate2 = (): ReactElement => {
     // 회원탈퇴후 이동페이지로 이동예정
   };
 
-  if (!userExist()) return <Redirect to="/" />;
+  if (!userExist()) return <Redirect to="/login" />;
   return (
     <S.Section>
       <UpdateHeader content="회원탈퇴" arrow={left} />

@@ -12,7 +12,7 @@ import * as S from './style';
 const MyTendencyTemplate = (): ReactElement => {
   const data = 0;
 
-  if (!userExist()) return <Redirect to="/" />;
+  if (!userExist()) return <Redirect to="/login" />;
   return (
     <section>
       {data ? (

@@ -1,12 +1,14 @@
 import React, { ReactElement } from 'react';
 import * as S from './style';
-import iconx1 from '../../../assets/images/profile/profile.png';
 
 interface Props {
-  img?: string;
+  image: string;
+  width: number;
+  height: number;
+  marginRight: number;
 }
-const ProfileImg = ({ img }: Props): ReactElement => {
-  return <S.Img src={img || iconx1} alt="프로필 사진" />;
+const ProfileImg = ({ image, width, height, marginRight }: Props): ReactElement => {
+  return <S.Img image={image} width={width} height={height} marginRight={marginRight} />;
 };
 
 export default ProfileImg;

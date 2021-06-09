@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 import * as S from './style';
 import ProfileImg from '../../atoms/ProfileImg';
+import defaultImg from '../../../assets/images/profile/profile.png';
 
 const MyInfo = (): ReactElement => {
   const name = '방탈출 초보 방린이';
@@ -9,7 +10,7 @@ const MyInfo = (): ReactElement => {
 
   return (
     <S.Container>
-      <ProfileImg />
+      <ProfileImg image={defaultImg} width={80} height={80} marginRight={20} />
       <S.RightBox>
         <S.NamePTag>{name}</S.NamePTag>
         <S.LevelPTag>

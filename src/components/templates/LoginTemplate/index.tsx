@@ -1,8 +1,11 @@
 import React, { ReactElement } from 'react';
+import { Redirect } from 'react-router-dom';
 import LoginBottom from '../../organisms/LoginBottom';
+import userExist from '../../../utils/userExist';
 import * as S from './style';
 
 const LoginTemplate = (): ReactElement => {
+  if (userExist()) return <Redirect to="/" />;
   return (
     <S.Section>
       <S.Background />

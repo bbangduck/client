@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 import more from '../../../assets/images/more/moreWhite.png';
+import poster from '../../../assets/images/test/poster.jpg';
 import * as S from './style';
 
 interface Props {
@@ -12,8 +13,7 @@ const MyThemeItem = ({ onMoreClick }: Props): ReactElement => {
 
   return (
     <S.Li>
-      <S.ImgBox>
-        <img src="" alt="" />
+      <S.ImgBox image={poster}>
         <S.MoreBox onClick={onClick}>
           <img src={more} alt="삭제 버튼" />
         </S.MoreBox>

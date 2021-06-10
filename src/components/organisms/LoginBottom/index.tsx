@@ -1,9 +1,8 @@
 import React, { ReactElement } from 'react';
-import { useHistory, Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import kakao from '../../../assets/images/kakao/kakao.png';
 import naver from '../../../assets/images/naver/naver.png';
 import setSessionStorage from '../../../utils/setSessionStorage';
-import userExist from '../../../utils/userExist';
 import Nav from '../../molecules/Nav';
 import * as S from './style';
 
@@ -32,14 +31,13 @@ const LoginBottom = (): ReactElement => {
         const { refreshToken } = event.data.data;
         setSessionStorage(accessToken, refreshToken, userId);
         // 이미가입된 회원일경우 메인화면으로 이동예정
+        history.push('/');
       }
     };
 
     window.open(url, name, option);
     window.addEventListener('message', receiveMessage, false);
   };
-
-  if (userExist()) return <Redirect to="/" />;
   return (
     <S.Container>
       <S.Btn type="button" onClick={onKakaoLogin}>

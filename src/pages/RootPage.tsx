@@ -1,10 +1,13 @@
 import React, { ReactElement } from 'react';
 import loadable from '@loadable/component';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import TestComponent from '../components/TestComponent/TestComponent';
 
 const isLoading = { fallback: <div>로딩쓰쓰쓰쓰쓰쓰쓰</div> };
 
+const MainPage = loadable(() => import('./main/MainPage'), isLoading);
+const SearchPage = loadable(() => import('./main/SearchPage'), isLoading);
+const SearchListPage = loadable(() => import('./main/SearchListPage'), isLoading);
 const MyPage = loadable(() => import('./myPages/MyPages'), isLoading);
 const Page404 = loadable(() => import('./404/Page404'), isLoading);
 const StatusPage = loadable(() => import('./myPages/mypage/StatusPage'), isLoading);
@@ -31,8 +34,14 @@ const RootPage = (): ReactElement => {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={TestComponent} />
-        <Route exact path="/error" component={Page404} />
+        <Route exact path="/" component={() => <Redirect to="/home" />} />
+        <Route path="/test" component={TestComponent} />
+        {/* 메인페이지 */}
+        <Route path="/home" component={MainPage} />
+        <Route exact path="/search" component={SearchPage} />
+        <Route path="/search/list" component={SearchListPage} />
+        {/* 에러페이지 */}
+        <Route path="/error" component={Page404} />
         {/* 마이페이지 */}
         <Route exact path="/mypage" component={MyPage} /> {/* 11 */}
         <Route path="/mypage/status" component={StatusPage} /> {/* 22 */}

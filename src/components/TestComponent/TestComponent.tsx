@@ -1,24 +1,28 @@
-import React, { ReactElement, useCallback } from 'react';
+import React, { ReactElement, useState } from 'react';
 import * as Styled from './TestComponent.style';
-import useCounter from '../../hooks/useCounter';
 
 const TestComponent = (): ReactElement => {
-  const { data, mutate } = useCounter();
+  const [inputValue, setInputValue] = useState('');
+  const emailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
 
-  const up = useCallback(() => mutate(data + 1), [data, mutate]);
-  const down = useCallback(() => mutate(data - 1), [data, mutate]);
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!emailRegex.test(inputValue)) console.log('에러');
+    if (inputValue && emailRegex.test(inputValue)) console.log(inputValue);
+  };
+
+  const onDelete = () => {
+    setInputValue('');
+  };
 
   return (
-    <div>
-      <Styled.Ptag>test</Styled.Ptag>
-      <p>{data}</p>
-      <button type="button" onClick={up}>
-        up
+    <form onSubmit={onSubmit}>
+      <input type="text" autoComplete="off" onChange={(e) => setInputValue(e.target.value)} value={inputValue} />
+      <button type="submit">다음</button>
+      <button type="button" onClick={onDelete}>
+        삭제
       </button>
-      <button type="button" onClick={down}>
-        down
-      </button>
-    </div>
+    </form>
   );
 };
 

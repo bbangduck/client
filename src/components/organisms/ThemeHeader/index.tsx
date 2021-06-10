@@ -27,8 +27,8 @@ const ThemeHeader = (): ReactElement => {
           <S.H1Tag>[강남] 제로호텔L</S.H1Tag>
           <S.Location>제로월드 강남점</S.Location>
           <S.DetailBox>
-            <InfoBox content="스릴러" bgColor="#f4f4f9" color="#151950" marginRight={4} />
-            <InfoBox content="스릴러" bgColor="#f4f4f9" color="#151950" marginRight={4} />
+            <InfoBox content="스릴러" bgColor="#f4f4f9" color="#151950" marginRight={4} borderRadius={4} />
+            <InfoBox content="스릴러" bgColor="#f4f4f9" color="#151950" marginRight={4} borderRadius={4} />
           </S.DetailBox>
         </S.Container>
       </S.Header>

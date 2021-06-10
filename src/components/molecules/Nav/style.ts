@@ -1,6 +1,7 @@
 import Styled from 'styled-components';
 
-export const Container = Styled.ul`
+export const Ul = Styled.ul`
+  width:360px;
   background-color:#ffffff;
   position:fixed;
   bottom:0;
@@ -10,4 +11,5 @@ export const Container = Styled.ul`
   display:flex;
   align-items: center;
   justify-content: space-between;
+  z-index:1;
 `;

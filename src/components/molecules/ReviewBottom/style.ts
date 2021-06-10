@@ -9,6 +9,7 @@ export const Container = Styled.aside`
   transform:translateX(-20px);
   display:flex;
   cursor:pointer;
+  z-index:1000;
 `;
 
 export const leftBox = Styled.div`
@@ -44,6 +45,10 @@ export const ReviewBox = Styled.div`
   justify-content:center;
   align-items:center;
   background-color: #2b2b2b;
+`;
+
+export const Img = Styled.img`
+  margin-right:4px;
 `;
 
 export const P = Styled.p`

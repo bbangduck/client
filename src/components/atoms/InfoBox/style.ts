@@ -3,6 +3,9 @@ import Styled from 'styled-components';
 interface BoxProps {
   bgColor: string;
   marginRight: number;
+  marginBottom: number;
+  borderRadius: number;
+  marginLeft: number;
 }
 export const Box = Styled.li<BoxProps>`
   height:26px;
@@ -10,10 +13,11 @@ export const Box = Styled.li<BoxProps>`
   text-align:center;
   justify-content:center;
   padding: 4px 12px;
-  border-radius: 4px;
+  border-radius: ${({ borderRadius }) => `${borderRadius}px`};
   background-color: ${({ bgColor }) => bgColor};
   margin-right:${({ marginRight }) => `${marginRight}px`};
-  margin-bottom:8px;
+  margin-left:${({ marginLeft }) => `${marginLeft}px`};
+  margin-bottom:${({ marginBottom }) => `${marginBottom}px`};
   `;
 
 interface SpanProps {

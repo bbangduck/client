@@ -1,18 +1,18 @@
 import React, { ReactElement } from 'react';
+import ProfileImg from '../../atoms/ProfileImg';
+import defaultImg from '../../../assets/images/profile/profile.png';
 import * as S from './style';
 
 const PlayedPeople = (): ReactElement => {
   return (
     <S.Container>
       <S.Images>
-        <S.ImgBox1>
-          <img src="" alt="" />
-        </S.ImgBox1>
+        <ProfileImg image={defaultImg} width={40} height={40} />
         <S.ImgBox2>
-          <img src="" alt="" />
+          <ProfileImg image={defaultImg} width={40} height={40} />
         </S.ImgBox2>
         <S.ImgBox3>
-          <img src="" alt="" />
+          <ProfileImg image={defaultImg} width={40} height={40} />
         </S.ImgBox3>
       </S.Images>
       <S.PTag>

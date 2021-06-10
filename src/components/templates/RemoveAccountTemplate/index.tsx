@@ -14,7 +14,7 @@ const RemoveAccountTemplate = (): ReactElement => {
     history.push('/mypage/removeAccount/2');
   };
 
-  if (!userExist()) return <Redirect to="/" />;
+  if (!userExist()) return <Redirect to="/login" />;
   return (
     <S.Container>
       <UpdateHeader content="회원탈퇴" arrow={left} />

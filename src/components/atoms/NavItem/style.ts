@@ -1,13 +1,14 @@
 import Styled from 'styled-components';
 
-export const Container = Styled.button`
+export const Li = Styled.li`
   background-color:white;
   border:none;
   outline:none;
-  width:72px;
+  width:90px;
   display:flex;
   flex-direction:column;
   align-items:center;
+  justify-content:center;
   cursor:pointer;
 `;
 
@@ -18,10 +19,6 @@ export const ImgBox = Styled.div`
   justify-content:center;
   align-items:center;
   margin-bottom:2px;
-`;
-
-export const Img = Styled.img`
-  object-fit: contain;
 `;
 
 export const PTag = Styled.p`

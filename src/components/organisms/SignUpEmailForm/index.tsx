@@ -1,11 +1,9 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { ReactElement, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useForm } from 'react-hook-form';
 import BottomBtn from '../../atoms/BottomBtn';
-import { schemaEmail } from '../../../utils/validationSchema';
 import deleteIcon from '../../../assets/images/delete/delete.png';
+import { emailRegex } from '../../../utils/regex';
 import * as S from './style';
 
 interface Props {
@@ -15,34 +13,33 @@ const SignUpEmailForm = ({ userData }: Props): ReactElement => {
   const history = useHistory();
   const [inputValue, setInputValue] = useState('');
   const [inputFocus, setInputFocus] = useState(false);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<SignUpDataType>({ resolver: yupResolver(schemaEmail) });
+  const [isError, setIsError] = useState(false);
 
   const onInputhange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(() => e.target.value);
+    setInputValue(e.target.value);
   };
 
   const onDelete = () => {
-    setInputValue(() => '');
+    setInputValue('');
   };
 
-  const onSignUp = (datas: { email: string }) => {
-    const newUserData = { ...userData, email: datas.email, nickname: '' };
+  const onSignUp = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-    if (newUserData) {
+    if (emailRegex.test(inputValue)) {
+      setIsError(false);
+      const newUserData = { ...userData, email: inputValue, nickname: '' };
       history.push({
         pathname: '/signup/nickname',
         state: newUserData,
       });
+    } else {
+      setIsError(true);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit(onSignUp)}>
+    <form onSubmit={onSignUp}>
       <S.Label htmlFor="signupEmail">
         <S.Span>이메일</S.Span>
         <S.InputBox>
@@ -50,13 +47,13 @@ const SignUpEmailForm = ({ userData }: Props): ReactElement => {
             type="text"
             id="signupEmail"
             placeholder="이메일 입력"
-            {...register('email')}
             name="email"
             onChange={onInputhange}
             onFocus={() => setInputFocus(true)}
             onBlurCapture={() => setInputFocus(false)}
             value={inputValue}
             focus={inputFocus}
+            autoComplete="off"
           />
           {inputValue ? (
             <S.deleteBox onClick={onDelete}>
@@ -65,7 +62,7 @@ const SignUpEmailForm = ({ userData }: Props): ReactElement => {
           ) : null}
         </S.InputBox>
       </S.Label>
-      {errors.email ? <S.ErrorMsg>{errors.email.message}</S.ErrorMsg> : null}
+      {isError ? <S.ErrorMsg>올바르지 않은 이메일주소 입니다.</S.ErrorMsg> : null}
       <BottomBtn content="다음" />
     </form>
   );

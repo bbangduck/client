@@ -5,8 +5,16 @@ export const Container = Styled.div`
   margin-bottom:15px;
 `;
 
-export const ImgBox = Styled.div`
+interface ImgBoxProps {
+  image?: string;
+}
+export const ImgBox = Styled.div<ImgBoxProps>`
   width: 68px;
   height: 68px;
-  background-color:gray;
+  overflow:hidden; 
+  background-image:${({ image }) => `url(${image})`};
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-color:lightgray;
 `;

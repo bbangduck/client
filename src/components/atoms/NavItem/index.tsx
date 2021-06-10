@@ -14,14 +14,12 @@ const NavItem = ({ src, name, pushTo }: Props): ReactElement => {
   };
 
   return (
-    <li onClick={onClick}>
-      <Styled.Container>
-        <Styled.ImgBox>
-          <Styled.Img src={src} alt={name} />
-        </Styled.ImgBox>
-        <Styled.PTag>{name}</Styled.PTag>
-      </Styled.Container>
-    </li>
+    <Styled.Li onClick={onClick}>
+      <Styled.ImgBox>
+        <img src={src} alt={name} />
+      </Styled.ImgBox>
+      <Styled.PTag>{name}</Styled.PTag>
+    </Styled.Li>
   );
 };
 

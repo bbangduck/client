@@ -33,7 +33,7 @@ const InputModal = ({
     }
   }, []);
 
-  const onSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onUpdate();
   };
@@ -48,7 +48,7 @@ const InputModal = ({
         <S.TitleBox>
           <S.PTag>{title} 입력해주세요.</S.PTag>
         </S.TitleBox>
-        <form>
+        <form onSubmit={onSubmit}>
           <S.Label htmlFor="nickname">
             <S.Span inputError={inputError}>{subTitle}</S.Span>
             <S.Input
@@ -65,9 +65,7 @@ const InputModal = ({
             <S.LeftBtn type="button" onClick={() => setModalState(false)}>
               취소
             </S.LeftBtn>
-            <S.RightBtn type="submit" onClick={onSubmit}>
-              확인
-            </S.RightBtn>
+            <S.RightBtn type="submit">확인</S.RightBtn>
           </S.BtnBox>
         </form>
       </S.ModalBox>

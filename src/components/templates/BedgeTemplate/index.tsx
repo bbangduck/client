@@ -6,7 +6,7 @@ import left from '../../../assets/images/arrow/left.png';
 import userExist from '../../../utils/userExist';
 
 const BedgeTemplate = (): ReactElement => {
-  if (!userExist()) return <Redirect to="/" />;
+  if (!userExist()) return <Redirect to="/login" />;
   return (
     <section>
       <UpdateHeader content="획득 배지" arrow={left} />

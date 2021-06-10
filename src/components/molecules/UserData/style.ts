@@ -6,21 +6,6 @@ export const Containter = Styled.div`
   margin-bottom:2px;
 `;
 
-interface ImgBoxProps {
-  image: string;
-}
-export const ImgBox = Styled.div<ImgBoxProps>`
-  width: 40px;
-  height: 40px;
-  border-radius:50%;
-  overflow:hidden;
-  background-image:${({ image }) => `url(${image})`};
-  background-position:center;
-  background-repeat:no-repeat;
-  background-size:cover;
-  margin-right:10px;
-`;
-
 export const ContentBox = Styled.div`
   display:flex;
   flex-direction:column;

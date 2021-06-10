@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import heart from '../../../assets/images/heart/heart.png';
-import pen from '../../../assets/images/pen/pen.png';
+import pen from '../../../assets/images/pen/whitePen.png';
 import * as S from './style';
 
 const ReviewBottom = (): ReactElement => {
@@ -14,7 +14,7 @@ const ReviewBottom = (): ReactElement => {
         <S.PTag>카페 바로가기</S.PTag>
       </S.CafeBox>
       <S.ReviewBox>
-        <img src={pen} alt="리뷰 작성" />
+        <S.Img src={pen} alt="리뷰 작성" />
         <S.P>리뷰 작성</S.P>
       </S.ReviewBox>
     </S.Container>

@@ -11,7 +11,7 @@ const Nav = (): ReactElement => {
     <nav>
       <S.Ul>
         <NavItem src={home} name="홈" pushTo="/home" />
-        <NavItem src={book} name="테마" />
+        <NavItem src={book} name="테마" pushTo="/theme" />
         <NavItem src={map} name="지도" />
         <NavItem src={human} name="마이페이지" pushTo="/mypage" />
       </S.Ul>

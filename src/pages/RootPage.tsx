@@ -27,6 +27,7 @@ const LoginPage = loadable(() => import('./login/LoginPage'), isLoading);
 const SignUpClausePage = loadable(() => import('./login/SignUpClausePage'), isLoading);
 const SignUpEmailPage = loadable(() => import('./login/SignUpEmailPage'), isLoading);
 const SignUpNickNamePage = loadable(() => import('./login/SignUpNickNamePage'), isLoading);
+const ThemePage = loadable(() => import('./themes/ThemePage'), isLoading);
 const ThemeDetailPage = loadable(() => import('./themes/ThemeDetailPage'), isLoading);
 const ThemeAnalysisPage = loadable(() => import('./themes/ThemeAnalysisPage'), isLoading);
 
@@ -65,6 +66,7 @@ const RootPage = (): ReactElement => {
         <Route path="/signup/email" component={SignUpEmailPage} /> {/* ? */}
         <Route path="/signup/nickname" component={SignUpNickNamePage} /> {/* ? */}
         {/* 테마 */}
+        <Route exact path="/theme" component={ThemePage} />
         <Route exact path="/theme/:name" component={ThemeDetailPage} /> {/* 4 */}
         <Route path="/theme/:name/analysis" component={ThemeAnalysisPage} /> {/* ? */}
       </Switch>

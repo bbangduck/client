@@ -16,10 +16,23 @@ export const Container = Styled.div`
   cursor:pointer;
 `;
 
-export const PTag = Styled.p`
+export const Dot = Styled.div`
+  position:absolute;
+  top:8px;
+  left:36px;
+  width: 4px;
+  height: 4px;
+  border-radius:50%;
+  background-color: #ff5c53;
+`;
+
+interface PTagProps {
+  filtered: boolean;
+}
+export const PTag = Styled.p<PTagProps>`
   font-size: 14px;
   line-height: 1.43;
   letter-spacing: -0.14px;
-  color: #4b4b4b;
+  color: ${({ filtered }) => (filtered ? '#4b4b4b' : '#2d369f')};
   margin-left:3px;
 `;

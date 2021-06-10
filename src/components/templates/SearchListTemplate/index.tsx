@@ -1,14 +1,26 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import InputWithArrow from '../../molecules/InputWithArrow';
+import Nav from '../../molecules/Nav';
+import SearchCafeList from '../../organisms/SearchCafeList';
+import SearchThemeList from '../../organisms/SearchThemeList';
+import * as S from './style';
 
 const SearchListTemplate = (): ReactElement => {
   const location = useLocation<{ inputValue: string }>();
-  const { inputValue } = location.state;
+  const { inputValue: initialValue } = location.state;
 
-  console.log(inputValue);
+  const [newInputValue, setNewInputValue] = useState('');
+
   return (
     <section>
-      <p>리스트</p>
+      <InputWithArrow inputValue={newInputValue} setInputValue={setNewInputValue} initialValue={initialValue} />
+      <S.PTag>
+        <S.Span>24</S.Span>건의 검색결과
+      </S.PTag>
+      <SearchThemeList />
+      <SearchCafeList />
+      <Nav />
     </section>
   );
 };

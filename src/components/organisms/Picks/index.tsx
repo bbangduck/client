@@ -16,16 +16,18 @@ const Picks = (): ReactElement => {
       <Swiper spaceBetween={20} pagination={{ clickable: true }}>
         <ul>
           <SwiperSlide>
-            <PickItem />
-          </SwiperSlide>
-          <SwiperSlide>
-            <PickItem />
-          </SwiperSlide>
-          <SwiperSlide>
-            <PickItem />
-          </SwiperSlide>
-          <SwiperSlide>
-            <PickItem />
+            <PickItem
+              titleColor="#ffffff"
+              title="제로월드 서현점"
+              address="서울 서초동 930번지 34"
+              themeAccount={8}
+              boxBgColor="#ffffff"
+              boxColor="#2b2b2b"
+              addressColor="#9c9c9c"
+              themeColor="#9c9c9c"
+              themeCountColor="#ffffff"
+              borderColor="#9c9c9c"
+            />
           </SwiperSlide>
         </ul>
       </Swiper>

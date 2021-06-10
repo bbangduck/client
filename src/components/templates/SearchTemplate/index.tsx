@@ -35,6 +35,7 @@ const SearchTemplate = (): ReactElement => {
           setInputValue={setInputValue}
           placeholder="검색어 입력"
           inputValue={inputValue}
+          marginBottom={16}
         />
       </S.Box>
       <SearchedSection />

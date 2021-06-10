@@ -1,18 +1,44 @@
 import React, { ReactElement } from 'react';
 import * as S from './style';
 
-const PickItem = (): ReactElement => {
+interface Props {
+  title: string;
+  titleColor: string;
+  address: string;
+  themeAccount: number;
+  boxColor: string;
+  boxBgColor: string;
+  addressColor: string;
+  themeColor: string;
+  themeCountColor: string;
+  borderColor: string;
+  marginBottom?: number;
+}
+const PickItem = ({
+  title,
+  titleColor,
+  address,
+  themeAccount,
+  boxColor,
+  boxBgColor,
+  addressColor,
+  themeColor,
+  themeCountColor,
+  borderColor,
+  marginBottom,
+}: Props): ReactElement => {
   return (
-    <S.Li>
-      <S.PTag>제로월드 서현점</S.PTag>
-      <S.Span>서울 서초동 930번지 34</S.Span>
+    <S.Li borderColor={borderColor} marginBottom={marginBottom}>
+      <S.PTag color={titleColor}>{title}</S.PTag>
+      <S.Span color={addressColor}>{address}</S.Span>
       <div>
-        <S.Span>보유테마</S.Span>
-        <S.Span>
-          <S.Span2>&nbsp;&nbsp;&nbsp;8</S.Span2>개
+        <S.Span color={themeColor}>
+          보유테마<S.Span2 color={themeCountColor}>&nbsp;&nbsp;&nbsp;{themeAccount}</S.Span2>개
         </S.Span>
       </div>
-      <S.MoreBox>More</S.MoreBox>
+      <S.MoreBox color={boxColor} bgColor={boxBgColor}>
+        More
+      </S.MoreBox>
     </S.Li>
   );
 };

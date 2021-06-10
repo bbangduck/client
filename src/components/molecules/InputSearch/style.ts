@@ -2,6 +2,7 @@ import Styled from 'styled-components';
 
 interface FormProps {
   isFocus: boolean;
+  marginBottom: number;
 }
 export const Form = Styled.form<FormProps>`
   position:relative;
@@ -9,7 +10,7 @@ export const Form = Styled.form<FormProps>`
   align-items:center;
   height:44px;
   background-color:${({ isFocus }) => (isFocus ? 'white' : '#f6f6f6')};
-  margin-bottom:16px;
+  margin-bottom:${({ marginBottom }) => `${marginBottom}px`};
   border:${({ isFocus }) => (isFocus ? '1px solid #2b2b2b' : 'none')};
 `;
 

@@ -29,6 +29,7 @@ const MyFriendsTemplate = (): ReactElement => {
             setInputValue={setMyFriendsInputValue}
             placeholder="친구 검색"
             inputValue={myFriendsInputValue}
+            marginBottom={16}
           />
           <MyFriendsList />
         </div>

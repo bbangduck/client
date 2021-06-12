@@ -33,4 +33,4 @@ const ReviewHintAmount = ({ setHintState, hint }: Props): ReactElement => {
   );
 };
 
-export default ReviewHintAmount;
+export default React.memo(ReviewHintAmount);

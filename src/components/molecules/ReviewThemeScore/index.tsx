@@ -59,4 +59,4 @@ const ReviewThemeScore = ({ setScoreState }: Props): ReactElement => {
   );
 };
 
-export default ReviewThemeScore;
+export default React.memo(ReviewThemeScore);

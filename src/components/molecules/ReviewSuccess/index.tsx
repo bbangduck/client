@@ -31,4 +31,4 @@ const ReviewSuccess = ({ successClicked, setSuccessState }: Props): ReactElement
   );
 };
 
-export default ReviewSuccess;
+export default React.memo(ReviewSuccess);

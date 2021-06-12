@@ -18,4 +18,4 @@ const ReviewTime = ({ setTimeState }: Props): ReactElement => {
   );
 };
 
-export default ReviewTime;
+export default React.memo(ReviewTime);

@@ -28,15 +28,14 @@ const MyThemesList = (): ReactElement => {
       {test.map((num) => (
         <MyThemeItem key={num} onMoreClick={onMoreClick} />
       ))}
-      {bottomModalOn ? (
-        <BottomModal
-          title="관심테마"
-          secondBtn="삭제하기"
-          visibleContentRef={visibleBottomRef}
-          clickOutside={clickBottomOutside}
-          onDelete={onDelete}
-        />
-      ) : null}
+      <BottomModal
+        title="관심테마"
+        secondBtn="삭제하기"
+        visibleContentRef={visibleBottomRef}
+        clickOutside={clickBottomOutside}
+        onDelete={onDelete}
+        isOn={bottomModalOn}
+      />
       {finalModalOn ? (
         <Modal
           clickOutsideClose={clickFinalOutside}

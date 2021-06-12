@@ -76,16 +76,15 @@ const MypageStatusList = (): ReactElement => {
           onUpdate={onUpdate}
         />
       ))}
-      {modalOn ? (
-        <BottomModal
-          title="내 방탈출"
-          firstBtn="수정하기"
-          secondBtn="삭제하기"
-          visibleContentRef={visibleContentRef}
-          clickOutside={clickOutside}
-          onDelete={onDelete}
-        />
-      ) : null}
+      <BottomModal
+        title="내 방탈출"
+        firstBtn="수정하기"
+        secondBtn="삭제하기"
+        visibleContentRef={visibleContentRef}
+        clickOutside={clickOutside}
+        onDelete={onDelete}
+        isOn={modalOn}
+      />
       {finalModalOn ? (
         <Modal
           clickOutsideClose={finalClickOutside}

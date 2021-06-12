@@ -8,6 +8,7 @@ interface Props {
   visibleContentRef: React.MutableRefObject<HTMLDivElement | null>;
   clickOutside: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   onDelete: () => void;
+  isOn?: boolean;
 }
 const BottomModal = ({
   title,
@@ -16,14 +17,15 @@ const BottomModal = ({
   visibleContentRef,
   clickOutside,
   onDelete,
+  isOn,
 }: Props): ReactElement => {
   const onDeleteClick = () => {
     onDelete();
   };
 
   return (
-    <S.Container onClick={clickOutside}>
-      <S.Box ref={visibleContentRef}>
+    <S.Container onClick={clickOutside} isOn={isOn}>
+      <S.Box ref={visibleContentRef} isOn={isOn}>
         <S.Title>{title}</S.Title>
         {firstBtn ? <S.Btn>{firstBtn}</S.Btn> : null}
         <S.Btn2 onClick={onDeleteClick}>{secondBtn}</S.Btn2>

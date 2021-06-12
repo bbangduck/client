@@ -1,17 +1,24 @@
 import Styled from 'styled-components';
 
-export const Container = Styled.div`
+interface ContainerProps {
+  isOn?: boolean;
+}
+export const Container = Styled.div<ContainerProps>`
   position:fixed;
   bottom:0;
   transform:translateX(-20px);
   width:360px;
   height:100vh;
   background-color: rgba(43, 43, 43, 0.6);
-  overflow:hidden;
-`;
+  overflow: hidden;
+  visibility: ${({ isOn }) => !isOn && 'hidden'};
+  `;
 
-export const Box = Styled.div`
-  width:100%;
+interface BoxProps {
+  isOn?: boolean;
+}
+export const Box = Styled.div<BoxProps>`
+  width:360px;
   position:absolute;
   bottom:0;
   padding:24px 20px;
@@ -19,6 +26,9 @@ export const Box = Styled.div`
   display:flex;
   flex-direction:column;
   align-items:flex-start;
+  transition-delay:.3s;
+  transition:.5s;
+  transform:${({ isOn }) => (isOn ? 'translateY(0)' : 'translateY(100vh)')}; 
 `;
 
 export const Title = Styled.p`

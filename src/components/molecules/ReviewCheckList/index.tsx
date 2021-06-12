@@ -1,6 +1,7 @@
 import React, { ReactElement, useState } from 'react';
 import ReviewHintAmount from '../ReviewHintAmount';
 import ReviewSuccess from '../ReviewSuccess';
+import ReviewThemeScore from '../ReviewThemeScore';
 import ReviewTime from '../ReviewTime';
 import * as S from './style';
 
@@ -18,6 +19,7 @@ const ReviewCheckList = (): ReactElement => {
       <ReviewSuccess successClicked={successClicked} setSuccessState={setSuccessClicked} />
       <ReviewTime setTimeState={setEscapeTime} />
       <ReviewHintAmount setHintState={setHintAmount} hint={hintAmount} />
+      <ReviewThemeScore />
     </div>
   );
 };

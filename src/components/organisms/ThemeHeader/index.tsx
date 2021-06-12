@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import { useHistory } from 'react-router-dom';
 import UpdateHeader from '../../molecules/UpdateHeader';
 import more from '../../../assets/images/more/more2.png';
 import left from '../../../assets/images/arrow/whiteLeft.png';
@@ -11,6 +12,7 @@ import { useClickOutside } from '../../../hooks/useClickOutside';
 import BottomModal from '../../molecules/BottomModal';
 
 const ThemeHeader = (): ReactElement => {
+  const history = useHistory();
   const [visibleShareRef, shareModalOn, setShareModalOn, clickShareOutside] = useClickOutside(false);
 
   const onShare = () => {
@@ -22,7 +24,13 @@ const ThemeHeader = (): ReactElement => {
   };
 
   const onUrlCopy = () => {
-    console.log('url 복사');
+    const inputForUrlCopy = document.createElement('input');
+    const urlText = window.location.href;
+
+    document.body.appendChild(inputForUrlCopy);
+    inputForUrlCopy.value = urlText;
+    inputForUrlCopy.select();
+    document.execCommand('copy');
   };
 
   return (
@@ -36,8 +44,8 @@ const ThemeHeader = (): ReactElement => {
               <StarBox star={4.5} shadow />
               <StatusBlock content="EVENT" color="#2b2b2b" border={false} padding={12} bgColor="white" shadow />
             </S.LeftBox>
-            <S.MapBox>
-              <img src={map} alt="" />
+            <S.MapBox onClick={() => history.push('/theme/:name/location')}>
+              <img src={map} alt="위치" />
             </S.MapBox>
           </S.TotalBox>
           <S.H1Tag>[강남] 제로호텔L</S.H1Tag>

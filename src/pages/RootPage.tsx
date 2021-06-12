@@ -29,6 +29,7 @@ const SignUpEmailPage = loadable(() => import('./login/SignUpEmailPage'), isLoad
 const SignUpNickNamePage = loadable(() => import('./login/SignUpNickNamePage'), isLoading);
 const ThemePage = loadable(() => import('./themes/ThemePage'), isLoading);
 const ThemeDetailPage = loadable(() => import('./themes/ThemeDetailPage'), isLoading);
+const ThemeDetailLocationPage = loadable(() => import('./themes/ThemeDetailLocationPage'), isLoading);
 const ThemeAnalysisPage = loadable(() => import('./themes/ThemeAnalysisPage'), isLoading);
 
 const RootPage = (): ReactElement => {
@@ -49,6 +50,7 @@ const RootPage = (): ReactElement => {
         {/* 테마 */}
         <Route exact path="/theme" component={ThemePage} />
         <Route exact path="/theme/:name" component={ThemeDetailPage} /> {/* 4 */}
+        <Route path="/theme/:name/location" component={ThemeDetailLocationPage} /> {/* 4 */}
         <Route path="/theme/:name/analysis" component={ThemeAnalysisPage} /> {/* ? */}
         {/* 마이페이지 */}
         <Route exact path="/mypage" component={MyPage} /> {/* 11 */}

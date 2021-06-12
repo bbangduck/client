@@ -9,7 +9,7 @@ export const Container = Styled.aside`
   transform:translateX(-20px);
   display:flex;
   cursor:pointer;
-  z-index:1000;
+  z-index:10;
 `;
 
 export const leftBox = Styled.div`

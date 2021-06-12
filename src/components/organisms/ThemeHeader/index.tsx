@@ -7,13 +7,29 @@ import StarBox from '../../atoms/StarBox';
 import StatusBlock from '../../atoms/StatusBlock';
 import map from '../../../assets/images/map/map.png';
 import InfoBox from '../../atoms/InfoBox';
+import { useClickOutside } from '../../../hooks/useClickOutside';
+import BottomModal from '../../molecules/BottomModal';
 
 const ThemeHeader = (): ReactElement => {
+  const [visibleShareRef, shareModalOn, setShareModalOn, clickShareOutside] = useClickOutside(false);
+
+  const onShare = () => {
+    setShareModalOn(true);
+  };
+
+  const onKakaoTalkShare = () => {
+    console.log('카카오톡 공유하기');
+  };
+
+  const onUrlCopy = () => {
+    console.log('url 복사');
+  };
+
   return (
     <>
       <S.Bg />
       <S.Header>
-        <UpdateHeader img={more} arrow={left} />
+        <UpdateHeader img={more} arrow={left} imgAlt="공유하기" onImgClick={onShare} />
         <S.Container>
           <S.TotalBox>
             <S.LeftBox>
@@ -32,6 +48,17 @@ const ThemeHeader = (): ReactElement => {
           </S.DetailBox>
         </S.Container>
       </S.Header>
+      {/* 공유하기 모달 */}
+      <BottomModal
+        title="공유하기"
+        firstBtn="카카오톡 공유하기"
+        onFirstClick={onKakaoTalkShare}
+        lastBtn="URL 복사"
+        onLastClick={onUrlCopy}
+        visibleContentRef={visibleShareRef}
+        clickOutside={clickShareOutside}
+        isOn={shareModalOn}
+      />
     </>
   );
 };

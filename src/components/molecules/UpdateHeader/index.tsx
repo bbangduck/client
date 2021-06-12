@@ -4,11 +4,17 @@ import * as S from './style';
 
 interface Props {
   content?: string;
-  img?: string;
   arrow: string;
+  img?: string;
+  imgAlt?: string;
+  onImgClick?: () => void;
 }
-const UpdateHeader = ({ content, img, arrow }: Props): ReactElement => {
+const UpdateHeader = ({ content, arrow, img, imgAlt, onImgClick }: Props): ReactElement => {
   const history = useHistory();
+
+  const onImgClickHandeler = () => {
+    if (onImgClick) onImgClick();
+  };
 
   return (
     <S.Header img={img}>
@@ -20,7 +26,7 @@ const UpdateHeader = ({ content, img, arrow }: Props): ReactElement => {
           <S.H1>{content}</S.H1>
         </S.H1Box>
       ) : null}
-      {img ? <S.Img src={img} alt="더보기" /> : null}
+      {img ? <S.Img src={img} alt={imgAlt} onClick={onImgClickHandeler} /> : null}
     </S.Header>
   );
 };

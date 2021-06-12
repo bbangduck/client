@@ -19,3 +19,13 @@ export const Box = Styled.div`
   display:flex;
   justify-content:space-between;
 `;
+
+interface TestProps {
+  clicked: boolean;
+}
+export const Test = Styled.div<TestProps>`
+  width:20px;
+  height:20px;
+  background-color: ${({ clicked }) => (clicked ? 'dodgerblue' : 'gray')};
+  margin-right:10px;
+`;

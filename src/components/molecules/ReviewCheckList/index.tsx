@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement, useState, useEffect } from 'react';
 import ReviewHintAmount from '../ReviewHintAmount';
 import ReviewSuccess from '../ReviewSuccess';
 import ReviewThemeScore from '../ReviewThemeScore';
@@ -9,6 +9,7 @@ const ReviewCheckList = (): ReactElement => {
   const [successClicked, setSuccessClicked] = useState('');
   const [escapeTime, setEscapeTime] = useState('');
   const [hintAmount, setHintAmount] = useState('');
+  const [ThemeScore, setThemeScore] = useState(0);
 
   return (
     <div>
@@ -19,7 +20,7 @@ const ReviewCheckList = (): ReactElement => {
       <ReviewSuccess successClicked={successClicked} setSuccessState={setSuccessClicked} />
       <ReviewTime setTimeState={setEscapeTime} />
       <ReviewHintAmount setHintState={setHintAmount} hint={hintAmount} />
-      <ReviewThemeScore />
+      <ReviewThemeScore setScoreState={setThemeScore} />
     </div>
   );
 };

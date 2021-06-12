@@ -30,10 +30,10 @@ const MyFriendsList = (): ReactElement => {
       </ul>
       <BottomModal
         title="제로월드 강남점"
-        secondBtn="친구 삭제하기"
+        lastBtn="친구 삭제하기"
+        onLastClick={onDelete}
         visibleContentRef={visibleContentRef}
         clickOutside={clickOutside}
-        onDelete={onDelete}
         isOn={modalOn}
       />
       {finalModalOn ? (

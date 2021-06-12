@@ -47,13 +47,17 @@ const MypageStatusList = (): ReactElement => {
   const [visibleContentRef, modalOn, setModalOn, clickOutside] = useClickOutside(false);
   const [finalVisibleRef, finalModalOn, setFinalModalOn, finalClickOutside] = useClickOutside(false);
 
-  const onUpdate = () => {
+  const onMoreBtnClick = () => {
     setModalOn(true);
   };
 
   const onDelete = () => {
     setModalOn(false);
     setFinalModalOn(true);
+  };
+
+  const onUpdate = () => {
+    console.log('수정하기');
   };
 
   const onFinalDelete = () => {
@@ -73,16 +77,17 @@ const MypageStatusList = (): ReactElement => {
           location={item.location}
           star={item.star}
           time={item.time}
-          onUpdate={onUpdate}
+          onUpdate={onMoreBtnClick}
         />
       ))}
       <BottomModal
         title="내 방탈출"
         firstBtn="수정하기"
-        secondBtn="삭제하기"
+        onFirstClick={onUpdate}
+        lastBtn="삭제하기"
+        onLastClick={onDelete}
         visibleContentRef={visibleContentRef}
         clickOutside={clickOutside}
-        onDelete={onDelete}
         isOn={modalOn}
       />
       {finalModalOn ? (

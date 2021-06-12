@@ -37,12 +37,19 @@ const RootPage = (): ReactElement => {
       <Switch>
         <Route exact path="/" component={() => <Redirect to="/home" />} />
         <Route path="/test" component={TestComponent} />
+        {/* 로그인 */}
+        <Route exact path="/login" component={LoginPage} /> {/* 19 */}
+        <Route path="/signup/clause" component={SignUpClausePage} /> {/* 21 */}
+        <Route path="/signup/email" component={SignUpEmailPage} /> {/* ? */}
+        <Route path="/signup/nickname" component={SignUpNickNamePage} /> {/* ? */}
         {/* 메인페이지 */}
         <Route path="/home" component={MainPage} />
         <Route exact path="/search" component={SearchPage} />
         <Route path="/search/list" component={SearchListPage} />
-        {/* 에러페이지 */}
-        <Route path="/error" component={Page404} />
+        {/* 테마 */}
+        <Route exact path="/theme" component={ThemePage} />
+        <Route exact path="/theme/:name" component={ThemeDetailPage} /> {/* 4 */}
+        <Route path="/theme/:name/analysis" component={ThemeAnalysisPage} /> {/* ? */}
         {/* 마이페이지 */}
         <Route exact path="/mypage" component={MyPage} /> {/* 11 */}
         <Route path="/mypage/status" component={StatusPage} /> {/* 22 */}
@@ -60,15 +67,8 @@ const RootPage = (): ReactElement => {
         <Route path="/mypage/clause" component={ClausePage} /> {/* 17 */}
         <Route exact path="/mypage/removeAccount" component={RemoveAccountPage} /> {/* 18 */}
         <Route path="/mypage/removeAccount/2" component={RemoveAccountPage2} /> {/* ? */}
-        {/* 로그인 */}
-        <Route exact path="/login" component={LoginPage} /> {/* 19 */}
-        <Route path="/signup/clause" component={SignUpClausePage} /> {/* 21 */}
-        <Route path="/signup/email" component={SignUpEmailPage} /> {/* ? */}
-        <Route path="/signup/nickname" component={SignUpNickNamePage} /> {/* ? */}
-        {/* 테마 */}
-        <Route exact path="/theme" component={ThemePage} />
-        <Route exact path="/theme/:name" component={ThemeDetailPage} /> {/* 4 */}
-        <Route path="/theme/:name/analysis" component={ThemeAnalysisPage} /> {/* ? */}
+        {/* 에러페이지 */}
+        <Route path="/error" component={Page404} />
       </Switch>
     </Router>
   );

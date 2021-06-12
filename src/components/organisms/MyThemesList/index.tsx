@@ -30,10 +30,10 @@ const MyThemesList = (): ReactElement => {
       ))}
       <BottomModal
         title="관심테마"
-        secondBtn="삭제하기"
+        lastBtn="삭제하기"
+        onLastClick={onDelete}
         visibleContentRef={visibleBottomRef}
         clickOutside={clickBottomOutside}
-        onDelete={onDelete}
         isOn={bottomModalOn}
       />
       {finalModalOn ? (

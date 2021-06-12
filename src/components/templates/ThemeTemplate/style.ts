@@ -1,6 +1,6 @@
 import Styled from 'styled-components';
 
-export const FilterBox = Styled.div`
+export const SquenceBox = Styled.div`
   height:42px;
   padding:20px 0 4px 0;
   display:flex;

@@ -12,7 +12,8 @@ export const Container = Styled.div<ContainerProps>`
   background-color: rgba(43, 43, 43, 0.6);
   overflow: hidden;
   visibility: ${({ isOn }) => !isOn && 'hidden'};
-  `;
+  z-index:10;
+`;
 
 interface BoxProps {
   isOn?: boolean;

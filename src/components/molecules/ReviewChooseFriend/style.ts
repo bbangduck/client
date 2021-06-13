@@ -45,6 +45,7 @@ export const Span = Styled.span`
 
 export const FriendsBox = Styled.div`
   display:flex;
+  width:100%;
 `;
 
 export const ProfileBox = Styled.div`

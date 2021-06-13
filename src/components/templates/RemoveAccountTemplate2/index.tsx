@@ -36,10 +36,12 @@ const RemoveAccountTemplate2 = (): ReactElement => {
 
   if (!userExist()) return <Redirect to="/login" />;
   return (
-    <S.Section>
+    <section>
       <UpdateHeader content="회원탈퇴" arrow={left} />
       <Remove2Content />
-      <RemoveBottom setModalState={setModalOn} />
+      <S.BtnBox>
+        <RemoveBottom setModalState={setModalOn} />
+      </S.BtnBox>
       {modalOn ? (
         <Modal
           clickOutsideClose={clickOutside}
@@ -51,7 +53,7 @@ const RemoveAccountTemplate2 = (): ReactElement => {
           onSubmitHandeler={onSignOut}
         />
       ) : null}
-    </S.Section>
+    </section>
   );
 };
 

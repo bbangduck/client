@@ -2,10 +2,15 @@ import Styled from 'styled-components';
 
 export const Container = Styled.div`
   width:100%;
-  height:220px;
-  position:absolute;
-  bottom:0;
+  height: calc(100vh - 202px);
+  min-height:514px;
+  position:relative;
   transform:translateX(0px);
+`;
+
+export const BtnBox = Styled.div`
+  position:absolute;
+  bottom:104px;
 `;
 
 export const Btn = Styled.button`
@@ -33,5 +38,4 @@ export const Btn2 = Styled.button`
   font-weight: bold;
   color: #ffffff;
   cursor:pointer;
-  margin-bottom:12px;
 `;

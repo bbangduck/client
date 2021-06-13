@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react';
 import { Redirect } from 'react-router-dom';
-import * as S from './style';
 import UpdateFooter from '../../molecules/UpdateFooter';
 import UpdateHeader from '../../molecules/UpdateHeader';
 import UpdateCenter from '../../organisms/UpdateCenter';
@@ -10,11 +9,11 @@ import userExist from '../../../utils/userExist';
 const UpdateTemplate = (): ReactElement => {
   if (!userExist()) return <Redirect to="/login" />;
   return (
-    <S.Section>
+    <section>
       <UpdateHeader content="설정" arrow={left} />
       <UpdateCenter />
       <UpdateFooter />
-    </S.Section>
+    </section>
   );
 };
 

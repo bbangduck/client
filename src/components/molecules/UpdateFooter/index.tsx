@@ -4,10 +4,12 @@ import logo from '../../../assets/images/logo/logo.png';
 
 const UpdateFooter = (): ReactElement => {
   return (
-    <S.Footer>
-      <img src={logo} alt="로고" />
-      <S.PTag>Copyright ⓒ Bbangduck. All right reserved.</S.PTag>
-    </S.Footer>
+    <S.Container>
+      <S.Footer>
+        <img src={logo} alt="로고" />
+        <S.PTag>Copyright ⓒ Bbangduck. All right reserved.</S.PTag>
+      </S.Footer>
+    </S.Container>
   );
 };
 

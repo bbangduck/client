@@ -44,3 +44,8 @@ export const ErrorMsg = Styled.span`
   line-height: 2.6;
   color: #ff5c53;
 `;
+
+export const BtnBox = Styled.div`
+  height:470px;
+  min-height:calc(100vh - 246px);
+`;

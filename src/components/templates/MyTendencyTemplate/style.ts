@@ -1,10 +1,5 @@
 import Styled from 'styled-components';
 
-export const Div = Styled.div`
-  min-height:${({ theme }) => theme.sizes.mobile.minHeight};
-  height:${({ theme }) => theme.sizes.mobile.height};
-`;
-
 export const Box = Styled.div`
   position:relative;
   transform:translateY(-71px);

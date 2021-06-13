@@ -1,10 +1,6 @@
 import Styled from 'styled-components';
 import BgImg from '../../../assets/images/loginBg/loginBg.png';
 
-export const Section = Styled.section`
-  height:${({ theme }) => theme.sizes.mobile.height};
-`;
-
 export const Background = Styled.div`
   position:absolute;
   top:0;

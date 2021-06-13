@@ -63,7 +63,9 @@ const SignUpEmailForm = ({ userData }: Props): ReactElement => {
         </S.InputBox>
       </S.Label>
       {isError ? <S.ErrorMsg>올바르지 않은 이메일주소 입니다.</S.ErrorMsg> : null}
-      <BottomBtn content="다음" />
+      <S.BtnBox>
+        <BottomBtn content="다음" />
+      </S.BtnBox>
     </form>
   );
 };

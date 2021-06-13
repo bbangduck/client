@@ -12,6 +12,9 @@ const SearchedList = ({ title }: Props): ReactElement => {
       <S.Ul>
         <InfoBox content="공포" bgColor="#404041" color="#959595" marginRight={8} marginBottom={10} />
         <InfoBox content="공포테마" bgColor="#404041" color="#959595" marginRight={8} marginBottom={10} />
+        <InfoBox content="공포테마" bgColor="#404041" color="#959595" marginRight={8} marginBottom={10} />
+        <InfoBox content="공포테마" bgColor="#404041" color="#959595" marginRight={8} marginBottom={10} />
+        <InfoBox content="공포테마" bgColor="#404041" color="#959595" marginRight={8} marginBottom={10} />
       </S.Ul>
     </div>
   );

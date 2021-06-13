@@ -13,7 +13,7 @@ const SignUpNickNameTemplate = (): ReactElement => {
   if (userExist()) return <Redirect to="/" />;
   if (!userData) return <Redirect to="/login" />;
   return (
-    <S.Section>
+    <section>
       <UpdateHeader arrow={left} />
       <S.H1>
         빵덕에서 사용할
@@ -21,7 +21,7 @@ const SignUpNickNameTemplate = (): ReactElement => {
         닉네임을 입력해주세요.
       </S.H1>
       <SignUpLastForm userData={userData} />
-    </S.Section>
+    </section>
   );
 };
 

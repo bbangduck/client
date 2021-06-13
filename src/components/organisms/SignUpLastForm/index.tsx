@@ -74,7 +74,9 @@ const SignUpLastForm = ({ userData }: Props): ReactElement => {
         </S.InputBox>
       </S.Label>
       <S.ErrorMsg>{errorMessage}</S.ErrorMsg>
-      <BottomBtn content="완료" onClick={onSignUp} />
+      <S.BtnBox>
+        <BottomBtn content="완료" onClick={onSignUp} />
+      </S.BtnBox>
     </form>
   );
 };

@@ -16,11 +16,13 @@ const RemoveAccountTemplate = (): ReactElement => {
 
   if (!userExist()) return <Redirect to="/login" />;
   return (
-    <S.Container>
+    <section>
       <UpdateHeader content="회원탈퇴" arrow={left} />
       <RemoveContent />
-      <BottomBtn content="다음" onClick={onNextClick} />
-    </S.Container>
+      <S.BottomBox>
+        <BottomBtn content="다음" onClick={onNextClick} />
+      </S.BottomBox>
+    </section>
   );
 };
 

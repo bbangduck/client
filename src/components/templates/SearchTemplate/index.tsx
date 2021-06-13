@@ -22,7 +22,7 @@ const SearchTemplate = (): ReactElement => {
   };
 
   return (
-    <S.Section>
+    <section>
       <UpdateHeader arrow={left} />
       <S.Box>
         <S.PTag>
@@ -35,12 +35,14 @@ const SearchTemplate = (): ReactElement => {
           setInputValue={setInputValue}
           placeholder="검색어 입력"
           inputValue={inputValue}
-          marginBottom={16}
+          marginBottom={0}
         />
       </S.Box>
-      <SearchedSection />
-      <Nav />
-    </S.Section>
+      <S.BottomBox>
+        <SearchedSection />
+        <Nav />
+      </S.BottomBox>
+    </section>
   );
 };
 

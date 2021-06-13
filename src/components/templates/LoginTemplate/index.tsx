@@ -7,7 +7,7 @@ import * as S from './style';
 const LoginTemplate = (): ReactElement => {
   if (userExist()) return <Redirect to="/" />;
   return (
-    <S.Section>
+    <section>
       <S.Background />
       <S.Container>
         <S.Box>
@@ -22,7 +22,7 @@ const LoginTemplate = (): ReactElement => {
         </S.PTag>
         <LoginBottom />
       </S.Container>
-    </S.Section>
+    </section>
   );
 };
 

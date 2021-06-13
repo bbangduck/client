@@ -1,4 +1,4 @@
-import React, { ReactElement, useState, useEffect } from 'react';
+import React, { ReactElement, useState } from 'react';
 import ReviewChooseFriend from '../ReviewChooseFriend';
 import ReviewHintAmount from '../ReviewHintAmount';
 import ReviewSuccess from '../ReviewSuccess';
@@ -11,7 +11,6 @@ const ReviewCheckList = (): ReactElement => {
   const [escapeTime, setEscapeTime] = useState('');
   const [hintAmount, setHintAmount] = useState('');
   const [themeScore, setThemeScore] = useState(0);
-  const [friendAmount, setFriendAmount] = useState(0);
 
   return (
     <div>
@@ -23,7 +22,7 @@ const ReviewCheckList = (): ReactElement => {
       <ReviewTime setTimeState={setEscapeTime} />
       <ReviewHintAmount setHintState={setHintAmount} hint={hintAmount} />
       <ReviewThemeScore setScoreState={setThemeScore} />
-      <ReviewChooseFriend setCountState={setFriendAmount} countState={friendAmount} />
+      <ReviewChooseFriend />
       <S.CompleteBtn type="button">작성 완료</S.CompleteBtn>
     </div>
   );

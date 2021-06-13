@@ -1,9 +1,15 @@
 import Styled from 'styled-components';
 
-export const Containter = Styled.div`
+interface ContainerProps {
+  marginBottom: number;
+  marginTop: number;
+}
+export const Containter = Styled.div<ContainerProps>`
+  position:relative;
   display:flex;
   align-items:flex-start;
-  margin-bottom:2px;
+  margin-bottom:${({ marginBottom }) => `${marginBottom}px`};
+  margin-top:${({ marginTop }) => `${marginTop}px`};
 `;
 
 export const ContentBox = Styled.div`
@@ -38,4 +44,17 @@ export const Box = Styled.div`
   line-height: 1.5;
   letter-spacing: -0.12px;
   color: #151950;
+`;
+
+export const ChoiceBtn = Styled.button`
+  position:absolute;
+  right:0;
+  top:0;
+  padding: 8px 16px;
+  background-color: #2b2b2b;
+  border:none;
+  outline:none;
+  font-size: 12px;
+  color: #ffffff;
+  cursor:pointer;
 `;

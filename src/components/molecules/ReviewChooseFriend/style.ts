@@ -8,7 +8,7 @@ export const TitleBox = Styled.div`
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:8px;
+  margin-bottom:20px;
 `;
 
 export const PTag = Styled.p`
@@ -17,19 +17,19 @@ export const PTag = Styled.p`
   color: #2b2b2b;
 `;
 
-export const Box = Styled.div`
-  display:flex;
-`;
+// export const Box = Styled.div`
+//   display:flex;
+// `;
 
-export const CountBox = Styled.div`
-  width:32px;
-  height:32px;
-  border: solid 1px #ebebeb;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  cursor:pointer;
-`;
+// export const CountBox = Styled.div`
+//   width:32px;
+//   height:32px;
+//   border: solid 1px #ebebeb;
+//   display:flex;
+//   justify-content:center;
+//   align-items:center;
+//   cursor:pointer;
+// `;
 
 export const Span = Styled.span`
   width:32px;
@@ -37,6 +37,10 @@ export const Span = Styled.span`
   display:flex;
   justify-content:center;
   align-items:center;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: bold;
+  color: #2b2b2b;
 `;
 
 export const FriendsBox = Styled.div`

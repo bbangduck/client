@@ -7,6 +7,7 @@ import theme from './styles/theme';
 import RootPage from './pages/RootPage';
 import Layout from './styles/Layout';
 import store from './stores/rootReducer';
+import TopAlarm from './components/atoms/TopAlarm';
 
 const App = (): ReactElement => {
   return (
@@ -14,6 +15,7 @@ const App = (): ReactElement => {
       <HelmetProvider>
         <ThemeProvider theme={theme}>
           <Layout>
+            <TopAlarm />
             <GlobalStyle />
             <RootPage />
           </Layout>

@@ -1,9 +1,9 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
-import filterItemTypeReducer from './filterItemTypeReducer/filterItemTypeReducer';
+import popAlarm from './popAlarmReducer';
 
 const reducer = combineReducers({
-  filterItemTypeReducer,
+  popAlarm,
 });
 
 const store = configureStore({

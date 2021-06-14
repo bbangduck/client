@@ -4,7 +4,7 @@ interface ContainerProps {
   filterOn: boolean;
 }
 export const Container = Styled.div<ContainerProps>`
-  position:sticky;
+  position:fixed;
   bottom:0;
   transform:${({ filterOn }) => (filterOn ? 'translateX(-20px)' : 'translateX(340px)')};
   height:100vh;

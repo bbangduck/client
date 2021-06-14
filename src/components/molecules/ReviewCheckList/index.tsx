@@ -26,11 +26,11 @@ const ReviewCheckList = (): ReactElement => {
   };
 
   const onAddMoreReview = () => {
-    console.log('더할래');
+    history.push('/theme/:name/reviewDetail');
   };
 
   const onStopReview = () => {
-    console.log('더할래');
+    console.log('나중에 할래');
   };
 
   return (

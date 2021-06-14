@@ -1,0 +1,9 @@
+.swiper-container {
+  margin:0 !important;
+  width:100%;
+  overflow: initial;
+}
+
+.swiper-slide {
+  width:auto !important;
+}

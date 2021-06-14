@@ -33,6 +33,7 @@ const ThemeDetailLocationPage = loadable(() => import('./themes/ThemeDetailLocat
 const ThemeReviewPage = loadable(() => import('./themes/ThemeReviewPage'), isLoading);
 const ThemeAnalysisPage = loadable(() => import('./themes/ThemeAnalysisPage'), isLoading);
 const ThemeSearchFriendPage = loadable(() => import('./themes/ThemeSearchFriendPage'), isLoading);
+const ThemeDetailReviewPage = loadable(() => import('./themes/ThemeDetailReviewPage'), isLoading);
 
 const RootPage = (): ReactElement => {
   return (
@@ -54,6 +55,7 @@ const RootPage = (): ReactElement => {
         <Route path="/theme/friends" component={ThemeSearchFriendPage} />
         <Route exact path="/theme/:name" component={ThemeDetailPage} /> {/* 4 */}
         <Route path="/theme/:name/review" component={ThemeReviewPage} /> {/* ? */}
+        <Route path="/theme/:name/reviewDetail" component={ThemeDetailReviewPage} /> {/* ? */}
         <Route path="/theme/:name/location" component={ThemeDetailLocationPage} /> {/* ? */}
         <Route path="/theme/:name/analysis" component={ThemeAnalysisPage} /> {/* ? */}
         {/* 마이페이지 */}

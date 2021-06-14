@@ -11,6 +11,9 @@ const ReviewDetail = (): ReactElement => {
       <EscapeMoment />
       <EscapeReviewSentence />
       <ExtraReview />
+      <S.BtnBox>
+        <S.Btn type="button">작성 완료</S.Btn>
+      </S.BtnBox>
     </div>
   );
 };

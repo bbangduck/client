@@ -2,10 +2,8 @@ import Styled from 'styled-components';
 import BgImg from '../../../assets/images/loginBg/loginBg.png';
 
 export const Background = Styled.div`
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
+  width:360px;
+  transform:translateX(-20px);
   height:100%;
   background:top no-repeat url(${BgImg});
   background-color:#262626;
@@ -13,12 +11,10 @@ export const Background = Styled.div`
 `;
 
 export const Container = Styled.div`
-  position:absolute;
-  top:0;
-  left:0;
   width:100%;
   height:100%;
   padding:0 20px;
+  z-index:1000;
 `;
 
 export const Box = Styled.div`

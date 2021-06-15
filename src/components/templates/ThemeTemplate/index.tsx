@@ -31,9 +31,11 @@ const ThemeTemplate = (): ReactElement => {
     <section>
       <ThemesHeader />
       <ThemeNavSwiper />
-      <S.SquenceBox onClick={() => setSequenceOn(true)}>
-        <S.Span>평점순</S.Span>
-        <img src={filter} alt="필터" />
+      <S.SquenceBox>
+        <S.ClickBox onClick={() => setSequenceOn(true)}>
+          <S.Span>평점순</S.Span>
+          <img src={filter} alt="필터" />
+        </S.ClickBox>
       </S.SquenceBox>
       <ThemeList />
       <FilterBtn setFilterState={setFilterOn} filterDefault={filterDefault} />

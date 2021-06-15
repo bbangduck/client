@@ -33,10 +33,10 @@ const FilterList = ({ isOn, setIsOn, typeNumber, title, typeList, reset, setFilt
   }, [reset]);
 
   return (
-    <S.Container>
-      <S.TitleBox>
+    <div>
+      <S.TitleBox onClick={onListShow}>
         <S.PTag isChecked={titleChecked}>{title}</S.PTag>
-        <S.RightBox onClick={onListShow}>
+        <S.RightBox>
           <S.Span>{checkedName}</S.Span>
           <img src={isOn ? top : down} alt="열기" />
         </S.RightBox>
@@ -58,7 +58,7 @@ const FilterList = ({ isOn, setIsOn, typeNumber, title, typeList, reset, setFilt
           ))}
         </div>
       ) : null}
-    </S.Container>
+    </div>
   );
 };
 

@@ -53,9 +53,9 @@ const FilterListItem = ({
 
   return (
     <S.ListBox>
-      <S.ListItem>
+      <S.ListItem onClick={onCheck}>
         {ShowContent()}
-        <S.Img src={isChecked ? checked : unChecked} alt="체크박스" onClick={onCheck} />
+        <img src={isChecked ? checked : unChecked} alt="체크박스" />
       </S.ListItem>
     </S.ListBox>
   );

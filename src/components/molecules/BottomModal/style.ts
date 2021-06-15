@@ -41,6 +41,7 @@ export const Title = Styled.p`
 `;
 
 export const Btn = Styled.p`
+  width:100%;
   height:44px;
   font-size: 14px;
   letter-spacing: -0.14px;
@@ -51,6 +52,7 @@ export const Btn = Styled.p`
 `;
 
 export const Btn2 = Styled.p`
+  width:100%;
   display:flex;
   align-items:center;
   height:44px;

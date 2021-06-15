@@ -1,9 +1,5 @@
 import Styled from 'styled-components';
 
-export const Container = Styled.div`
-  
-`;
-
 export const TitleBox = Styled.div`
   height:44px;
   display:flex;
@@ -11,6 +7,7 @@ export const TitleBox = Styled.div`
   align-items:center;
   padding:0 20px;
   border-bottom: solid 1px #ebebeb;
+  cursor:pointer;
 `;
 
 interface PTagProps {
@@ -26,7 +23,6 @@ export const PTag = Styled.p<PTagProps>`
 export const RightBox = Styled.div`
   display:flex;
   align-items:center;
-  cursor:pointer;
 `;
 
 export const Span = Styled.span`

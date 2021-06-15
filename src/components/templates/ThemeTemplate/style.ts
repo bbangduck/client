@@ -5,14 +5,18 @@ export const SquenceBox = Styled.div`
   padding:20px 0 4px 0;
   display:flex;
   justify-content:flex-end;
-  cursor:pointer;
   margin-bottom:12px;
+`;
+
+export const ClickBox = Styled.div`
+  display:flex;
+  align-items:center;
+  cursor:pointer;
 `;
 
 export const Span = Styled.span`
   font-size: 12px;
   font-weight: bold;
-  line-height: 1.5;
   color: #9c9c9c;
   margin-right:4px;
 `;

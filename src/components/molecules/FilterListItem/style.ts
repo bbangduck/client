@@ -10,6 +10,7 @@ export const ListItem = Styled.div`
   justify-content:space-between;
   align-items:center;
   padding: 0 20px;
+  cursor:pointer;
 `;
 
 export const PTag = Styled.p`
@@ -24,8 +25,4 @@ font-size: 14px;
   letter-spacing: -0.14px;
   color: #2b2b2b;
   margin-right:4px;
-`;
-
-export const Img = Styled.img`
-  cursor:pointer;
 `;

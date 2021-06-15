@@ -20,4 +20,10 @@ export const TextArea = Styled.textarea`
   color: #2b2b2b;
   outline:none;
   margin-bottom:36px;
+
+  ::placeholder {
+    font-size: 14px;
+    line-height: 1.71;
+    color: #9c9c9c;
+  }
 `;

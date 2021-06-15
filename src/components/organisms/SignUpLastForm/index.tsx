@@ -2,8 +2,9 @@ import React, { ReactElement, useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import BottomBtn from '../../atoms/BottomBtn';
-import * as S from './style';
 import setSessionStorage from '../../../utils/setSessionStorage';
+import * as S from './style';
+import usePopAlarm from '../../../hooks/usePopAlarm';
 
 interface Props {
   userData: KakaoLoginInfoType;
@@ -13,9 +14,11 @@ const SignUpLastForm = ({ userData }: Props): ReactElement => {
   const [inputFocus, setInputFocus] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [showPopAlarm] = usePopAlarm();
 
   const onCheckNickname = () => {
     if (!inputValue) setErrorMessage('닉네입을 입력해주세요.');
+    // 중복체크 후 토스트알림
   };
 
   const onSignUp = async () => {
@@ -39,6 +42,7 @@ const SignUpLastForm = ({ userData }: Props): ReactElement => {
           if (accessToken && refreshToken) {
             setSessionStorage(accessToken, refreshToken, userId);
             history.push('/');
+            showPopAlarm(true, '회원가입에 성공하였습니다.');
           }
         }
       } catch (error) {
@@ -74,7 +78,9 @@ const SignUpLastForm = ({ userData }: Props): ReactElement => {
         </S.InputBox>
       </S.Label>
       <S.ErrorMsg>{errorMessage}</S.ErrorMsg>
-      <BottomBtn content="완료" onClick={onSignUp} />
+      <S.BtnBox>
+        <BottomBtn content="완료" onClick={onSignUp} />
+      </S.BtnBox>
     </form>
   );
 };

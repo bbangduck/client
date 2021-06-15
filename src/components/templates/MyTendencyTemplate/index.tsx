@@ -10,7 +10,7 @@ import left from '../../../assets/images/arrow/left.png';
 import * as S from './style';
 
 const MyTendencyTemplate = (): ReactElement => {
-  const data = 0;
+  const data = 1;
 
   if (!userExist()) return <Redirect to="/login" />;
   return (
@@ -25,7 +25,7 @@ const MyTendencyTemplate = (): ReactElement => {
           </S.Box>
         </>
       ) : (
-        <S.Div>
+        <div>
           <UpdateHeader arrow={left} />
           <S.H1>
             앗,아직 데이터가
@@ -37,7 +37,7 @@ const MyTendencyTemplate = (): ReactElement => {
             <br />내 방탈출 성향을 분석해보세요
           </S.H2>
           <S.Button type="button">리뷰쓰고 데이터 추가하기</S.Button>
-        </S.Div>
+        </div>
       )}
     </section>
   );

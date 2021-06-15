@@ -1,11 +1,15 @@
 import Styled from 'styled-components';
 
+export const Container = Styled.div`
+  height: calc(100vh - 398px);
+  min-height:278px;
+  position: relative;
+`;
+
 export const Footer = Styled.footer`
   position:absolute;
   bottom:0;
-  height:91px;
-  z-index:1;
-  `;
+`;
 
 export const PTag = Styled.p`
   font-family: Montserrat;

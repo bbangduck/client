@@ -13,7 +13,7 @@ const SignUpEmailTemplate = (): ReactElement => {
   if (userExist()) return <Redirect to="/" />;
   if (!userData) return <Redirect to="/login" />;
   return (
-    <S.Section>
+    <section>
       <UpdateHeader arrow={left} />
       <S.H1>
         이메일 주소를
@@ -21,7 +21,7 @@ const SignUpEmailTemplate = (): ReactElement => {
         입력해주세요.
       </S.H1>
       <SignUpEmailForm userData={userData} />
-    </S.Section>
+    </section>
   );
 };
 

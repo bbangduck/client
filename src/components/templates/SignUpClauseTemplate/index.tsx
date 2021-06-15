@@ -29,11 +29,13 @@ const SignUpClauseTemplate = (): ReactElement => {
   if (userExist()) return <Redirect to="/" />;
   if (!socialInfo) return <Redirect to="/login" />;
   return (
-    <S.Section>
+    <section>
       <UpdateHeader arrow={left} />
       <SignUpClauseCheck setIsChecked={setIsChecked} isChecked={isChecked} />
-      <BottomBtn content="다음" onClick={onAgree} />
-    </S.Section>
+      <S.BtnBox>
+        <BottomBtn content="다음" onClick={onAgree} />
+      </S.BtnBox>
+    </section>
   );
 };
 

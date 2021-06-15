@@ -1,10 +1,5 @@
 import Styled from 'styled-components';
 
-export const Section = Styled.section`
-  min-height:${({ theme }) => theme.sizes.mobile.minHeight};
-  height:${({ theme }) => theme.sizes.mobile.height};
-`;
-
 export const H1 = Styled.h1`
   font-size: 24px;
   font-weight: bold;

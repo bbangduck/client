@@ -5,7 +5,7 @@ import * as S from './style';
 const SendRequestItem = (): ReactElement => {
   return (
     <S.Li>
-      <UserData />
+      <UserData marginBottom={2} />
       <S.Box>
         <S.Btn>신청 취소</S.Btn>
       </S.Box>

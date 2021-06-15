@@ -9,6 +9,7 @@ const Layout = Styled.div`
   padding: 0 20px;
   margin:auto;
   background-color: #ffffff;
+  /* overflow:hidden; */
 `;
 
 export default Layout;

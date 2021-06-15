@@ -5,7 +5,7 @@ import * as S from './style';
 const GetRequestItem = (): ReactElement => {
   return (
     <S.Li>
-      <UserData />
+      <UserData marginBottom={2} />
       <S.Box>
         <S.Left>거절</S.Left>
         <S.Right>수락</S.Right>

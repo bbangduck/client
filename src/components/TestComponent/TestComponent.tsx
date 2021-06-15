@@ -1,5 +1,5 @@
 import React, { ReactElement, useState } from 'react';
-import * as Styled from './TestComponent.style';
+// import * as Styled from './TestComponent.style';
 
 const TestComponent = (): ReactElement => {
   const [inputValue, setInputValue] = useState('');

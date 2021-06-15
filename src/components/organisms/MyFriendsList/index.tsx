@@ -28,15 +28,14 @@ const MyFriendsList = (): ReactElement => {
       <ul>
         <MyFriendsItem onMoreClick={onMoreClick} />
       </ul>
-      {modalOn ? (
-        <BottomModal
-          title="제로월드 강남점"
-          secondBtn="친구 삭제하기"
-          visibleContentRef={visibleContentRef}
-          clickOutside={clickOutside}
-          onDelete={onDelete}
-        />
-      ) : null}
+      <BottomModal
+        title="제로월드 강남점"
+        lastBtn="친구 삭제하기"
+        onLastClick={onDelete}
+        visibleContentRef={visibleContentRef}
+        clickOutside={clickOutside}
+        isOn={modalOn}
+      />
       {finalModalOn ? (
         <Modal
           clickOutsideClose={finalClickOutside}

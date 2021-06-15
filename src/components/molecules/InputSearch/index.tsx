@@ -21,6 +21,7 @@ const InputSearch = ({
   initialValue,
 }: Props): ReactElement => {
   const [isFocus, setIsFocus] = useState(false);
+  const [fakeInputValue, setFakeInputValue] = useState('');
   const inputRef = useRef<null | HTMLInputElement>(null);
 
   useEffect(() => {
@@ -30,12 +31,24 @@ const InputSearch = ({
   }, []);
 
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
+    setFakeInputValue(e.target.value);
+    let debounce = null;
+    if (debounce) {
+      clearTimeout(debounce);
+    }
+    debounce = setTimeout(() => {
+      setInputValue(e.target.value);
+    }, 500);
   };
 
   const onSearchClick = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onSearch();
+  };
+
+  const onDelete = () => {
+    setInputValue('');
+    setFakeInputValue('');
   };
 
   return (
@@ -44,13 +57,13 @@ const InputSearch = ({
         type="text"
         placeholder={placeholder}
         onChange={onInputChange}
-        value={inputValue}
+        value={fakeInputValue}
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
         autoComplete="off"
         ref={inputRef}
       />
-      {inputValue ? <S.Img src={deleteIcon} alt="삭제" onClick={() => setInputValue('')} /> : null}
+      {inputValue ? <S.Img src={deleteIcon} alt="삭제" onClick={onDelete} /> : null}
       <S.Button type="submit">
         <img src={search} alt="찾기" />
       </S.Button>
@@ -58,4 +71,4 @@ const InputSearch = ({
   );
 };
 
-export default InputSearch;
+export default React.memo(InputSearch);

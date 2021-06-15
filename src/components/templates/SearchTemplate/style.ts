@@ -1,12 +1,8 @@
 import Styled from 'styled-components';
 
-export const Section = Styled.section`
-  min-height:${({ theme }) => theme.sizes.mobile.minHeight};
-  height:${({ theme }) => theme.sizes.mobile.height};
-`;
-
 export const Box = Styled.div`
   transform:translateY(-20px);
+  margin-bottom:133px;
 `;
 
 export const PTag = Styled.p`
@@ -18,6 +14,8 @@ export const PTag = Styled.p`
   margin-bottom:20px;
 `;
 
-export const Box2 = Styled.div`
-  margin-bottom: 153px;
+export const BottomBox = Styled.div`
+  position:relative;
+  height:calc(100vh - 325px);
+  min-height:391px;
 `;

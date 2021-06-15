@@ -23,7 +23,7 @@ const MyPageTemplate = (): ReactElement => {
       <EscapeBadges />
       <EscapeThemes />
       <MyPageSubTitle content="내 친구" page="/mypage/friends" arrow />
-      <MyPageSubTitle content="내가 쓴 글" page="/" arrow />
+      {/* <MyPageSubTitle content="내가 쓴 글" page="/" arrow /> */}
       <EscapeNotices />
       <Nav />
     </S.Container>

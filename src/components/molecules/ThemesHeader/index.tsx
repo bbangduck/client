@@ -9,7 +9,7 @@ const ThemesHeader = (): ReactElement => {
   return (
     <S.Container>
       <S.PTag>테마</S.PTag>
-      <S.Img src={search} alt="검색" onClick={() => history.push('/search')} />
+      <S.Img src={search} alt="검색" onClick={() => history.push('/search')} data-blink="blink" />
     </S.Container>
   );
 };

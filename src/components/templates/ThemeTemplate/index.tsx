@@ -32,9 +32,9 @@ const ThemeTemplate = (): ReactElement => {
       <ThemesHeader />
       <ThemeNavSwiper />
       <S.SquenceBox>
-        <S.ClickBox onClick={() => setSequenceOn(true)}>
-          <S.Span>평점순</S.Span>
-          <img src={filter} alt="필터" />
+        <S.ClickBox onClick={() => setSequenceOn(true)} data-blink="blink">
+          <S.Span data-blink="blink">평점순</S.Span>
+          <img src={filter} alt="필터" data-blink="blink" />
         </S.ClickBox>
       </S.SquenceBox>
       <ThemeList />

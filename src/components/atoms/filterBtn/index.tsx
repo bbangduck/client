@@ -13,10 +13,12 @@ const FilterBtn = ({ setFilterState, filterDefault }: Props): ReactElement => {
   };
 
   return (
-    <S.Container onClick={onFilterClick}>
-      {filterDefault ? null : <S.Dot />}
-      <img src={filterDefault ? filter : filterBlue} alt="필터" />
-      <S.PTag filtered={filterDefault}>필터</S.PTag>
+    <S.Container onClick={onFilterClick} data-blink="blink">
+      {filterDefault ? null : <S.Dot data-blink="blink" />}
+      <img src={filterDefault ? filter : filterBlue} alt="필터" data-blink="blink" />
+      <S.PTag filtered={filterDefault} data-blink="blink">
+        필터
+      </S.PTag>
     </S.Container>
   );
 };

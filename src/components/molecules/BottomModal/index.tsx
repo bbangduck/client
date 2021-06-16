@@ -41,9 +41,19 @@ const BottomModal = ({
     <S.Container onClick={clickOutside} isOn={isOn}>
       <S.Box ref={visibleContentRef} isOn={isOn}>
         <S.Title>{title}</S.Title>
-        {firstBtn ? <S.Btn onClick={onFirstBtnClick}>{firstBtn}</S.Btn> : null}
-        {secondBtn ? <S.Btn onClick={onSecondBtnClick}>{secondBtn}</S.Btn> : null}
-        <S.Btn2 onClick={onLastBtnClick}>{lastBtn}</S.Btn2>
+        {firstBtn ? (
+          <S.Btn onClick={onFirstBtnClick} data-blink="blink">
+            {firstBtn}
+          </S.Btn>
+        ) : null}
+        {secondBtn ? (
+          <S.Btn onClick={onSecondBtnClick} data-blink="blink">
+            {secondBtn}
+          </S.Btn>
+        ) : null}
+        <S.Btn2 onClick={onLastBtnClick} data-blink="blink">
+          {lastBtn}
+        </S.Btn2>
       </S.Box>
     </S.Container>
   );

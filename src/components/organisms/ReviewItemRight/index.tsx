@@ -31,9 +31,9 @@ const ReviewItemRight = (): ReactElement => {
       <S.ReviewContent>
         {moreOn ? review : shortSentence(49, review)}
         {moreOn ? null : (
-          <S.MoreBox onClick={() => setMoreOn(true)}>
-            <S.More>More</S.More>
-            <img src={down} alt="더보기" />
+          <S.MoreBox onClick={() => setMoreOn(true)} data-blink="blink">
+            <S.More data-blink="blink">More</S.More>
+            <img src={down} alt="더보기" data-blink="blink" />
           </S.MoreBox>
         )}
       </S.ReviewContent>

@@ -26,7 +26,7 @@ const UpdateHeader = ({ content, arrow, img, imgAlt, onImgClick }: Props): React
           <S.H1>{content}</S.H1>
         </S.H1Box>
       ) : null}
-      {img ? <S.Img src={img} alt={imgAlt} onClick={onImgClickHandeler} /> : null}
+      {img ? <S.Img src={img} alt={imgAlt} onClick={onImgClickHandeler} data-blink="blink" /> : null}
     </S.Header>
   );
 };

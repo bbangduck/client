@@ -27,9 +27,9 @@ const ReviewMoreInfo = ({ moreOn }: Props): ReactElement => {
       ) : null}
       <S.Help>163명에게 도움이 됐어요.</S.Help>
       <S.Box moreOn={moreOn}>
-        <S.ThumbBox>
-          <img src={thumb} alt="도움이 돼요" />
-          <S.ThumbP>도움이 돼요</S.ThumbP>
+        <S.ThumbBox data-blink="blink">
+          <img src={thumb} alt="도움이 돼요" data-blink="blink" />
+          <S.ThumbP data-blink="blink">도움이 돼요</S.ThumbP>
         </S.ThumbBox>
         <S.ThumbP>신고하기</S.ThumbP>
       </S.Box>

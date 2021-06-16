@@ -6,9 +6,9 @@ const ReviewHeader = (): ReactElement => {
   return (
     <S.Container>
       <S.PTag>리뷰 45</S.PTag>
-      <S.Box>
-        <img src={more} alt="정렬버튼" />
-        <S.Span>정렬</S.Span>
+      <S.Box data-blink="blink">
+        <img src={more} alt="정렬버튼" data-blink="blink" />
+        <S.Span data-blink="blink">정렬</S.Span>
       </S.Box>
     </S.Container>
   );

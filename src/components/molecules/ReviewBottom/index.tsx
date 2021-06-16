@@ -9,16 +9,16 @@ const ReviewBottom = (): ReactElement => {
 
   return (
     <S.Container>
-      <S.leftBox>
-        <img src={heart} alt="좋아요" />
+      <S.leftBox data-blink="blink">
+        <img src={heart} alt="좋아요" data-blink="blink" />
         <S.Line />
       </S.leftBox>
-      <S.CafeBox>
-        <S.PTag>카페 바로가기</S.PTag>
+      <S.CafeBox data-blink="blink">
+        <S.PTag data-blink="blink">카페 바로가기</S.PTag>
       </S.CafeBox>
-      <S.ReviewBox onClick={() => history.push('/theme/:name/review')}>
-        <S.Img src={pen} alt="리뷰 작성" />
-        <S.P>리뷰 작성</S.P>
+      <S.ReviewBox onClick={() => history.push('/theme/:name/review')} data-blink="blink">
+        <S.Img src={pen} alt="리뷰 작성" data-blink="blink" />
+        <S.P data-blink="blink">리뷰 작성</S.P>
       </S.ReviewBox>
     </S.Container>
   );

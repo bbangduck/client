@@ -21,7 +21,11 @@ const UserData = ({ choiceBtn, onChoose, marginBottom, marginTop }: Props): Reac
         <S.Intro>{shortSentence(20, contents)}</S.Intro>
         <S.Box>나와 5회 탈출</S.Box>
       </S.ContentBox>
-      {choiceBtn ? <S.ChoiceBtn onClick={onChoose}>선택</S.ChoiceBtn> : null}
+      {choiceBtn ? (
+        <S.ChoiceBtn onClick={onChoose} data-blink="blink">
+          선택
+        </S.ChoiceBtn>
+      ) : null}
     </S.Containter>
   );
 };

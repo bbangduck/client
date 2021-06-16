@@ -1,7 +1,8 @@
-.swiper-container {
-  margin-left:0 !important;
-  width:100%!important;
+.friends-swiper {
+  margin:0;
+  width:100%;
 }
-.swiper-slide {
-  width:auto !important;
+.friends-slide{
+  flex-shrink:initial;
+  width:auto;
 }

@@ -30,16 +30,16 @@ const ReviewChooseFriend = (): ReactElement => {
         </S.Box> */}
       </S.TitleBox>
       <S.FriendsBox>
-        <Swiper spaceBetween={0} slidesPerView="auto">
-          <SwiperSlide>
+        <Swiper spaceBetween={0} slidesPerView="auto" className="friends-swiper">
+          <SwiperSlide className="friends-slide">
             <S.ProfileBox>
               <ProfileImg image={poster} width={68} height={68} />
               <S.Span2>{shortSentence(5, '방달출초보다')}</S.Span2>
             </S.ProfileBox>
           </SwiperSlide>
-          <SwiperSlide>
-            <S.NoImg onClick={onAddFriend}>
-              <img src={plus} alt="친구 추가" />
+          <SwiperSlide className="friends-slide">
+            <S.NoImg onClick={onAddFriend} data-blink="blink">
+              <img src={plus} alt="친구 추가" data-blink="blink" />
             </S.NoImg>
           </SwiperSlide>
         </Swiper>

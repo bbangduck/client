@@ -44,7 +44,7 @@ const ReviewCheckList = (): ReactElement => {
       <ReviewHintAmount setHintState={setHintAmount} hint={hintAmount} />
       <ReviewThemeScore setScoreState={setThemeScore} />
       <ReviewChooseFriend />
-      <S.CompleteBtn type="button" onClick={onComplete}>
+      <S.CompleteBtn type="button" onClick={onComplete} data-blink="blink">
         작성 완료
       </S.CompleteBtn>
       {modalOn ? (

@@ -41,12 +41,12 @@ const LoginBottom = (): ReactElement => {
   return (
     <S.Container>
       <S.BtnBox>
-        <S.Btn type="button" onClick={onKakaoLogin}>
-          <img src={kakao} alt="카카오로그인" />
+        <S.Btn type="button" onClick={onKakaoLogin} data-blink="blink">
+          <img src={kakao} alt="카카오로그인" data-blink="blink" />
           카카오로 계속하기
         </S.Btn>
-        <S.Btn2 id="naverIdLogin" type="button">
-          <img src={naver} alt="네이버로그인" />
+        <S.Btn2 id="naverIdLogin" type="button" data-blink="blink">
+          <img src={naver} alt="네이버로그인" data-blink="blink" />
           네이버로 계속하기
         </S.Btn2>
       </S.BtnBox>

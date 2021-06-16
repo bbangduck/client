@@ -7,8 +7,8 @@ const GetRequestItem = (): ReactElement => {
     <S.Li>
       <UserData marginBottom={2} />
       <S.Box>
-        <S.Left>거절</S.Left>
-        <S.Right>수락</S.Right>
+        <S.Left data-blink="blink">거절</S.Left>
+        <S.Right data-blink="blink">수락</S.Right>
       </S.Box>
     </S.Li>
   );

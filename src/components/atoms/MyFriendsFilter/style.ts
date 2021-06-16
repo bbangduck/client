@@ -5,6 +5,12 @@ export const Container = Styled.div`
   justify-content:flex-end;
   align-items:center;
   margin-bottom:8px;
+  cursor:pointer;
+`;
+
+export const Box = Styled.div`
+  display:flex;
+  align-items:center;
 `;
 
 export const PTag = Styled.p`
@@ -19,5 +25,4 @@ export const ImgBox = Styled.div`
   width: 24px;
   height: 24px;
   background-color:gray;
-  cursor:pointer;
 `;

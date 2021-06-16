@@ -7,7 +7,7 @@ const SendRequestItem = (): ReactElement => {
     <S.Li>
       <UserData marginBottom={2} />
       <S.Box>
-        <S.Btn>신청 취소</S.Btn>
+        <S.Btn data-blink="blink">신청 취소</S.Btn>
       </S.Box>
     </S.Li>
   );

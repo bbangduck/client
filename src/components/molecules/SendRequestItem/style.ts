@@ -17,4 +17,5 @@ export const Btn = Styled.div`
   border: solid 1px #ebebeb;
   font-size: 12px;
   color: #4b4b4b;
+  cursor:pointer;
 `;

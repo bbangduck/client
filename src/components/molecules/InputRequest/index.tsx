@@ -14,7 +14,9 @@ const InputRequest = (): ReactElement => {
   return (
     <S.Form onSubmit={onRequest}>
       <S.Input type="text" placeholder="닉네임 입력" />
-      <S.Btn type="submit">친구신청</S.Btn>
+      <S.Btn type="submit" data-blink="blink">
+        친구신청
+      </S.Btn>
       {modalOn ? (
         <OkModal
           clickOutsideClose={clickOutside}

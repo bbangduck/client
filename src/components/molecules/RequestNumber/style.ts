@@ -5,6 +5,7 @@ export const Container = Styled.div`
   display:flex;
   justify-content:space-between;
   align-items:center;
+  cursor:pointer;
 `;
 
 export const PTag = Styled.p`
@@ -13,8 +14,4 @@ export const PTag = Styled.p`
   line-height: 1.5;
   letter-spacing: -0.16px;
   color: #121212;
-`;
-
-export const Img = Styled.img`
-  cursor:pointer;
 `;

@@ -18,8 +18,8 @@ const UpdateHeader = ({ content, arrow, img, imgAlt, onImgClick }: Props): React
 
   return (
     <S.Header img={img}>
-      <S.ImgBox onClick={() => history.goBack()}>
-        <img src={arrow} alt="뒤로가기" />
+      <S.ImgBox onClick={() => history.goBack()} data-blink="blink">
+        <img src={arrow} alt="뒤로가기" data-blink="blink" />
       </S.ImgBox>
       {content ? (
         <S.H1Box>

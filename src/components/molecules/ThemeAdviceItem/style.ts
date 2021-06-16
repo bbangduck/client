@@ -1,5 +1,10 @@
 import Styled from 'styled-components';
 
+export const Container = Styled.div`
+  position:relative;
+  cursor:pointer;
+`;
+
 export const ImgBox = Styled.div`
   width: 152px;
   height: 215px;

@@ -27,9 +27,9 @@ const CareerOn = (): ReactElement => {
       <ul>
         {careerOpenList.map((item) => {
           return (
-            <S.Li key={item.id} onClick={() => onCheck(item.id)}>
-              <S.PTag>{item.content}</S.PTag>
-              <S.Img src={item.img} alt={item.content} />
+            <S.Li key={item.id} onClick={() => onCheck(item.id)} data-blink="blink">
+              <S.PTag data-blink="blink">{item.content}</S.PTag>
+              <img src={item.img} alt={item.content} data-blink="blink" />
             </S.Li>
           );
         })}

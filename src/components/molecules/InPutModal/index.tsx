@@ -62,10 +62,12 @@ const InputModal = ({
             {errorMessage ? <S.Span2>{errorMessage}</S.Span2> : null}
           </S.Label>
           <S.BtnBox>
-            <S.LeftBtn type="button" onClick={() => setModalState(false)}>
+            <S.LeftBtn type="button" onClick={() => setModalState(false)} data-blink="blink">
               취소
             </S.LeftBtn>
-            <S.RightBtn type="submit">확인</S.RightBtn>
+            <S.RightBtn type="submit" data-blink="blink">
+              확인
+            </S.RightBtn>
           </S.BtnBox>
         </form>
       </S.ModalBox>

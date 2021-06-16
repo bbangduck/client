@@ -14,8 +14,8 @@ const MyThemeItem = ({ onMoreClick }: Props): ReactElement => {
   return (
     <S.Li>
       <S.ImgBox image={poster}>
-        <S.MoreBox onClick={onClick}>
-          <img src={more} alt="삭제 버튼" />
+        <S.MoreBox onClick={onClick} data-blink="blink">
+          <img src={more} alt="삭제 버튼" data-blink="blink" />
         </S.MoreBox>
       </S.ImgBox>
       <S.PTag>검은 사원</S.PTag>

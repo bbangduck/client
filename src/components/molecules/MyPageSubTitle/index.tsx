@@ -15,9 +15,15 @@ const MyPageSubTitle = ({ content, page, item, trueMargin, falseMargin, arrow }:
   const history = useHistory();
 
   return (
-    <S.Container item={item} trueMg={trueMargin} falseMg={falseMargin}>
-      <S.H2>{content}</S.H2>
-      {arrow && page && <S.Img src={right} alt="방탈출 현황 더보기" onClick={() => history.push(page)} />}
+    <S.Container
+      item={item}
+      trueMg={trueMargin}
+      falseMg={falseMargin}
+      onClick={() => page && history.push(page)}
+      data-blink="blink"
+    >
+      <S.H2 data-blink="blink">{content}</S.H2>
+      {arrow && page && <img src={right} alt="방탈출 현황 더보기" data-blink="blink" />}
     </S.Container>
   );
 };

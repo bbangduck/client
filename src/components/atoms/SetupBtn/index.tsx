@@ -11,9 +11,9 @@ const SetupBtn = (): ReactElement => {
   };
 
   return (
-    <S.Container onClick={onSetupClick}>
-      <S.Icon src={iconx1} alt="setupIcon" />
-      <S.SpanTag>설정</S.SpanTag>
+    <S.Container onClick={onSetupClick} data-blink="blink">
+      <S.Icon src={iconx1} alt="setupIcon" data-blink="blink" />
+      <S.SpanTag data-blink="blink">설정</S.SpanTag>
     </S.Container>
   );
 };

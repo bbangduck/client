@@ -9,19 +9,14 @@ const EscapeNotices = (): ReactElement => {
   const notice = '[이벤트]빵덕 오픈 이벤트 리뷰ㄴㄴㄴㄴㄴㄴ';
   const shortedNotice = notice.substring(0, 22);
   return (
-    <S.Section>
-      <S.Box>
-        <S.LeftIconBox>
+    <S.Section onClick={() => history.push('/mypage/notice')} data-blink="blink">
+      <S.Box data-blink="blink">
+        <S.LeftIconBox data-blink="blink">
           <S.LeftIcon src="" alt="" />
         </S.LeftIconBox>
-        <S.PTag>{notice.length > 22 ? `${shortedNotice}..` : notice}</S.PTag>
+        <S.PTag data-blink="blink">{notice.length > 22 ? `${shortedNotice}..` : notice}</S.PTag>
       </S.Box>
-      <img
-        onClick={() => history.push('/mypage/notice')}
-        src={right}
-        alt="공지사항 더보기"
-        style={{ cursor: 'pointer' }}
-      />
+      <img src={right} alt="공지사항 더보기" data-blink="blink" />
     </S.Section>
   );
 };

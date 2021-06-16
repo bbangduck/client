@@ -40,10 +40,10 @@ const Modal = ({
           <S.P>{content}</S.P>
         )}
         <S.BtnBox>
-          <S.LeftBtn type="button" onClick={() => setModalState(false)}>
+          <S.LeftBtn type="button" onClick={() => setModalState(false)} data-blink="blink">
             취소
           </S.LeftBtn>
-          <S.RightBtn type="button" onClick={onSubmit}>
+          <S.RightBtn type="button" onClick={onSubmit} data-blink="blink">
             {btnContent}
           </S.RightBtn>
         </S.BtnBox>

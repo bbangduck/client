@@ -24,8 +24,5 @@ export const Li = Styled.li`
   display:flex;
   align-items:center;
   justify-content:space-between;
-`;
-
-export const Img = Styled.img`
   cursor:pointer;
 `;

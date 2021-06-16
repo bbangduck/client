@@ -15,11 +15,11 @@ const RequestNumber = ({ title, number, onShowClick, isShow }: Props): ReactElem
   };
 
   return (
-    <S.Container>
-      <S.PTag>
+    <S.Container onClick={onListShow} data-blink="blink">
+      <S.PTag data-blink="blink">
         {title} {number}
       </S.PTag>
-      <S.Img src={isShow ? up : down} alt="" onClick={onListShow} />
+      <img src={isShow ? up : down} alt="" data-blink="blink" />
     </S.Container>
   );
 };

@@ -1,5 +1,8 @@
 import Styled from 'styled-components';
 
+export const Li = Styled.li`
+  margin-right:16px;
+`;
 interface ImgBoxProps {
   image: string;
 }

@@ -11,8 +11,8 @@ const BottomBtn = ({ content, onClick }: Props): ReactElement => {
   };
 
   return (
-    <S.Container onClick={onBtnClick} type="submit">
-      <S.PTag>{content}</S.PTag>
+    <S.Container onClick={onBtnClick} type="submit" data-blink="blink">
+      <S.PTag data-blink="blink">{content}</S.PTag>
     </S.Container>
   );
 };

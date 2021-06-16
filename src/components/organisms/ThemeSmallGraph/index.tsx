@@ -52,8 +52,8 @@ const ThemeSmallGraph = ({ pushTo, title }: Props): ReactElement => {
             <S.Left>
               총 <S.Span>35</S.Span>명의 회원이 평가했어요!
             </S.Left>
-            <S.Right onClick={() => history.push(pushTo)}>
-              <S.IsPTag>자세히 보기</S.IsPTag>
+            <S.Right onClick={() => history.push(pushTo)} data-blink="blink">
+              <S.IsPTag data-blink="blink">자세히 보기</S.IsPTag>
             </S.Right>
           </S.BottomBox>
         </S.Container>

@@ -33,9 +33,9 @@ const FilterSlider = ({
       <S.ContentBox ref={visibleContentRef}>
         <S.HeaderBox>
           <S.PTag>필터</S.PTag>
-          <S.RightBox onClick={onReset}>
-            <img src={reset} alt="초기화" />
-            <S.Span>초기화</S.Span>
+          <S.RightBox onClick={onReset} data-blink="blink">
+            <img src={reset} alt="초기화" data-blink="blink" />
+            <S.Span data-blink="blink">초기화</S.Span>
           </S.RightBox>
         </S.HeaderBox>
         {filterTypes.map((type) => (

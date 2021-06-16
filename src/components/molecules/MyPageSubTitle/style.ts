@@ -11,6 +11,7 @@ export const Container = Styled.div<ContainerProps>`
   display:flex;
   justify-content:space-between;
   align-items:center;
+  cursor:pointer;
 `;
 
 export const H2 = Styled.h2`
@@ -19,8 +20,4 @@ export const H2 = Styled.h2`
   line-height: 1.5;
   letter-spacing: -0.16px;
   color: ${({ theme }) => theme.colors.fontGray[2]};
-`;
-
-export const Img = Styled.img`
-  cursor:pointer;
 `;

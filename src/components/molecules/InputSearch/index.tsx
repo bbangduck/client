@@ -64,8 +64,8 @@ const InputSearch = ({
         ref={inputRef}
       />
       {inputValue ? <S.Img src={deleteIcon} alt="삭제" onClick={onDelete} /> : null}
-      <S.Button type="submit">
-        <img src={search} alt="찾기" />
+      <S.Button type="submit" data-blink="blink">
+        <img src={search} alt="찾기" data-blink="blink" />
       </S.Button>
     </S.Form>
   );

@@ -33,7 +33,11 @@ const ThemeAnalysisTemplate = (): ReactElement => {
           </S.Item>
         ))}
       </S.Box>
-      <S.Btn type="button">리뷰쓰고 분석 참여하기</S.Btn>
+      <S.BtnBox>
+        <S.Btn type="button" data-blink="blink">
+          리뷰쓰고 분석 참여하기
+        </S.Btn>
+      </S.BtnBox>
     </S.Section>
   );
 };

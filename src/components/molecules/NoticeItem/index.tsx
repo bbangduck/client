@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 import { useHistory } from 'react-router-dom';
 import right from '../../../assets/images/arrow/right.png';
+import { shortSentence } from '../../../hooks/shortSentence';
 import * as S from './style';
 
 interface Props {
@@ -14,7 +15,7 @@ const NoticeItem = ({ pageNumber, title, date, content }: Props): ReactElement =
 
   const isTitle = () => {
     if (title.length > 27) {
-      return `${title.substr(0, 27)} ...`;
+      return `${shortSentence(27, title)}.`;
     }
     return title;
   };
@@ -29,12 +30,12 @@ const NoticeItem = ({ pageNumber, title, date, content }: Props): ReactElement =
   };
 
   return (
-    <S.Container>
-      <S.Box>
-        <S.PTag>{isTitle()}</S.PTag>
-        <S.Img src={right} alt="공지사항 더보기" onClick={arrowClickHandeler} />
+    <S.Container data-blink="blink" onClick={arrowClickHandeler}>
+      <S.Box data-blink="blink">
+        <S.PTag data-blink="blink">{isTitle()}</S.PTag>
+        <img src={right} alt="공지사항 더보기" data-blink="blink" />
       </S.Box>
-      <S.Span>{date}</S.Span>
+      <S.Span data-blink="blink">{date}</S.Span>
     </S.Container>
   );
 };

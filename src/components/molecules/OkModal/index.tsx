@@ -17,7 +17,7 @@ const OkModal = ({ clickOutsideClose, modalRef, setModalState, content }: Props)
           <br /> 친구 신청을 보냈습니다.
         </S.P>
         <S.BtnBox>
-          <S.Btn type="button" onClick={() => setModalState(false)}>
+          <S.Btn type="button" onClick={() => setModalState(false)} data-blink="blink">
             확인
           </S.Btn>
         </S.BtnBox>

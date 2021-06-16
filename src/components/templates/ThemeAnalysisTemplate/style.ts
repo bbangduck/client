@@ -56,7 +56,16 @@ export const People = Styled.p`
   color: #ffffff;
 `;
 
+export const BtnBox = Styled.div`
+  position:relative;
+  min-height:52px;
+  height:calc(100vh - 721px);
+`;
+
 export const Btn = Styled.button`
+  position:absolute;
+  bottom:0;
+  left:0;
   width: 320px;
   height: 52px;
   box-shadow: 0 -5px 10px 0 rgba(0, 0, 0, 0.05);

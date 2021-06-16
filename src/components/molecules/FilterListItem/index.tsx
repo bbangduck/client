@@ -39,23 +39,23 @@ const FilterListItem = ({
   const ShowContent = () => {
     if (typeTitle === '평점') {
       if (content === '전체') {
-        return <S.PTag>{content}</S.PTag>;
+        return <S.PTag data-blink="blink">{content}</S.PTag>;
       }
       return (
-        <S.PTag>
-          <S.Span>{content}</S.Span>
+        <S.PTag data-blink="blink">
+          <S.Span data-blink="blink">{content}</S.Span>
           이상
         </S.PTag>
       );
     }
-    return <S.PTag>{content}</S.PTag>;
+    return <S.PTag data-blink="blink">{content}</S.PTag>;
   };
 
   return (
-    <S.ListBox>
-      <S.ListItem onClick={onCheck}>
+    <S.ListBox data-blink="blink">
+      <S.ListItem onClick={onCheck} data-blink="blink">
         {ShowContent()}
-        <img src={isChecked ? checked : unChecked} alt="체크박스" />
+        <img src={isChecked ? checked : unChecked} alt="체크박스" data-blink="blink" />
       </S.ListItem>
     </S.ListBox>
   );

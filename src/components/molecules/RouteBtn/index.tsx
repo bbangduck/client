@@ -14,11 +14,11 @@ const RouteBtn = ({ content, icon, color, fontWeight, onClick }: Props): ReactEl
   };
 
   return (
-    <S.Container onClick={onClickHandeler}>
-      <S.H2 color={color} fontWeight={fontWeight}>
+    <S.Container onClick={onClickHandeler} data-blink="blink">
+      <S.H2 color={color} fontWeight={fontWeight} data-blink="blink">
         {content}
       </S.H2>
-      {icon ? <img src={icon} alt={`${content} 더보기`} /> : null}
+      {icon ? <img src={icon} alt={`${content} 더보기`} data-blink="blink" /> : null}
     </S.Container>
   );
 };

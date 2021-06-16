@@ -1,9 +1,9 @@
-.swiper-container {
-  margin:0 !important;
+.moment-swiper {
+  margin:0 ;
   width:100%;
   overflow: initial;
 }
 
-.swiper-slide {
-  width:auto !important;
+.moment-slide {
+  width:auto ;
 }

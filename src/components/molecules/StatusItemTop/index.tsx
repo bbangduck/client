@@ -18,7 +18,7 @@ const StatusItemTop = ({ idNumber, date, onUpdate }: Props): ReactElement => {
         <Styled.Number>#{idNumber}</Styled.Number>
         <Styled.Date>{date}</Styled.Date>
       </Styled.LeftBox>
-      <Styled.Img src={moreIcon} alt="자세히" onClick={onUpdateClick} />
+      <Styled.Img src={moreIcon} alt="자세히" onClick={onUpdateClick} data-blink="blink" />
     </Styled.Container>
   );
 };

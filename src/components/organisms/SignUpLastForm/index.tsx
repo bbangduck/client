@@ -72,7 +72,7 @@ const SignUpLastForm = ({ userData }: Props): ReactElement => {
             focus={inputFocus}
             autoComplete="off"
           />
-          <S.CheckBtn type="button" onClick={onCheckNickname}>
+          <S.CheckBtn type="button" onClick={onCheckNickname} data-blink="blink">
             중복체크
           </S.CheckBtn>
         </S.InputBox>

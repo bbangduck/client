@@ -8,7 +8,7 @@ interface Props {
 }
 const SearchFriendsList = ({ firstRender }: Props): ReactElement => {
   const history = useHistory();
-  const result = 0;
+  const result = 1;
 
   const onChooseFriend = () => {
     console.log('선택');

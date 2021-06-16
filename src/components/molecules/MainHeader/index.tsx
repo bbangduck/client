@@ -9,7 +9,7 @@ const MainHeader = (): ReactElement => {
   return (
     <S.Header>
       <p>빵덕</p>
-      <S.Img src={search} alt="찾기" onClick={() => history.push('/search')} />
+      <S.Img src={search} alt="찾기" onClick={() => history.push('/search')} data-blink="blink" />
     </S.Header>
   );
 };

@@ -14,7 +14,7 @@ const MyFriendsItem = ({ onMoreClick }: Props): ReactElement => {
   return (
     <S.Li>
       <UserData marginBottom={2} />
-      <S.Img src={more} alt="친구 관리" onClick={onMoreClickHandeler} />
+      <S.Img src={more} alt="친구 관리" onClick={onMoreClickHandeler} data-blink="blink" />
     </S.Li>
   );
 };

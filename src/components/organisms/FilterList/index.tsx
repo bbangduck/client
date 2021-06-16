@@ -34,11 +34,13 @@ const FilterList = ({ isOn, setIsOn, typeNumber, title, typeList, reset, setFilt
 
   return (
     <div>
-      <S.TitleBox onClick={onListShow}>
-        <S.PTag isChecked={titleChecked}>{title}</S.PTag>
-        <S.RightBox>
-          <S.Span>{checkedName}</S.Span>
-          <img src={isOn ? top : down} alt="열기" />
+      <S.TitleBox onClick={onListShow} data-blink="blink">
+        <S.PTag isChecked={titleChecked} data-blink="blink">
+          {title}
+        </S.PTag>
+        <S.RightBox data-blink="blink">
+          <S.Span data-blink="blink">{checkedName}</S.Span>
+          <img src={isOn ? top : down} alt="열기" data-blink="blink" />
         </S.RightBox>
       </S.TitleBox>
       {isOn ? (

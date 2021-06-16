@@ -13,7 +13,9 @@ const LoginTemplate = (): ReactElement => {
       <S.Background>
         <S.Container>
           <S.Box onClick={() => history.push('/')}>
-            <S.Later type="button">다음에 로그인 하기</S.Later>
+            <S.Later type="button" data-blink="blink">
+              다음에 로그인 하기
+            </S.Later>
           </S.Box>
           <S.PTag>
             방탈출카페

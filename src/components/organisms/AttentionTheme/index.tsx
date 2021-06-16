@@ -11,7 +11,7 @@ const AttentionTheme = (): ReactElement => {
         <AttentionThemeItem />
         <AttentionThemeItem />
       </S.Ul>
-      <S.Btn>더많은 테마 구경하러가기</S.Btn>
+      <S.Btn data-blink="blink">더많은 테마 구경하러가기</S.Btn>
     </S.Section>
   );
 };

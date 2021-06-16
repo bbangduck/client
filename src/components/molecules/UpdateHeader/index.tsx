@@ -18,15 +18,15 @@ const UpdateHeader = ({ content, arrow, img, imgAlt, onImgClick }: Props): React
 
   return (
     <S.Header img={img}>
-      <S.ImgBox onClick={() => history.goBack()}>
-        <img src={arrow} alt="뒤로가기" />
+      <S.ImgBox onClick={() => history.goBack()} data-blink="blink">
+        <img src={arrow} alt="뒤로가기" data-blink="blink" />
       </S.ImgBox>
       {content ? (
         <S.H1Box>
           <S.H1>{content}</S.H1>
         </S.H1Box>
       ) : null}
-      {img ? <S.Img src={img} alt={imgAlt} onClick={onImgClickHandeler} /> : null}
+      {img ? <S.Img src={img} alt={imgAlt} onClick={onImgClickHandeler} data-blink="blink" /> : null}
     </S.Header>
   );
 };

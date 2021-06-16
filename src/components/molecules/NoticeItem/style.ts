@@ -6,6 +6,7 @@ export const Container = Styled.li`
   display:flex;
   flex-direction:column;
   justify-content:center;
+  cursor:pointer;
 `;
 
 export const Box = Styled.div`
@@ -19,10 +20,6 @@ export const PTag = Styled.p`
   font-size: ${({ theme }) => theme.sizes.font[2]};
   line-height: 1.43;
   color: ${({ theme }) => theme.colors.fontGray[1]};
-`;
-
-export const Img = Styled.img`
-  cursor:pointer;
 `;
 
 export const Span = Styled.span`

@@ -44,8 +44,8 @@ const ThemeHeader = (): ReactElement => {
               <StarBox star={4.5} shadow />
               <StatusBlock content="EVENT" color="#2b2b2b" border={false} padding={12} bgColor="white" shadow />
             </S.LeftBox>
-            <S.MapBox onClick={() => history.push('/theme/:name/location')}>
-              <img src={map} alt="위치" />
+            <S.MapBox onClick={() => history.push('/theme/:name/location')} data-blink="blink">
+              <img src={map} alt="위치" data-blink="blink" />
             </S.MapBox>
           </S.TotalBox>
           <S.H1Tag>[강남] 제로호텔L</S.H1Tag>

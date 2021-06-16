@@ -18,7 +18,9 @@ const ReviewDetail = (): ReactElement => {
         <EscapeReviewSentence />
         <ExtraReview />
         <S.BtnBox>
-          <S.Btn type="submit">작성 완료</S.Btn>
+          <S.Btn type="submit" data-blink="blink">
+            작성 완료
+          </S.Btn>
         </S.BtnBox>
       </form>
     </div>

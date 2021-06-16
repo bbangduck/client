@@ -11,9 +11,9 @@ const ExtraReview = (): ReactElement => {
     <div>
       <S.Box isOn={reviewListOn}>
         <S.PTag>방탈출 평가하기</S.PTag>
-        <S.RightBox onClick={() => setReviewListOn((prev) => !prev)}>
-          <S.Span>평가할래요!</S.Span>
-          <img src={arrow} alt="평가하기" />
+        <S.RightBox onClick={() => setReviewListOn((prev) => !prev)} data-blink="blink">
+          <S.Span data-blink="blink">평가할래요!</S.Span>
+          <img src={arrow} alt="평가하기" data-blink="blink" />
         </S.RightBox>
       </S.Box>
       {reviewListOn ? <ExtraReviewList /> : null}

@@ -36,7 +36,7 @@ const PickItem = ({
           보유테마<S.Span2 color={themeCountColor}>&nbsp;&nbsp;&nbsp;{themeAccount}</S.Span2>개
         </S.Span>
       </div>
-      <S.MoreBox color={boxColor} bgColor={boxBgColor}>
+      <S.MoreBox color={boxColor} bgColor={boxBgColor} data-blink="blink">
         More
       </S.MoreBox>
     </S.Li>

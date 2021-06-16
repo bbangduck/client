@@ -4,10 +4,10 @@ import * as S from './style';
 
 const ThumbNail = (): ReactElement => {
   return (
-    <S.Li>
-      <S.ImgBox image={poster} />
-      <S.PTag>검은 사원</S.PTag>
-      <S.Span>제로월드 강남점</S.Span>
+    <S.Li data-blink="cover">
+      <S.ImgBox image={poster} data-blink="cover" />
+      <S.PTag data-blink="cover">검은 사원</S.PTag>
+      <S.Span data-blink="cover">제로월드 강남점</S.Span>
     </S.Li>
   );
 };

@@ -4,11 +4,11 @@ import * as S from './style';
 
 const NewThemeItem = (): ReactElement => {
   return (
-    <li>
-      <S.ImgBox image={poster} />
-      <S.H3>[강남] 어느겨울밤</S.H3>
-      <S.PTag>제로월드 강남점</S.PTag>
-    </li>
+    <S.Li data-blink="cover">
+      <S.ImgBox image={poster} data-blink="cover" />
+      <S.H3 data-blink="cover">[강남] 어느겨울밤</S.H3>
+      <S.PTag data-blink="cover">제로월드 강남점</S.PTag>
+    </S.Li>
   );
 };
 

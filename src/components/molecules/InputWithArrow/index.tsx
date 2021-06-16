@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import { useHistory } from 'react-router-dom';
 import left from '../../../assets/images/arrow/left.png';
 import InputSearch from '../InputSearch';
 import * as S from './style';
@@ -9,13 +10,15 @@ interface Props {
   setInputValue: React.Dispatch<React.SetStateAction<string>>;
 }
 const InputWithArrow = ({ inputValue, setInputValue, initialValue }: Props): ReactElement => {
+  const history = useHistory();
+
   const onSearch = () => {
     console.log('찾아');
   };
 
   return (
     <S.Container>
-      <S.Img src={left} alt="뒤로가기" />
+      <S.Img src={left} alt="뒤로가기" data-blink="blink" onClick={() => history.goBack()} />
       <InputSearch
         setInputValue={setInputValue}
         inputValue={inputValue}

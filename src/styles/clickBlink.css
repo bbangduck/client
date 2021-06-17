@@ -1,10 +1,10 @@
 .click-blink {
   animation-name:blink;
-  animation-duration:.2s;
+  animation-duration:.3s;
 }
 
 @keyframes blink {
   50%{
-    background-color:dodgerblue;
+    background-color:rgba(167, 167, 167, 0.308);
   }
 }

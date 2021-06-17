@@ -10,8 +10,8 @@ const MyInfo = (): ReactElement => {
 
   const nickname = data?.data.nickname;
   const profileImg = data?.data.profileImage.profileImageUrl;
+  const reviewCount = data?.data.roomEscapeStatus.challengesCount;
   const level = '없음';
-  const review = '없음';
 
   if (loading) return <Loading />;
   return (
@@ -20,7 +20,7 @@ const MyInfo = (): ReactElement => {
       <S.RightBox>
         <S.NamePTag>{nickname}</S.NamePTag>
         <S.LevelPTag>
-          LEVEL {level} / {review}개의 리뷰
+          LEVEL {level} / {reviewCount}개의 리뷰
         </S.LevelPTag>
       </S.RightBox>
     </S.Container>

@@ -3,43 +3,48 @@ import MyPageSubTitle from '../../molecules/MyPageSubTitle';
 import * as S from './style';
 import MyPageGuide from '../../atoms/MyPageGuide';
 import InfoBox from '../../atoms/InfoBox';
+import useGetUserData from '../../../swr/useUserData';
+import Loading from '../../atoms/Loding';
 
 const EscapeTendency = (): ReactElement => {
-  const tendency: { id: number; item: string }[] | any = [
-    { id: 1, item: '공포' },
-    { id: 2, item: '스릴러' },
-    { id: 3, item: '미스터리' },
-    { id: 4, item: '드라마' },
-  ];
+  const { data, loading } = useGetUserData();
 
+  const totalTendency = data?.data.playInclinations;
+  const tendencyList = totalTendency?.slice(0, 4).map((tendency, idx) => {
+    return { ...tendency, genre: { ...tendency.genre, id: idx + 1 } };
+  });
   const suggestTendency = () => {
     return <MyPageGuide content="방탈출을 진행하고 성향 분석을 해보세요." />;
   };
 
-  const showTendencyList = () => {
-    return tendency?.map((tend: { id: number; item: string }) => (
-      <InfoBox
-        key={`#${tend.id}`}
-        content={tend.item}
-        bgColor="#2b2b2b"
-        color="#ffffff"
-        marginRight={8}
-        borderRadius={4}
-      />
-    ));
+  const showTendencyList = (): null | JSX.Element[] => {
+    if (tendencyList) {
+      return tendencyList.map((tendency) => (
+        <InfoBox
+          key={tendency.genre.id}
+          content={tendency.genre.genreName}
+          bgColor="#2b2b2b"
+          color="#ffffff"
+          marginRight={8}
+          borderRadius={4}
+        />
+      ));
+    }
+    return null;
   };
 
+  if (loading) return <Loading />;
   return (
-    <S.Section tendency={tendency || false}>
+    <S.Section tendency={!!tendencyList}>
       <MyPageSubTitle
         content="방탕출 성향"
         page="/mypage/tendency"
-        item={tendency}
+        item={!!tendencyList}
         trueMargin="8px"
         falseMargin="40px"
         arrow
       />
-      <S.TendBox>{tendency ? showTendencyList() : suggestTendency()}</S.TendBox>
+      <S.TendBox>{tendencyList ? showTendencyList() : suggestTendency()}</S.TendBox>
     </S.Section>
   );
 };

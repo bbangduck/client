@@ -4,7 +4,7 @@ import * as S from './style';
 interface Props {
   icon: string;
   content: string;
-  count: number;
+  count: string;
 }
 const EscapeType = ({ icon, content, count }: Props): ReactElement => {
   return (

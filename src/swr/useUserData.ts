@@ -48,8 +48,8 @@ interface UserDataType {
 }
 
 export const useGetUserData = (): {
-  data: UserDataType | undefined;
-  error: string | undefined;
+  data: UserDataType;
+  error: string;
   loading: boolean;
 } => {
   const memberId = sessionStorage.getItem('bbangUserId');

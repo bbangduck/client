@@ -3,16 +3,16 @@ import MyPageSubTitle from '../../molecules/MyPageSubTitle';
 import * as S from './style';
 import MyPageGuide from '../../atoms/MyPageGuide';
 import InfoBox from '../../atoms/InfoBox';
-import useGetUserData from '../../../swr/useUserData';
 import Loading from '../../atoms/Loding';
+import useGetGenre from '../../../swr/useGetGenre';
 
 const EscapeTendency = (): ReactElement => {
-  const { data, loading } = useGetUserData();
-
+  const { data, loading } = useGetGenre();
   const totalTendency = data?.data.playInclinations;
   const tendencyList = totalTendency?.slice(0, 4).map((tendency, idx) => {
     return { ...tendency, genre: { ...tendency.genre, id: idx + 1 } };
   });
+
   const suggestTendency = () => {
     return <MyPageGuide content="방탈출을 진행하고 성향 분석을 해보세요." />;
   };

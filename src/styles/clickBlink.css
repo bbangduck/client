@@ -1,10 +1,14 @@
 .click-blink {
-  animation-name:blink;
-  animation-duration:.3s;
+  /* animation-name:blink;
+  animation-duration:.2s; */
+  background-color:rgba(134, 134, 134, 0.2)
 }
 
-@keyframes blink {
-  50%{
-    background-color:rgba(167, 167, 167, 0.308);
+/* @keyframes blink {
+  10%{
+    background-color:rgba(134, 134, 134, 0.178)
   }
-}
+  20%{
+    background-color:rgba(134, 134, 134, 0.1)
+  }
+} */

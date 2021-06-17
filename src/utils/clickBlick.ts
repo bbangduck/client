@@ -12,14 +12,14 @@ const blinkNewElement = (element: HTMLElement) => {
   element.appendChild(newElement);
   setTimeout(() => {
     element.removeChild(newElement);
-  }, 200);
+  }, 300);
 };
 
 const blinkBackground = (element: HTMLElement) => {
   element.classList.add('click-blink');
   setTimeout(() => {
     element.classList.remove('click-blink');
-  }, 200);
+  }, 300);
 };
 
 const clickBlink = (e: React.MouseEvent<HTMLElement, MouseEvent>): void => {

@@ -2,17 +2,23 @@ import React, { ReactElement } from 'react';
 import * as S from './style';
 import ProfileImg from '../../atoms/ProfileImg';
 import defaultImg from '../../../assets/images/profile/profile.png';
+import useGetUserData from '../../../swr/useUserData';
+import Loading from '../../atoms/Loding';
 
 const MyInfo = (): ReactElement => {
-  const name = '방탈출 초보 방린이';
-  const level = 3;
-  const review = 5;
+  const { data, loading } = useGetUserData();
 
+  const nickname = data?.data.nickname;
+  const profileImg = data?.data.profileImage.profileImageUrl;
+  const level = '없음';
+  const review = '없음';
+
+  if (loading) return <Loading />;
   return (
     <S.Container>
-      <ProfileImg image={defaultImg} width={80} height={80} marginRight={20} />
+      <ProfileImg image={profileImg || defaultImg} width={80} height={80} marginRight={20} />
       <S.RightBox>
-        <S.NamePTag>{name}</S.NamePTag>
+        <S.NamePTag>{nickname}</S.NamePTag>
         <S.LevelPTag>
           LEVEL {level} / {review}개의 리뷰
         </S.LevelPTag>

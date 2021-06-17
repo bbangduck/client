@@ -1,13 +1,16 @@
 import React, { ReactElement } from 'react';
+import useGetUserData from '../../../swr/useUserData';
+import Loading from '../Loding';
 import * as S from './style';
 
-interface Props {
-  content?: string;
-}
-const Intro = ({ content }: Props): ReactElement => {
+const Intro = (): ReactElement => {
+  const { data, loading } = useGetUserData();
+  const myDescription = data?.data.description;
+
+  if (loading) return <Loading />;
   return (
     <S.Container>
-      <S.PTag content={content}>{content || '나의 한마디를 남겨보세요'}</S.PTag>
+      <S.PTag content={myDescription}>{myDescription || '나의 한마디를 남겨보세요'}</S.PTag>
     </S.Container>
   );
 };

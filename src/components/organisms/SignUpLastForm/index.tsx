@@ -42,7 +42,7 @@ const SignUpLastForm = ({ userData }: Props): ReactElement => {
           if (accessToken && refreshToken) {
             setSessionStorage(accessToken, refreshToken, userId);
             history.push('/');
-            showPopAlarm(true, '회원가입에 성공하였습니다.');
+            showPopAlarm('회원가입에 성공하였습니다.');
           }
         }
       } catch (error) {

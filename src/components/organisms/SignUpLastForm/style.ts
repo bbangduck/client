@@ -32,6 +32,7 @@ export const Input = Styled.input<InputProps>`
 `;
 
 export const CheckBtn = Styled.button`
+  position:relative;
   width:84px;
   height:44px;
   background-color: #2b2b2b;

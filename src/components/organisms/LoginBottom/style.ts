@@ -14,6 +14,7 @@ export const BtnBox = Styled.div`
 `;
 
 export const Btn = Styled.button`
+  position:relative;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -28,6 +29,7 @@ export const Btn = Styled.button`
 `;
 
 export const Btn2 = Styled.button`
+  position:relative;
   display:flex;
   align-items:center;
   justify-content:center;

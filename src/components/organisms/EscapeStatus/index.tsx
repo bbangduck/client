@@ -5,7 +5,7 @@ import door1 from '../../../assets/images/doors/door1.png';
 import door2 from '../../../assets/images/doors/door2.png';
 import door3 from '../../../assets/images/doors/door3.png';
 import * as S from './style';
-import useGetUserData from '../../../swr/useUserData';
+import useGetUserData from '../../../swr/useGetUserData';
 import Loading from '../../atoms/Loding';
 
 const EscapeStatus = (): ReactElement => {

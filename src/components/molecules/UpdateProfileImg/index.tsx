@@ -4,12 +4,12 @@ import * as S from './style';
 import defaultImg from '../../../assets/images/profile/profile.png';
 import camera from '../../../assets/images/camera/camera.png';
 import axiosAPI from '../../../utils/axios';
-import useGetUserData from '../../../swr/useUserData';
+import useGetUserData from '../../../swr/useGetUserData';
 import Loading from '../../atoms/Loding';
 
 const UpdateProfileImg = (): ReactElement => {
   const history = useHistory();
-  const { data, loading, mutate } = useGetUserData();
+  const { data, loading, mutate: mutateImg } = useGetUserData();
 
   const myImage = data?.data.profileImage.profileImageUrl;
 
@@ -36,7 +36,7 @@ const UpdateProfileImg = (): ReactElement => {
           fileName,
         },
       });
-      await mutate();
+      await mutateImg();
     } catch (err) {
       history.push('/error');
     }

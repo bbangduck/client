@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import * as S from './style';
 import ProfileImg from '../../atoms/ProfileImg';
 import defaultImg from '../../../assets/images/profile/profile.png';
-import useGetUserData from '../../../swr/useUserData';
+import useGetUserData from '../../../swr/useGetUserData';
 import Loading from '../../atoms/Loding';
 
 const MyInfo = (): ReactElement => {

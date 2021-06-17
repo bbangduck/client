@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import useGetUserData from '../../../swr/useUserData';
+import useGetUserData from '../../../swr/useGetUserData';
 import Loading from '../Loding';
 import * as S from './style';
 

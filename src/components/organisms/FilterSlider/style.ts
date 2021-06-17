@@ -6,7 +6,7 @@ interface ContainerProps {
 export const Container = Styled.div<ContainerProps>`
   position:fixed;
   bottom:0;
-  transform:${({ filterOn }) => (filterOn ? 'translateX(-20px)' : 'translateX(340px)')};
+  transform:${({ filterOn }) => (filterOn ? 'translateX(-20px)' : 'translateX(600px)')};
   height:100vh;
   width:360px;
   background-color:#2b2b2b60;

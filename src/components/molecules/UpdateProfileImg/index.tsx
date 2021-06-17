@@ -4,10 +4,14 @@ import * as S from './style';
 import defaultImg from '../../../assets/images/profile/profile.png';
 import camera from '../../../assets/images/camera/camera.png';
 import axiosAPI from '../../../utils/axios';
+import useGetUserData from '../../../swr/useUserData';
+import Loading from '../../atoms/Loding';
 
 const UpdateProfileImg = (): ReactElement => {
   const history = useHistory();
-  const myImage = null;
+  const { data, loading, mutate } = useGetUserData();
+
+  const myImage = data?.data.profileImage.profileImageUrl;
 
   const uploadImage = async (formData: FormData) => {
     try {
@@ -32,6 +36,7 @@ const UpdateProfileImg = (): ReactElement => {
           fileName,
         },
       });
+      await mutate();
     } catch (err) {
       history.push('/error');
     }
@@ -49,9 +54,10 @@ const UpdateProfileImg = (): ReactElement => {
     }
   };
 
+  if (loading) return <Loading />;
   return (
     <S.Container>
-      <img src={myImage || defaultImg} alt="프로필사진" />
+      <S.Img image={myImage || defaultImg} />
       <S.IconBox htmlFor="profile-upload" data-blink="cover">
         <img src={camera} alt="사진 불러오기" data-blink="cover" />
         <S.FileUpload type="file" id="profile-upload" onChange={onChangeImg} accept="image/*" data-blink="cover" />

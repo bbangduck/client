@@ -1,19 +1,38 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useRef } from 'react';
 import TimeField from 'react-simple-timefield';
+import usePopAlarm from '../../../hooks/usePopAlarm';
 import * as S from './style';
 
 interface Props {
   setTimeState: React.Dispatch<React.SetStateAction<string>>;
+  timeState: string;
+  successValue: string;
 }
-const ReviewTime = ({ setTimeState }: Props): ReactElement => {
+const ReviewTime = ({ setTimeState, timeState, successValue }: Props): ReactElement => {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [popAlarm] = usePopAlarm();
+
   const onTimeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTimeState(e.target.value);
   };
 
+  const onFocus = () => {
+    if (successValue === '실패' && inputRef) {
+      inputRef?.current?.blur();
+      setTimeState('00:00:00');
+      popAlarm('탈출 실패시 시간을 입력할수없습니다.');
+    }
+  };
+
   return (
     <S.Container>
-      <S.Title>방탈출에 성공하셨어요?</S.Title>
-      <TimeField input={<S.Input type="text" />} showSeconds onChange={onTimeChange} />
+      <S.Title>탈출시간을 입력해주세요.</S.Title>
+      <TimeField
+        input={<S.Input type="text" ref={inputRef} onFocus={onFocus} />}
+        showSeconds
+        onChange={onTimeChange}
+        value={timeState}
+      />
     </S.Container>
   );
 };

@@ -1,14 +1,16 @@
-import React, { ReactElement } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { ReactElement, useEffect } from 'react';
 import * as S from './style';
 
 interface Props {
   successClicked: string;
   setSuccessState: React.Dispatch<React.SetStateAction<string>>;
+  setTimeState: React.Dispatch<React.SetStateAction<string>>;
 }
-const ReviewSuccess = ({ successClicked, setSuccessState }: Props): ReactElement => {
+const ReviewSuccess = ({ successClicked, setSuccessState, setTimeState }: Props): ReactElement => {
   const btnContents = [
-    { id: 1, content: '성공' },
-    { id: 2, content: '실패' },
+    { id: 1, content: '성공', requestValue: true },
+    { id: 2, content: '실패', requestValue: false },
   ];
 
   const onBtnClick = (id: number) => {
@@ -16,6 +18,12 @@ const ReviewSuccess = ({ successClicked, setSuccessState }: Props): ReactElement
       if (btn.id === id) setSuccessState(btn.content);
     });
   };
+
+  useEffect(() => {
+    if (successClicked === '실패') {
+      setTimeState('00:00:00');
+    }
+  }, [successClicked]);
 
   return (
     <div>

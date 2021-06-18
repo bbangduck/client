@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import useSWR from 'swr';
 import fetcher from '../utils/fetcher';
 
@@ -49,7 +50,7 @@ interface UserDataType {
 
 export const useGetUserData = (): {
   data: UserDataType | undefined;
-  error: string;
+  error: any;
   loading: boolean;
   mutate: (data?: UserDataType, shouldRevalidate?: boolean | undefined) => Promise<UserDataType>;
 } => {

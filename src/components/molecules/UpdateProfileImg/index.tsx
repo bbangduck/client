@@ -6,10 +6,12 @@ import camera from '../../../assets/images/camera/camera.png';
 import axiosAPI from '../../../utils/axios';
 import useGetUserData from '../../../swr/useGetUserData';
 import Loading from '../../atoms/Loding';
+import usePopAlarm from '../../../hooks/usePopAlarm';
 
 const UpdateProfileImg = (): ReactElement => {
   const history = useHistory();
   const { data, loading, mutate: mutateImg } = useGetUserData();
+  const [popoAlarm] = usePopAlarm();
 
   const myImage = data?.data.profileImage.profileImageUrl;
 
@@ -37,7 +39,10 @@ const UpdateProfileImg = (): ReactElement => {
         },
       });
       await mutateImg();
-    } catch (err) {
+    } catch (error) {
+      if (error.response.data.status === 2408) {
+        popoAlarm('올바른 파일이 아닙니다.');
+      }
       history.push('/error');
     }
   };

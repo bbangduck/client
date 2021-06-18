@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 import { Provider } from 'react-redux';
+import { SWRConfig } from 'swr';
 import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './styles/globalStyles';
@@ -12,18 +13,22 @@ import clickBlink from './utils/clickBlick';
 import './styles/clickBlink.css';
 
 const App = (): ReactElement => {
+  const swrValue = { errorRetryCount: 2, dedupingInterval: 1000 };
+
   return (
-    <Provider store={store}>
-      <HelmetProvider>
-        <ThemeProvider theme={theme}>
-          <Layout onClick={clickBlink}>
-            <TopAlarm />
-            <GlobalStyle />
-            <RootPage />
-          </Layout>
-        </ThemeProvider>
-      </HelmetProvider>
-    </Provider>
+    <SWRConfig value={swrValue}>
+      <Provider store={store}>
+        <HelmetProvider>
+          <ThemeProvider theme={theme}>
+            <Layout onClick={clickBlink}>
+              <TopAlarm />
+              <GlobalStyle />
+              <RootPage />
+            </Layout>
+          </ThemeProvider>
+        </HelmetProvider>
+      </Provider>
+    </SWRConfig>
   );
 };
 

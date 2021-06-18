@@ -4,9 +4,13 @@ import UpdateHeader from '../../molecules/UpdateHeader';
 import NoticeContent from '../../organisms/NoticeContent';
 import left from '../../../assets/images/arrow/left.png';
 import userExist from '../../../utils/userExist';
+import useGetUserData from '../../../swr/useGetUserData';
 
 const NoticeTemplate2 = (): ReactElement => {
-  if (!userExist()) return <Redirect to="/login" />;
+  const { errorStatus } = useGetUserData();
+  const withDrawalUser = errorStatus === 403;
+
+  if (!userExist() || withDrawalUser) return <Redirect to="/login" />;
   return (
     <section>
       <UpdateHeader arrow={left} />

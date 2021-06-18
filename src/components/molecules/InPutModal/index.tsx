@@ -12,6 +12,7 @@ interface Props {
   subTitle: string;
   inputError: boolean;
   errorMessage: string;
+  initialValue?: string;
 }
 const InputModal = ({
   clickOutsideClose,
@@ -23,12 +24,13 @@ const InputModal = ({
   subTitle,
   inputError,
   errorMessage,
+  initialValue,
 }: Props): ReactElement => {
   const inputRef = useRef<null | HTMLInputElement>(null);
 
   useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.value = '빵덕 방린이에요';
+    if (inputRef.current && initialValue) {
+      inputRef.current.value = initialValue;
       onValueChange(inputRef.current.value);
     }
   }, []);
@@ -58,6 +60,7 @@ const InputModal = ({
               ref={inputRef}
               onChange={onInputChange}
               inputError={inputError}
+              autoComplete="off"
             />
             {errorMessage ? <S.Span2>{errorMessage}</S.Span2> : null}
           </S.Label>

@@ -4,10 +4,16 @@ import * as S from './style';
 import defaultImg from '../../../assets/images/profile/profile.png';
 import camera from '../../../assets/images/camera/camera.png';
 import axiosAPI from '../../../utils/axios';
+import useGetUserData from '../../../swr/useGetUserData';
+import Loading from '../../atoms/Loding';
+import usePopAlarm from '../../../hooks/usePopAlarm';
 
 const UpdateProfileImg = (): ReactElement => {
   const history = useHistory();
-  const myImage = null;
+  const { data, loading, mutate: mutateImg } = useGetUserData();
+  const [popoAlarm] = usePopAlarm();
+
+  const myImage = data?.data?.profileImage?.profileImageUrl;
 
   const uploadImage = async (formData: FormData) => {
     try {
@@ -32,7 +38,11 @@ const UpdateProfileImg = (): ReactElement => {
           fileName,
         },
       });
-    } catch (err) {
+      await mutateImg();
+    } catch (error) {
+      if (error.response.data.status === 2408) {
+        popoAlarm('올바른 파일이 아닙니다.');
+      }
       history.push('/error');
     }
   };
@@ -49,12 +59,13 @@ const UpdateProfileImg = (): ReactElement => {
     }
   };
 
+  if (loading) return <Loading />;
   return (
     <S.Container>
-      <img src={myImage || defaultImg} alt="프로필사진" />
-      <S.IconBox htmlFor="profile-upload" data-blink="blink">
-        <img src={camera} alt="사진 불러오기" data-blink="blink" />
-        <S.FileUpload type="text" id="profile-upload" onChange={onChangeImg} accept="image/*" data-blink="blink" />
+      <S.Img image={myImage || defaultImg} />
+      <S.IconBox htmlFor="profile-upload-file" data-blink="cover">
+        <img src={camera} alt="사진 불러오기" data-blink="cover" />
+        <S.FileUpload type="file" id="profile-upload-file" onInput={onChangeImg} accept="image/*" data-blink="cover" />
       </S.IconBox>
     </S.Container>
   );

@@ -6,7 +6,7 @@ import * as S from './style';
 interface Props {
   content: string;
   page?: string;
-  item?: any;
+  item?: boolean;
   trueMargin?: string;
   falseMargin?: string;
   arrow?: boolean;
@@ -23,7 +23,7 @@ const MyPageSubTitle = ({ content, page, item, trueMargin, falseMargin, arrow }:
       data-blink="blink"
     >
       <S.H2 data-blink="blink">{content}</S.H2>
-      {arrow && page && <img src={right} alt="방탈출 현황 더보기" data-blink="blink" />}
+      {arrow && page && <img src={right} alt={`${content}더보기`} data-blink="blink" />}
     </S.Container>
   );
 };

@@ -6,15 +6,18 @@ import UpdateHeader from '../../molecules/UpdateHeader';
 import left from '../../../assets/images/arrow/left.png';
 import * as S from './style';
 import userExist from '../../../utils/userExist';
+import useGetUserData from '../../../swr/useGetUserData';
 
 const RemoveAccountTemplate = (): ReactElement => {
   const history = useHistory();
+  const { errorStatus } = useGetUserData();
+  const withDrawalUser = errorStatus === 403;
 
   const onNextClick = () => {
     history.push('/mypage/removeAccount/2');
   };
 
-  if (!userExist()) return <Redirect to="/login" />;
+  if (!userExist() || withDrawalUser) return <Redirect to="/login" />;
   return (
     <section>
       <UpdateHeader content="회원탈퇴" arrow={left} />

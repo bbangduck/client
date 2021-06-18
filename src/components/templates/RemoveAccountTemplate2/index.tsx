@@ -10,10 +10,13 @@ import * as S from './style';
 import removeSessionStorage from '../../../utils/removeSessionStorage';
 import userExist from '../../../utils/userExist';
 import axiosAPI from '../../../utils/axios';
+import useGetUserData from '../../../swr/useGetUserData';
 
 const RemoveAccountTemplate2 = (): ReactElement => {
   const history = useHistory();
   const [visibleContentRef, modalOn, setModalOn, clickOutside] = useClickOutside(false);
+  const { errorStatus } = useGetUserData();
+  const withDrawalUser = errorStatus === 403;
 
   const signOutUser = async () => {
     const userId = sessionStorage.getItem('bbangUserId');
@@ -22,19 +25,20 @@ const RemoveAccountTemplate2 = (): ReactElement => {
         method: 'delete',
         url: `/api/auth/${userId}/withdrawal`,
       });
+      removeSessionStorage();
+      setModalOn(false);
     } catch (err) {
+      removeSessionStorage();
+      setModalOn(false);
       history.push('/error');
     }
   };
 
   const onSignOut = () => {
     signOutUser();
-    removeSessionStorage();
-    setModalOn(false);
-    // 회원탈퇴후 이동페이지로 이동예정
   };
 
-  if (!userExist()) return <Redirect to="/login" />;
+  if (!userExist() || withDrawalUser) return <Redirect to="/login" />;
   return (
     <section>
       <UpdateHeader content="회원탈퇴" arrow={left} />

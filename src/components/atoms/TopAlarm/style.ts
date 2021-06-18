@@ -20,4 +20,5 @@ export const Container = Styled.div<ContainerProps>`
   color: #ffffff;
   transform:translate(-50%,${({ pop }) => (pop ? '76px' : ' -80px')});
   transition:.5s;
+  z-index:1000;
 `;

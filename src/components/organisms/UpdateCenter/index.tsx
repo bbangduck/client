@@ -8,6 +8,7 @@ import { useClickOutside } from '../../../hooks/useClickOutside';
 import Modal from '../Modal';
 import removeSessionStorage from '../../../utils/removeSessionStorage';
 import axiosAPI from '../../../utils/axios';
+import usePopAlarm from '../../../hooks/usePopAlarm';
 
 const darkColor = theme.colors.fontGray[2];
 const lightColor = theme.colors.fontGray[0];
@@ -15,6 +16,7 @@ const lightColor = theme.colors.fontGray[0];
 const UpdateCenter = (): ReactElement => {
   const history = useHistory();
   const [visibleContentRef, modalOn, setModalOn, clickOutside] = useClickOutside(false);
+  const [popAlarm] = usePopAlarm();
 
   const logOutFetch = async () => {
     const userId = sessionStorage.getItem('bbangUserId');
@@ -22,16 +24,25 @@ const UpdateCenter = (): ReactElement => {
       await axiosAPI({
         method: 'get',
         url: `/api/auth/${userId}/sign-out`,
+        headers: {
+          'X-AUTH-TOKEN': sessionStorage.getItem('bbangAT'),
+        },
       });
+      removeSessionStorage();
+      setModalOn(false);
     } catch (err) {
-      history.push('/error');
+      if (err.response.data.status === 1403) {
+        popAlarm('탈퇴한 계정입니다.');
+      } else {
+        history.push('/error');
+      }
+      removeSessionStorage();
+      setModalOn(false);
     }
   };
 
   const onLogOut = () => {
     logOutFetch();
-    removeSessionStorage();
-    setModalOn(false);
     // 로그아웃후 이동페이지로 이동예정
     history.push('/');
   };

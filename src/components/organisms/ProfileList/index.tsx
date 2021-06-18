@@ -6,8 +6,14 @@ import UpdateItem from '../../molecules/UpdateItem';
 import CareerOn from '../../molecules/CareerOn/index';
 import { useClickOutside } from '../../../hooks/useClickOutside';
 import InputModal from '../../molecules/InPutModal';
+import useGetUserData from '../../../swr/useGetUserData';
+import Loading from '../../atoms/Loding';
 
 const UpdateList = (): ReactElement => {
+  const { data, loading, mutate: mutateUserData } = useGetUserData();
+  const email = data?.data?.email;
+  const nickname = data?.data?.nickname;
+  const myIntro = data?.data?.description;
   const [nickNameError, setNickNameError] = useState<{
     message: string;
     isError: boolean;
@@ -31,6 +37,7 @@ const UpdateList = (): ReactElement => {
         url: `/api/members/${userId}/nicknames`,
         data: { nickname: nicknameValue },
       });
+      await mutateUserData();
       setNicknameModalOn(false);
       setNickNameError((prev) => {
         return { ...prev, isError: false };
@@ -59,6 +66,7 @@ const UpdateList = (): ReactElement => {
         url: `/api/members/${userId}/descriptions`,
         data: { description: introductionValue || null },
       });
+      await mutateUserData();
       setIntroModalOn(false);
       setIntroError((prev) => {
         return { ...prev, isError: false };
@@ -75,16 +83,12 @@ const UpdateList = (): ReactElement => {
     }
   };
 
+  if (loading) return <Loading />;
   return (
     <div>
-      <UpdateItem title="이메일 주소" content="Bbangduck@gmail.com" icon={null} />
-      <UpdateItem title="닉네임" content="빵덕 방린이에요" icon={pen} modalHandeler={setNicknameModalOn} />
-      <UpdateItem
-        title="나의 한마디"
-        content="안녕하세요 잘 부탁드립니다."
-        icon={pen}
-        modalHandeler={setIntroModalOn}
-      />
+      <UpdateItem title="이메일 주소" content={email} icon={null} />
+      <UpdateItem title="닉네임" content={nickname} icon={pen} modalHandeler={setNicknameModalOn} />
+      <UpdateItem title="나의 한마디" content={myIntro} icon={pen} modalHandeler={setIntroModalOn} />
       <CareerOn />
       {nicknameModalOn ? (
         <InputModal
@@ -97,6 +101,7 @@ const UpdateList = (): ReactElement => {
           subTitle="닉네임"
           inputError={nickNameError.isError}
           errorMessage={nickNameError.message}
+          initialValue={nickname}
         />
       ) : null}
       {introModalOn ? (
@@ -110,6 +115,7 @@ const UpdateList = (): ReactElement => {
           subTitle="나의 한마디"
           inputError={introError.isError}
           errorMessage={introError.message}
+          initialValue={myIntro}
         />
       ) : null}
     </div>

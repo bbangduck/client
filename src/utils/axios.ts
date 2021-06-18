@@ -9,6 +9,12 @@ const axiosAPI = axios.create({
   },
 });
 
+axiosAPI.interceptors.request.use((config) => {
+  const token = sessionStorage.getItem('bbangAT');
+  config.headers = { 'X-AUTH-TOKEN': token };
+  return config;
+});
+
 axiosAPI.interceptors.response.use(
   (response) => {
     return response;

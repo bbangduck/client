@@ -3,7 +3,7 @@ import * as S from './style';
 
 interface Props {
   title: string;
-  content: string;
+  content?: string;
   icon: string | null;
   modalHandeler?: React.Dispatch<React.SetStateAction<boolean>>;
 }

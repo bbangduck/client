@@ -1,4 +1,6 @@
 import React, { ReactElement } from 'react';
+import axios from 'axios';
+import useSWR from 'swr';
 import * as S from './style';
 import ProfileImg from '../../atoms/ProfileImg';
 import defaultImg from '../../../assets/images/profile/profile.png';

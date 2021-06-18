@@ -58,9 +58,9 @@ const UpdateProfileImg = (): ReactElement => {
   return (
     <S.Container>
       <S.Img image={myImage || defaultImg} />
-      <S.IconBox htmlFor="profile-upload" data-blink="cover">
+      <S.IconBox htmlFor="profile-upload-file" data-blink="cover">
         <img src={camera} alt="사진 불러오기" data-blink="cover" />
-        <S.FileUpload type="file" id="profile-upload" onChange={onChangeImg} accept="image/*" data-blink="cover" />
+        <S.FileUpload type="file" id="profile-upload-file" onInput={onChangeImg} accept="image/*" data-blink="cover" />
       </S.IconBox>
     </S.Container>
   );

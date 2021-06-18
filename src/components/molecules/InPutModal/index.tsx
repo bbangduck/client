@@ -12,7 +12,7 @@ interface Props {
   subTitle: string;
   inputError: boolean;
   errorMessage: string;
-  initialValue: string;
+  initialValue?: string;
 }
 const InputModal = ({
   clickOutsideClose,

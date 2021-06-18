@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import useSWR from 'swr';
 import fetcher from '../utils/fetcher';
 
@@ -49,20 +48,21 @@ interface UserDataType {
 }
 
 export const useGetUserData = (): {
-  data: UserDataType;
+  data: UserDataType | undefined;
   error: string;
   loading: boolean;
-  mutate: (data?: UserDataType, shouldRevalidate?: boolean | undefined) => Promise<any>;
+  mutate: (data?: UserDataType, shouldRevalidate?: boolean | undefined) => Promise<UserDataType>;
 } => {
   const memberId = sessionStorage.getItem('bbangUserId');
-  const { data, error, mutate } = useSWR(`/api/members/${memberId}/profiles`, fetcher);
-
-  const loading = !data && !error;
+  const { data, error, mutate, isValidating } = useSWR(
+    `${process.env.REACT_APP_URL}/api/members/${memberId}/profiles`,
+    memberId ? fetcher : null,
+  );
 
   return {
     data,
     error,
-    loading,
+    loading: isValidating,
     mutate,
   };
 };

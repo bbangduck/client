@@ -13,7 +13,7 @@ const UpdateProfileImg = (): ReactElement => {
   const { data, loading, mutate: mutateImg } = useGetUserData();
   const [popoAlarm] = usePopAlarm();
 
-  const myImage = data?.data.profileImage.profileImageUrl;
+  const myImage = data?.data?.profileImage?.profileImageUrl;
 
   const uploadImage = async (formData: FormData) => {
     try {

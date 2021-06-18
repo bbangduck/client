@@ -21,7 +21,7 @@ const Nav = (): ReactElement => {
     { id: 1, title: '홈', pushTo: '/home', src: isHome ? homeClicked : homeDefault },
     { id: 2, title: '테마', pushTo: '/theme', src: isTheme ? bookClicked : bookDefault },
     { id: 3, title: '지도', pushTo: '/map', src: isMap ? mapClicked : mapDefault },
-    { id: 1, title: '마이페이지', pushTo: '/mypage', src: isMypage ? humanClicked : humanDefault },
+    { id: 4, title: '마이페이지', pushTo: '/mypage', src: isMypage ? humanClicked : humanDefault },
   ];
   return (
     <nav>

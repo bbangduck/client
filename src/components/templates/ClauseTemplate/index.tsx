@@ -4,9 +4,13 @@ import UpdateHeader from '../../molecules/UpdateHeader';
 import ClauseContent from '../../organisms/ClauseContent';
 import left from '../../../assets/images/arrow/left.png';
 import userExist from '../../../utils/userExist';
+import useGetUserData from '../../../swr/useGetUserData';
 
 const ClauseTemplate = (): ReactElement => {
-  if (!userExist()) return <Redirect to="/login" />;
+  const { errorStatus } = useGetUserData();
+  const withDrawalUser = errorStatus === 403;
+
+  if (!userExist() || withDrawalUser) return <Redirect to="/login" />;
   return (
     <section>
       <UpdateHeader arrow={left} />

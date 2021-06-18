@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import useSWR from 'swr';
+import usePopAlarm from '../hooks/usePopAlarm';
 import fetcher from '../utils/fetcher';
 
 interface UserDataType {
@@ -53,18 +54,22 @@ export const useGetUserData = (): {
   error: any;
   loading: boolean;
   mutate: (data?: UserDataType, shouldRevalidate?: boolean | undefined) => Promise<UserDataType>;
+  errorStatus?: number | undefined;
 } => {
   const memberId = sessionStorage.getItem('bbangUserId');
+  const [popAlarm] = usePopAlarm();
   const { data, error, mutate, isValidating } = useSWR(
     `${process.env.REACT_APP_URL}/api/members/${memberId}/profiles`,
     memberId ? fetcher : null,
   );
+  if (error && error?.response?.status === 403) popAlarm('탈퇴한 회원은 재가입이 불가능합니다.');
 
   return {
     data,
     error,
     loading: isValidating,
     mutate,
+    errorStatus: error?.response?.status,
   };
 };
 

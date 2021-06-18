@@ -8,16 +8,19 @@ import MyFriendsList from '../../organisms/MyFriendsList';
 import RequestFriends from '../../organisms/RequestFriends';
 import InputRequest from '../../molecules/InputRequest';
 import userExist from '../../../utils/userExist';
+import useGetUserData from '../../../swr/useGetUserData';
 
 const MyFriendsTemplate = (): ReactElement => {
   const [navClick, setNavClick] = useState(0);
   const [myFriendsInputValue, setMyFriendsInputValue] = useState('');
+  const { errorStatus } = useGetUserData();
+  const withDrawalUser = errorStatus === 403;
 
   const searchMyFriends = async () => {
     console.log(myFriendsInputValue);
   };
 
-  if (!userExist()) return <Redirect to="/login" />;
+  if (!userExist() || withDrawalUser) return <Redirect to="/login" />;
   return (
     <section>
       <UpdateHeader arrow={left} content="내 친구" />

@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 import { Redirect } from 'react-router-dom';
+import useGetUserData from '../../../swr/useGetUserData';
 import userExist from '../../../utils/userExist';
 import EscapeNotices from '../../molecules/EscapeNotice';
 import MyPageHeader from '../../molecules/MyPageHeader';
@@ -13,7 +14,10 @@ import EscapeThemes from '../../organisms/EscapeThemes';
 import * as S from './style';
 
 const MyPageTemplate = (): ReactElement => {
-  if (!userExist()) return <Redirect to="/login" />;
+  const { errorStatus } = useGetUserData();
+  const withDrawalUser = errorStatus === 403;
+
+  if (!userExist() || withDrawalUser) return <Redirect to="/login" />;
   return (
     <S.Container>
       <MyPageHeader />

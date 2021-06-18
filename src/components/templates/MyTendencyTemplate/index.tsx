@@ -8,11 +8,14 @@ import ThemeAdvice from '../../organisms/ThemeAdvice';
 import UpdateHeader from '../../molecules/UpdateHeader';
 import left from '../../../assets/images/arrow/left.png';
 import * as S from './style';
+import useGetUserData from '../../../swr/useGetUserData';
 
 const MyTendencyTemplate = (): ReactElement => {
+  const { errorStatus } = useGetUserData();
+  const withDrawalUser = errorStatus === 403;
   const data = 1;
 
-  if (!userExist()) return <Redirect to="/login" />;
+  if (!userExist() || withDrawalUser) return <Redirect to="/login" />;
   return (
     <section>
       {data ? (

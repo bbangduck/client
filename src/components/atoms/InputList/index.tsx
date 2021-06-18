@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import arrowDown from '../../../assets/images/arrow/down.png';
 import * as S from './style';
 
 interface Props {
@@ -9,7 +10,7 @@ const InputList = ({ title }: Props): ReactElement => {
     <S.List>
       <S.Placeholder>{title}</S.Placeholder>
       <S.ImgBox>
-        <img src="" alt="" />
+        <img src={arrowDown} alt="" />
       </S.ImgBox>
     </S.List>
   );

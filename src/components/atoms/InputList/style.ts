@@ -18,6 +18,6 @@ export const Placeholder = Styled.span`
 export const ImgBox = Styled.div`
   width: 16px;
   height: 16px;
-  background-color: gray;
+  /* background-color: gray; */
   cursor:pointer;
 `;

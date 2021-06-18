@@ -11,9 +11,9 @@ import Loading from '../../atoms/Loding';
 
 const UpdateList = (): ReactElement => {
   const { data, loading, mutate: mutateUserData } = useGetUserData();
-  const email = data?.data.email;
-  const nickname = data?.data.nickname;
-  const myIntro = data?.data.description;
+  const email = data?.data?.email;
+  const nickname = data?.data?.nickname;
+  const myIntro = data?.data?.description;
   const [nickNameError, setNickNameError] = useState<{
     message: string;
     isError: boolean;
@@ -82,6 +82,7 @@ const UpdateList = (): ReactElement => {
       }
     }
   };
+
   if (loading) return <Loading />;
   return (
     <div>

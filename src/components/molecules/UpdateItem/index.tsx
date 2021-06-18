@@ -14,7 +14,7 @@ const UpdateItem = ({ title, content, icon, modalHandeler }: Props): ReactElemen
         <S.H2>{title}</S.H2>
       </S.TopBox>
       <S.BottomBox>
-        <S.PTag>{content}</S.PTag>
+        <S.PTag>{content || title}</S.PTag>
         {icon ? (
           <S.Img src={icon} alt="수정 이미지" onClick={() => modalHandeler && modalHandeler(true)} data-blink="blink" />
         ) : null}

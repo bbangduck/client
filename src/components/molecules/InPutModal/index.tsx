@@ -29,8 +29,8 @@ const InputModal = ({
   const inputRef = useRef<null | HTMLInputElement>(null);
 
   useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.value = initialValue || `${title}를 작성해주세요.`;
+    if (inputRef.current && initialValue) {
+      inputRef.current.value = initialValue;
       onValueChange(inputRef.current.value);
     }
   }, []);

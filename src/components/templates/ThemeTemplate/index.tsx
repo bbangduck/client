@@ -1,4 +1,5 @@
 import React, { ReactElement, useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import Nav from '../../molecules/Nav';
 import ThemeNavSwiper from '../../molecules/ThemeNavSwiper';
 import ThemesHeader from '../../molecules/ThemesHeader';
@@ -9,11 +10,15 @@ import FilterBtn from '../../atoms/filterBtn';
 import FilterSlider from '../../organisms/FilterSlider';
 import { useClickOutside } from '../../../hooks/useClickOutside';
 import BottomModal from '../../molecules/BottomModal';
+import useGetUserData from '../../../swr/useGetUserData';
+import userExist from '../../../utils/userExist';
 
 const ThemeTemplate = (): ReactElement => {
   const [filterDefault, setFilterDefault] = useState(true);
   const [visibleContentRef, filterOn, setFilterOn, clickOutside] = useClickOutside(false);
   const [visibleSequenceRef, sequenceOn, setSequenceOn, clickSequenceOutside] = useClickOutside(false);
+  const { errorStatus } = useGetUserData();
+  const withDrawalUser = errorStatus === 403;
 
   const onFirstBottomModalClick = () => {
     console.log('최신순');
@@ -27,6 +32,7 @@ const ThemeTemplate = (): ReactElement => {
     console.log('평점 낮은순');
   };
 
+  if (!userExist() || withDrawalUser) return <Redirect to="/login" />;
   return (
     <section>
       <ThemesHeader />

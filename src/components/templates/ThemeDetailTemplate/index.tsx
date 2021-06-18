@@ -1,4 +1,5 @@
 import React, { ReactElement, useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import ThemeAnalysis from '../../molecules/ThemeAnalysis';
 import ThemeEvent from '../../molecules/ThemeEvent';
 import ThemeExplain from '../../molecules/ThemeExplain';
@@ -7,6 +8,8 @@ import ThemeHeader from '../../organisms/ThemeHeader';
 import ThemeReview from '../../organisms/ThemeReview';
 import { useThemeObserver } from '../../../hooks/useThemeObserver';
 import ReviewBottom from '../../molecules/ReviewBottom';
+import useGetUserData from '../../../swr/useGetUserData';
+import userExist from '../../../utils/userExist';
 
 const ThemeDetailTemplate = (): ReactElement => {
   const [navNumber, setNavNumber] = useState(1);
@@ -14,7 +17,10 @@ const ThemeDetailTemplate = (): ReactElement => {
   const [analysisRef] = useThemeObserver(setNavNumber, 2);
   const [eventRef] = useThemeObserver(setNavNumber, 3);
   const [reviewRef] = useThemeObserver(setNavNumber, 4);
+  const { errorStatus } = useGetUserData();
+  const withDrawalUser = errorStatus === 403;
 
+  if (!userExist() || withDrawalUser) return <Redirect to="/login" />;
   return (
     <section>
       <ThemeHeader />

@@ -1,9 +1,15 @@
 import React, { ReactElement } from 'react';
+import { Redirect } from 'react-router-dom';
 import UpdateHeader from '../../molecules/UpdateHeader';
 import left from '../../../assets/images/arrow/whiteLeft.png';
 import * as S from './style';
+import useGetUserData from '../../../swr/useGetUserData';
+import userExist from '../../../utils/userExist';
 
 const ThemeAnalysisTemplate = (): ReactElement => {
+  const { errorStatus } = useGetUserData();
+  const withDrawalUser = errorStatus === 403;
+
   const totalValue = graph.reduce((acc: number[], curr: { id: number; title: string; amount: number }) => {
     if (!acc[0]) {
       acc[0] = curr.amount;
@@ -18,6 +24,7 @@ const ThemeAnalysisTemplate = (): ReactElement => {
     return `${myValue}%`;
   };
 
+  if (!userExist() || withDrawalUser) return <Redirect to="/login" />;
   return (
     <S.Section>
       <UpdateHeader arrow={left} />

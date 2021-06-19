@@ -12,7 +12,7 @@ export const Container = Styled.div<ContainerProps>`
 `;
 
 export const FirstBox = Styled.div<ContainerProps>`
-  border-radius:8px 8px 0 0 ;
+  border-radius:8px 8px 8px 8px ;
   padding:12px;
   height:42px;
   display:flex;

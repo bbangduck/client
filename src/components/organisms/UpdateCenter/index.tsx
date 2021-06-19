@@ -76,7 +76,7 @@ const UpdateCenter = (): ReactElement => {
           content="회원탈퇴"
           color={lightColor}
           fontWeight="normal"
-          onClick={() => history.push('/mypage/removeAccount')}
+          onClick={() => history.push('/mypage/removeAccounts')}
         />
       </S.Box>
       {modalOn ? (

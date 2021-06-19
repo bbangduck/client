@@ -13,9 +13,9 @@ interface Props {
 }
 const InputList = ({ title, list, listOpen, setListOpen, onClickItem, reason }: Props): ReactElement => {
   return (
-    <S.Container firstRender={!reason}>
-      <S.FirstBox firstRender={!reason} onClick={() => setListOpen((prev) => !prev)}>
-        <S.Span firstRender={!reason}>{reason || title}</S.Span>
+    <S.Container firstRender={!reason && !listOpen}>
+      <S.FirstBox firstRender={!reason && !listOpen} onClick={() => setListOpen((prev) => !prev)}>
+        <S.Span firstRender={!reason && !listOpen}>{reason || title}</S.Span>
         <img src={!listOpen ? arrowDown : arrowUp} alt="탈퇴사유 열기" />
       </S.FirstBox>
       <S.ListBox listOpen={listOpen}>

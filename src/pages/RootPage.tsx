@@ -77,8 +77,8 @@ const RootPage = (): ReactElement => {
         <Route path="/mypage/profile" component={ProfilePage} /> {/* 14 */}
         <Route path="/mypage/policy" component={PolicyPage} /> {/* 16 */}
         <Route path="/mypage/clause" component={ClausePage} /> {/* 17 */}
-        <Route exact path="/mypage/removeAccount" component={RemoveAccountPage} /> {/* 18 */}
-        <Route path="/mypage/removeAccount/2" component={RemoveAccountPage2} /> {/* ? */}
+        <Route exact path="/mypage/removeAccounts" component={RemoveAccountPage} /> {/* 18 */}
+        <Route path="/mypage/removeAccount" component={RemoveAccountPage2} /> {/* ? */}
         {/* 에러페이지 */}
         <Route path="/error" component={Page404} />
       </Switch>

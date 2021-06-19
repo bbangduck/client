@@ -6,10 +6,12 @@ import SignUpClauseCheck from '../../organisms/SignUpClauseCheck';
 import left from '../../../assets/images/arrow/left.png';
 import * as S from './style';
 import userExist from '../../../utils/userExist';
+import usePopAlarm from '../../../hooks/usePopAlarm';
 
 const SignUpClauseTemplate = (): ReactElement => {
   const location = useLocation<KakaoLoginInfoType>();
   const history = useHistory();
+  const [popAlarm] = usePopAlarm();
   const [isChecked, setIsChecked] = useState(false);
   const socialInfo = location.state;
 
@@ -23,6 +25,8 @@ const SignUpClauseTemplate = (): ReactElement => {
   const onAgree = () => {
     if (isChecked && socialInfo) {
       pushNextPage();
+    } else {
+      popAlarm('동의항목을 체크해주세요');
     }
   };
 

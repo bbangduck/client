@@ -2,8 +2,9 @@ import React, { ReactElement } from 'react';
 import loadable from '@loadable/component';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import TestComponent from '../components/TestComponent/TestComponent';
+import Loading from '../components/atoms/Loding';
 
-const isLoading = { fallback: <div>로딩쓰쓰쓰쓰쓰쓰쓰</div> };
+const isLoading = { fallback: <Loading /> };
 
 const MainPage = loadable(() => import('./main/MainPage'), isLoading);
 const SearchPage = loadable(() => import('./main/SearchPage'), isLoading);

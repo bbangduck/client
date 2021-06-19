@@ -24,7 +24,7 @@ const ReviewHintAmount = ({ setHintState, hint }: Props): ReactElement => {
       <S.PTag>힌트는 몇개 사용하셨어요?</S.PTag>
       <S.Box>
         {btnList.map((btn) => (
-          <S.SelectBtn onClick={() => onBtnClick(btn.id)} key={btn.id} clicked={btn.content === hint}>
+          <S.SelectBtn onClick={() => onBtnClick(btn.id)} key={btn.id} clicked={btn.requestValue === hint}>
             {btn.content}
           </S.SelectBtn>
         ))}

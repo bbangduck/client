@@ -3,6 +3,7 @@ import Styled from 'styled-components';
 export const Li = Styled.li`
   position:relative;
   margin-bottom:32px;
+  cursor:pointer;
 `;
 
 interface ImgBoxProps {

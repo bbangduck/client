@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { Redirect, useHistory } from 'react-router-dom';
+import { Redirect, useHistory, useLocation } from 'react-router-dom';
 import { useClickOutside } from '../../../hooks/useClickOutside';
 import RemoveBottom from '../../molecules/RemoveBottom';
 import Remove2Content from '../../molecules/RemoveContent2';
@@ -13,7 +13,10 @@ import axiosAPI from '../../../utils/axios';
 import useGetUserData from '../../../swr/useGetUserData';
 
 const RemoveAccountTemplate2 = (): ReactElement => {
+  const location = useLocation<{ reason: string }>();
   const history = useHistory();
+
+  const reasonToWithdrawal = location?.state?.reason;
   const [visibleContentRef, modalOn, setModalOn, clickOutside] = useClickOutside(false);
   const { errorStatus } = useGetUserData();
   const withDrawalUser = errorStatus === 403;

@@ -29,3 +29,8 @@ export const InputPositionPox = Styled.div`
   top:132px;
   width:100%;
 `;
+
+export const BottomBox = Styled.div`
+  height:calc(100vh - 250px);
+  min-height: 466px;
+`;

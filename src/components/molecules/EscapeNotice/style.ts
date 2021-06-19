@@ -16,18 +16,8 @@ export const Box = Styled.div`
   align-items: center;
 `;
 
-export const LeftIconBox = Styled.div`
-  width: 24px;
-  height: 24px;
-  background-color:lightgray;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background-color:lightgray;
+export const Img = Styled.img`
   margin-right:20px;
-`;
-
-export const LeftIcon = Styled.img`
 `;
 
 export const PTag = Styled.p`

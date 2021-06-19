@@ -57,13 +57,14 @@ const UpdateProfileImg = (): ReactElement => {
 
       uploadImage(formData);
     }
+    e.target.files = null;
   };
 
   if (loading) return <Loading />;
   return (
     <S.Container>
       <S.Img image={myImage || defaultImg} />
-      <S.IconBox htmlFor="profile-upload-file" data-blink="cover">
+      <S.IconBox data-blink="cover">
         <img src={camera} alt="사진 불러오기" data-blink="cover" />
         <S.FileUpload type="file" id="profile-upload-file" onInput={onChangeImg} accept="image/*" data-blink="cover" />
       </S.IconBox>

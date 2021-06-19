@@ -2,8 +2,9 @@ import React, { ReactElement } from 'react';
 import loadable from '@loadable/component';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import TestComponent from '../components/TestComponent/TestComponent';
+import Loading from '../components/atoms/Loding';
 
-const isLoading = { fallback: <div>로딩쓰쓰쓰쓰쓰쓰쓰</div> };
+const isLoading = { fallback: <Loading /> };
 
 const MainPage = loadable(() => import('./main/MainPage'), isLoading);
 const SearchPage = loadable(() => import('./main/SearchPage'), isLoading);
@@ -34,6 +35,7 @@ const ThemeReviewPage = loadable(() => import('./themes/ThemeReviewPage'), isLoa
 const ThemeAnalysisPage = loadable(() => import('./themes/ThemeAnalysisPage'), isLoading);
 const ThemeSearchFriendPage = loadable(() => import('./themes/ThemeSearchFriendPage'), isLoading);
 const ThemeDetailReviewPage = loadable(() => import('./themes/ThemeDetailReviewPage'), isLoading);
+const mapPage = loadable(() => import('./map/mapPage'), isLoading);
 
 const RootPage = (): ReactElement => {
   return (
@@ -58,6 +60,8 @@ const RootPage = (): ReactElement => {
         <Route path="/theme/:name/reviewDetail" component={ThemeDetailReviewPage} /> {/* ? */}
         <Route path="/theme/:name/location" component={ThemeDetailLocationPage} /> {/* ? */}
         <Route path="/theme/:name/analysis" component={ThemeAnalysisPage} /> {/* ? */}
+        {/* 지도 */}
+        <Route exact path="/map" component={mapPage} /> {/* ? */}
         {/* 마이페이지 */}
         <Route exact path="/mypage" component={MyPage} /> {/* 11 */}
         <Route path="/mypage/status" component={StatusPage} /> {/* 22 */}

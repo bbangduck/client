@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react';
 import { useHistory } from 'react-router-dom';
-import useGetUserData from '../../../swr/useGetUserData';
 import * as Styled from './style';
 
 interface Props {
@@ -9,10 +8,8 @@ interface Props {
   pushTo?: string;
 }
 const NavItem = ({ src, name, pushTo }: Props): ReactElement => {
-  // const { mutate } = useGetUserData();
   const history = useHistory();
   const onClick = () => {
-    // mutate();
     if (pushTo) history.push(pushTo);
   };
 

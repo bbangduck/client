@@ -52,7 +52,7 @@ const ReviewThemeScore = ({ setScoreState }: Props): ReactElement => {
       <S.PTag>테마의 평점은?</S.PTag>
       <S.Box>
         {starList.map((item) => (
-          <img src={item.clicked ? blackStar : defaultStar} alt="평점" onClick={() => onTest(item.id)} />
+          <img key={item.id} src={item.clicked ? blackStar : defaultStar} alt="평점" onClick={() => onTest(item.id)} />
         ))}
       </S.Box>
     </S.Container>

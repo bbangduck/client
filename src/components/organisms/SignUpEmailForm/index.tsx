@@ -6,7 +6,6 @@ import BottomBtn from '../../atoms/BottomBtn';
 import deleteIcon from '../../../assets/images/delete/delete.png';
 import { emailRegex } from '../../../utils/regex';
 import * as S from './style';
-import usePopAlarm from '../../../hooks/usePopAlarm';
 
 interface Props {
   userData: { socialType: string; socialId: string };
@@ -15,8 +14,7 @@ const SignUpEmailForm = ({ userData }: Props): ReactElement => {
   const history = useHistory();
   const [inputValue, setInputValue] = useState('');
   const [inputFocus, setInputFocus] = useState(false);
-  const [isError, setIsError] = useState(false);
-  const [popAlarm] = usePopAlarm();
+  const [isError, setIsError] = useState('');
 
   const onInputhange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
@@ -31,25 +29,30 @@ const SignUpEmailForm = ({ userData }: Props): ReactElement => {
 
     try {
       if (emailRegex.test(inputValue)) {
-        setIsError(false);
+        setIsError('');
         const newUserData = { ...userData, email: inputValue, nickname: '' };
-        await axios({
+        const response = await axios({
           method: 'post',
           url: `${process.env.REACT_APP_URL}/api/auth/emails/check-availabilities`,
           data: {
             email: inputValue,
           },
         });
-        history.push({
-          pathname: '/signup/nickname',
-          state: newUserData,
-        });
+        const result = response.data.data;
+        if (result) {
+          history.push({
+            pathname: '/signup/nickname',
+            state: newUserData,
+          });
+        } else {
+          setIsError('이미사용중인 이메일입니다.');
+        }
       } else {
-        setIsError(true);
+        setIsError('올바르지 않은 이메일주소 입니다.');
       }
     } catch (error) {
       if (error?.response?.data?.status === 1451) {
-        setIsError(true);
+        setIsError('올바르지 않은 이메일주소 입니다.');
       } else {
         history.push('/error');
       }
@@ -80,7 +83,7 @@ const SignUpEmailForm = ({ userData }: Props): ReactElement => {
           ) : null}
         </S.InputBox>
       </S.Label>
-      {isError ? <S.ErrorMsg>올바르지 않은 이메일주소 입니다.</S.ErrorMsg> : null}
+      {isError ? <S.ErrorMsg>{isError}</S.ErrorMsg> : null}
       <S.BtnBox>
         <BottomBtn content="다음" />
       </S.BtnBox>

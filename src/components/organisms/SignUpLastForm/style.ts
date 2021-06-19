@@ -47,6 +47,14 @@ export const ErrorMsg = Styled.span`
   color: #ff5c53;
 `;
 
+export const SuccessMsg = Styled.span`
+  display:flex;
+  align-items:center;
+  font-size: 10px;
+  line-height: 2.6;
+  color: #06880d;
+`;
+
 export const BtnBox = Styled.div`
   height:470px;
   min-height:calc(100vh - 246px);

@@ -5,6 +5,7 @@ import BottomBtn from '../../atoms/BottomBtn';
 import setSessionStorage from '../../../utils/setSessionStorage';
 import * as S from './style';
 import usePopAlarm from '../../../hooks/usePopAlarm';
+import greenCheck from '../../../assets/images/check/greenCheck.png';
 
 interface Props {
   userData: KakaoLoginInfoType;
@@ -14,19 +15,50 @@ const SignUpLastForm = ({ userData }: Props): ReactElement => {
   const [inputFocus, setInputFocus] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setsuccessMessage] = useState('');
   const [showPopAlarm] = usePopAlarm();
 
-  const onCheckNickname = () => {
-    if (!inputValue) setErrorMessage('닉네입을 입력해주세요.');
-    // 중복체크 후 토스트알림
+  const onCheckNickname = async () => {
+    try {
+      if (!inputValue) {
+        setsuccessMessage('');
+        setErrorMessage('닉네입을 입력해주세요.');
+      } else {
+        const response = await axios({
+          method: 'post',
+          url: `${process.env.REACT_APP_URL}/api/auth/nicknames/check-availabilities`,
+          data: {
+            nickname: inputValue,
+          },
+        });
+        const result = response.data.data;
+        if (!result) {
+          setsuccessMessage('');
+          setErrorMessage('이미 사용중입니다.');
+        } else {
+          setErrorMessage('');
+          setsuccessMessage('사용 가능한 닉네임 입니다.');
+        }
+      }
+    } catch (error) {
+      history.push('/error');
+    }
   };
 
-  const onSignUp = async () => {
+  const onSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     const baseURL = process.env.REACT_APP_URL;
     const data = { ...userData, nickname: inputValue };
 
-    if (!inputValue) setErrorMessage('닉네입을 입력해주세요.');
-    if (inputValue) {
+    if (!inputValue) {
+      // 작성을 안했다면..?
+      setsuccessMessage('');
+      setErrorMessage('닉네입을 입력해주세요.');
+    } else if (!successMessage) {
+      // 중복체크를 안했다면..?
+      setsuccessMessage('');
+      setErrorMessage('중복체크를 실행해주세요.');
+    } else {
       try {
         const response = await axios({
           method: 'post',
@@ -47,7 +79,7 @@ const SignUpLastForm = ({ userData }: Props): ReactElement => {
         }
       } catch (error) {
         if (error.response.data.status === 2404) {
-          // 닉네임 중복
+          // 닉네임이 중복된다면?
           setErrorMessage('닉네임이 존재합니다');
         } else {
           history.push('/error');
@@ -57,7 +89,7 @@ const SignUpLastForm = ({ userData }: Props): ReactElement => {
   };
 
   return (
-    <form onSubmit={(e) => e.preventDefault()}>
+    <form onSubmit={onSignUp}>
       <S.Label htmlFor="signupEmail">
         <S.Span>닉네임</S.Span>
         <S.InputBox>
@@ -77,9 +109,14 @@ const SignUpLastForm = ({ userData }: Props): ReactElement => {
           </S.CheckBtn>
         </S.InputBox>
       </S.Label>
-      <S.ErrorMsg>{errorMessage}</S.ErrorMsg>
+      {errorMessage ? <S.ErrorMsg>{errorMessage}</S.ErrorMsg> : null}
+      {successMessage ? (
+        <S.SuccessMsg>
+          <img src={greenCheck} alt="사용가능" /> {successMessage}
+        </S.SuccessMsg>
+      ) : null}
       <S.BtnBox>
-        <BottomBtn content="완료" onClick={onSignUp} />
+        <BottomBtn content="완료" />
       </S.BtnBox>
     </form>
   );

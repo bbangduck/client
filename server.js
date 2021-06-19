@@ -14,7 +14,7 @@ httpApp.all('/*', function (req, res, next) {
 });
 httpApp.get('*', function (req, res) {
   // console.log(req);
-  res.sendFile(path.resolve(__dirname, 'build/index.html'));
+  res.sendFile(path.resolve(__dirname, 'public/index.html'));
 });
 
 const httpServer = http.createServer(httpApp);

@@ -1,10 +1,12 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { ReactElement, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 import BottomBtn from '../../atoms/BottomBtn';
 import deleteIcon from '../../../assets/images/delete/delete.png';
 import { emailRegex } from '../../../utils/regex';
 import * as S from './style';
+import usePopAlarm from '../../../hooks/usePopAlarm';
 
 interface Props {
   userData: { socialType: string; socialId: string };
@@ -14,6 +16,7 @@ const SignUpEmailForm = ({ userData }: Props): ReactElement => {
   const [inputValue, setInputValue] = useState('');
   const [inputFocus, setInputFocus] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [popAlarm] = usePopAlarm();
 
   const onInputhange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
@@ -23,18 +26,33 @@ const SignUpEmailForm = ({ userData }: Props): ReactElement => {
     setInputValue('');
   };
 
-  const onSignUp = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (emailRegex.test(inputValue)) {
-      setIsError(false);
-      const newUserData = { ...userData, email: inputValue, nickname: '' };
-      history.push({
-        pathname: '/signup/nickname',
-        state: newUserData,
-      });
-    } else {
-      setIsError(true);
+    try {
+      if (emailRegex.test(inputValue)) {
+        setIsError(false);
+        const newUserData = { ...userData, email: inputValue, nickname: '' };
+        await axios({
+          method: 'post',
+          url: `${process.env.REACT_APP_URL}/api/auth/emails/check-availabilities`,
+          data: {
+            email: inputValue,
+          },
+        });
+        history.push({
+          pathname: '/signup/nickname',
+          state: newUserData,
+        });
+      } else {
+        setIsError(true);
+      }
+    } catch (error) {
+      if (error?.response?.data?.status === 1451) {
+        setIsError(true);
+      } else {
+        history.push('/error');
+      }
     }
   };
 

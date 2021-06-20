@@ -2,7 +2,7 @@ import Styled from 'styled-components';
 
 export const Box = Styled.div`
   transform:translateY(-20px);
-  margin-bottom:133px;
+  margin:0 20px 133px 20px;
 `;
 
 export const PTag = Styled.p`
@@ -16,6 +16,6 @@ export const PTag = Styled.p`
 
 export const BottomBox = Styled.div`
   position:relative;
-  height:calc(100vh - 325px);
+  height:calc(100vh - 345px);
   min-height:391px;
 `;

@@ -10,6 +10,7 @@ export const Header = Styled.header<HeaderProps>`
   display:flex;
   align-items:center;
   margin-bottom:20px;
+  padding:0 20px;
   justify-content:${({ img }) => (img ? ` space-between` : null)};
 `;
 

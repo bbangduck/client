@@ -1,6 +1,6 @@
 import React, { ReactElement, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import left from '../../../assets/images/arrow/left.png';
+import left from '../../../assets/images/arrow/left.svg';
 import InputSearch from '../../molecules/InputSearch';
 import Nav from '../../molecules/Nav';
 import UpdateHeader from '../../molecules/UpdateHeader';

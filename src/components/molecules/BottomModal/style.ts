@@ -6,8 +6,9 @@ interface ContainerProps {
 export const Container = Styled.div<ContainerProps>`
   position:fixed;
   bottom:0;
-  transform:translateX(-20px);
-  width:360px;
+  width:100vw;
+  max-width:480px;
+  min-width:360px;
   height:100vh;
   background-color: rgba(43, 43, 43, 0.6);
   overflow: hidden;
@@ -19,7 +20,7 @@ interface BoxProps {
   isOn?: boolean;
 }
 export const Box = Styled.div<BoxProps>`
-  width:360px;
+  width:100%;
   position:absolute;
   bottom:0;
   padding:24px 20px;

@@ -1,5 +1,13 @@
 import Styled from 'styled-components';
 
+export const Container = Styled.div`
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.05);
+  background-color: ${({ theme }) => theme.colors.fontGray[1]};
+  padding:20px;
+`;
+
 export const Title = Styled.p`
   font-size: 16px;
   font-weight: bold;
@@ -8,14 +16,6 @@ export const Title = Styled.p`
   text-align: left;
   color: #ffffff;
   margin-bottom:25px;
-`;
-
-export const Container = Styled.div`
-  width: 320px;
-  border-radius: 8px;
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.05);
-  background-color: ${({ theme }) => theme.colors.fontGray[1]};
-  padding:20px;
 `;
 
 export const GraphBox = Styled.div`
@@ -36,7 +36,7 @@ export const P = Styled.p`
 `;
 
 export const BarBg = Styled.div`
-  width:216px;
+  width:77%;
   height:16px;
   background-color: rgba(255, 255, 255, 0.2);
 `;

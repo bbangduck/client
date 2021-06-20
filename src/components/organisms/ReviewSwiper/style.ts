@@ -1,8 +1,9 @@
 import Styled from 'styled-components';
 
 export const Container = Styled.div`
-  width:292px;
+  max-width:412px;
   margin-bottom:15px;
+  margin-left:48px;
 `;
 
 interface ImgBoxProps {

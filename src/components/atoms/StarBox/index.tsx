@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import * as S from './style';
-import starIcon from '../../../assets/images/star/star.png';
+import starIcon from '../../../assets/images/star/star.svg';
 
 interface Props {
   star: number;

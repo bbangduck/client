@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import InfoBox from '../../atoms/InfoBox';
-import thumb from '../../../assets/images/thumb/thumb.png';
+import thumb from '../../../assets/images/thumb/thumb.svg';
 import { shortSentence } from '../../../hooks/shortSentence';
 import * as S from './style';
 
@@ -12,7 +12,7 @@ const ReviewMoreInfo = ({ moreOn }: Props): ReactElement => {
   const cafe = '제로월드 강남점 열글자 이니';
 
   return (
-    <div>
+    <S.Container>
       {moreOn ? (
         <S.HashBox>
           <InfoBox
@@ -44,7 +44,7 @@ const ReviewMoreInfo = ({ moreOn }: Props): ReactElement => {
           </S.Comment>
         </S.CommentBox>
       ) : null}
-    </div>
+    </S.Container>
   );
 };
 

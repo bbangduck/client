@@ -3,17 +3,18 @@ import Styled from 'styled-components';
 export const Container = Styled.aside`
   position:fixed;
   bottom:0;
-  width:360px;
+  width:100%;
+  max-width:480px;
+  min-width:360px;
   height:52px;
   background-color:white;
-  transform:translateX(-20px);
   display:flex;
   cursor:pointer;
   z-index:10;
 `;
 
 export const leftBox = Styled.div`
-  width: 64px;
+  width: 17.8%;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -27,7 +28,7 @@ export const Line = Styled.div`
 `;
 
 export const CafeBox = Styled.div`
-  width:148px;
+  width:41.1%;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -40,7 +41,7 @@ export const PTag = Styled.p`
 `;
 
 export const ReviewBox = Styled.div`
-  width:148px;
+  width:41.1%;
   display:flex;
   justify-content:center;
   align-items:center;

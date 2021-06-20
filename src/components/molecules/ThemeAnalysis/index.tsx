@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import MyPageSubTitle from '../MyPageSubTitle';
-import pointMark from '../../../assets/images/pointmark/pointMark.png';
+import pointMark from '../../../assets/images/pointmark/pointMark.svg';
 import * as S from './style';
 import ThemeGuide from '../../atoms/ThemeGuide';
 import ThemeSmallGraph from '../../organisms/ThemeSmallGraph';

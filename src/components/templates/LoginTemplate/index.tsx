@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react';
 import { useHistory, Redirect } from 'react-router-dom';
 import LoginBottom from '../../organisms/LoginBottom';
 import userExist from '../../../utils/userExist';
+import BgImg from '../../../assets/images/loginBg/loginBg.png';
 import * as S from './style';
 
 const LoginTemplate = (): ReactElement => {
@@ -11,6 +12,7 @@ const LoginTemplate = (): ReactElement => {
   return (
     <section>
       <S.Background>
+        <S.Img src={BgImg} alt="빵덕 배경" />
         <S.Container>
           <S.Box onClick={() => history.push('/')}>
             <S.Later type="button" data-blink="blink">

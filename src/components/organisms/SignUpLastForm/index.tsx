@@ -89,7 +89,7 @@ const SignUpLastForm = ({ userData }: Props): ReactElement => {
   };
 
   return (
-    <form onSubmit={onSignUp}>
+    <S.Form onSubmit={onSignUp}>
       <S.Label htmlFor="signupEmail">
         <S.Span>닉네임</S.Span>
         <S.InputBox>
@@ -118,7 +118,7 @@ const SignUpLastForm = ({ userData }: Props): ReactElement => {
       <S.BtnBox>
         <BottomBtn content="완료" />
       </S.BtnBox>
-    </form>
+    </S.Form>
   );
 };
 

@@ -7,11 +7,11 @@ export const Header = Styled.header<HeaderProps>`
   position:relative;
   height:56px;
   width:100%;
+  max-width:480px;
   display:flex;
   align-items:center;
   margin-bottom:20px;
-  padding:0 20px;
-  justify-content:${({ img }) => (img ? ` space-between` : null)};
+  justify-content:${({ img }) => img && ` space-between`};
 `;
 
 export const ImgBox = Styled.div`
@@ -31,6 +31,7 @@ export const H1Box = Styled.div`
   align-items:center;
   justify-content:center;
   position:absolute;
+  left:0;
   z-index:0;
 `;
 

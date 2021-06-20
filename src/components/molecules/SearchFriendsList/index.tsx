@@ -37,7 +37,18 @@ const SearchFriendsList = ({ firstRender }: Props): ReactElement => {
       {firstRender ? <S.PTag>친구</S.PTag> : null}
       {/* 검색후의 화면 */}
       {tagAfterSearch()}
-      {result ? <UserData choiceBtn onChoose={onChooseFriend} marginBottom={18} marginTop={18} /> : null}
+      {result ? (
+        <>
+          <UserData choiceBtn onChoose={onChooseFriend} marginBottom={18} marginTop={18} />
+          <UserData choiceBtn onChoose={onChooseFriend} marginBottom={18} marginTop={18} />
+          <UserData choiceBtn onChoose={onChooseFriend} marginBottom={18} marginTop={18} />
+          <UserData choiceBtn onChoose={onChooseFriend} marginBottom={18} marginTop={18} />
+          <UserData choiceBtn onChoose={onChooseFriend} marginBottom={18} marginTop={18} />
+          <UserData choiceBtn onChoose={onChooseFriend} marginBottom={18} marginTop={18} />
+          <UserData choiceBtn onChoose={onChooseFriend} marginBottom={18} marginTop={18} />
+          <UserData choiceBtn onChoose={onChooseFriend} marginBottom={18} marginTop={18} />
+        </>
+      ) : null}
     </div>
   );
 };

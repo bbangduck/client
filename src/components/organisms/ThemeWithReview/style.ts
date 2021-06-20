@@ -19,5 +19,5 @@ export const Ul = Styled.ul`
   height:auto;
   display:flex;
   justify-content:space-between;
-  margin:0 20px 32px;
+  margin:0 20px 12px;
 `;

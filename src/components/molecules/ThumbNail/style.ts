@@ -3,11 +3,11 @@ import Styled from 'styled-components';
 export const Li = Styled.li`
   cursor:pointer;
   width:47.5%;
+  margin-bottom:20px;
 `;
 
 export const Img = Styled.img`
   width: 100%;
-  /* height: 81%; */
   margin-bottom:8px;
 `;
 

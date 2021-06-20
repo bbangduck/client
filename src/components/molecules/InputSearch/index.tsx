@@ -7,7 +7,7 @@ import * as S from './style';
 interface Props {
   onSearch: () => void;
   setInputValue: React.Dispatch<React.SetStateAction<string>>;
-  inputValue: string;
+  inputValue?: string;
   placeholder: string;
   marginBottom?: number;
   initialValue?: string;

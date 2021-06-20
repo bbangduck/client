@@ -1,12 +1,12 @@
 import React, { ReactElement } from 'react';
 import { useHistory } from 'react-router-dom';
-import left from '../../../assets/images/arrow/left.png';
+import left from '../../../assets/images/arrow/left.svg';
 import InputSearch from '../InputSearch';
 import * as S from './style';
 
 interface Props {
   initialValue: string;
-  inputValue: string;
+  inputValue?: string;
   setInputValue: React.Dispatch<React.SetStateAction<string>>;
 }
 const InputWithArrow = ({ inputValue, setInputValue, initialValue }: Props): ReactElement => {

@@ -8,7 +8,7 @@ const ThumbNail = (): ReactElement => {
 
   return (
     <S.Li data-blink="cover" onClick={() => history.push('/theme/:name')}>
-      <S.ImgBox image={poster} data-blink="cover" />
+      <S.Img src={poster} data-blink="cover" />
       <S.PTag data-blink="cover">검은 사원</S.PTag>
       <S.Span data-blink="cover">제로월드 강남점</S.Span>
     </S.Li>

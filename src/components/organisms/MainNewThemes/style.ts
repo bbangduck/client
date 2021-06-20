@@ -1,8 +1,10 @@
 import Styled from 'styled-components';
 
 export const Section = Styled.section`
-  margin-bottom:38px;
-  width:340px;
+  margin:0 0 38px 20px;
+  width: 100%;
+  min-width: 340px;
+  max-width: 460px;
 `;
 
 export const H2 = Styled.h2`

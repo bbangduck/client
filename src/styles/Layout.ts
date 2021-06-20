@@ -3,13 +3,12 @@ import Styled from 'styled-components';
 const Layout = Styled.div`
   font-family:"NotoSansCJKkr"; 
   position:relative;
-  width:360px;
+  width: 100vw;
+  min-width:360px;
+  max-width:480px;
   height:auto;
-  min-height:${({ theme }) => theme.sizes.mobile.minHeight};
-  padding: 0 20px;
-  margin:auto;
+  margin:0 auto;
   background-color: #ffffff;
-  /* overflow:hidden; */
 `;
 
 export default Layout;

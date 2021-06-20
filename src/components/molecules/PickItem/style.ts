@@ -5,7 +5,7 @@ interface LiProps {
   marginBottom?: number;
 }
 export const Li = Styled.li<LiProps>`
-  position:relative;
+  /* position:relative; */
   height: 100px;
   padding:16px 0 17px 16px;
   border: solid 1px ${({ borderColor }) => borderColor};

@@ -6,7 +6,7 @@ const AttentionThemeItem = (): ReactElement => {
   return (
     <S.Li>
       <S.LeftBox>
-        <S.ImgBox image={poster} />
+        <S.ImgBox src={poster} />
         <div>
           <S.H3>#1</S.H3>
           <S.PTag>[강남] 검은 사원</S.PTag>

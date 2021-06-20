@@ -1,27 +1,21 @@
 import Styled from 'styled-components';
 
 export const Li = Styled.li`
-  padding:10px 0;
+  padding:10px 20px;
   display:flex;
   align-items:flex-end;
   justify-content:space-between;
+  height:28%;
 `;
 
 export const LeftBox = Styled.div`
   display:flex;
 `;
 
-interface ImgBoxProps {
-  image: string;
-}
-export const ImgBox = Styled.div<ImgBoxProps>`
-  width: 68px;
-  height: 96px;
+export const ImgBox = Styled.img`
+  width: 36%;
+  height: 100%;
   overflow:hidden; 
-  background-image:${({ image }) => `url(${image})`};
-  background-position:center;
-  background-repeat:no-repeat;
-  background-size:cover;
   margin-right:16px;
 `;
 

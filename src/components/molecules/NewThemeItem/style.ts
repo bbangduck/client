@@ -4,16 +4,11 @@ export const Li = Styled.li`
   margin-right:16px;
 `;
 interface ImgBoxProps {
-  image: string;
+  image?: string;
 }
-export const ImgBox = Styled.div<ImgBoxProps>`
-  width: 236px;
-  height: 334px;
-  overflow:hidden; 
-  background-image:${({ image }) => `url(${image})`};
-  background-position:center;
-  background-repeat:no-repeat;
-  background-size:cover;
+export const ImgBox = Styled.img<ImgBoxProps>`
+  width: 100%;
+  height: 100%;
   margin-bottom:12px;
 `;
 

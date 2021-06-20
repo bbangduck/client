@@ -1,22 +1,13 @@
 import Styled from 'styled-components';
 
 export const Li = Styled.li`
-  position:relative;
-  margin-bottom:32px;
   cursor:pointer;
+  width:47.5%;
 `;
 
-interface ImgBoxProps {
-  image: string;
-}
-export const ImgBox = Styled.div<ImgBoxProps>`
-  width: 152px;
-  height: 215px;
-  overflow:hidden; 
-  background-image:${({ image }) => `url(${image})`};
-  background-position:center;
-  background-repeat:no-repeat;
-  background-size:cover;
+export const Img = Styled.img`
+  width: 100%;
+  /* height: 81%; */
   margin-bottom:8px;
 `;
 

@@ -14,7 +14,9 @@ export const GlobalStyle = createGlobalStyle`
     border:none;
     outline:none;
   }
-
+  html,body{
+    font-size:16px;
+  }
   body{
     background-color:rgb(233, 249, 255);
   }

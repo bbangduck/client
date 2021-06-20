@@ -2,7 +2,6 @@ import React, { ReactElement, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useClickOutside } from '../../../hooks/useClickOutside';
 import usePopAlarm from '../../../hooks/usePopAlarm';
-import axiosAPI from '../../../utils/axios';
 import ReviewChooseFriend from '../ReviewChooseFriend';
 import ReviewCompleteModal from '../ReviewCompleteModal';
 import ReviewHintAmount from '../ReviewHintAmount';

@@ -4,19 +4,12 @@ export const Container = Styled.div`
   display:flex;
   margin-bottom:52px;
   position:relative;
+  padding:0 20px;
 `;
 
-interface ImgBoxProps {
-  image: string;
-}
-export const ImgBox = Styled.div<ImgBoxProps>`
-  width:68px;
-  height:96px;
+export const ImgBox = Styled.img`
+  width:21%;
   overflow:hidden; 
-  background-image:${({ image }) => `url(${image})`};
-  background-position:center;
-  background-repeat:no-repeat;
-  background-size:cover;
   margin-right:16px;
 `;
 
@@ -43,8 +36,8 @@ export const Box = Styled.div`
 export const Line = Styled.div`
   position:absolute;
   bottom:-24px;
-  left:-20px;
-  width: 360px;
+  left:0;
+  width: 100%;
   height: 4px;
   background-color: #ebebeb;
 `;

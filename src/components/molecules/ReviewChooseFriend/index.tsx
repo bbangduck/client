@@ -19,15 +19,6 @@ const ReviewChooseFriend = (): ReactElement => {
     <S.Container>
       <S.TitleBox>
         <S.PTag>같이한 친구 (선택)</S.PTag>
-        {/* <S.Box>
-          <S.CountBox onClick={onMinusClick}>
-            <img src={minus} alt="같이할 친구 인원 빼기" />
-          </S.CountBox>
-          <S.Span>{countState}</S.Span>
-          <S.CountBox onClick={() => setCountState((prev) => prev + 1)}>
-            <img src={plus} alt="같이할 친구 인원 추가" />
-          </S.CountBox>
-        </S.Box> */}
       </S.TitleBox>
       <S.FriendsBox>
         <Swiper spaceBetween={0} slidesPerView="auto" className="friends-swiper">

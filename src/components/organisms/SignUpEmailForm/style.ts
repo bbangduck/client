@@ -1,5 +1,9 @@
 import Styled from 'styled-components';
 
+export const Form = Styled.form`
+  padding:0 20px;
+`;
+
 export const Label = Styled.label`
   display:flex;
   flex-direction:column;

@@ -14,7 +14,7 @@ const SignUpClauseCheck = ({ setIsChecked, isChecked }: Props): ReactElement => 
   };
 
   return (
-    <section>
+    <S.Section>
       <S.H1>
         빵덕 서비스 이용약관에
         <br /> 동의해주세요.
@@ -39,7 +39,7 @@ const SignUpClauseCheck = ({ setIsChecked, isChecked }: Props): ReactElement => 
         <S.PTag isChecked={isChecked}>[필수] 이용약관</S.PTag>
         <S.Span>보기</S.Span>
       </S.Box>
-    </section>
+    </S.Section>
   );
 };
 

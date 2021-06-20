@@ -1,10 +1,9 @@
 import Styled from 'styled-components';
 
 export const Container = Styled.div`
-  width:360px;
-  transform:translateX(-20px);
+  width:100%;
   height:40px;
-  padding:0 20px;
+  padding-left:20px;
   display:flex;
   border-bottom: 1px solid #ebebeb;
   cursor:pointer;

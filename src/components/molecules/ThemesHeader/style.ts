@@ -6,6 +6,7 @@ export const Container = Styled.div`
   align-items:center;
   justify-content:space-between;
   margin-bottom:12px;
+  padding:0 20px;
 `;
 
 export const PTag = Styled.p`

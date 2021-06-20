@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
-import filter from '../../../assets/images/filter/filter2.png';
-import filterBlue from '../../../assets/images/filter/filter2Blue.png';
+import filter from '../../../assets/images/filter/filter2.svg';
+import filterBlue from '../../../assets/images/filter/filter2Blue.svg';
 import * as S from './style';
 
 interface Props {
@@ -14,7 +14,6 @@ const FilterBtn = ({ setFilterState, filterDefault }: Props): ReactElement => {
 
   return (
     <S.Container onClick={onFilterClick} data-blink="blink">
-      {filterDefault ? null : <S.Dot data-blink="blink" />}
       <img src={filterDefault ? filter : filterBlue} alt="필터" data-blink="blink" />
       <S.PTag filtered={filterDefault} data-blink="blink">
         필터

@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { useHistory } from 'react-router-dom';
-import search from '../../../assets/images/search/search.png';
+import search from '../../../assets/images/search/search.svg';
 import * as S from './style';
 
 const ThemesHeader = (): ReactElement => {

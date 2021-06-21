@@ -11,6 +11,7 @@ export const ImgBox = Styled.img`
   width:21%;
   overflow:hidden; 
   margin-right:16px;
+  object-fit:cover;
 `;
 
 export const H1 = Styled.h1`

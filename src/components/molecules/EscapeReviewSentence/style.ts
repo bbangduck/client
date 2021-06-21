@@ -1,5 +1,9 @@
 import Styled from 'styled-components';
 
+export const Container = Styled.div`
+  padding:0 20px;
+`;
+
 export const PTag = Styled.p`
   height:36px;
   line-height:36px;

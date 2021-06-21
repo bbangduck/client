@@ -8,6 +8,7 @@ export const PTag = Styled.p`
   letter-spacing: -0.16px;
   color: #121212;
   margin-bottom:16px;
+  padding:0 20px;
 `;
 
 export const BtnBox = Styled.div`
@@ -17,7 +18,7 @@ export const BtnBox = Styled.div`
 
 export const Btn = Styled.button`
   position:absolute;
-  width: 360px;
+  width: 100%;
   height: 52px;
   background-color: #2b2b2b;
   left:0;

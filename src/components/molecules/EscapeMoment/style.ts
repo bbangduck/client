@@ -6,6 +6,7 @@ export const PTag = Styled.p`
   font-size: 14px;
   letter-spacing: -0.14px;
   color: #2b2b2b;
+  padding:0 20px;
 `;
 
 export const Box = Styled.div`
@@ -13,7 +14,8 @@ export const Box = Styled.div`
   height:84px;
   align-items:center;
   overflow:hidden;
-  width:340px;
+  width:100%;
+  padding-left:20px;
 `;
 
 export const CameraBox = Styled.div`

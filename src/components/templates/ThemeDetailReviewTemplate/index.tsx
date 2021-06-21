@@ -14,7 +14,9 @@ const ThemeDetailReviewTemplate = (): ReactElement => {
   if (!userExist() || withDrawalUser) return <Redirect to="/login" />;
   return (
     <section>
-      <UpdateHeader arrow={left} content="상세리뷰 작성" />
+      <div style={{ padding: '0 20px' }}>
+        <UpdateHeader arrow={left} content="상세리뷰 작성" />
+      </div>
       <ReviewDetailInfo />
       <ReviewDetail />
     </section>

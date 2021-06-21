@@ -3,7 +3,7 @@ import * as S from './style';
 
 const EscapeReviewSentence = (): ReactElement => {
   return (
-    <div>
+    <S.Container>
       <S.PTag>탈출 감상평을 남겨주세요 (필수)</S.PTag>
       <S.TextArea
         autoComplete="off"
@@ -12,7 +12,7 @@ const EscapeReviewSentence = (): ReactElement => {
         maxLength={1000}
         minLength={10}
       />
-    </div>
+    </S.Container>
   );
 };
 

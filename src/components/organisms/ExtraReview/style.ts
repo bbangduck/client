@@ -4,6 +4,7 @@ interface BoxProps {
   isOn: boolean;
 }
 export const Box = Styled.div<BoxProps>`
+  padding:0 20px;
   height: 40px;
   margin-bottom: 12px;
   display:flex;
@@ -41,9 +42,9 @@ interface AnnounceProps {
   isOn: boolean;
 }
 export const Announce = Styled.div<AnnounceProps>`
-  width: 320px;
+  width: calc(100% - 40px);
   height: 60px;
-  margin-bottom: ${({ isOn }) => (isOn ? '24px' : '40px')};
+  margin: ${({ isOn }) => (isOn ? '0 auto 24px' : '0 auto 40px')};
   padding-left:12px;
   border-radius: 8px;
   background-color: #f6f6f6;

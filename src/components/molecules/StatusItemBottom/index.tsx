@@ -18,6 +18,12 @@ const StatusItemBottom = (): ReactElement => {
         <S.Li>
           <img src="" alt="" />
         </S.Li>
+        <S.Li>
+          <img src="" alt="" />
+        </S.Li>
+        <S.Li>
+          <img src="" alt="" />
+        </S.Li>
       </S.Ul>
       <S.HashBox>
         <InfoBox

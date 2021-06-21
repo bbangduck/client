@@ -1,5 +1,7 @@
 import React, { ReactElement } from 'react';
 import InfoBox from '../../atoms/InfoBox';
+import test from '../../../assets/images/test/poster.jpg';
+import test2 from '../../../assets/images/test/me.jpg';
 import * as S from './style';
 
 const StatusItemBottom = (): ReactElement => {
@@ -13,16 +15,16 @@ const StatusItemBottom = (): ReactElement => {
       </S.PTag>
       <S.Ul>
         <S.Li>
-          <img src="" alt="" />
+          <S.Img src={test} alt="" />
         </S.Li>
         <S.Li>
-          <img src="" alt="" />
+          <S.Img src={test2} alt="" />
         </S.Li>
         <S.Li>
-          <img src="" alt="" />
+          <S.Img src={test} alt="" />
         </S.Li>
         <S.Li>
-          <img src="" alt="" />
+          <S.Img src={test2} alt="" />
         </S.Li>
       </S.Ul>
       <S.HashBox>

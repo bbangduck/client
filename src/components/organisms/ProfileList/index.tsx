@@ -8,6 +8,7 @@ import { useClickOutside } from '../../../hooks/useClickOutside';
 import InputModal from '../../molecules/InPutModal';
 import useGetUserData from '../../../swr/useGetUserData';
 import Loading from '../../atoms/Loding';
+import * as S from './style';
 
 const UpdateList = (): ReactElement => {
   const { data, loading, mutate: mutateUserData } = useGetUserData();
@@ -86,10 +87,12 @@ const UpdateList = (): ReactElement => {
   if (loading) return <Loading />;
   return (
     <div>
-      <UpdateItem title="이메일 주소" content={email} icon={null} />
-      <UpdateItem title="닉네임" content={nickname} icon={pen} modalHandeler={setNicknameModalOn} />
-      <UpdateItem title="나의 한마디" content={myIntro} icon={pen} modalHandeler={setIntroModalOn} />
-      <CareerOn />
+      <S.Box>
+        <UpdateItem title="이메일 주소" content={email} icon={null} />
+        <UpdateItem title="닉네임" content={nickname} icon={pen} modalHandeler={setNicknameModalOn} />
+        <UpdateItem title="나의 한마디" content={myIntro} icon={pen} modalHandeler={setIntroModalOn} />
+        <CareerOn />
+      </S.Box>
       {nicknameModalOn ? (
         <InputModal
           clickOutsideClose={nickNameClickOutside}

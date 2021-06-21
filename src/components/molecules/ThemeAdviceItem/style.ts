@@ -6,14 +6,20 @@ export const Container = Styled.div`
 `;
 
 export const ImgBox = Styled.div`
-  width: 152px;
+  min-width: 152px;
+  width:44%;
   height: 215px;
-  background-color:gray;
   overflow:hidden;
   display:flex;
   justify-content:center;
   align-items:center;
   margin-bottom:8px;
+`;
+
+export const Img = Styled.img`
+  width:100%;
+  height:100%;
+  object-fit:cover;
 `;
 
 export const PTag = Styled.p`

@@ -28,7 +28,7 @@ const MyTendencyTemplate = (): ReactElement => {
           </S.Box>
         </>
       ) : (
-        <div>
+        <S.Container>
           <UpdateHeader arrow={left} />
           <S.H1>
             앗,아직 데이터가
@@ -40,7 +40,7 @@ const MyTendencyTemplate = (): ReactElement => {
             <br />내 방탈출 성향을 분석해보세요
           </S.H2>
           <S.Button type="button">리뷰쓰고 데이터 추가하기</S.Button>
-        </div>
+        </S.Container>
       )}
     </section>
   );

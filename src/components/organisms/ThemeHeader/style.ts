@@ -10,6 +10,10 @@ export const Img = Styled.img`
   width:100%;
   max-width:480px;
   min-width:360px;
+  min-height:475px;
+  max-height:631px;
+  height:120vw;
+  object-fit:cover;
 `;
 
 export const HeaderBox = Styled.div`

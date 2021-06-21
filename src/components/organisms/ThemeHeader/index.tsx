@@ -8,7 +8,7 @@ import StarBox from '../../atoms/StarBox';
 import StatusBlock from '../../atoms/StatusBlock';
 import map from '../../../assets/images/map/map.svg';
 import InfoBox from '../../atoms/InfoBox';
-import testImg from '../../../assets/images/test/poster.jpg';
+import testImg2 from '../../../assets/images/test/scary.jpg';
 import { useClickOutside } from '../../../hooks/useClickOutside';
 import BottomModal from '../../molecules/BottomModal';
 
@@ -37,7 +37,7 @@ const ThemeHeader = (): ReactElement => {
   return (
     <>
       {/* <S.Bg /> */}
-      <S.Img src={testImg} alt="" />
+      <S.Img src={testImg2} alt="" />
       <S.HeaderBox>
         <UpdateHeader img={more} arrow={left} imgAlt="공유하기" onImgClick={onShare} />
       </S.HeaderBox>

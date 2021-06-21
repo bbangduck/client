@@ -5,4 +5,5 @@ interface SectionProps {
 }
 export const Section = Styled.section<SectionProps>`
   margin-bottom:${({ item }) => (item ? '40px' : '65px')};
+  padding:0 20px;
 `;

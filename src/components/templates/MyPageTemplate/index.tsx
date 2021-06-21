@@ -26,7 +26,9 @@ const MyPageTemplate = (): ReactElement => {
       <EscapeTendency />
       <EscapeBadges />
       <EscapeThemes />
-      <MyPageSubTitle content="내 친구" page="/mypage/friends" arrow />
+      <S.Box>
+        <MyPageSubTitle content="내 친구" page="/mypage/friends" arrow />
+      </S.Box>
       {/* <MyPageSubTitle content="내가 쓴 글" page="/" arrow /> */}
       <EscapeNotices />
       <Nav />

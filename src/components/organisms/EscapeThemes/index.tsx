@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 import MyPageSubTitle from '../../molecules/MyPageSubTitle';
 import MyPageGuide from '../../atoms/MyPageGuide';
+import poster from '../../../assets/images/test/poster.jpg';
 import * as S from './style';
 
 const EscapeThemes = (): ReactElement => {
@@ -12,10 +13,10 @@ const EscapeThemes = (): ReactElement => {
       {themes ? (
         <S.ThemesBox>
           <S.ImgBox>
-            <img src="" alt="관심테마 사진" />
+            <S.Img src={poster} alt="관심테마 사진" />
           </S.ImgBox>
           <S.ImgBox>
-            <img src="" alt="관심테마 사진" />
+            <S.Img src="" alt="관심테마 사진" />
           </S.ImgBox>
         </S.ThemesBox>
       ) : (

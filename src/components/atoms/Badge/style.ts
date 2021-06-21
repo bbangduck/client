@@ -12,6 +12,15 @@ export const ImgBox = Styled.div`
   height: 68px;
   background-color:lightgray;
   margin-bottom:4px;
+  overflow:hidden;
+  object-fit:cover;
+  background:gray;
+  `;
+
+export const Img = Styled.img`
+  width:100%;
+  height:100%;
+  object-fit:cover;
 `;
 
 export const Span = Styled.span`

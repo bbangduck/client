@@ -6,6 +6,7 @@ export const Header = Styled.header`
   align-items:center;
   height:56px;
   margin-bottom:20px;
+  padding:0 20px;
 `;
 
 export const H1Tag = Styled.h1`

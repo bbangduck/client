@@ -5,6 +5,7 @@ interface SectionProps {
 }
 export const Section = Styled.section<SectionProps>`
   margin-bottom:${({ tendency }) => (tendency ? '40px' : '64px')};
+  padding:0 20px;
 `;
 
 export const Img = Styled.img`

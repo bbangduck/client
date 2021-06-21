@@ -23,7 +23,9 @@ const SearchTemplate = (): ReactElement => {
 
   return (
     <section>
-      <UpdateHeader arrow={left} />
+      <S.HeaderBox>
+        <UpdateHeader arrow={left} />
+      </S.HeaderBox>
       <S.Box>
         <S.PTag>
           무엇을

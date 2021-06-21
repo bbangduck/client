@@ -1,5 +1,9 @@
 import Styled from 'styled-components';
 
+export const HeaderBox = Styled.div`
+  padding:0 20px;
+`;
+
 export const Box = Styled.div`
   transform:translateY(-20px);
   margin:0 20px 133px 20px;

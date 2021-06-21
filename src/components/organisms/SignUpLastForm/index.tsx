@@ -18,6 +18,12 @@ const SignUpLastForm = ({ userData }: Props): ReactElement => {
   const [successMessage, setsuccessMessage] = useState('');
   const [showPopAlarm] = usePopAlarm();
 
+  const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setErrorMessage('');
+    setsuccessMessage('');
+    setInputValue(e.target.value);
+  };
+
   const onCheckNickname = async () => {
     try {
       if (!inputValue) {
@@ -100,7 +106,7 @@ const SignUpLastForm = ({ userData }: Props): ReactElement => {
             name="email"
             onFocus={() => setInputFocus(true)}
             onBlur={() => setInputFocus(false)}
-            onChange={(e) => setInputValue(e.target.value)}
+            onChange={onInputChange}
             focus={inputFocus}
             autoComplete="off"
           />

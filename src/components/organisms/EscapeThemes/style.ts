@@ -16,8 +16,10 @@ export const ThemesBox = Styled.ul`
 export const ImgBox = Styled.li`
   min-width: 152px;
   width:48%;
-  min-height: 215px;
   height: 5.6%;
+  min-height: 215px;
+  max-height: 282px;
+  height:60vw;
   background-color:lightgray;
   overflow:hidden;
 `;

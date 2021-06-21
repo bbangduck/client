@@ -6,9 +6,10 @@ const Layout = Styled.div`
   width: 100vw;
   min-width:360px;
   max-width:480px;
-  height:auto;
+  height:100%;
   margin:0 auto;
   background-color: #ffffff;
+  min-height:${({ theme }) => theme.sizes.mobile.minHeight};
 `;
 
 export default Layout;

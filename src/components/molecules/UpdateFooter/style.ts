@@ -4,6 +4,7 @@ export const Container = Styled.div`
   height: calc(100vh - 398px);
   min-height:278px;
   position: relative;
+  padding:0 20px;
 `;
 
 export const Footer = Styled.footer`

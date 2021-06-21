@@ -1,8 +1,7 @@
 import Styled from 'styled-components';
 
 export const Section = Styled.section`
-  width:360px;
-  transform:translateX(-20px);
+  width:100%;
   padding:0 20px 53px;
   background-color:#2b2b2b;
 `;
@@ -33,7 +32,9 @@ export const P = Styled.p`
 `;
 
 export const BarBg = Styled.div`
-  width: 216px;
+  min-width: 216px;
+  max-width: 320px;
+  width:70%;
   height: 16px;
   background-color: rgba(255, 255, 255, 0.2);
   position:absolute;
@@ -66,7 +67,7 @@ export const Btn = Styled.button`
   position:absolute;
   bottom:0;
   left:0;
-  width: 320px;
+  width: 100%;
   height: 52px;
   box-shadow: 0 -5px 10px 0 rgba(0, 0, 0, 0.05);
   background-color: #ffffff;

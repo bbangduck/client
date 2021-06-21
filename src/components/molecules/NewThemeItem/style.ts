@@ -9,9 +9,9 @@ interface ImgBoxProps {
 }
 export const ImgBox = Styled.img<ImgBoxProps>`
   width: 100%;
-  height: 100vw;
+  height: 82vw;
   min-height:334px;
-  max-height:375px;
+  max-height:390px;
   margin-bottom:12px;
   object-fit:cover;
 `;

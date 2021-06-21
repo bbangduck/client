@@ -13,8 +13,8 @@ const Picks = (): ReactElement => {
   return (
     <S.Article>
       <S.H2>빵덕&apos;s PICK</S.H2>
-      <Swiper spaceBetween={20} pagination={{ clickable: true }} className="picks-swiper">
-        <ul>
+      <ul>
+        <Swiper spaceBetween={20} pagination={{ clickable: true }} className="picks-swiper" slidesPerView="auto">
           <SwiperSlide className="pick-slides">
             <PickItem
               titleColor="#ffffff"
@@ -57,8 +57,8 @@ const Picks = (): ReactElement => {
               borderColor="#9c9c9c"
             />
           </SwiperSlide>
-        </ul>
-      </Swiper>
+        </Swiper>
+      </ul>
     </S.Article>
   );
 };

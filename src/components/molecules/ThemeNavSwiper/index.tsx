@@ -27,9 +27,9 @@ const ThemeNavSwiper = (): ReactElement => {
 
   return (
     <S.Container>
-      <Swiper spaceBetween={0} slidesPerView="auto">
+      <Swiper spaceBetween={0} slidesPerView="auto" id="theme-nav-swiper">
         {listTest.map((item) => (
-          <SwiperSlide key={item.id} onClick={() => onClickItem(item.id)}>
+          <SwiperSlide key={item.id} onClick={() => onClickItem(item.id)} id="theme-nav-slides">
             <S.PTag clicked={currentItem === item.id}>{item.name}</S.PTag>
           </SwiperSlide>
         ))}

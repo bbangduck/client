@@ -2,13 +2,7 @@
   position:initial;
 }
 
-.pick-slides{
-  position:initial;
-}
-
 .swiper-pagination {
-  position: absolute!important;
-  height:4px;
   top: 79.8%!important;
 }
 

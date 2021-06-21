@@ -1,8 +1,8 @@
-.swiper-container {
+#theme-nav-swiper {
   margin:0 !important;
   width:100% !important;
 }
 
-.swiper-slide {
+#theme-nav-slides {
   width:auto !important;
 }

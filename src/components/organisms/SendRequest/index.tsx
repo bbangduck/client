@@ -12,7 +12,11 @@ const SendRequest = (): ReactElement => {
   return (
     <div>
       <RequestNumber title="보낸 신청" number={4} onShowClick={onShowClick} isShow={isShow} />
-      {isShow ? <SendRequestList /> : null}
+      {isShow ? (
+        <>
+          <SendRequestList />
+        </>
+      ) : null}
     </div>
   );
 };

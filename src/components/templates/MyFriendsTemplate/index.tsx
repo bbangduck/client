@@ -9,6 +9,7 @@ import RequestFriends from '../../organisms/RequestFriends';
 import InputRequest from '../../molecules/InputRequest';
 import userExist from '../../../utils/userExist';
 import useGetUserData from '../../../swr/useGetUserData';
+import * as S from './style';
 
 const MyFriendsTemplate = (): ReactElement => {
   const [navClick, setNavClick] = useState(0);
@@ -22,11 +23,13 @@ const MyFriendsTemplate = (): ReactElement => {
 
   if (!userExist() || withDrawalUser) return <Redirect to="/login" />;
   return (
-    <section>
-      <UpdateHeader arrow={left} content="내 친구" />
+    <S.Section>
+      <S.Box>
+        <UpdateHeader arrow={left} content="내 친구" />
+      </S.Box>
       <MyFriendsNav navClick={navClick} setNavClick={setNavClick} />
       {!navClick ? (
-        <div>
+        <S.Box>
           <InputSearch
             onSearch={searchMyFriends}
             setInputValue={setMyFriendsInputValue}
@@ -35,14 +38,14 @@ const MyFriendsTemplate = (): ReactElement => {
             marginBottom={16}
           />
           <MyFriendsList />
-        </div>
+        </S.Box>
       ) : (
-        <div>
+        <S.Box>
           <InputRequest />
           <RequestFriends />
-        </div>
+        </S.Box>
       )}
-    </section>
+    </S.Section>
   );
 };
 

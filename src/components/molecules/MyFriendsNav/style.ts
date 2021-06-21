@@ -3,10 +3,10 @@ import Styled from 'styled-components';
 export const Container = Styled.div`
   display:flex;
   justify-content:space-between;
-  width: 360px;
-  transform: translate(-20px,-20px);
+  width: 100%;
   border-bottom:1px solid #ebebeb;
   padding: 0 63px;
+  margin-bottom:20px;
 `;
 
 interface PTagProps {

@@ -1,11 +1,13 @@
 import Styled from 'styled-components';
 
 export const Container = Styled.div`
+  transform:translateX(-20px);
   position:fixed;
   bottom:0;
-  width:360px;
+  width:100%;
+  max-width:480px;
+  min-width:360px;
   height:100%;
-  transform:translateX(-20px);
   background-color: rgba(43, 43, 43, 0.6);
   display:flex;
   justify-content:center;

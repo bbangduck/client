@@ -4,5 +4,5 @@ export const Ul = Styled.ul`
   display:flex;
   flex-wrap:wrap;
   justify-content:space-between;
-  padding:0 0 57px 0;
+  padding:0 20px 57px 20px;
 `;

@@ -9,6 +9,9 @@ export const Container = Styled.div`
 
 export const ImgBox = Styled.img`
   width:21%;
+  min-height:96px;
+  max-height:135px;
+  height:25vw;
   overflow:hidden; 
   margin-right:16px;
   object-fit:cover;

@@ -37,7 +37,12 @@ export const PTag = Styled.p`
 `;
 
 export const ImgBox = Styled.div`
-  width: 320px;
-  height: 401px;
+  width: 100%;
+  height: auto;
+  overflow:hidden;
   background:lightgray;
+`;
+
+export const Img = Styled.img`
+  width:100%;
 `;

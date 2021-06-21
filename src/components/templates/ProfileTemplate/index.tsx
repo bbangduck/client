@@ -6,6 +6,7 @@ import ProfileList from '../../organisms/ProfileList';
 import left from '../../../assets/images/arrow/left.png';
 import userExist from '../../../utils/userExist';
 import useGetUserData from '../../../swr/useGetUserData';
+import * as S from './style';
 
 const ProfileTemplate = (): ReactElement => {
   const { errorStatus } = useGetUserData();
@@ -14,7 +15,9 @@ const ProfileTemplate = (): ReactElement => {
   if (!userExist() || withDrawalUser) return <Redirect to="/login" />;
   return (
     <section>
-      <UpdateHeader content="프로필 설정" arrow={left} />
+      <S.Box>
+        <UpdateHeader content="프로필 설정" arrow={left} />
+      </S.Box>
       <UpdateProfileImg />
       <ProfileList />
     </section>

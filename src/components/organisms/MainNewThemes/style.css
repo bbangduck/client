@@ -1,3 +1,5 @@
 .newTheme-swiper {
-  flex-shrink:initial;
+  width:65.6%;
+  min-width:236px;
+  max-width:301px;
 }

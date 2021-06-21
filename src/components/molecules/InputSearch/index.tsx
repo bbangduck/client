@@ -1,13 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { ReactElement, useState, useEffect, useRef } from 'react';
-import search from '../../../assets/images/search/search.png';
+import search from '../../../assets/images/search/search.svg';
 import deleteIcon from '../../../assets/images/delete/delete.png';
 import * as S from './style';
 
 interface Props {
   onSearch: () => void;
   setInputValue: React.Dispatch<React.SetStateAction<string>>;
-  inputValue: string;
+  inputValue?: string;
   placeholder: string;
   marginBottom?: number;
   initialValue?: string;

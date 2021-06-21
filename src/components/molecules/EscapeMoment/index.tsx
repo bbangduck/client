@@ -1,7 +1,6 @@
 import React, { ReactElement, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import camera from '../../../assets/images/camera/grayCamera.png';
-import testImg from '../../../assets/images/test/me.jpg';
 import deleteImg from '../../../assets/images/delete/deleteGray.png';
 import * as S from './style';
 import 'swiper/swiper.scss';

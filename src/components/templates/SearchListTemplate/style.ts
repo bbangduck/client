@@ -1,5 +1,9 @@
 import Styled from 'styled-components';
 
+export const Box = Styled.div`
+  margin:0 20px;
+`;
+
 export const PTag = Styled.p`
   font-size: 12px;
   line-height: 1.5;

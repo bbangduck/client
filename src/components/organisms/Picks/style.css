@@ -1,10 +1,15 @@
-.swiper-container {
-  position:initial!important;
+.picks-swiper{
+  position:initial;
+}
+
+.pick-slides{
+  position:initial;
 }
 
 .swiper-pagination {
   position: absolute!important;
-  top: 170px!important;
+  height:4px;
+  top: 79.8%!important;
 }
 
 .swiper-pagination-bullet{

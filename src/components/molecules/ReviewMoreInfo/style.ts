@@ -1,5 +1,9 @@
 import Styled from 'styled-components';
 
+export const Container = Styled.div`
+  margin-left:48px;
+`;
+
 export const HashBox = Styled.ul`
   display:flex;
   flex-wrap:wrap;
@@ -42,7 +46,7 @@ export const Box = Styled.div<BoxProps>`
 `;
 
 export const CommentBox = Styled.div`
-  width: 272px;
+  width: 100%;
   padding:12px;
   background-color: #f6f6f6;
 `;
@@ -71,4 +75,5 @@ export const Comment = Styled.div`
   font-size: 12px;
   letter-spacing: -0.12px;
   color: #2b2b2b;
+  line-height: 1.5;
 `;

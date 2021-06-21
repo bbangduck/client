@@ -8,6 +8,7 @@ export const Section = Styled.section`
   border-top:1px solid #ebebeb;
   margin-top:20px;
   cursor:pointer;
+  padding:0 20px;
 `;
 
 export const Box = Styled.div`

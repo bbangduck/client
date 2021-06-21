@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import { useHistory } from 'react-router-dom';
-import search from '../../../assets/images/search/search.png';
-import logo from '../../../assets/images/logo/logoBlack.png';
+import search from '../../../assets/images/search/search.svg';
+import logo from '../../../assets/images/logo/logoBlack.svg';
 import * as S from './style';
 
 const MainHeader = (): ReactElement => {

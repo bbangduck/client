@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import { useLocation, Redirect } from 'react-router-dom';
 import UpdateHeader from '../../molecules/UpdateHeader';
-import left from '../../../assets/images/arrow/left.png';
+import left from '../../../assets/images/arrow/left.svg';
 import * as S from './style';
 import SignUpLastForm from '../../organisms/SignUpLastForm';
 import userExist from '../../../utils/userExist';

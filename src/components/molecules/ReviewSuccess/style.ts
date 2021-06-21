@@ -24,7 +24,7 @@ export const Btn = Styled.button<BtnProps>`
   display:flex;
   justify-content:center;
   align-items:center;
-  width:152px;
+  width:47.5%;
   height:44px;
   background-color: ${({ clicked }) => (clicked ? '#2b2b2b' : '#ffffff')};
   font-size: 14px;

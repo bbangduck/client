@@ -10,12 +10,13 @@ interface Props {
   star: number;
   time: string;
   hint: number;
+  image: string;
 }
-const StatusItemCenter = ({ detailExist, title, location, star, time, hint }: Props): ReactElement => {
+const StatusItemCenter = ({ image, detailExist, title, location, star, time, hint }: Props): ReactElement => {
   return (
     <S.Container detailExist={detailExist}>
       <S.ImgBox>
-        <img src="" alt="" />
+        <S.Img src={image} alt="" />
       </S.ImgBox>
       <S.RightBox>
         <S.Top>

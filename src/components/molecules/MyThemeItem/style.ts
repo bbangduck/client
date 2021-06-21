@@ -1,7 +1,13 @@
 import Styled from 'styled-components';
 
 export const Li = Styled.li`
+  width:44%;
+  min-height:265px;
+  min-width:152px;
   margin-bottom:32px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
 `;
 
 interface ImgBoxProps {
@@ -9,8 +15,9 @@ interface ImgBoxProps {
 }
 export const ImgBox = Styled.div<ImgBoxProps>`
   position:relative;
-  width: 152px;
-  height: 215px;
+  width: 100%;
+  height:100%;
+  min-height: 215px;
   overflow:hidden; 
   background-image:${({ image }) => `url(${image})`};
   background-position:center;

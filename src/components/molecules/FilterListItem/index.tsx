@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
-import checked from '../../../assets/images/check/checkedCircleBlue.png';
-import unChecked from '../../../assets/images/check/unCheckedCircle.png';
+import checked from '../../../assets/images/check/checkedCircleBlue.svg';
+import unChecked from '../../../assets/images/check/unCheckedCircle.svg';
 import * as S from './style';
 
 interface Props {

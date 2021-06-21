@@ -14,11 +14,21 @@ export const Ul = Styled.ul`
 `;
 
 export const Li = Styled.li`
-  width: 68px;
-  height: 68px;
+  width:21.25%;
+  min-width: 68px;
+  max-width: 90px;
+  height:19vw;
+  min-height: 68px;
+  max-height: 90px;
   background:lightgray;
   margin-right:12px;
-  `;
+`;
+
+export const Img = Styled.img`
+  width:100%;
+  height:100%;
+  object-fit:cover;
+`;
 
 export const HashBox = Styled.ul`
   display:flex;

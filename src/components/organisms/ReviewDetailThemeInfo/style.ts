@@ -33,7 +33,8 @@ interface CheckBoxProps {
   clicked: boolean;
 }
 export const CheckBox = Styled.div<CheckBoxProps>`
-  width: 56px;
+  min-width: 56px;
+  width: 16%;
   height: 44px;
   border: ${({ clicked }) => (clicked ? 'none' : 'solid 1px #e5e5e5')};
   font-size: 12px;
@@ -50,7 +51,8 @@ export const CheckBox = Styled.div<CheckBoxProps>`
 `;
 
 export const ScaryBox = Styled.div<CheckBoxProps>`
-  width: 100px;
+  min-width: 100px;
+  width: 29%;
   height: 44px;
   border: ${({ clicked }) => (clicked ? 'none' : 'solid 1px #e5e5e5')};
   font-size: 12px;

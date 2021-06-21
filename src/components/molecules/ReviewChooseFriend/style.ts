@@ -2,6 +2,7 @@ import Styled from 'styled-components';
 
 export const Container = Styled.div`
   margin-bottom:36px;
+  padding:0 20px;
 `;
 
 export const TitleBox = Styled.div`
@@ -16,20 +17,6 @@ export const PTag = Styled.p`
   letter-spacing: -0.14px; 
   color: #2b2b2b;
 `;
-
-// export const Box = Styled.div`
-//   display:flex;
-// `;
-
-// export const CountBox = Styled.div`
-//   width:32px;
-//   height:32px;
-//   border: solid 1px #ebebeb;
-//   display:flex;
-//   justify-content:center;
-//   align-items:center;
-//   cursor:pointer;
-// `;
 
 export const Span = Styled.span`
   width:32px;

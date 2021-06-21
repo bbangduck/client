@@ -2,6 +2,7 @@ import Styled from 'styled-components';
 
 export const Section = Styled.section`
   margin-bottom:48px;
+  padding:0 20px;
 `;
 
 export const TitleBox = Styled.div`

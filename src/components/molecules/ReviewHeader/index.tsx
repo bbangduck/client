@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import * as S from './style';
-import more from '../../../assets/images/lineUp/lineUp.png';
+import more from '../../../assets/images/lineUp/lineUp.svg';
 
 const ReviewHeader = (): ReactElement => {
   return (

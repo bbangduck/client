@@ -5,6 +5,7 @@ interface FormProps {
   marginBottom: number;
 }
 export const Form = Styled.form<FormProps>`
+  width:100%;
   position:relative;
   display:flex;
   align-items:center;

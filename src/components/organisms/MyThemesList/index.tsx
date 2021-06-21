@@ -24,10 +24,12 @@ const MyThemesList = (): ReactElement => {
   };
 
   return (
-    <S.Ul>
-      {test.map((num) => (
-        <MyThemeItem key={num} onMoreClick={onMoreClick} />
-      ))}
+    <>
+      <S.Ul>
+        {test.map((num) => (
+          <MyThemeItem key={num} onMoreClick={onMoreClick} />
+        ))}
+      </S.Ul>
       <BottomModal
         title="관심테마"
         lastBtn="삭제하기"
@@ -47,7 +49,7 @@ const MyThemesList = (): ReactElement => {
           onSubmitHandeler={onFinalDelete}
         />
       ) : null}
-    </S.Ul>
+    </>
   );
 };
 

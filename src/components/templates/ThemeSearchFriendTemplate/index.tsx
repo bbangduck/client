@@ -1,11 +1,12 @@
 import React, { ReactElement, useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import UpdateHeader from '../../molecules/UpdateHeader';
-import left from '../../../assets/images/arrow/left.png';
+import left from '../../../assets/images/arrow/left.svg';
 import InputSearch from '../../molecules/InputSearch';
 import SearchFriendsList from '../../molecules/SearchFriendsList';
 import useGetUserData from '../../../swr/useGetUserData';
 import userExist from '../../../utils/userExist';
+import * as S from './style';
 
 const ThemeSearchFriendTemplate = (): ReactElement => {
   const [inputValue, setInputValue] = useState('');
@@ -23,7 +24,7 @@ const ThemeSearchFriendTemplate = (): ReactElement => {
 
   if (!userExist() || withDrawalUser) return <Redirect to="/login" />;
   return (
-    <section>
+    <S.Section>
       <UpdateHeader arrow={left} content="같이한 친구 선택" />
       <InputSearch
         onSearch={onSearchClick}
@@ -33,7 +34,7 @@ const ThemeSearchFriendTemplate = (): ReactElement => {
         marginBottom={8}
       />
       <SearchFriendsList firstRender={firstRender} />
-    </section>
+    </S.Section>
   );
 };
 

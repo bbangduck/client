@@ -26,7 +26,7 @@ const ReviewSuccess = ({ successClicked, setSuccessState, setTimeState }: Props)
   }, [successClicked]);
 
   return (
-    <div>
+    <div style={{ padding: '0 20px' }}>
       <S.Title>방탈출에 성공하셨어요?</S.Title>
       <S.Box>
         {btnContents.map((btn) => (

@@ -1,5 +1,9 @@
 import Styled from 'styled-components';
 
+export const Form = Styled.form`
+  padding:0 20px;
+`;
+
 export const Label = Styled.label`
   display:flex;
   flex-direction:column;
@@ -19,6 +23,7 @@ interface InputProps {
   focus?: boolean;
 }
 export const Input = Styled.input<InputProps>`
+  width:100%;
   padding: 12px 44px 12px 12px;
   border: solid 1px ${({ focus }) => (focus ? ' #2b2b2b' : '#cbcbcb')};
   font-size: 14px;

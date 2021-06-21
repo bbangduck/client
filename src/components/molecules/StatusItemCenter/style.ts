@@ -9,10 +9,20 @@ export const Container = Styled.div<ContainerProps>`
 `;
 
 export const ImgBox = Styled.div`
-  width: 68px;
-  height: 96px;
+  width:27%;
+  max-width: 115px;
+  min-width: 68px;
+  height:33vw;
+  max-height: 155px;
+  min-height: 110px;
   background:lightgray;
   margin-right:16px;
+`;
+
+export const Img = Styled.img`
+  width:100%;
+  height:100%;
+  object-fit:cover;
 `;
 
 export const RightBox = Styled.div`

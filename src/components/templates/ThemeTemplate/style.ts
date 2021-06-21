@@ -1,8 +1,12 @@
 import Styled from 'styled-components';
 
+export const Section = Styled.section`
+  /* padding:0 20px; */
+`;
+
 export const SquenceBox = Styled.div`
   height:42px;
-  padding:20px 0 4px 0;
+  padding:20px 20px 4px 20px;
   display:flex;
   justify-content:flex-end;
   margin-bottom:12px;

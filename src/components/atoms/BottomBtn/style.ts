@@ -4,7 +4,7 @@ export const Container = Styled.button`
   position:absolute;
   bottom:0;
   left:0;
-  width: 360px;
+  width: 100%;
   height: 52px;
   background-color: #2b2b2b;
   display:flex;

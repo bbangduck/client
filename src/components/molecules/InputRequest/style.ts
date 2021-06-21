@@ -8,7 +8,7 @@ export const Form = Styled.form`
 
 export const Input = Styled.input`
   margin-right:8px;
-  width: 228px;
+  width: 100%;
   border: solid 1px #cbcbcb;
   outline:none;
   padding:12px;

@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import { Redirect, useHistory, useLocation } from 'react-router-dom';
 import { useClickOutside } from '../../../hooks/useClickOutside';
 import RemoveBottom from '../../molecules/RemoveBottom';
-import Remove2Content from '../../molecules/RemoveContent2';
+import RemoveContent2 from '../../molecules/RemoveContent2';
 import UpdateHeader from '../../molecules/UpdateHeader';
 import Modal from '../../organisms/Modal';
 import left from '../../../assets/images/arrow/left.png';
@@ -44,8 +44,10 @@ const RemoveAccountTemplate2 = (): ReactElement => {
   if (!userExist() || withDrawalUser) return <Redirect to="/login" />;
   return (
     <section>
-      <UpdateHeader content="회원탈퇴" arrow={left} />
-      <Remove2Content />
+      <S.Box>
+        <UpdateHeader content="회원탈퇴" arrow={left} />
+        <RemoveContent2 />
+      </S.Box>
       <S.BtnBox>
         <RemoveBottom setModalState={setModalOn} />
       </S.BtnBox>

@@ -5,6 +5,7 @@ export const Title = Styled.div`
   display:flex;
   align-items:center;
   margin-bottom:16px;
+  padding:0 20px;
 `;
 
 export const PTag = Styled.p`
@@ -24,8 +25,7 @@ export const BoldPTag = Styled.p`
 `;
 
 export const CompleteBtn = Styled.button`
-  width:360px;
-  transform:translateX(-20px);
+  width:100%;
   height:52px;
   background-color: #2b2b2b;
   font-size: 14px;

@@ -24,9 +24,7 @@ export const SubTitle = Styled.p`
 `;
 
 export const FlexBox = Styled.div`
-  transform:translateX(-20px);
-  width:360px;
-  padding:0 17px;
+  width:100%;
   display:flex;
   flex-wrap:wrap;
 `;

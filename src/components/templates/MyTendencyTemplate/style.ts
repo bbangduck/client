@@ -1,8 +1,15 @@
 import Styled from 'styled-components';
 
+export const Container = Styled.div`
+  padding:0 20px;
+  min-height:716px;
+  height:100vh;
+`;
+
 export const Box = Styled.div`
   position:relative;
   transform:translateY(-71px);
+  padding:0 20px;
 `;
 
 export const H1 = Styled.h1`
@@ -28,7 +35,7 @@ export const Button = Styled.button`
   cursor:pointer;
   position:absolute;
   bottom:20px;
-  width:320px;
+  width:calc(100% - 40px);
   height:52px;
   box-shadow: 0 -5px 10px 0 rgba(0, 0, 0, 0.05);
   background-color: #2b2b2b;

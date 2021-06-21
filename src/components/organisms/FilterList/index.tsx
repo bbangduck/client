@@ -1,7 +1,7 @@
 import React, { ReactElement, useState, useEffect } from 'react';
 import FilterListItem from '../../molecules/FilterListItem';
-import top from '../../../assets/images/arrow/upDark.png';
-import down from '../../../assets/images/arrow/downBig.png';
+import top from '../../../assets/images/arrow/upDark.svg';
+import down from '../../../assets/images/arrow/downBig.svg';
 import * as S from './style';
 
 interface Props {

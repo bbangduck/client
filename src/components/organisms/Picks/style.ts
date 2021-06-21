@@ -1,11 +1,11 @@
 import Styled from 'styled-components';
 
 export const Article = Styled.article`
-  width: 360px;
+  position:relative;
+  width: 100%;
   height: 238px;
   padding: 32px 20px 0;
   background-color: #2b2b2b;
-  transform:translateX(-20px);
   margin-bottom:40px;
 `;
 

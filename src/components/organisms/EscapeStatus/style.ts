@@ -2,6 +2,7 @@ import Styled from 'styled-components';
 
 export const Section = Styled.section`
   margin-bottom:28px;
+  padding:0 20px;
 `;
 
 export const TitleBox = Styled.div`
@@ -17,8 +18,7 @@ export const Img = Styled.img`
 `;
 
 export const ItemBox = Styled.div`
-  width:360px;
-  transform:translateX(-20px);
+  width:100%;
   display:flex;
   justify-content:space-between;
 `;

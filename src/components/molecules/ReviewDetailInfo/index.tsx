@@ -6,7 +6,7 @@ import * as S from './style';
 const ReviewDetailInfo = (): ReactElement => {
   return (
     <S.Container>
-      <S.ImgBox image={poster} />
+      <S.ImgBox src={poster} />
       <div>
         <S.H1>[제로월드 강남] 검은사원</S.H1>
         <S.PTag>제로월드 강남점</S.PTag>

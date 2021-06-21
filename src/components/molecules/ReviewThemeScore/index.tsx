@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { ReactElement, useState, useEffect } from 'react';
-import defaultStar from '../../../assets/images/star/grayStar.png';
-import blackStar from '../../../assets/images/star/blackStar.png';
+import defaultStar from '../../../assets/images/star/grayStar.svg';
+import blackStar from '../../../assets/images/star/blackStar.svg';
 import * as S from './style';
 
 interface Props {
@@ -52,7 +52,12 @@ const ReviewThemeScore = ({ setScoreState }: Props): ReactElement => {
       <S.PTag>테마의 평점은?</S.PTag>
       <S.Box>
         {starList.map((item) => (
-          <img key={item.id} src={item.clicked ? blackStar : defaultStar} alt="평점" onClick={() => onTest(item.id)} />
+          <S.Img
+            key={item.id}
+            src={item.clicked ? blackStar : defaultStar}
+            alt="평점"
+            onClick={() => onTest(item.id)}
+          />
         ))}
       </S.Box>
     </S.Container>

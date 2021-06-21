@@ -5,12 +5,13 @@ export const Container = Styled.div`
   height: calc(100vh - 202px);
   min-height:514px;
   position:relative;
-  transform:translateX(0px);
 `;
 
 export const BtnBox = Styled.div`
+  width:100%;
   position:absolute;
   bottom:104px;
+  padding:0 20px;
 `;
 
 export const Btn = Styled.button`
@@ -18,7 +19,7 @@ export const Btn = Styled.button`
   display:flex;
   align-items:center;
   justify-content:center;
-  width:320px;
+  width:100%;
   height:52px;
   background-color: #ffdd00;
   font-size: 14px;
@@ -33,7 +34,7 @@ export const Btn2 = Styled.button`
   display:flex;
   align-items:center;
   justify-content:center;
-  width:320px;
+  width:100%;
   height:52px;
   background-color: #1ec800;
   font-size: 14px;

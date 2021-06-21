@@ -1,20 +1,23 @@
 import Styled from 'styled-components';
-import BgImg from '../../../assets/images/loginBg/loginBg.png';
 
 export const Background = Styled.div`
-  width:360px;
-  transform:translateX(-20px);
-  height:100%;
-  background:top no-repeat url(${BgImg});
+  width:100%;
+  height:100vh;
   background-color:#262626;
-  z-index:0;
+`;
+
+export const Img = Styled.img`
+  width:100%;
+  max-height:720px;
+  object-fit:cover;
 `;
 
 export const Container = Styled.div`
+  position:absolute;
+  top:0;
+  left:0;
   width:100%;
   height:100%;
-  padding:0 20px;
-  z-index:1000;
 `;
 
 export const Box = Styled.div`
@@ -23,6 +26,7 @@ export const Box = Styled.div`
   display:flex;
   align-items:center;
   justify-content:flex-end;
+  padding:0 20px;
   margin-bottom:20px;
 `;
 
@@ -42,6 +46,7 @@ export const PTag = Styled.p`
   line-height: 1.5;
   letter-spacing: -0.6px;
   color: #ffffff;
+  padding-left:20px;
 `;
 
 export const Span = Styled.span`

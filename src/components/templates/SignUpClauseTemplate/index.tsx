@@ -3,7 +3,7 @@ import { useHistory, Redirect, useLocation } from 'react-router-dom';
 import BottomBtn from '../../atoms/BottomBtn';
 import UpdateHeader from '../../molecules/UpdateHeader';
 import SignUpClauseCheck from '../../organisms/SignUpClauseCheck';
-import left from '../../../assets/images/arrow/left.png';
+import left from '../../../assets/images/arrow/left.svg';
 import * as S from './style';
 import userExist from '../../../utils/userExist';
 import usePopAlarm from '../../../hooks/usePopAlarm';

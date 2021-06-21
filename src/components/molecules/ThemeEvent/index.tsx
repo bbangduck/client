@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import ThemeGuide from '../../atoms/ThemeGuide';
 import MyPageSubTitle from '../MyPageSubTitle';
-import redMark from '../../../assets/images/pointmark/redPoint.png';
+import redMark from '../../../assets/images/pointmark/redPoint.svg';
 import * as S from './style';
 
 interface Props {

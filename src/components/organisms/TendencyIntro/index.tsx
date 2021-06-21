@@ -1,12 +1,13 @@
 import React, { ReactElement } from 'react';
 import InfoBox from '../../atoms/InfoBox';
+import test from '../../../assets/images/test/me.jpg';
 import * as S from './style';
 
 const TendencyIntro = (): ReactElement => {
   return (
     <S.Section>
       <S.ImgBox>
-        <img src="" alt="내 캐릭터" />
+        <S.Img src={test} alt="내 캐릭터" />
       </S.ImgBox>
       <S.PTag>&apos;공포를 즐길줄 아는 극 탱커&apos;</S.PTag>
       <S.Ul>

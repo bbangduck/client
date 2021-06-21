@@ -1,17 +1,7 @@
 import Styled from 'styled-components';
 
 export const Ul = Styled.ul`
-  padding-bottom:100px;
-`;
-
-export const ModalBg = Styled.div`
-  position:fixed;
-  bottom:0;
-  transform:translateX(-20px);
-  width:360px;
-  height:100vh;
-  background-color: rgba(43, 43, 43, 0.6);
-  overflow:hidden;
+  padding:0 20px 100px;
 `;
 
 export const PTag = Styled.p`
@@ -22,4 +12,5 @@ export const PTag = Styled.p`
   text-align: center;
   color: #9c9c9c;
   line-height: 1.43;
+  height:100vh;
 `;

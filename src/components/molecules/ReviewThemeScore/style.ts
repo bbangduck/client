@@ -2,6 +2,7 @@ import Styled from 'styled-components';
 
 export const Container = Styled.div`
   margin-bottom:48px;
+  padding:0 20px;
 `;
 
 export const PTag = Styled.p`
@@ -18,6 +19,7 @@ export const Box = Styled.div`
   padding:0 72px;
   display:flex;
   justify-content:space-between;
+  width:100%;
 `;
 
 interface TestProps {
@@ -28,4 +30,8 @@ export const Test = Styled.div<TestProps>`
   height:20px;
   background-color: ${({ clicked }) => (clicked ? 'dodgerblue' : 'gray')};
   margin-right:10px;
+`;
+
+export const Img = Styled.img`
+  width:19%;
 `;

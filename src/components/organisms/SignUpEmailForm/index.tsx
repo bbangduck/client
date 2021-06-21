@@ -60,7 +60,7 @@ const SignUpEmailForm = ({ userData }: Props): ReactElement => {
   };
 
   return (
-    <form onSubmit={onSignUp}>
+    <S.Form onSubmit={onSignUp}>
       <S.Label htmlFor="signupEmail">
         <S.Span>이메일</S.Span>
         <S.InputBox>
@@ -87,7 +87,7 @@ const SignUpEmailForm = ({ userData }: Props): ReactElement => {
       <S.BtnBox>
         <BottomBtn content="다음" />
       </S.BtnBox>
-    </form>
+    </S.Form>
   );
 };
 

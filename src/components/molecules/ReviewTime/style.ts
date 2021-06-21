@@ -2,6 +2,7 @@ import Styled from 'styled-components';
 
 export const Container = Styled.div`
   margin-bottom:32px;
+  padding:0 20px;
 `;
 
 export const Title = Styled.p`
@@ -15,7 +16,7 @@ export const Title = Styled.p`
 `;
 
 export const Input = Styled.input`
-  width: 320px;
+  width: 100%;
   height: 50px;
   padding-left: 16px;
   border: solid 1px #ebebeb;

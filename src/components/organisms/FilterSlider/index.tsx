@@ -1,5 +1,5 @@
 import React, { ReactElement, useState } from 'react';
-import reset from '../../../assets/images/reset/reset.png';
+import reset from '../../../assets/images/reset/reset.svg';
 import FilterList from '../FilterList';
 import filterTypes from '../../../utils/themeSliderTypes';
 import * as S from './style';

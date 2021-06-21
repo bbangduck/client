@@ -12,7 +12,7 @@ const ClauseTemplate = (): ReactElement => {
 
   if (!userExist() || withDrawalUser) return <Redirect to="/login" />;
   return (
-    <section>
+    <section style={{ padding: '0 20px' }}>
       <UpdateHeader arrow={left} />
       <ClauseContent />
     </section>

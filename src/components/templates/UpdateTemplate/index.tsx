@@ -6,6 +6,7 @@ import UpdateCenter from '../../organisms/UpdateCenter';
 import left from '../../../assets/images/arrow/left.png';
 import userExist from '../../../utils/userExist';
 import useGetUserData from '../../../swr/useGetUserData';
+import * as S from './style';
 
 const UpdateTemplate = (): ReactElement => {
   const { errorStatus } = useGetUserData();
@@ -14,7 +15,9 @@ const UpdateTemplate = (): ReactElement => {
   if (!userExist() || withDrawalUser) return <Redirect to="/login" />;
   return (
     <section>
-      <UpdateHeader content="설정" arrow={left} />
+      <S.Box>
+        <UpdateHeader content="설정" arrow={left} />
+      </S.Box>
       <UpdateCenter />
       <UpdateFooter />
     </section>

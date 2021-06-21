@@ -1,5 +1,9 @@
 import Styled from 'styled-components';
 
+export const Section = Styled.section`
+  padding:0 20px;
+`;
+
 export const H1 = Styled.h1`
   font-size: 24px;
   font-weight: bold;

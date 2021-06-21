@@ -14,10 +14,7 @@ const Remove2Content = (): ReactElement => {
           <br />· 단, 타 법령에 의해 수집 및 이용한 회원정보는 법령 준수기간동안 보관됩니다.
         </S.Span>
       </S.Box>
-      <S.LastPTag>
-        탈퇴 후 기존 작성한 방탈출 리뷰, 댓글 등은 모두 삭제
-        <br /> 됩니다.
-      </S.LastPTag>
+      <S.LastPTag>탈퇴 후 기존 작성한 방탈출 리뷰, 댓글 등은 모두 삭제됩니다.</S.LastPTag>
     </div>
   );
 };

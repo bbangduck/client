@@ -1,23 +1,33 @@
 import Styled from 'styled-components';
 
 export const Header = Styled.header`
-  position: relative;
+  /* position: relative;
   height:616px;
-  margin-bottom:16px;
+  margin-bottom:16px; */
 `;
 
-export const Bg = Styled.div`
-  position: absolute;
-  left:0;
-  top:0;
+export const Img = Styled.img`
   width:100%;
-  height: 475px;
-  background-color:gray;
+  max-width:480px;
+  min-width:360px;
+  min-height:475px;
+  max-height:631px;
+  height:120vw;
+  object-fit:cover;
+`;
+
+export const HeaderBox = Styled.div`
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  padding:0 20px;
 `;
 
 export const Container = Styled.div`
   width:100%;
-  transform:translateY(379px);
+  transform:translateY(-20px);
+  padding:0 20px;
 `;
 
 export const TotalBox = Styled.div`

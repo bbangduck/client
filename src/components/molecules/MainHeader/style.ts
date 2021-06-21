@@ -5,7 +5,7 @@ export const Header = Styled.header`
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:22px;
+  margin:0 20px 22px 20px;
 `;
 
 export const Img = Styled.img`

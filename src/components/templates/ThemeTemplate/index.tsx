@@ -2,7 +2,7 @@ import React, { ReactElement, useState } from 'react';
 import Nav from '../../molecules/Nav';
 import ThemeNavSwiper from '../../molecules/ThemeNavSwiper';
 import ThemesHeader from '../../molecules/ThemesHeader';
-import filter from '../../../assets/images/filter/filter.png';
+import filter from '../../../assets/images/filter/filter.svg';
 import * as S from './style';
 import ThemeList from '../../organisms/ThemeList';
 import FilterBtn from '../../atoms/filterBtn';
@@ -28,7 +28,7 @@ const ThemeTemplate = (): ReactElement => {
   };
 
   return (
-    <section>
+    <S.Section>
       <ThemesHeader />
       <ThemeNavSwiper />
       <S.SquenceBox>
@@ -61,7 +61,7 @@ const ThemeTemplate = (): ReactElement => {
         clickOutside={clickSequenceOutside}
         isOn={sequenceOn}
       />
-    </section>
+    </S.Section>
   );
 };
 

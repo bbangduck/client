@@ -5,6 +5,7 @@ export const Container = Styled.div`
   display:flex;
   align-items:center;
   margin-bottom:12px;
+  padding:0 20px;
 `;
 
 export const Img = Styled.img`

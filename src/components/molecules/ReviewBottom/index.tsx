@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import { useHistory } from 'react-router-dom';
-import heart from '../../../assets/images/heart/heart.png';
-import pen from '../../../assets/images/pen/whitePen.png';
+import heart from '../../../assets/images/heart/heart.svg';
+import pen from '../../../assets/images/pen/whitePen.svg';
 import userExist from '../../../utils/userExist';
 import * as S from './style';
 

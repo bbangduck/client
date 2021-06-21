@@ -2,6 +2,7 @@ import Styled from 'styled-components';
 
 export const Container = Styled.div`
   margin-bottom:32px;
+  padding:0 20px;
 `;
 
 export const PTag = Styled.p`
@@ -25,7 +26,7 @@ export const SelectBtn = Styled.div<SelectBtnProps>`
   display:flex;
   justify-content:center;
   align-items:center;
-  width: 68px;
+  width: 21.25%;
   height: 50px;
   background-color: ${({ clicked }) => (clicked ? '#2b2b2b' : '#ffffff')};
   font-family: Montserrat;

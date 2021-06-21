@@ -8,7 +8,11 @@ export const Li = Styled.li`
 
 export const Img = Styled.img`
   width: 100%;
+  max-height:274px;
+  min-height:215px;
+  height:60vw;
   margin-bottom:8px;
+  object-fit:cover;
 `;
 
 export const PTag = Styled.p`

@@ -22,6 +22,13 @@ export const ImgBox = Styled.div`
   align-items:center;
   justify-content:center;
   margin-bottom:16px;
+  overflow: hidden;
+`;
+
+export const Img = Styled.img`
+  width:70%;
+  height:70%;
+  object-fit:cover;
 `;
 
 export const PTag = Styled.p`

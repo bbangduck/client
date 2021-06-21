@@ -3,17 +3,19 @@ import Styled from 'styled-components';
 export const Container = Styled.div`
   position:relative;
   cursor:pointer;
+  width:48%;
+  max-width:210px;
+  min-width: 152px;
 `;
 
 export const ImgBox = Styled.div`
-  min-width: 152px;
-  width:44%;
-  height: 215px;
+  width:100%;
+  min-height: 215px;
+  max-height: 275px;
+  height:56vw;
   overflow:hidden;
-  display:flex;
-  justify-content:center;
-  align-items:center;
   margin-bottom:8px;
+  background:crimson;
 `;
 
 export const Img = Styled.img`

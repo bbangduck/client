@@ -1,3 +1,5 @@
 .theme-review-slide {
-  width:auto !important;
+  width:27% !important;
+  max-width: 90px;
+  min-width: 68px;
 }

@@ -5,18 +5,25 @@ export const Li = Styled.li`
   display:flex;
   align-items:flex-end;
   justify-content:space-between;
-  height:28%;
+  width:100%;
 `;
 
 export const LeftBox = Styled.div`
   display:flex;
+  height: 100%;
+  width:62%;
 `;
 
 export const ImgBox = Styled.img`
-  width: 36%;
-  height: 100%;
+  width:40%;
+  max-width:110px;
+  min-width:68px;
+  min-height:96px;
+  max-height:143px;
+  height: 30vw;
   overflow:hidden; 
   margin-right:16px;
+  object-fit:cover;
 `;
 
 export const H3 = Styled.h3`

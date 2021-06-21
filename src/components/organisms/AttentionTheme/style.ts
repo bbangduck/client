@@ -17,6 +17,7 @@ export const H2 = Styled.h2`
 
 export const Ul = Styled.ul`
   margin-bottom:12px;
+  width:100%;
 `;
 
 export const BtnBox = Styled.div`

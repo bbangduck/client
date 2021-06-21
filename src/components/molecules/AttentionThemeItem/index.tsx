@@ -1,12 +1,14 @@
 import React, { ReactElement } from 'react';
-import poster from '../../../assets/images/test/poster.jpg';
 import * as S from './style';
 
-const AttentionThemeItem = (): ReactElement => {
+interface Props {
+  image: string;
+}
+const AttentionThemeItem = ({ image }: Props): ReactElement => {
   return (
     <S.Li>
       <S.LeftBox>
-        <S.ImgBox src={poster} />
+        <S.ImgBox src={image} />
         <div>
           <S.H3>#1</S.H3>
           <S.PTag>[강남] 검은 사원</S.PTag>

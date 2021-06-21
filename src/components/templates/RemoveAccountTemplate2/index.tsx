@@ -44,8 +44,10 @@ const RemoveAccountTemplate2 = (): ReactElement => {
   if (!userExist() || withDrawalUser) return <Redirect to="/login" />;
   return (
     <section>
-      <UpdateHeader content="회원탈퇴" arrow={left} />
-      <Remove2Content />
+      <S.Box>
+        <UpdateHeader content="회원탈퇴" arrow={left} />
+        <Remove2Content />
+      </S.Box>
       <S.BtnBox>
         <RemoveBottom setModalState={setModalOn} />
       </S.BtnBox>

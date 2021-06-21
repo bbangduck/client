@@ -12,7 +12,7 @@ const NoticeTemplate = (): ReactElement => {
 
   if (!userExist() || withDrawalUser) return <Redirect to="/login" />;
   return (
-    <section>
+    <section style={{ padding: '0 20px' }}>
       <UpdateHeader content="공지사항" arrow={left} />
       <NoticeList />
     </section>

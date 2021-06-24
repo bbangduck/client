@@ -10,7 +10,7 @@ import * as S from './style';
 const MainNewThemes = (): ReactElement => {
   return (
     <S.Section>
-      <S.H2>이번달 신규테마sss</S.H2>
+      <S.H2>이번달 신규테마</S.H2>
       <Swiper spaceBetween={16} slidesPerView="auto">
         <ul>
           <SwiperSlide className="newTheme-swiper">

@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import { clearCache } from 'react-router-cache-route';
 import EscapeMoment from '../../molecules/EscapeMoment';
 import EscapeReviewSentence from '../../molecules/EscapeReviewSentence';
 import ExtraReview from '../ExtraReview';
@@ -7,7 +8,8 @@ import * as S from './style';
 const ReviewDetail = (): ReactElement => {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(123);
+    clearCache();
+    console.log(clearCache);
   };
 
   return (

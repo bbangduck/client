@@ -42,7 +42,6 @@ const RootPage = (): ReactElement => {
   return (
     <Router>
       <CacheSwitch>
-        {/* <Switch> */}
         <Route exact path="/" component={() => <Redirect to="/home" />} />
         <Route path="/test" component={TestComponent} />
         {/* 로그인 */}
@@ -58,7 +57,7 @@ const RootPage = (): ReactElement => {
         <Route exact path="/theme" component={ThemePage} />
         <Route exact path="/theme/:name" component={ThemeDetailPage} /> {/* 4 */}
         <Route path="/theme/:name/friends" component={ThemeSearchFriendPage} />
-        <CacheRoute path="/theme/:name/review" component={ThemeReviewPage} when="always" /> {/* ? */}
+        <CacheRoute path="/theme/:name/review" component={ThemeReviewPage} when="forward" /> {/* ? */}
         <Route path="/theme/:name/reviewDetail" component={ThemeDetailReviewPage} /> {/* ? */}
         <Route path="/theme/:name/location" component={ThemeDetailLocationPage} /> {/* ? */}
         <Route path="/theme/:name/analysis" component={ThemeAnalysisPage} /> {/* ? */}
@@ -84,7 +83,6 @@ const RootPage = (): ReactElement => {
         {/* 에러페이지 */}
         <Route path="/error" component={Page404} />
         <Route path="*" component={Page404} />
-        {/* </Switch> */}
       </CacheSwitch>
     </Router>
   );

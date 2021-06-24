@@ -8,6 +8,7 @@ export const GlobalStyle = createGlobalStyle`
   *{
     box-sizing:border-box;
     font-family:NotoSansCJKkr; 
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
   }
   
   button{

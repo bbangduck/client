@@ -31,7 +31,7 @@ const LoginBottom = (): ReactElement => {
         const { refreshToken } = event.data.data;
         setSessionStorage(accessToken, refreshToken, userId);
         // 이미가입된 회원일경우 메인화면으로 이동예정
-        history.push('/');
+        history.goBack();
       }
     };
 

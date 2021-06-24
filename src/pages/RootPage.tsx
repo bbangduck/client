@@ -45,7 +45,7 @@ const RootPage = (): ReactElement => {
         <Route exact path="/" component={() => <Redirect to="/home" />} />
         <Route path="/test" component={TestComponent} />
         {/* 로그인 */}
-        <Route exact path="/login" component={LoginPage} /> {/* 19 */}
+        <CacheRoute exact path="/login" component={LoginPage} when="back" /> {/* 19 */}
         <Route path="/signup/clause" component={SignUpClausePage} /> {/* 21 */}
         <Route path="/signup/email" component={SignUpEmailPage} /> {/* ? */}
         <Route path="/signup/nickname" component={SignUpNickNamePage} /> {/* ? */}

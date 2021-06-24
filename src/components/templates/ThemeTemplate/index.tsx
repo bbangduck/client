@@ -12,19 +12,23 @@ import BottomModal from '../../molecules/BottomModal';
 
 const ThemeTemplate = (): ReactElement => {
   const [filterDefault, setFilterDefault] = useState(true);
+  const [filterValue, setFilterValue] = useState('최신순');
   const [visibleContentRef, filterOn, setFilterOn, clickOutside] = useClickOutside(false);
   const [visibleSequenceRef, sequenceOn, setSequenceOn, clickSequenceOutside] = useClickOutside(false);
 
   const onFirstBottomModalClick = () => {
-    console.log('최신순');
+    setFilterValue('최신순');
+    setSequenceOn(false);
   };
 
   const onSecondBottomModalClick = () => {
-    console.log('평점 높은순');
+    setFilterValue('평점 높은순');
+    setSequenceOn(false);
   };
 
   const onLastBottomModalClick = () => {
-    console.log('평점 낮은순');
+    setFilterValue('평점 낮은순');
+    setSequenceOn(false);
   };
 
   return (
@@ -33,7 +37,7 @@ const ThemeTemplate = (): ReactElement => {
       <ThemeNavSwiper />
       <S.SquenceBox>
         <S.ClickBox onClick={() => setSequenceOn(true)} data-blink="blink">
-          <S.Span data-blink="blink">평점순</S.Span>
+          <S.Span data-blink="blink">{filterValue}</S.Span>
           <img src={filter} alt="필터" data-blink="blink" />
         </S.ClickBox>
       </S.SquenceBox>

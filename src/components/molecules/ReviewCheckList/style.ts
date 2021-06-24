@@ -24,7 +24,15 @@ export const BoldPTag = Styled.p`
   color: #2b2b2b;
 `;
 
+export const BtnBox = Styled.div`
+  position:relative;
+  min-height:52px;
+  height:calc(100vh - 1035px);
+`;
+
 export const CompleteBtn = Styled.button`
+  position:absolute;
+  bottom:0;
   width:100%;
   height:52px;
   background-color: #2b2b2b;

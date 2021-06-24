@@ -33,15 +33,15 @@ const EscapeMoment = (): ReactElement => {
     <div>
       <S.PTag>탈출의 순간 (선택)</S.PTag>
       <S.Box>
-        <Swiper spaceBetween={0} slidesPerView="auto" className="moment-swiper">
-          <SwiperSlide className="moment-slide">
+        <Swiper spaceBetween={0} slidesPerView="auto" id="moment-swiper">
+          <SwiperSlide id="moment-slide">
             <S.CameraBox data-blink="blink">
               <S.InputFile type="file" accept="image/*" onChange={onImgChange} data-blink="blink" />
               <img src={camera} alt="사진선택" data-blink="blink" />
             </S.CameraBox>
           </SwiperSlide>
           {newImg.map((item: { id: number; img: string }) => (
-            <SwiperSlide key={item.id} className="moment-slide">
+            <SwiperSlide key={item.id} id="moment-slide">
               <S.ImgBox image={item.img}>
                 <S.Img src={deleteImg} alt="사진삭제" onClick={() => onDelete(item.id)} />
               </S.ImgBox>

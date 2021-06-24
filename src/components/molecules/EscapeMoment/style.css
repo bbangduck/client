@@ -1,8 +1,9 @@
-.moment-swiper {
+#moment-swiper {
   margin:0 ;
   width:100%;
+  overflow:visible;
 }
 
-.moment-slide {
+#moment-slide {
   width:auto ;
 }

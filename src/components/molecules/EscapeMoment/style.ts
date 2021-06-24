@@ -14,8 +14,9 @@ export const Box = Styled.div`
   height:84px;
   align-items:center;
   overflow:hidden;
-  width:100%;
-  padding-left:20px;
+  width:calc(100% - 20px);
+  margin-left:20px;
+  overflow:hidden;
 `;
 
 export const CameraBox = Styled.div`

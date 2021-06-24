@@ -12,7 +12,7 @@ import './style.css';
 const ReviewChooseFriend = (): ReactElement => {
   const history = useHistory();
   const onAddFriend = () => {
-    history.push('/theme/friends');
+    history.push('/theme/:name/friends');
   };
 
   return (

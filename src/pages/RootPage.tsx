@@ -1,9 +1,10 @@
 import React, { ReactElement } from 'react';
 import loadable from '@loadable/component';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import CacheRoute, { CacheSwitch } from 'react-router-cache-route';
 import TestComponent from '../components/TestComponent/TestComponent';
-import Loading from '../components/atoms/Loding';
 
+const Loading = loadable(() => import('../components/atoms/Loding'));
 const isLoading = { fallback: <Loading /> };
 
 const MainPage = loadable(() => import('./main/MainPage'), isLoading);
@@ -40,7 +41,8 @@ const mapPage = loadable(() => import('./map/mapPage'), isLoading);
 const RootPage = (): ReactElement => {
   return (
     <Router>
-      <Switch>
+      <CacheSwitch>
+        {/* <Switch> */}
         <Route exact path="/" component={() => <Redirect to="/home" />} />
         <Route path="/test" component={TestComponent} />
         {/* 로그인 */}
@@ -54,9 +56,9 @@ const RootPage = (): ReactElement => {
         <Route path="/search/list" component={SearchListPage} />
         {/* 테마 */}
         <Route exact path="/theme" component={ThemePage} />
-        <Route path="/theme/friends" component={ThemeSearchFriendPage} />
         <Route exact path="/theme/:name" component={ThemeDetailPage} /> {/* 4 */}
-        <Route path="/theme/:name/review" component={ThemeReviewPage} /> {/* ? */}
+        <Route path="/theme/:name/friends" component={ThemeSearchFriendPage} />
+        <CacheRoute path="/theme/:name/review" component={ThemeReviewPage} when="always" /> {/* ? */}
         <Route path="/theme/:name/reviewDetail" component={ThemeDetailReviewPage} /> {/* ? */}
         <Route path="/theme/:name/location" component={ThemeDetailLocationPage} /> {/* ? */}
         <Route path="/theme/:name/analysis" component={ThemeAnalysisPage} /> {/* ? */}
@@ -81,7 +83,9 @@ const RootPage = (): ReactElement => {
         <Route path="/mypage/removeAccount" component={RemoveAccountPage2} /> {/* ? */}
         {/* 에러페이지 */}
         <Route path="/error" component={Page404} />
-      </Switch>
+        <Route path="*" component={Page404} />
+        {/* </Switch> */}
+      </CacheSwitch>
     </Router>
   );
 };

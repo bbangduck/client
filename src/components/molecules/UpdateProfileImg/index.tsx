@@ -58,6 +58,7 @@ const UpdateProfileImg = (): ReactElement => {
       uploadImage(formData);
     }
     e.target.files = null;
+    console.log(e.target.files);
   };
 
   if (loading) return <Loading />;

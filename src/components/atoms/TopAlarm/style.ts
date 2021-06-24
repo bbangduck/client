@@ -9,7 +9,7 @@ export const Container = Styled.div<ContainerProps>`
   height:44px;
   justify-content:center;
   align-items:center;
-  position:absolute;
+  position:fixed;
   left:50%;
   padding: 12px 40px;
   opacity: 0.7;
@@ -18,7 +18,7 @@ export const Container = Styled.div<ContainerProps>`
   font-size: 14px;
   letter-spacing: -0.14px;
   color: #ffffff;
-  transform:translate(-50%,${({ pop }) => (pop ? '76px' : ' -80px')});
+  transform:translate(-50%,${({ pop }) => (pop ? '76px' : 'calc(-80px)')});
   transition:.5s;
   z-index:1000;
 `;

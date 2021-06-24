@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-d
 import CacheRoute, { CacheSwitch } from 'react-router-cache-route';
 import TestComponent from '../components/TestComponent/TestComponent';
 
-const Loading = loadable(() => import('../components/atoms/Loding'));
+const Loading = loadable(() => import('../components/atoms/Loading'));
 const isLoading = { fallback: <Loading /> };
 
 const MainPage = loadable(() => import('./main/MainPage'), isLoading);

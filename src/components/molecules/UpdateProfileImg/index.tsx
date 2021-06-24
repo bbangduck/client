@@ -5,7 +5,7 @@ import defaultImg from '../../../assets/images/profile/profile.png';
 import camera from '../../../assets/images/camera/camera.png';
 import axiosAPI from '../../../utils/axios';
 import useGetUserData from '../../../swr/useGetUserData';
-import Loading from '../../atoms/Loding';
+import Loading from '../../atoms/Loading';
 import usePopAlarm from '../../../hooks/usePopAlarm';
 
 const UpdateProfileImg = (): ReactElement => {
@@ -58,7 +58,6 @@ const UpdateProfileImg = (): ReactElement => {
       uploadImage(formData);
     }
     e.target.files = null;
-    console.log(e.target.files);
   };
 
   if (loading) return <Loading />;

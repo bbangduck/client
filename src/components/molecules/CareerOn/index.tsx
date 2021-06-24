@@ -4,7 +4,7 @@ import unCheckedCircle from '../../../assets/images/check/unCheckedCircle.png';
 import checkedCircle from '../../../assets/images/check/checkedCircle.png';
 import axiosAPI from '../../../utils/axios';
 import useGetUserData from '../../../swr/useGetUserData';
-import Loading from '../../atoms/Loding';
+import Loading from '../../atoms/Loading';
 
 const CareerOn = (): ReactElement => {
   const { data, loading } = useGetUserData();

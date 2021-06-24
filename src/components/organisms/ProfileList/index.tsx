@@ -7,7 +7,7 @@ import CareerOn from '../../molecules/CareerOn/index';
 import { useClickOutside } from '../../../hooks/useClickOutside';
 import InputModal from '../../molecules/InPutModal';
 import useGetUserData from '../../../swr/useGetUserData';
-import Loading from '../../atoms/Loding';
+import Loading from '../../atoms/Loading';
 import * as S from './style';
 
 const UpdateList = (): ReactElement => {

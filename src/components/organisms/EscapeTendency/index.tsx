@@ -3,7 +3,7 @@ import MyPageSubTitle from '../../molecules/MyPageSubTitle';
 import * as S from './style';
 import MyPageGuide from '../../atoms/MyPageGuide';
 import InfoBox from '../../atoms/InfoBox';
-import Loading from '../../atoms/Loding';
+import Loading from '../../atoms/Loading';
 import useGetGenre from '../../../swr/useGetGenre';
 
 const EscapeTendency = (): ReactElement => {

@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import useGetUserData from '../../../swr/useGetUserData';
-import Loading from '../Loding';
+import Loading from '../Loading';
 import * as S from './style';
 
 const Intro = (): ReactElement => {

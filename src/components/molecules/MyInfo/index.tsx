@@ -5,7 +5,7 @@ import * as S from './style';
 import ProfileImg from '../../atoms/ProfileImg';
 import defaultImg from '../../../assets/images/profile/profile.png';
 import useGetUserData from '../../../swr/useGetUserData';
-import Loading from '../../atoms/Loding';
+import Loading from '../../atoms/Loading';
 
 const MyInfo = (): ReactElement => {
   const { data, loading } = useGetUserData();

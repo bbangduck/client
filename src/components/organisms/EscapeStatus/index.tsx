@@ -6,7 +6,7 @@ import door2 from '../../../assets/images/doors/door2.png';
 import door3 from '../../../assets/images/doors/door3.png';
 import * as S from './style';
 import useGetUserData from '../../../swr/useGetUserData';
-import Loading from '../../atoms/Loding';
+import Loading from '../../atoms/Loading';
 
 const EscapeStatus = (): ReactElement => {
   const { data, loading } = useGetUserData();

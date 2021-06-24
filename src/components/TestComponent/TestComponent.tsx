@@ -1,4 +1,5 @@
 import React, { ReactElement, useState } from 'react';
+import Loading from '../atoms/Loading';
 // import * as Styled from './TestComponent.style';
 
 const TestComponent = (): ReactElement => {
@@ -22,6 +23,7 @@ const TestComponent = (): ReactElement => {
       <button type="button" onClick={onDelete}>
         삭제
       </button>
+      <Loading />
     </form>
   );
 };

@@ -7,7 +7,7 @@ export const Container = Styled.div<ContainerProps>`
   position:fixed;
   bottom:0;
   transform:${({ filterOn }) => (filterOn ? 'translateX(0)' : 'translateX(600px)')};
-  height:100vh;
+  height:100%;
   width:100vw;
   max-width:480px;
   min-width:360px;

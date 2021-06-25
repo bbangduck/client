@@ -20,10 +20,6 @@ const ThemeHeader = (): ReactElement => {
     setShareModalOn(true);
   };
 
-  const onKakaoTalkShare = () => {
-    console.log('카카오톡 공유하기');
-  };
-
   const onUrlCopy = () => {
     const inputForUrlCopy = document.createElement('input');
     const urlText = window.location.href;
@@ -32,6 +28,7 @@ const ThemeHeader = (): ReactElement => {
     inputForUrlCopy.value = urlText;
     inputForUrlCopy.select();
     document.execCommand('copy');
+    document.body.removeChild(inputForUrlCopy);
   };
 
   return (
@@ -61,8 +58,6 @@ const ThemeHeader = (): ReactElement => {
       {/* 공유하기 모달 */}
       <BottomModal
         title="공유하기"
-        firstBtn="카카오톡 공유하기"
-        onFirstClick={onKakaoTalkShare}
         lastBtn="URL 복사"
         onLastClick={onUrlCopy}
         visibleContentRef={visibleShareRef}

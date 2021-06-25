@@ -26,17 +26,13 @@ axiosAPI.interceptors.response.use(
     const originalRequest = config;
 
     if (response.status === 401) {
-      console.log(`위${response.data.status}`);
-      if (response?.data.status === 1432 || response?.data.status === 1433) {
-        console.log(`아래${response.data.status}`);
-        removeSessionStorage();
-      } else {
-        const refreshToken = sessionStorage.getItem('bbangRT');
-        axios({
-          method: 'post',
-          url: `${baseURL}/api/auth/refresh`,
-          data: { refreshToken },
-        }).then((res) => {
+      const refreshToken = sessionStorage.getItem('bbangRT');
+      axios({
+        method: 'post',
+        url: `${baseURL}/api/auth/refresh`,
+        data: { refreshToken },
+      })
+        .then((res) => {
           const accessTokens = res.data.data.accessToken;
           const accessToken = `${accessTokens.header}.${accessTokens.payload}.${accessTokens.signature}`;
 
@@ -44,8 +40,11 @@ axiosAPI.interceptors.response.use(
 
           originalRequest.headers = { 'X-AUTH-TOKEN': accessToken };
           return axios(originalRequest);
+        })
+        .catch((errorAfterRefresh) => {
+          if (errorAfterRefresh?.data.status === 1432 || errorAfterRefresh?.data.status === 1433)
+            removeSessionStorage();
         });
-      }
     }
     return Promise.reject(error);
   },

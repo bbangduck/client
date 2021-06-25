@@ -42,12 +42,11 @@ axiosAPI.interceptors.response.use(
           return axios(originalRequest);
         })
         .catch((errorAfterRefresh) => {
-          console.log(errorAfterRefresh);
-          console.log(errorAfterRefresh.data);
-          console.log(errorAfterRefresh.data.status);
-          console.log(errorAfterRefresh.status);
-          if (errorAfterRefresh?.data.status === 1432 || errorAfterRefresh?.data.status === 1433)
-            removeSessionStorage();
+          console.log(errorAfterRefresh.response);
+          console.log(errorAfterRefresh.response.data);
+          console.log(errorAfterRefresh.response.data.status);
+          // if (errorAfterRefresh?.data.status === 1432 || errorAfterRefresh?.data.status === 1433)
+          //   removeSessionStorage();
         });
     }
     return Promise.reject(error);

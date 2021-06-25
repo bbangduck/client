@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 import removeSessionStorage from './removeSessionStorage';
 
 const baseURL = process.env.REACT_APP_URL;
@@ -42,9 +43,11 @@ axiosAPI.interceptors.response.use(
           return axios(originalRequest);
         })
         .catch((errorAfterRefresh) => {
+          const history = useHistory();
           const statusCode = errorAfterRefresh.response.data.status;
           if (statusCode === 1432 || statusCode === 1433) {
             removeSessionStorage();
+            history.push('/login');
           }
         });
     }

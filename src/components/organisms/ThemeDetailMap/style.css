@@ -1,0 +1,31 @@
+.naver-container {
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  position:absolute;
+  top:-8px;
+  left:0;
+  background-color:white;
+  box-shadow: 2px 2px 2px rgba(77, 77, 77, 0.376);
+  border:1px solid rgba(66, 66, 66, 0.376);
+  border-radius:4px;
+  height:100%;
+  padding:5px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #5d5d5d;
+  white-space: nowrap;
+  z-index:10;
+}
+
+.naver-anchor {
+  position:absolute;
+  left:50%;
+  bottom:-4px;
+  transform:translateX(-50%) rotate(45deg);
+  width:8px;
+  height:8px;
+  background-color:white;
+  box-shadow: 2px 2px 2px rgba(77, 77, 77, 0.376);
+  z-index:-1;
+}

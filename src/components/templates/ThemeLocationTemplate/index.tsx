@@ -2,6 +2,10 @@ import React, { ReactElement } from 'react';
 import { Redirect } from 'react-router-dom';
 import useGetUserData from '../../../swr/useGetUserData';
 import userExist from '../../../utils/userExist';
+import UpdateHeader from '../../molecules/UpdateHeader';
+import left from '../../../assets/images/arrow/left.svg';
+import * as S from './style';
+import ThemeDetailMap from '../../organisms/ThemeDetailMap';
 
 const ThemeLocationTemplate = (): ReactElement => {
   const { errorStatus } = useGetUserData();
@@ -9,9 +13,12 @@ const ThemeLocationTemplate = (): ReactElement => {
 
   if (!userExist() || withDrawalUser) return <Redirect to="/login" />;
   return (
-    <div>
-      <p>테마상세 지도입니다.</p>
-    </div>
+    <section>
+      <S.HeaderBox>
+        <UpdateHeader arrow={left} content="상세 위치" />
+      </S.HeaderBox>
+      <ThemeDetailMap />
+    </section>
   );
 };
 

@@ -59,6 +59,7 @@
   },
   "devDependencies": {
     "@types/loadable__component": "^5.13.3",
+    "@types/navermaps": "^3.0.6",
     "@types/react-loader-spinner": "^4.0.0",
     "@types/react-router-dom": "^5.1.7",
     "@types/redux-logger": "^3.0.8",

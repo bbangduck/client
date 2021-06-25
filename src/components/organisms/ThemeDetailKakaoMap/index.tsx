@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { ReactElement, useRef, useState } from 'react';
+import React, { ReactElement, useRef, useState, useEffect } from 'react';
 import locationIcon from '../../../assets/images/location/location.svg';
 import * as S from './style';
 import './style.css';
@@ -15,7 +16,7 @@ const ThemeDetailKakaoMap = (): ReactElement => {
   const mapRef = useRef<HTMLDivElement>(null);
   const [myLatLng, setMyLatLng] = useState<null | { Lat: number; Lng: number }>(null);
 
-  if (mapRef.current) {
+  useEffect(() => {
     const options = {
       center: new kakao.maps.LatLng(37.49761, 127.028692),
       level: 3,
@@ -50,7 +51,7 @@ const ThemeDetailKakaoMap = (): ReactElement => {
 
       map.panTo(myMarkerPosition);
     }
-  }
+  }, [myLatLng]);
 
   const onMyLocationClick = () => {
     if (navigator.geolocation) {

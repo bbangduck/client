@@ -4,6 +4,7 @@ import MyFriendsFilter from '../../atoms/MyFriendsFilter';
 import BottomModal from '../../molecules/BottomModal';
 import MyFriendsItem from '../../molecules/MyFriendsItem';
 import Modal from '../Modal';
+import * as S from './style';
 
 const MyFriendsList = (): ReactElement => {
   const [visibleContentRef, modalOn, setModalOn, clickOutside] = useClickOutside(false);
@@ -28,14 +29,16 @@ const MyFriendsList = (): ReactElement => {
       <ul>
         <MyFriendsItem onMoreClick={onMoreClick} />
       </ul>
-      <BottomModal
-        title="제로월드 강남점"
-        lastBtn="친구 삭제하기"
-        onLastClick={onDelete}
-        visibleContentRef={visibleContentRef}
-        clickOutside={clickOutside}
-        isOn={modalOn}
-      />
+      <S.ModalBox>
+        <BottomModal
+          title="제로월드 강남점"
+          lastBtn="친구 삭제하기"
+          onLastClick={onDelete}
+          visibleContentRef={visibleContentRef}
+          clickOutside={clickOutside}
+          isOn={modalOn}
+        />
+      </S.ModalBox>
       {finalModalOn ? (
         <Modal
           clickOutsideClose={finalClickOutside}

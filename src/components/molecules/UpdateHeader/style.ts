@@ -2,6 +2,7 @@ import Styled from 'styled-components';
 
 interface HeaderProps {
   img?: string;
+  marginBottom: string;
 }
 export const Header = Styled.header<HeaderProps>`
   position:relative;
@@ -10,7 +11,7 @@ export const Header = Styled.header<HeaderProps>`
   max-width:480px;
   display:flex;
   align-items:center;
-  margin-bottom:20px;
+  margin-bottom:${({ marginBottom }) => marginBottom} ;
   justify-content:${({ img }) => img && ` space-between`};
 `;
 

@@ -5,7 +5,8 @@ import userExist from '../../../utils/userExist';
 import UpdateHeader from '../../molecules/UpdateHeader';
 import left from '../../../assets/images/arrow/left.svg';
 import * as S from './style';
-import ThemeDetailMap from '../../organisms/ThemeDetailMap';
+import ThemeDetailNaverMap from '../../organisms/ThemeDetailNaverMap';
+import ThemeDetailKakaoMap from '../../organisms/ThemeDetailKakaoMap';
 
 const ThemeLocationTemplate = (): ReactElement => {
   const { errorStatus } = useGetUserData();
@@ -15,9 +16,10 @@ const ThemeLocationTemplate = (): ReactElement => {
   return (
     <section>
       <S.HeaderBox>
-        <UpdateHeader arrow={left} content="상세 위치" />
+        <UpdateHeader arrow={left} content="상세 위치" marginBottom="0px" />
       </S.HeaderBox>
-      <ThemeDetailMap />
+      {/* <ThemeDetailNaverMap /> */}
+      <ThemeDetailKakaoMap />
     </section>
   );
 };

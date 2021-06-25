@@ -33,7 +33,6 @@ const ThemeHeader = (): ReactElement => {
 
   return (
     <>
-      {/* <S.Bg /> */}
       <S.Img src={testImg2} alt="" />
       <S.HeaderBox>
         <UpdateHeader img={more} arrow={left} imgAlt="공유하기" onImgClick={onShare} />

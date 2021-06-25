@@ -26,7 +26,9 @@ axiosAPI.interceptors.response.use(
     const originalRequest = config;
 
     if (response.status === 401) {
+      console.log(`위${response.data.status}`);
       if (response?.data.status === 1432 || response?.data.status === 1433) {
+        console.log(`아래${response.data.status}`);
         removeSessionStorage();
       } else {
         const refreshToken = sessionStorage.getItem('bbangRT');

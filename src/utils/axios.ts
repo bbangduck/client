@@ -1,4 +1,5 @@
 import axios from 'axios';
+import removeSessionStorage from './removeSessionStorage';
 
 const baseURL = process.env.REACT_APP_URL;
 
@@ -20,28 +21,29 @@ axiosAPI.interceptors.response.use(
     return response;
   },
   (error) => {
-    const {
-      config,
-      response: { status },
-    } = error;
+    const { config, response } = error;
 
     const originalRequest = config;
 
-    if (status === 401) {
-      const refreshToken = sessionStorage.getItem('bbangRT');
-      axios({
-        method: 'post',
-        url: `${baseURL}/api/auth/refresh`,
-        data: { refreshToken },
-      }).then((response) => {
-        const accessTokens = response.data.data.accessToken;
-        const accessToken = `${accessTokens.header}.${accessTokens.payload}.${accessTokens.signature}`;
+    if (response.status === 401) {
+      if (response?.data.status === 1432 || response?.data.status === 1433) {
+        removeSessionStorage();
+      } else {
+        const refreshToken = sessionStorage.getItem('bbangRT');
+        axios({
+          method: 'post',
+          url: `${baseURL}/api/auth/refresh`,
+          data: { refreshToken },
+        }).then((res) => {
+          const accessTokens = res.data.data.accessToken;
+          const accessToken = `${accessTokens.header}.${accessTokens.payload}.${accessTokens.signature}`;
 
-        sessionStorage.setItem('bbangAT', accessToken);
+          sessionStorage.setItem('bbangAT', accessToken);
 
-        originalRequest.headers = { 'X-AUTH-TOKEN': accessToken };
-        return axios(originalRequest);
-      });
+          originalRequest.headers = { 'X-AUTH-TOKEN': accessToken };
+          return axios(originalRequest);
+        });
+      }
     }
     return Promise.reject(error);
   },

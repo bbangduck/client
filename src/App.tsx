@@ -13,7 +13,7 @@ import clickBlink from './utils/clickBlick';
 import './styles/clickBlink.css';
 
 const App = (): ReactElement => {
-  const swrValue = { errorRetryCount: 2, dedupingInterval: 1000 };
+  const swrValue = { errorRetryCount: 1, dedupingInterval: 1000 };
 
   return (
     <SWRConfig value={swrValue}>

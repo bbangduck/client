@@ -44,7 +44,7 @@ const EscapeTendency = (): ReactElement => {
         falseMargin="40px"
         arrow
       />
-      <S.TendBox>{tendencyList[0] ? showTendencyList() : suggestTendency()}</S.TendBox>
+      <S.TendBox>{tendencyList ? showTendencyList() : suggestTendency()}</S.TendBox>
     </S.Section>
   );
 };

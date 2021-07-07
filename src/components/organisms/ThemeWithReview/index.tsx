@@ -8,10 +8,8 @@ const ThemeWithReview = (): ReactElement => {
   return (
     <S.Section>
       <S.H2>리뷰 가득 테마</S.H2>
-      <S.Ul>
-        <ThumbNail image={poster} />
-        <ThumbNail image={poster2} />
-      </S.Ul>
+      <S.Ul>{/* <ThumbNail image={poster} />
+        <ThumbNail image={poster2} /> */}</S.Ul>
     </S.Section>
   );
 };

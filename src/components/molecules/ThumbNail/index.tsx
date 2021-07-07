@@ -1,18 +1,24 @@
 import React, { ReactElement } from 'react';
 import { useHistory } from 'react-router-dom';
+import poster from '../../../assets/images/test/poster.jpg';
 import * as S from './style';
 
 interface Props {
-  image?: string;
+  title: string;
+  frenchiseName: string;
+  shopName: string;
+  image?: string | null;
 }
-const ThumbNail = ({ image }: Props): ReactElement => {
+const ThumbNail = ({ title, frenchiseName, shopName, image }: Props): ReactElement => {
   const history = useHistory();
 
   return (
     <S.Li data-blink="cover" onClick={() => history.push('/theme/:name')}>
-      <S.Img src={image} data-blink="cover" />
-      <S.PTag data-blink="cover">검은 사원</S.PTag>
-      <S.Span data-blink="cover">제로월드 강남점</S.Span>
+      <S.Img src={image || poster} data-blink="cover" />
+      <S.PTag data-blink="cover">{title}</S.PTag>
+      <S.Span data-blink="cover">
+        {frenchiseName} {shopName}
+      </S.Span>
     </S.Li>
   );
 };

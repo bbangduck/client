@@ -8,8 +8,8 @@ const TestComponent = (): ReactElement => {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!emailRegex.test(inputValue)) console.log('에러');
-    if (inputValue && emailRegex.test(inputValue)) console.log(inputValue);
+    // if (!emailRegex.test(inputValue)) console.log('에러');
+    // if (inputValue && emailRegex.test(inputValue)) console.log(inputValue);
   };
 
   const onDelete = () => {

@@ -1,4 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { useRef, useEffect } from 'react';
 import { useSWRInfinite } from 'swr';
 import fetcherWithoutToken from '../utils/fetcherWithoutToken';
 
@@ -26,13 +28,25 @@ type ReturnType = {
   size: number;
   setSize: (size: number | ((sizes: number) => number)) => Promise<any[] | undefined>;
   isLoading: boolean;
+  lastRef: React.MutableRefObject<HTMLLIElement | null>;
 };
 
 export const useThemeInfinite = (): ReturnType => {
+  const lastRef = useRef<null | HTMLLIElement>(null);
   const { data, error, size, setSize } = useSWRInfinite(
-    (index) => `/api/themes?pageNum=${index + 1}`,
+    (index) => `/api/themes?amount=3&&pageNum=${index + 1}`,
     fetcherWithoutToken,
   );
+
+  useEffect(() => {
+    const doAtBottom = () => {
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        setSize((prev) => prev + 1);
+      }
+    };
+    window.addEventListener('scroll', doAtBottom);
+    return () => window.removeEventListener('scroll', doAtBottom);
+  }, []);
 
   const filteredData = data
     ?.map((content) => {
@@ -46,5 +60,6 @@ export const useThemeInfinite = (): ReturnType => {
     size,
     setSize,
     isLoading: !filteredData && !error,
+    lastRef,
   };
 };

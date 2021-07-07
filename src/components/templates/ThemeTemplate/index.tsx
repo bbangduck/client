@@ -17,7 +17,6 @@ const ThemeTemplate = (): ReactElement => {
   const [filterValue, setFilterValue] = useState('최신순');
   const [visibleContentRef, filterOn, setFilterOn, clickOutside] = useClickOutside(false);
   const [visibleSequenceRef, sequenceOn, setSequenceOn, clickSequenceOutside] = useClickOutside(false);
-  const { setSize, isLoading: isThemeLoading } = useThemeInfinite();
   const onFirstBottomModalClick = () => {
     setFilterValue('최신순');
     setSequenceOn(false);
@@ -33,12 +32,8 @@ const ThemeTemplate = (): ReactElement => {
     setSequenceOn(false);
   };
 
-  if (isThemeLoading) return <Loading />;
   return (
     <S.Section>
-      <button type="button" onClick={() => setSize((prev) => prev + 1)}>
-        클릭
-      </button>
       <ThemesHeader />
       <ThemeNavSwiper />
       <S.SquenceBox>

@@ -9,9 +9,11 @@ interface Props {
   typeTitle: string;
   content: string;
   typeNumber: number;
+  typeApi: string;
   setTryChecking: React.Dispatch<React.SetStateAction<boolean>>;
   setCheckedName: React.Dispatch<React.SetStateAction<string>>;
   setFilterDefault: React.Dispatch<React.SetStateAction<boolean>>;
+  setFilterCheck?: React.Dispatch<React.SetStateAction<string>>;
 }
 const FilterListItem = ({
   isChecked,
@@ -19,12 +21,16 @@ const FilterListItem = ({
   content,
   setCheckState,
   typeNumber,
+  typeApi,
   setTryChecking,
   setCheckedName,
   setFilterDefault,
+  setFilterCheck,
 }: Props): ReactElement => {
   const onCheck = () => {
+    console.log(typeApi);
     setCheckState(typeNumber);
+    if (setFilterCheck) setFilterCheck(typeApi);
     if (content !== '전체') {
       setTryChecking(true);
       setCheckedName(content);

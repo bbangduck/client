@@ -1,8 +1,10 @@
+/* eslint-disable consistent-return */
 import React, { ReactElement, useState } from 'react';
 import reset from '../../../assets/images/reset/reset.svg';
 import FilterList from '../FilterList';
 import filterTypes from '../../../utils/themeSliderTypes';
 import * as S from './style';
+import useFilterThemes from '../../../hooks/useFilterThemes';
 
 interface Props {
   visibleContentRef: React.MutableRefObject<HTMLDivElement | null>;
@@ -20,6 +22,16 @@ const FilterSlider = ({
 }: Props): ReactElement => {
   const [filterListOn, setFilterListOn] = useState(0);
   const [tryReset, setTryReset] = useState(false);
+  const [setThemeType, setRating, setNumberOfPeople, setDifficulty, setActivity] = useFilterThemes();
+
+  const sendSetFilterStateAsProps = (id: number): React.Dispatch<React.SetStateAction<string>> | undefined => {
+    if (id === 1) return setThemeType;
+    if (id === 2) return setRating;
+    if (id === 3) return setNumberOfPeople;
+    if (id === 4) return setDifficulty;
+    if (id === 5) return setActivity;
+    return undefined;
+  };
 
   const onReset = () => {
     setFilterOn(false);
@@ -48,6 +60,7 @@ const FilterSlider = ({
             typeList={type.types}
             reset={tryReset}
             setFilterDefault={setFilterDefault}
+            setFilterCheck={sendSetFilterStateAsProps(type.id)}
           />
         ))}
       </S.ContentBox>

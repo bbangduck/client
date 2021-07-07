@@ -2,15 +2,15 @@ import React, { ReactElement } from 'react';
 import ThumbNail from '../../molecules/ThumbNail';
 import * as S from './style';
 import { useThemeInfinite } from '../../../swr/useThemeInfinite';
-import useLastThemeObserver from '../../../hooks/useLastThemeObserver';
+import Loading from '../../atoms/Loading/index';
 
 const ThemeList = (): ReactElement => {
-  const { data: themeList, setSize } = useThemeInfinite();
-  const [lastRef] = useLastThemeObserver(setSize);
+  const { data: themeList, isLoading, lastRef } = useThemeInfinite();
 
+  if (isLoading) return <Loading />;
   return (
     <S.Ul>
-      {themeList?.map((list, index) => {
+      {themeList?.map((list) => {
         const lastId = themeList[themeList?.length - 1].themeId;
         if (list.themeId === lastId) {
           return (

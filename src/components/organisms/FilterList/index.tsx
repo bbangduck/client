@@ -3,6 +3,7 @@ import FilterListItem from '../../molecules/FilterListItem';
 import top from '../../../assets/images/arrow/upDark.svg';
 import down from '../../../assets/images/arrow/downBig.svg';
 import * as S from './style';
+import { Item } from '../../molecules/BadgeType/style';
 
 interface Props {
   isOn: boolean;
@@ -10,10 +11,20 @@ interface Props {
   setFilterDefault: React.Dispatch<React.SetStateAction<boolean>>;
   typeNumber: number;
   title: string;
-  typeList: { id: number; type: string }[];
+  typeList: { id: number; type: string; api: string }[];
   reset: boolean;
+  setFilterCheck?: React.Dispatch<React.SetStateAction<string>>;
 }
-const FilterList = ({ isOn, setIsOn, typeNumber, title, typeList, reset, setFilterDefault }: Props): ReactElement => {
+const FilterList = ({
+  isOn,
+  setIsOn,
+  typeNumber,
+  title,
+  typeList,
+  reset,
+  setFilterDefault,
+  setFilterCheck,
+}: Props): ReactElement => {
   const [filterItemType, setFilterItemType] = useState(1);
   const [titleChecked, setTitleChecked] = useState(false);
   const [checkedName, setCheckedName] = useState('');
@@ -56,6 +67,8 @@ const FilterList = ({ isOn, setIsOn, typeNumber, title, typeList, reset, setFilt
               setCheckedName={setCheckedName}
               typeTitle={title}
               setFilterDefault={setFilterDefault}
+              setFilterCheck={setFilterCheck}
+              typeApi={item.api}
             />
           ))}
         </div>

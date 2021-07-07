@@ -8,12 +8,13 @@ interface Props {
   frenchiseName: string;
   shopName: string;
   image?: string | null;
+  lastRef?: React.MutableRefObject<HTMLLIElement | null>;
 }
-const ThumbNail = ({ title, frenchiseName, shopName, image }: Props): ReactElement => {
+const ThumbNail = ({ title, frenchiseName, shopName, image, lastRef }: Props): ReactElement => {
   const history = useHistory();
 
   return (
-    <S.Li data-blink="cover" onClick={() => history.push('/theme/:name')}>
+    <S.Li data-blink="cover" onClick={() => history.push('/theme/:name')} ref={lastRef}>
       <S.Img src={image || poster} data-blink="cover" />
       <S.PTag data-blink="cover">{title}</S.PTag>
       <S.Span data-blink="cover">

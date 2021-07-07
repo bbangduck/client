@@ -34,7 +34,7 @@ export const useThemeInfinite = (): ReturnType => {
     fetcherWithoutToken,
   );
 
-  const result = data
+  const filteredData = data
     ?.map((content) => {
       return content?.contents?.map((item: PreviousPageDataType) => item);
     })
@@ -42,9 +42,9 @@ export const useThemeInfinite = (): ReturnType => {
     .filter((item) => item);
 
   return {
-    data: result,
+    data: filteredData,
     size,
     setSize,
-    isLoading: !result && !error,
+    isLoading: !filteredData && !error,
   };
 };

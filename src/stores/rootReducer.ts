@@ -1,5 +1,5 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import logger from 'redux-logger';
+// import logger from 'redux-logger';
 import popAlarm from './popAlarmReducer';
 import hardBox from './ThemeReviewReducer/hardBox';
 import scaryBox from './ThemeReviewReducer/scaryBox';

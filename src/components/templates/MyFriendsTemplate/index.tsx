@@ -18,7 +18,7 @@ const MyFriendsTemplate = (): ReactElement => {
   const withDrawalUser = errorStatus === 403;
 
   const searchMyFriends = async () => {
-    console.log(myFriendsInputValue);
+    // console.log(myFriendsInputValue);
   };
 
   if (!userExist() || withDrawalUser) return <Redirect to="/login" />;

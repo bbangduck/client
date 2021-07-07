@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import UserData from '../UserData';
 import * as S from './style';
 
@@ -7,11 +7,11 @@ interface Props {
   firstRender: boolean;
 }
 const SearchFriendsList = ({ firstRender }: Props): ReactElement => {
-  const history = useHistory();
+  // const history = useHistory();
   const result = 1;
 
   const onChooseFriend = () => {
-    console.log('선택');
+    // console.log('선택');
     // history.push({
     //   pathname:"/"
     // })

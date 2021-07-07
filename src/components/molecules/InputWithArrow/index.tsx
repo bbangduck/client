@@ -13,7 +13,7 @@ const InputWithArrow = ({ inputValue, setInputValue, initialValue }: Props): Rea
   const history = useHistory();
 
   const onSearch = () => {
-    console.log('찾아');
+    // console.log('찾아');
   };
 
   return (

@@ -5,7 +5,7 @@ import userExist from '../../../utils/userExist';
 import UpdateHeader from '../../molecules/UpdateHeader';
 import left from '../../../assets/images/arrow/left.svg';
 import * as S from './style';
-import ThemeDetailNaverMap from '../../organisms/ThemeDetailNaverMap';
+// import ThemeDetailNaverMap from '../../organisms/ThemeDetailNaverMap';
 import ThemeDetailKakaoMap from '../../organisms/ThemeDetailKakaoMap';
 
 const ThemeLocationTemplate = (): ReactElement => {

@@ -28,7 +28,6 @@ const FilterListItem = ({
   setFilterCheck,
 }: Props): ReactElement => {
   const onCheck = () => {
-    console.log(typeApi);
     setCheckState(typeNumber);
     if (setFilterCheck) setFilterCheck(typeApi);
     if (content !== '전체') {

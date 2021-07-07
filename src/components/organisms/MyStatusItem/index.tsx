@@ -2,7 +2,6 @@ import React, { ReactElement } from 'react';
 import StatusItemTop from '../../molecules/StatusItemTop';
 import StatusItemCenter from '../../molecules/StatusItemCenter';
 import StatusItemBottom from '../../molecules/StatusItemBottom';
-import test from '../../../assets/images/test/poster.jpg';
 import test2 from '../../../assets/images/test/me.jpg';
 import * as S from './style';
 

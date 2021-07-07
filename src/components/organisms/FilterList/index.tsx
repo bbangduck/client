@@ -3,7 +3,6 @@ import FilterListItem from '../../molecules/FilterListItem';
 import top from '../../../assets/images/arrow/upDark.svg';
 import down from '../../../assets/images/arrow/downBig.svg';
 import * as S from './style';
-import { Item } from '../../molecules/BadgeType/style';
 
 interface Props {
   isOn: boolean;

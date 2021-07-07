@@ -16,7 +16,7 @@ const RemoveAccountTemplate2 = (): ReactElement => {
   const location = useLocation<{ reason: string }>();
   const history = useHistory();
 
-  const reasonToWithdrawal = location?.state?.reason;
+  // const reasonToWithdrawal = location?.state?.reason;
   const [visibleContentRef, modalOn, setModalOn, clickOutside] = useClickOutside(false);
   const { errorStatus } = useGetUserData();
   const withDrawalUser = errorStatus === 403;

@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import loadable from '@loadable/component';
-import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
 import CacheRoute, { CacheSwitch } from 'react-router-cache-route';
 import TestComponent from '../components/TestComponent/TestComponent';
 

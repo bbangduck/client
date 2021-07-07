@@ -9,8 +9,6 @@ import FilterBtn from '../../atoms/filterBtn';
 import FilterSlider from '../../organisms/FilterSlider';
 import { useClickOutside } from '../../../hooks/useClickOutside';
 import BottomModal from '../../molecules/BottomModal';
-import { useThemeInfinite } from '../../../swr/useThemeInfinite';
-import Loading from '../../atoms/Loading/index';
 
 const ThemeTemplate = (): ReactElement => {
   const [filterDefault, setFilterDefault] = useState(true);

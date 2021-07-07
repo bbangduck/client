@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react';
-import poster from '../../../assets/images/test/poster.jpg';
 import * as S from './style';
 
 interface Props {

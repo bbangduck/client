@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
-import ThumbNail from '../../molecules/ThumbNail';
-import poster from '../../../assets/images/test/poster.jpg';
-import poster2 from '../../../assets/images/test/me.jpg';
+// import ThumbNail from '../../molecules/ThumbNail';
+// import poster from '../../../assets/images/test/poster.jpg';
+// import poster2 from '../../../assets/images/test/me.jpg';
 import * as S from './style';
 
 const ThemeWithReview = (): ReactElement => {

@@ -10,9 +10,9 @@ import Loading from '../../atoms/Loading';
 const MyInfo = (): ReactElement => {
   const { data, loading } = useGetUserData();
 
-  const nickname = data?.data?.nickname;
-  const profileImg = data?.data?.profileImage?.profileImageUrl;
-  const reviewCount = data?.data?.roomEscapeStatus?.challengesCount;
+  const nickname = data?.nickname;
+  const profileImg = data?.profileImage?.profileImageUrl;
+  const reviewCount = data?.roomEscapeStatus?.challengesCount;
   const level = '없음';
 
   if (loading) return <Loading />;

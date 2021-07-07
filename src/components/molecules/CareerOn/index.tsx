@@ -8,7 +8,7 @@ import Loading from '../../atoms/Loading';
 
 const CareerOn = (): ReactElement => {
   const { data, loading } = useGetUserData();
-  const careerStatus = data?.data.roomEscapeRecodesOpenStatus;
+  const careerStatus = data?.roomEscapeRecodesOpenStatus;
   const [careerOpenList, setCareerOpenList] = useState([
     { id: 1, content: '전체 공개', img: unCheckedCircle, request: 'OPEN' },
     { id: 2, content: '친구에게만 공개', img: unCheckedCircle, request: 'ONLY_FRIENDS_OPEN' },

@@ -12,9 +12,9 @@ import * as S from './style';
 
 const UpdateList = (): ReactElement => {
   const { data, loading, mutate: mutateUserData } = useGetUserData();
-  const email = data?.data?.email;
-  const nickname = data?.data?.nickname;
-  const myIntro = data?.data?.description;
+  const email = data?.email;
+  const nickname = data?.nickname;
+  const myIntro = data?.description;
   const [nickNameError, setNickNameError] = useState<{
     message: string;
     isError: boolean;

@@ -7,8 +7,7 @@ import Loading from '../../atoms/Loading';
 import useGetGenre from '../../../swr/useGetGenre';
 
 const EscapeTendency = (): ReactElement => {
-  const { data, loading } = useGetGenre();
-  const totalTendency = data?.data.playInclinations;
+  const { data: totalTendency, loading } = useGetGenre();
   const tendencyList = totalTendency?.slice(0, 4).map((tendency, idx) => {
     return { ...tendency, genre: { ...tendency.genre, id: idx + 1 } };
   });

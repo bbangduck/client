@@ -5,7 +5,7 @@ import * as S from './style';
 
 const Intro = (): ReactElement => {
   const { data, loading } = useGetUserData();
-  const myDescription = data?.data.description;
+  const myDescription = data?.description;
 
   if (loading) return <Loading />;
   return (

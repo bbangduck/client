@@ -10,9 +10,9 @@ import Loading from '../../atoms/Loading';
 
 const EscapeStatus = (): ReactElement => {
   const { data, loading } = useGetUserData();
-  const challengesCount = `${data?.data.roomEscapeStatus.challengesCount}`;
-  const successCount = `${data?.data.roomEscapeStatus.successCount}`;
-  const failCount = `${data?.data.roomEscapeStatus.failCount}`;
+  const challengesCount = `${data?.roomEscapeStatus.challengesCount}`;
+  const successCount = `${data?.roomEscapeStatus.successCount}`;
+  const failCount = `${data?.roomEscapeStatus.failCount}`;
 
   if (loading) return <Loading />;
   return (

@@ -13,7 +13,7 @@ const UpdateProfileImg = (): ReactElement => {
   const { data, loading, mutate: mutateImg } = useGetUserData();
   const [popoAlarm] = usePopAlarm();
 
-  const myImage = data?.data?.profileImage?.profileImageUrl;
+  const myImage = data?.profileImage?.profileImageUrl;
 
   const uploadImage = async (formData: FormData) => {
     try {
@@ -25,9 +25,8 @@ const UpdateProfileImg = (): ReactElement => {
           'Content-Type': 'multipart/form-data',
         },
       });
-
-      const { fileId } = response.data.data[0];
-      const { fileName } = response.data.data[0];
+      const { fileId } = response.data[0];
+      const { fileName } = response.data[0];
       const userId = sessionStorage.getItem('bbangUserId');
 
       await axiosAPI({

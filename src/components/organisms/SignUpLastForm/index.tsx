@@ -37,7 +37,7 @@ const SignUpLastForm = ({ userData }: Props): ReactElement => {
             nickname: inputValue,
           },
         });
-        const result = response.data.data;
+        const result = response.data;
         if (!result) {
           setsuccessMessage('');
           setErrorMessage('이미 사용중입니다.');
@@ -71,12 +71,12 @@ const SignUpLastForm = ({ userData }: Props): ReactElement => {
           url: `${baseURL}/api/auth/social/sign-up`,
           data,
         });
-
-        const userId = response.data.data.memberInfo.memberId;
-        const accessTokens = response.data.data.tokenInfo.accessToken;
+        const userId = response.data.memberInfo.memberId;
+        const accessTokens = response.data.tokenInfo.accessToken;
         const accessToken = `${accessTokens.header}.${accessTokens.payload}.${accessTokens.signature}`;
-        const { refreshToken } = response.data.data.tokenInfo;
-        if (response.data.status === 2201) {
+        const { refreshToken } = response.data.tokenInfo;
+
+        if (response) {
           if (accessToken && refreshToken) {
             setSessionStorage(accessToken, refreshToken, userId);
             history.push('/');
@@ -85,8 +85,11 @@ const SignUpLastForm = ({ userData }: Props): ReactElement => {
         }
       } catch (error) {
         if (error.response.data.status === 2404) {
-          // 닉네임이 중복된다면?
+          setsuccessMessage('');
           setErrorMessage('닉네임이 존재합니다');
+        } else if (error.response.data.status === 2405) {
+          setsuccessMessage('');
+          setErrorMessage('해당 소셜 회원은 이미 가입된 회원입니다.');
         } else {
           history.push('/error');
         }
@@ -102,7 +105,7 @@ const SignUpLastForm = ({ userData }: Props): ReactElement => {
           <S.Input
             type="text"
             id="signupEmail"
-            placeholder="이메일 입력"
+            placeholder="닉네임 입력"
             name="email"
             onFocus={() => setInputFocus(true)}
             onBlur={() => setInputFocus(false)}

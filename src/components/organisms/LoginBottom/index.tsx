@@ -17,7 +17,7 @@ const LoginBottom = (): ReactElement => {
     const receiveMessage = (event: MessageEvent) => {
       const socialInfo = event.data.data;
       const { status } = event.data;
-
+      console.log(event.data);
       if (status === 1421) {
         // 회원이 아닐경우 동의약관페이지로 이동
         history.push({

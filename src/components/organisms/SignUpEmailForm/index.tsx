@@ -38,7 +38,7 @@ const SignUpEmailForm = ({ userData }: Props): ReactElement => {
             email: inputValue,
           },
         });
-        const result = response.data.data;
+        const result = response.data.isAvailable;
         if (result) {
           history.push({
             pathname: '/signup/nickname',
@@ -51,7 +51,7 @@ const SignUpEmailForm = ({ userData }: Props): ReactElement => {
         setIsError('올바르지 않은 이메일주소 입니다.');
       }
     } catch (error) {
-      if (error?.response?.data?.status === 1451) {
+      if (error.response.data.status === 1451) {
         setIsError('올바르지 않은 이메일주소 입니다.');
       } else {
         history.push('/error');

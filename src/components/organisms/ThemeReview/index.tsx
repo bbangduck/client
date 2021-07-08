@@ -1,4 +1,6 @@
 import React, { ReactElement } from 'react';
+import useSWR from 'swr';
+import useReviewInfinite from '../../../swr/useReviewInfinite';
 import PlayedPeople from '../../molecules/PlayedPeople';
 import ReviewHeader from '../../molecules/ReviewHeader';
 import ReviewList from '../ReviewList';
@@ -7,11 +9,14 @@ import * as S from './style';
 interface Props {
   isRef: React.MutableRefObject<HTMLElement | null>;
   event?: boolean;
+  themeId: string;
 }
-const ThemeReview = ({ isRef, event }: Props): ReactElement => {
+const ThemeReview = ({ isRef, event, themeId }: Props): ReactElement => {
+  // useReviewInfinite(themeId, 'LIKE_COUNT_DESC');
+
   return (
     <S.Section ref={isRef}>
-      <PlayedPeople />
+      <PlayedPeople themeId={themeId} />
       <ReviewHeader />
       {event ? (
         <ReviewList />

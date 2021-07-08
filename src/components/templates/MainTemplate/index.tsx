@@ -8,7 +8,7 @@ import ThemeWithReview from '../../organisms/ThemeWithReview';
 
 const MainTemplate = (): ReactElement => {
   return (
-    <section>
+    <section style={{ overflow: 'hidden' }}>
       <MainHeader />
       <MainNewThemes />
       <Picks />

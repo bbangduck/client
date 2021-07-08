@@ -15,3 +15,7 @@ interface SignUpDataType {
   email: string;
   nickname: string;
 }
+
+interface ParamsTypes {
+  themeId: string;
+}

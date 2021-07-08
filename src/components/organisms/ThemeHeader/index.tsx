@@ -11,10 +11,28 @@ import InfoBox from '../../atoms/InfoBox';
 import testImg2 from '../../../assets/images/test/scary.jpg';
 import { useClickOutside } from '../../../hooks/useClickOutside';
 import BottomModal from '../../molecules/BottomModal';
+import useGetThemeDetail from '../../../swr/useGetThemeDetail';
+import Loading from '../../atoms/Loading';
 
-const ThemeHeader = (): ReactElement => {
+interface Props {
+  themeId: string;
+}
+const ThemeHeader = ({ themeId }: Props): ReactElement => {
   const history = useHistory();
   const [visibleShareRef, shareModalOn, setShareModalOn, clickShareOutside] = useClickOutside(false);
+  const { data, loading } = useGetThemeDetail(themeId);
+
+  const {
+    themeName,
+    shopInfo: { shopName },
+    themeGenres,
+    themeImage,
+  } = data || {
+    themeName: '',
+    shopInfo: { shopName: '' },
+    themeGenres: [],
+    themeImage: {},
+  };
 
   const onShare = () => {
     setShareModalOn(true);
@@ -31,9 +49,10 @@ const ThemeHeader = (): ReactElement => {
     document.body.removeChild(inputForUrlCopy);
   };
 
+  if (loading) return <Loading />;
   return (
     <>
-      <S.Img src={testImg2} alt="" />
+      <S.Img src={themeImage?.themeImageThumbnailUrl || testImg2} alt="테마 사진" />
       <S.HeaderBox>
         <UpdateHeader img={more} arrow={left} imgAlt="공유하기" onImgClick={onShare} />
       </S.HeaderBox>
@@ -47,11 +66,19 @@ const ThemeHeader = (): ReactElement => {
             <img src={map} alt="위치" data-blink="blink" />
           </S.MapBox>
         </S.TotalBox>
-        <S.H1Tag>[강남] 제로호텔L</S.H1Tag>
-        <S.Location>제로월드 강남점</S.Location>
+        <S.H1Tag>{themeName}</S.H1Tag>
+        <S.Location>{shopName}</S.Location>
         <S.DetailBox>
-          <InfoBox content="스릴러" bgColor="#f4f4f9" color="#151950" marginRight={4} borderRadius={4} />
-          <InfoBox content="스릴러" bgColor="#f4f4f9" color="#151950" marginRight={4} borderRadius={4} />
+          {themeGenres.map((genre) => (
+            <InfoBox
+              key={genre.genreId}
+              content={genre.genreName}
+              bgColor="#f4f4f9"
+              color="#151950"
+              marginRight={4}
+              borderRadius={4}
+            />
+          ))}
         </S.DetailBox>
       </S.Container>
       {/* 공유하기 모달 */}

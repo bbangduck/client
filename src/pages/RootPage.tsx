@@ -55,12 +55,12 @@ const RootPage = (): ReactElement => {
         <Route path="/search/list" component={SearchListPage} />
         {/* 테마 */}
         <Route exact path="/theme" component={ThemePage} />
-        <Route exact path="/theme/:name" component={ThemeDetailPage} /> {/* 4 */}
+        <Route exact path="/theme/:themeId" component={ThemeDetailPage} /> {/* 4 */}
         <Route path="/theme/:name/friends" component={ThemeSearchFriendPage} />
-        <CacheRoute path="/theme/:name/review" component={ThemeReviewPage} when="forward" /> {/* ? */}
-        <Route path="/theme/:name/reviewDetail" component={ThemeDetailReviewPage} /> {/* ? */}
-        <Route path="/theme/:name/location" component={ThemeDetailLocationPage} /> {/* ? */}
-        <Route path="/theme/:name/analysis" component={ThemeAnalysisPage} /> {/* ? */}
+        <CacheRoute path="/theme/:themeId/review" component={ThemeReviewPage} when="forward" /> {/* ? */}
+        <Route path="/theme/:themeId/reviewDetail" component={ThemeDetailReviewPage} /> {/* ? */}
+        <Route path="/theme/:themeId/location" component={ThemeDetailLocationPage} /> {/* ? */}
+        <Route path="/theme/:themeId/analysis" component={ThemeAnalysisPage} /> {/* ? */}
         {/* 지도 */}
         <Route exact path="/map" component={mapPage} /> {/* ? */}
         {/* 마이페이지 */}

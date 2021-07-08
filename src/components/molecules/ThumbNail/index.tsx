@@ -9,12 +9,18 @@ interface Props {
   shopName: string;
   image?: string | null;
   lastRef?: React.MutableRefObject<HTMLLIElement | null>;
+  themeId: number;
 }
-const ThumbNail = ({ title, frenchiseName, shopName, image, lastRef }: Props): ReactElement => {
+const ThumbNail = ({ title, frenchiseName, shopName, image, lastRef, themeId }: Props): ReactElement => {
   const history = useHistory();
+  const onThumbNailClick = () => {
+    history.push({
+      pathname: `/theme/${themeId}`,
+    });
+  };
 
   return (
-    <S.Li data-blink="cover" onClick={() => history.push('/theme/:name')} ref={lastRef}>
+    <S.Li data-blink="cover" onClick={onThumbNailClick} ref={lastRef}>
       <S.Img src={image || poster} data-blink="cover" />
       <S.PTag data-blink="cover">{title}</S.PTag>
       <S.Span data-blink="cover">

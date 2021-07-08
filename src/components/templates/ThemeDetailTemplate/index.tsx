@@ -1,4 +1,5 @@
 import React, { ReactElement, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import ThemeAnalysis from '../../molecules/ThemeAnalysis';
 import ThemeEvent from '../../molecules/ThemeEvent';
 import ThemeExplain from '../../molecules/ThemeExplain';
@@ -14,12 +15,13 @@ const ThemeDetailTemplate = (): ReactElement => {
   const [analysisRef] = useThemeObserver(setNavNumber, 2);
   const [eventRef] = useThemeObserver(setNavNumber, 3);
   const [reviewRef] = useThemeObserver(setNavNumber, 4);
+  const { themeId } = useParams<ParamsTypes>();
 
   return (
     <section>
-      <ThemeHeader />
+      <ThemeHeader themeId={themeId} />
       <ThemeNav position={navNumber} />
-      <ThemeExplain isRef={explainRef} />
+      <ThemeExplain isRef={explainRef} themeId={themeId} />
       <ThemeAnalysis isRef={analysisRef} />
       <ThemeEvent
         event="[제로호텔 김포], [제로호텔L 강남]

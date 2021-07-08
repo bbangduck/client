@@ -4,11 +4,10 @@ import ThumbNail from '../../molecules/ThumbNail';
 import * as S from './style';
 import { useThemeInfinite } from '../../../swr/useThemeInfinite';
 import Loading from '../../atoms/Loading/index';
-import { AppDispatch, ReducerType } from '../../../stores/rootReducer';
+import { ReducerType } from '../../../stores/rootReducer';
 
 const ThemeList = (): ReactElement => {
   const themeQuery = useSelector<ReducerType, string>((state) => state.themeQuerySlice);
-
   const { data: themeList, isLoading, lastRef } = useThemeInfinite(themeQuery);
 
   if (isLoading) return <Loading />;
@@ -25,6 +24,7 @@ const ThemeList = (): ReactElement => {
               frenchiseName={list.franchiseName}
               shopName={list.shopName}
               lastRef={lastRef}
+              themeId={list.themeId}
             />
           );
         }
@@ -35,6 +35,7 @@ const ThemeList = (): ReactElement => {
             title={list.themeName}
             frenchiseName={list.franchiseName}
             shopName={list.shopName}
+            themeId={list.themeId}
           />
         );
       })}

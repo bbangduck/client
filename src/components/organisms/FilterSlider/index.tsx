@@ -1,10 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable consistent-return */
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement, useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import reset from '../../../assets/images/reset/reset.svg';
 import FilterList from '../FilterList';
 import filterTypes from '../../../utils/themeSliderTypes';
 import * as S from './style';
-import useFilterThemes from '../../../hooks/useFilterThemes';
+import { filterThemeQuery } from '../../../stores/themeQueryReducer';
 
 interface Props {
   visibleContentRef: React.MutableRefObject<HTMLDivElement | null>;
@@ -20,9 +22,20 @@ const FilterSlider = ({
   filterOn,
   setFilterDefault,
 }: Props): ReactElement => {
+  const dispatch = useDispatch();
   const [filterListOn, setFilterListOn] = useState(0);
   const [tryReset, setTryReset] = useState(false);
-  const [setThemeType, setRating, setNumberOfPeople, setDifficulty, setActivity] = useFilterThemes();
+  const [themeType, setThemeType] = useState('');
+  const [rating, setRating] = useState('');
+  const [numberOfPeople, setNumberOfPeople] = useState('');
+  const [difficulty, setDifficulty] = useState('');
+  const [activity, setActivity] = useState('');
+
+  useEffect(() => {
+    const themeFilterQuery = `&themeType=${themeType}&rating=${rating}&numberOfPeople=${numberOfPeople}&difficulty=${difficulty}&activity=${activity}`;
+
+    dispatch(filterThemeQuery(themeFilterQuery));
+  }, [themeType, rating, numberOfPeople, difficulty, activity]);
 
   const sendSetFilterStateAsProps = (id: number): React.Dispatch<React.SetStateAction<string>> | undefined => {
     if (id === 1) return setThemeType;
@@ -30,7 +43,6 @@ const FilterSlider = ({
     if (id === 3) return setNumberOfPeople;
     if (id === 4) return setDifficulty;
     if (id === 5) return setActivity;
-    return undefined;
   };
 
   const onReset = () => {

@@ -1,11 +1,15 @@
 import React, { ReactElement } from 'react';
+import { useSelector } from 'react-redux';
 import ThumbNail from '../../molecules/ThumbNail';
 import * as S from './style';
 import { useThemeInfinite } from '../../../swr/useThemeInfinite';
 import Loading from '../../atoms/Loading/index';
+import { AppDispatch, ReducerType } from '../../../stores/rootReducer';
 
 const ThemeList = (): ReactElement => {
-  const { data: themeList, isLoading, lastRef } = useThemeInfinite();
+  const themeQuery = useSelector<ReducerType, string>((state) => state.themeQuerySlice);
+
+  const { data: themeList, isLoading, lastRef } = useThemeInfinite(themeQuery);
 
   if (isLoading) return <Loading />;
   return (

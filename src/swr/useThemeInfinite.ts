@@ -29,12 +29,13 @@ type ReturnType = {
   setSize: (size: number | ((sizes: number) => number)) => Promise<any[] | undefined>;
   isLoading: boolean;
   lastRef: React.MutableRefObject<HTMLLIElement | null>;
+  revalidate: () => Promise<boolean>;
 };
 
-export const useThemeInfinite = (): ReturnType => {
+export const useThemeInfinite = (themeQuery: string): ReturnType => {
   const lastRef = useRef<null | HTMLLIElement>(null);
-  const { data, error, size, setSize } = useSWRInfinite(
-    (index) => `/api/themes?amount=3&&pageNum=${index + 1}`,
+  const { data, error, size, setSize, revalidate } = useSWRInfinite(
+    (index) => `/api/themes?amount=10&&pageNum=${index + 1}${themeQuery}`,
     fetcherWithoutToken,
   );
 
@@ -61,5 +62,6 @@ export const useThemeInfinite = (): ReturnType => {
     setSize,
     isLoading: !filteredData && !error,
     lastRef,
+    revalidate,
   };
 };

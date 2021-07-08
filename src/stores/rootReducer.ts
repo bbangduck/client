@@ -8,6 +8,7 @@ import themeKindBox from './ThemeReviewReducer/themeKind';
 import scenarioBox from './ThemeReviewReducer/scenarioBox';
 import interiorBox from './ThemeReviewReducer/interiorBox';
 import problemBox from './ThemeReviewReducer/problemBox';
+import themeQuerySlice from './themeQueryReducer';
 
 const reducer = combineReducers({
   popAlarm,
@@ -18,6 +19,7 @@ const reducer = combineReducers({
   scenarioBox,
   interiorBox,
   problemBox,
+  themeQuerySlice,
 });
 
 const store = configureStore({

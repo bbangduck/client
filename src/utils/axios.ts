@@ -28,13 +28,14 @@ axiosAPI.interceptors.response.use(
 
     if (response.status === 401) {
       const refreshToken = sessionStorage.getItem('bbangRT');
+      console.log('토큰으로인한 401에러가 발생함');
       axios({
         method: 'post',
         url: `${baseURL}/api/auth/refresh`,
         data: { refreshToken },
       })
         .then((res) => {
-          console.log(res.data);
+          console.log(`리프레시토큰 요청 성공${res.data}`);
           const accessTokens = res.data.accessToken;
           const accessToken = `${accessTokens.header}.${accessTokens.payload}.${accessTokens.signature}`;
 
@@ -44,9 +45,9 @@ axiosAPI.interceptors.response.use(
           return axios(originalRequest);
         })
         .catch((errorAfterRefresh) => {
+          console.log(`리프레시토큰 에러발생 ${errorAfterRefresh.response}`);
           const history = useHistory();
           const statusCode = errorAfterRefresh.response.status;
-          console.log(errorAfterRefresh.response);
           if (statusCode === 1432 || statusCode === 1433) {
             removeSessionStorage();
             history.push('/login');

@@ -45,6 +45,7 @@ axiosAPI.interceptors.response.use(
         .catch((errorAfterRefresh) => {
           const history = useHistory();
           const statusCode = errorAfterRefresh.response.data.status;
+          console.log(errorAfterRefresh.response);
           if (statusCode === 1432 || statusCode === 1433) {
             removeSessionStorage();
             history.push('/login');

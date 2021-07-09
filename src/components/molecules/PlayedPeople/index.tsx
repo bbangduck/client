@@ -13,9 +13,9 @@ const PlayedPeople = ({ themeId }: Props): ReactElement => {
     `/api/themes/${themeId}/reviews?pageNum=1&amount=3&sortCondition=LATEST`,
     fetcherWithoutToken,
   );
-  const image1 = data.contents?.[0]?.writerInfo.profileImageThumbnailUrl;
-  const image2 = data.contents?.[1]?.writerInfo.profileImageThumbnailUrl;
-  const image3 = data.contents?.[2]?.writerInfo.profileImageThumbnailUrl;
+  const image1 = data?.contents?.[0]?.writerInfo.profileImageThumbnailUrl;
+  const image2 = data?.contents?.[1]?.writerInfo.profileImageThumbnailUrl;
+  const image3 = data?.contents?.[2]?.writerInfo.profileImageThumbnailUrl;
 
   return (
     <S.Container>

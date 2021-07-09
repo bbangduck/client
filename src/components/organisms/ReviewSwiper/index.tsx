@@ -6,16 +6,28 @@ import 'swiper/swiper.scss';
 import './style.css';
 import * as S from './style';
 
-const ReviewSwiper = (): ReactElement => {
+interface Props {
+  playTogetherFriends: {
+    memberId: number;
+    nickname: string;
+    profileImageUrl: string | null;
+    profileImageThumbnailUrl: string | null;
+  }[];
+}
+const ReviewSwiper = ({ playTogetherFriends }: Props): ReactElement => {
   return (
     <S.Container>
       <Swiper slidesPerView="auto" spaceBetween={12} grabCursor>
-        <SwiperSlide className="theme-review-slide">
-          <S.ImgBox image={test} />
-        </SwiperSlide>
-        <SwiperSlide className="theme-review-slide">
-          <S.ImgBox image={test2} />
-        </SwiperSlide>
+        {playTogetherFriends.map((friend) => {
+          if (friend.profileImageThumbnailUrl) {
+            return (
+              <SwiperSlide className="theme-review-slide" key={friend.memberId}>
+                <S.ImgBox image={friend.profileImageThumbnailUrl} />
+              </SwiperSlide>
+            );
+          }
+          return null;
+        })}
       </Swiper>
     </S.Container>
   );

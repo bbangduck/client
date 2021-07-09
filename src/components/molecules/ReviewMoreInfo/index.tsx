@@ -6,8 +6,10 @@ import * as S from './style';
 
 interface Props {
   moreOn: boolean;
+  like: boolean;
+  likeCount: number;
 }
-const ReviewMoreInfo = ({ moreOn }: Props): ReactElement => {
+const ReviewMoreInfo = ({ moreOn, like, likeCount }: Props): ReactElement => {
   const hash = '재미 없어';
   const cafe = '제로월드 강남점 열글자 이니';
 
@@ -25,11 +27,11 @@ const ReviewMoreInfo = ({ moreOn }: Props): ReactElement => {
           />
         </S.HashBox>
       ) : null}
-      <S.Help>163명에게 도움이 됐어요.</S.Help>
+      <S.Help>{likeCount}명에게 도움이 됐어요.</S.Help>
       <S.Box moreOn={moreOn}>
         <S.ThumbBox data-blink="blink">
           <img src={thumb} alt="도움이 돼요" data-blink="blink" />
-          <S.ThumbP data-blink="blink">도움이 돼요</S.ThumbP>
+          <S.ThumbP data-blink="blink">{like ? '도움이 됨' : '도움이 돼요'}</S.ThumbP>
         </S.ThumbBox>
         <S.ThumbP>신고하기</S.ThumbP>
       </S.Box>

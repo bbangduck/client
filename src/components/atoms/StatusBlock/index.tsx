@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import * as S from './style';
 
 interface Props {
-  content: string;
+  content?: string;
   color: string;
   bgColor?: string;
   border: boolean;

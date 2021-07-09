@@ -35,7 +35,7 @@ type ReturnType = {
 export const useThemeInfinite = (themeQuery: string): ReturnType => {
   const lastRef = useRef<null | HTMLLIElement>(null);
   const { data, error, size, setSize, revalidate } = useSWRInfinite(
-    (index) => `/api/themes?amount=10&&pageNum=${index + 1}${themeQuery}`,
+    (index) => `/api/themes?amount=20&&pageNum=${index + 1}${themeQuery}`,
     fetcherWithoutToken,
   );
 

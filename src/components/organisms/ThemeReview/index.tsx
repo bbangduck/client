@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react';
-import useSWR from 'swr';
 import useReviewInfinite from '../../../swr/useReviewInfinite';
 import PlayedPeople from '../../molecules/PlayedPeople';
 import ReviewHeader from '../../molecules/ReviewHeader';
@@ -12,14 +11,14 @@ interface Props {
   themeId: string;
 }
 const ThemeReview = ({ isRef, event, themeId }: Props): ReactElement => {
-  // useReviewInfinite(themeId, 'LIKE_COUNT_DESC');
+  const { data } = useReviewInfinite(themeId, 'LIKE_COUNT_DESC');
 
   return (
     <S.Section ref={isRef}>
       <PlayedPeople themeId={themeId} />
       <ReviewHeader />
-      {event ? (
-        <ReviewList />
+      {data?.[0] ? (
+        <ReviewList data={data} />
       ) : (
         <S.EmptyBox>
           <S.PTag>첫 리뷰를 남겨주세요</S.PTag>

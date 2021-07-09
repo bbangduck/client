@@ -4,63 +4,58 @@ import { useEffect } from 'react';
 import fetcher from '../utils/fetcher';
 import fetcherWithoutToken from '../utils/fetcherWithoutToken';
 
-type DataType = {
-  contents: [
+export type ReviewContentType = {
+  reviewId: number;
+  writerInfo: {
+    memberId: number;
+    nickname: string;
+    profileImageUrl: string | null;
+    profileImageThumbnailUrl: string | null;
+  };
+  themeInfo: {
+    themeId: number;
+    themeName: string;
+    themeImageUrl: string | null;
+    themeImageThumbnailUrl: string | null;
+  };
+  reviewType: string;
+  reviewRecodeNumber: number;
+  themeClearYN: boolean;
+  themeClearTime: string;
+  hintUsageCount: string;
+  rating: number;
+  playTogetherFriends: [
     {
-      reviewId: number;
-      writerInfo: {
-        memberId: number;
-        nickname: string;
-        profileImageUrl: string | null;
-        profileImageThumbnailUrl: string | null;
-      };
-      themeInfo: {
-        themeId: number;
-        themeName: string;
-        themeImageUrl: string | null;
-        themeImageThumbnailUrl: string | null;
-      };
-      reviewType: string;
-      reviewRecodeNumber: number;
-      themeClearYN: boolean;
-      themeClearTime: string;
-      hintUsageCount: string;
-      rating: number;
-      playTogetherFriends: [
-        {
-          memberId: number;
-          nickname: string;
-          profileImageUrl: null | string;
-          profileImageThumbnailUrl: null | string;
-        },
-      ];
-      likeCount: number;
-      myReview: boolean;
-      like: boolean;
-      possibleRegisterForSurveyYN: boolean;
-      surveyYN: boolean;
-      registerTimes: string;
-      updateTimes: string;
-      perceivedThemeGenres: [
-        {
-          genreId: number;
-          genreCode: string;
-          genreName: string;
-        },
-        {
-          genreId: number;
-          genreCode: string;
-          genreName: string;
-        },
-      ];
-      perceivedDifficulty: string;
-      perceivedHorrorGrade: string;
-      perceivedActivity: string;
-      scenarioSatisfaction: string;
-      interiorSatisfaction: string;
-      problemConfigurationSatisfaction: string;
+      memberId: number;
+      nickname: string;
+      profileImageUrl: null | string;
+      profileImageThumbnailUrl: null | string;
     },
   ];
+  likeCount: number;
+  myReview: boolean;
+  like: boolean;
+  possibleRegisterForSurveyYN: boolean;
+  surveyYN: boolean;
+  registerTimes: string;
+  updateTimes: string;
+  perceivedThemeGenres: [
+    {
+      genreId: number;
+      genreCode: string;
+      genreName: string;
+    },
+  ];
+  comment?: string;
+  perceivedDifficulty: string;
+  perceivedHorrorGrade: string;
+  perceivedActivity: string;
+  scenarioSatisfaction: string;
+  interiorSatisfaction: string;
+  problemConfigurationSatisfaction: string;
+}[];
+type DataType = {
+  contents: ReviewContentType;
   nowPageNum: number;
   requestAmount: number;
   totalResultsCount: number;
@@ -74,7 +69,7 @@ export type PreviousPageDataType = {
 }[];
 
 type ReturnType = {
-  data: DataType[] | undefined;
+  data: ReviewContentType | undefined;
   loading: boolean;
 };
 

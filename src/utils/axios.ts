@@ -22,6 +22,7 @@ axiosAPI.interceptors.response.use(
     return response;
   },
   (error) => {
+    const history = useHistory();
     const { config, response } = error;
 
     const originalRequest = config;
@@ -43,7 +44,6 @@ axiosAPI.interceptors.response.use(
           return axios(originalRequest);
         })
         .catch((errorAfterRefresh) => {
-          const history = useHistory();
           const statusCode = Number(errorAfterRefresh.response.data.status);
           console.log(`1432테스트${statusCode === 1432}`);
           console.log(`1433테스트${statusCode === 1433}`);

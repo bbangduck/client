@@ -45,7 +45,10 @@ axiosAPI.interceptors.response.use(
           return axios(originalRequest);
         })
         .catch((errorAfterRefresh) => {
-          console.log(`리프레시토큰 에러발생 ${errorAfterRefresh.response}`);
+          console.log(`리프레시토큰 에러발생 ${errorAfterRefresh}`);
+          console.log(`리프레시토큰 에러발생2 ${errorAfterRefresh.response}`);
+          console.log(`리프레시토큰 에러발생3 ${errorAfterRefresh.response.data}`);
+          console.log(`리프레시토큰 에러발생4 ${errorAfterRefresh.response.data.status}`);
           const history = useHistory();
           const statusCode = errorAfterRefresh.response.status;
           if (statusCode === 1432 || statusCode === 1433) {

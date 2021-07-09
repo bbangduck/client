@@ -34,7 +34,8 @@ axiosAPI.interceptors.response.use(
         data: { refreshToken },
       })
         .then((res) => {
-          const accessTokens = res.data.data.accessToken;
+          console.log(res.data);
+          const accessTokens = res.data.accessToken;
           const accessToken = `${accessTokens.header}.${accessTokens.payload}.${accessTokens.signature}`;
 
           sessionStorage.setItem('bbangAT', accessToken);
@@ -44,7 +45,7 @@ axiosAPI.interceptors.response.use(
         })
         .catch((errorAfterRefresh) => {
           const history = useHistory();
-          const statusCode = errorAfterRefresh.response.data.status;
+          const statusCode = errorAfterRefresh.response.status;
           console.log(errorAfterRefresh.response);
           if (statusCode === 1432 || statusCode === 1433) {
             removeSessionStorage();

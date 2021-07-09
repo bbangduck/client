@@ -50,7 +50,7 @@ axiosAPI.interceptors.response.use(
           console.log(`리프레시토큰 에러발생3 ${errorAfterRefresh.response.data}`);
           console.log(`리프레시토큰 에러발생4 ${errorAfterRefresh.response.data.status}`);
           const history = useHistory();
-          const statusCode = errorAfterRefresh.response.status;
+          const statusCode = errorAfterRefresh.response.data.status;
           if (statusCode === 1432 || statusCode === 1433) {
             removeSessionStorage();
             history.push('/login');

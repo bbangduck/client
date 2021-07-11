@@ -18,7 +18,7 @@ const ThemeReviewTemplate = (): ReactElement => {
       <div style={{ padding: '0 20px' }}>
         <UpdateHeader arrow={left} content="리뷰 작성" />
       </div>
-      <ReviewDetailInfo />
+      <ReviewDetailInfo themeId={themeId} />
       <ReviewCheckList />
     </section>
   );

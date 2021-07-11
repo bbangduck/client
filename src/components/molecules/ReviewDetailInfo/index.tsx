@@ -2,17 +2,34 @@ import React, { ReactElement } from 'react';
 import InfoBox from '../../atoms/InfoBox';
 import poster from '../../../assets/images/test/poster.jpg';
 import * as S from './style';
+import useGetThemeDetail from '../../../swr/useGetThemeDetail';
+import Loading from '../../atoms/Loading';
 
-const ReviewDetailInfo = (): ReactElement => {
+interface Props {
+  themeId?: string;
+}
+const ReviewDetailInfo = ({ themeId }: Props): ReactElement => {
+  const { data, loading } = useGetThemeDetail(themeId);
+  const {
+    themeImage,
+    themeName,
+    shopInfo: { franchiseInfo, areaInfo },
+    themeGenres,
+  } = data;
+
+  if (loading) return <Loading />;
   return (
     <S.Container>
-      <S.ImgBox src={poster} />
+      <S.ImgBox src={themeImage?.themeImageThumbnailUrl || poster} />
       <div>
-        <S.H1>[제로월드 강남] 검은사원</S.H1>
-        <S.PTag>제로월드 강남점</S.PTag>
+        <S.H1>{themeName}</S.H1>
+        <S.PTag>
+          {franchiseInfo.franchiseName} {areaInfo.areaName}점
+        </S.PTag>
         <S.Box>
-          <InfoBox content="스릴러" bgColor="#f4f4f9" color="#151950" marginRight={4} borderRadius={4} />
-          <InfoBox content="스릴러" bgColor="#f4f4f9" color="#151950" marginRight={4} borderRadius={4} />
+          {themeGenres?.map((genre) => (
+            <InfoBox content={genre.genreName} bgColor="#f4f4f9" color="#151950" marginRight={4} borderRadius={4} />
+          ))}
         </S.Box>
       </div>
       <S.Line />

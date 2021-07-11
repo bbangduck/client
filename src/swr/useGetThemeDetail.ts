@@ -42,8 +42,8 @@ type DataType = {
   activity: string;
   horrorGrade: string;
 };
-const useGetThemeDetail = (themeId: string): { data: DataType; error: any; loading: boolean } => {
-  const { data, error } = useSWR(`/api/themes/${themeId}`, fetcherWithoutToken);
+const useGetThemeDetail = (themeId?: string): { data: DataType; error: any; loading: boolean } => {
+  const { data, error } = useSWR(`/api/themes/${themeId}`, themeId ? fetcherWithoutToken : null);
 
   return {
     data,

@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import * as S from './style';
 import document from '../../../assets/images/document/document.png';
 
-type ThemeAnalysisType = {
+export type ThemeAnalysisType = {
   genre: {
     genreId: number;
     genreCode: string;

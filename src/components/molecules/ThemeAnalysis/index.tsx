@@ -6,20 +6,17 @@ import pointMark from '../../../assets/images/pointmark/pointMark.svg';
 import * as S from './style';
 import ThemeGuide from '../../atoms/ThemeGuide';
 import ThemeSmallGraph from '../../organisms/ThemeSmallGraph';
-import fetcherWithoutToken from '../../../utils/fetcherWithoutToken';
 import Loading from '../../atoms/Loading';
+import useGetThemeAnalysis from '../../../swr/useGetThemeAnalysis';
 
 interface Props {
   isRef: React.MutableRefObject<HTMLElement | null>;
 }
 const ThemeAnalysis = ({ isRef }: Props): ReactElement => {
-  const history = useHistory();
   const { themeId } = useParams<ParamsTypes>();
-  const { data, error } = useSWR(`/api/themes/${themeId}/analyses`, fetcherWithoutToken);
-  const errorStatus = error?.response?.status;
+  const { data, loading } = useGetThemeAnalysis(themeId);
 
-  if (errorStatus === (404 || 400)) history.push('/theme');
-  if (!data && !error) return <Loading />;
+  if (loading) return <Loading />;
   return (
     <S.Section ref={isRef}>
       <MyPageSubTitle content="테마 분석" trueMargin="4px" />

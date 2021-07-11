@@ -1,29 +1,41 @@
 import React, { ReactElement } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useParams, useHistory } from 'react-router-dom';
 import UpdateHeader from '../../molecules/UpdateHeader';
 import left from '../../../assets/images/arrow/whiteLeft.png';
 import * as S from './style';
 import useGetUserData from '../../../swr/useGetUserData';
 import userExist from '../../../utils/userExist';
+import useGetThemeAnalysis from '../../../swr/useGetThemeAnalysis';
+import Loading from '../../atoms/Loading';
 
 const ThemeAnalysisTemplate = (): ReactElement => {
+  const history = useHistory();
+  const { themeId } = useParams<ParamsTypes>();
   const { errorStatus } = useGetUserData();
   const withDrawalUser = errorStatus === 403;
+  const { data: graph, loading } = useGetThemeAnalysis(themeId);
 
-  const totalValue = graph.reduce((acc: number[], curr: { id: number; title: string; amount: number }) => {
-    if (!acc[0]) {
-      acc[0] = curr.amount;
-    } else if (acc[0] < curr.amount) {
-      acc[0] = curr.amount;
-    }
-    return acc;
-  }, []);
+  let max = 0;
+  graph?.forEach((item) => {
+    const { evaluatedCount } = item;
+    if (!max) max = evaluatedCount;
+    if (max && max < evaluatedCount) max = evaluatedCount;
+  });
 
   const widthValue = (state: number): string => {
-    const myValue = (state / totalValue[0]) * 90;
+    const myValue = (state / max) * 90;
     return `${myValue}%`;
   };
 
+  const onClickReview = () => {
+    if (userExist()) {
+      history.push(`/theme/${themeId}/review`);
+    } else {
+      history.push('/login');
+    }
+  };
+
+  if (loading) return <Loading />;
   if (!userExist() || withDrawalUser) return <Redirect to="/login" />;
   return (
     <S.Section>
@@ -31,16 +43,16 @@ const ThemeAnalysisTemplate = (): ReactElement => {
       <S.PTag>테마 분석 상세</S.PTag>
       <S.Box>
         {graph.map((item) => (
-          <S.Item key={item.id}>
-            <S.P>{item.title}</S.P>
+          <S.Item key={item.genre.genreId}>
+            <S.P>{item.genre.genreName}</S.P>
             <S.BarBg>
-              <S.Bar width={widthValue(item.amount)} />
+              <S.Bar width={widthValue(item.evaluatedCount)} />
             </S.BarBg>
-            <S.People>{item.amount}명</S.People>
+            <S.People>{item.evaluatedCount}명</S.People>
           </S.Item>
         ))}
       </S.Box>
-      <S.BtnBox>
+      <S.BtnBox onClick={onClickReview}>
         <S.Btn type="button" data-blink="blink">
           리뷰쓰고 분석 참여하기
         </S.Btn>

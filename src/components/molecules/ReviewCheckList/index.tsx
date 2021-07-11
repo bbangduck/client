@@ -1,7 +1,9 @@
 import React, { ReactElement, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useClickOutside } from '../../../hooks/useClickOutside';
 import usePopAlarm from '../../../hooks/usePopAlarm';
+import { getReviewId } from '../../../stores/reviewIdReducer';
 import axiosAPI from '../../../utils/axios';
 import removeSessionStorage from '../../../utils/removeSessionStorage';
 import ReviewChooseFriend from '../ReviewChooseFriend';
@@ -16,6 +18,7 @@ interface Props {
   themeId: string;
 }
 const ReviewCheckList = ({ themeId }: Props): ReactElement => {
+  const dispatch = useDispatch();
   const history = useHistory();
   const [successClicked, setSuccessClicked] = useState<boolean | undefined>();
   const [escapeTime, setEscapeTime] = useState('00:00:00');
@@ -32,7 +35,7 @@ const ReviewCheckList = ({ themeId }: Props): ReactElement => {
     frendIds?: number[],
   ) => {
     try {
-      await axiosAPI({
+      const response = await axiosAPI({
         method: 'post',
         url: `/api/themes/${themeId}/reviews`,
         data: {
@@ -43,8 +46,8 @@ const ReviewCheckList = ({ themeId }: Props): ReactElement => {
           frendIds,
         },
       });
-      history.push(`/theme/${themeId}`);
-      popAlarm('리뷰 작성을 완료하였습니다.');
+      // 리뷰아이디 반환시 수정예정
+      // dispatch(getReviewId(response));
     } catch (err) {
       const errorStatus = err?.response?.status;
       if (errorStatus === (401 || 403)) {
@@ -71,16 +74,32 @@ const ReviewCheckList = ({ themeId }: Props): ReactElement => {
   };
 
   const onAddMoreReview = () => {
-    history.push(`/theme/${themeId}/reviewDetail`);
+    if (successClicked) {
+      // 성공했다면?
+      requestReview(successClicked, hintAmount, themeScore, escapeTime).then(() => {
+        history.push(`/theme/${themeId}/reviewDetail`);
+      });
+    } else if (successClicked !== undefined) {
+      // 실패했다면?
+      requestReview(successClicked, hintAmount, themeScore).then(() => {
+        history.push(`/theme/${themeId}/reviewDetail`);
+      });
+    }
   };
 
   const onStopReview = async () => {
     if (successClicked) {
       // 성공했다면?
-      requestReview(successClicked, hintAmount, themeScore, escapeTime);
+      requestReview(successClicked, hintAmount, themeScore, escapeTime).then(() => {
+        history.push(`/theme/${themeId}`);
+        popAlarm('리뷰 작성을 완료하였습니다.');
+      });
     } else if (successClicked !== undefined) {
       // 실패했다면?
-      requestReview(successClicked, hintAmount, themeScore);
+      requestReview(successClicked, hintAmount, themeScore).then(() => {
+        history.push(`/theme/${themeId}`);
+        popAlarm('리뷰 작성을 완료하였습니다.');
+      });
     }
   };
 

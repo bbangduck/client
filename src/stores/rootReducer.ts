@@ -9,6 +9,7 @@ import scenarioBox from './ThemeReviewReducer/scenarioBox';
 import interiorBox from './ThemeReviewReducer/interiorBox';
 import problemBox from './ThemeReviewReducer/problemBox';
 import themeQuerySlice from './themeQueryReducer';
+import reviewIdSlice from './reviewIdReducer';
 
 const reducer = combineReducers({
   popAlarm,
@@ -20,6 +21,7 @@ const reducer = combineReducers({
   interiorBox,
   problemBox,
   themeQuerySlice,
+  reviewIdSlice,
 });
 
 const store = configureStore({

@@ -6,7 +6,7 @@ import useGetThemeDetail from '../../../swr/useGetThemeDetail';
 import Loading from '../../atoms/Loading';
 
 interface Props {
-  themeId?: string;
+  themeId: string;
 }
 const ReviewDetailInfo = ({ themeId }: Props): ReactElement => {
   const { data, loading } = useGetThemeDetail(themeId);
@@ -40,7 +40,14 @@ const ReviewDetailInfo = ({ themeId }: Props): ReactElement => {
         </S.PTag>
         <S.Box>
           {themeGenres?.map((genre) => (
-            <InfoBox content={genre.genreName} bgColor="#f4f4f9" color="#151950" marginRight={4} borderRadius={4} />
+            <InfoBox
+              key={genre.genreId}
+              content={genre.genreName}
+              bgColor="#f4f4f9"
+              color="#151950"
+              marginRight={4}
+              borderRadius={4}
+            />
           ))}
         </S.Box>
       </div>

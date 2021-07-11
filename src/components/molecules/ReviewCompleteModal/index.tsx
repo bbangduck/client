@@ -21,9 +21,9 @@ const ReviewCompleteModal = ({
     onCancel();
   };
 
-  const onDoMore = () => {
-    setModalState(false);
-    onAddMoreReview();
+  const onDoMore = async () => {
+    await setModalState(false);
+    await onAddMoreReview();
   };
 
   return (

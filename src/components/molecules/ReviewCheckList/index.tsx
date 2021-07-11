@@ -71,7 +71,6 @@ const ReviewCheckList = ({ themeId }: Props): ReactElement => {
   };
 
   const onAddMoreReview = () => {
-    setModalOn(false);
     history.push(`/theme/${themeId}/reviewDetail`);
   };
 

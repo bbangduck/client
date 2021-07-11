@@ -25,7 +25,7 @@ axiosAPI.interceptors.response.use(
     const { config, response } = error;
 
     const originalRequest = config;
-    console.log(response.data);
+
     if (response.status === 401) {
       const refreshToken = sessionStorage.getItem('bbangRT');
       axios({

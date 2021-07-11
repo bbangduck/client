@@ -12,7 +12,7 @@ const ThemeReviewTemplate = (): ReactElement => {
   const { errorStatus } = useGetUserData();
   const withDrawalUser = errorStatus === 403;
 
-  if (!userExist() || withDrawalUser) return <Redirect to="/login" />;
+  if (!userExist() || withDrawalUser || !themeId) return <Redirect to="/login" />;
   return (
     <section>
       <div style={{ padding: '0 20px' }}>

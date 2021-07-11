@@ -39,30 +39,30 @@ const LoginBottom = (): ReactElement => {
   };
 
   const onNaverLogin = () => {
-    // const url = `${process.env.REACT_APP_URL}/api/auth/naver/sign-in`;
-    // const name = 'naver login';
-    // const option = 'width = 500, height = 500, top = 100, left = 200, location = no';
-    // const receiveMessage = (event: MessageEvent) => {
-    //   const socialInfo = event.data.data;
-    //   const { status } = event.data;
-    //   if (status === 1421) {
-    //     // 회원이 아닐경우 동의약관페이지로 이동
-    //     history.push({
-    //       pathname: '/signup/clause',
-    //       state: socialInfo,
-    //     });
-    //   } else if (status === 1221) {
-    //     const userId = event.data.data.memberId;
-    //     const accessTokens = event.data.data.accessToken;
-    //     const accessToken = `${accessTokens.header}.${accessTokens.payload}.${accessTokens.signature}`;
-    //     const { refreshToken } = event.data.data;
-    //     setSessionStorage(accessToken, refreshToken, userId);
-    //     // 이미가입된 회원일경우 메인화면으로 이동예정
-    //     history.push('/');
-    //   }
-    // };
-    // window.open(url, name, option);
-    // window.addEventListener('message', receiveMessage, false);
+    const url = `${process.env.REACT_APP_URL}/api/auth/naver/sign-in`;
+    const name = 'naver login';
+    const option = 'width = 500, height = 500, top = 100, left = 200, location = no';
+    const receiveMessage = (event: MessageEvent) => {
+      const socialInfo = event.data.data;
+      const { status } = event.data;
+      if (status === 1421) {
+        // 회원이 아닐경우 동의약관페이지로 이동
+        history.push({
+          pathname: '/signup/clause',
+          state: socialInfo,
+        });
+      } else if (status === 1227) {
+        const userId = event.data.data.memberId;
+        const accessTokens = event.data.data.accessToken;
+        const accessToken = `${accessTokens.header}.${accessTokens.payload}.${accessTokens.signature}`;
+        const { refreshToken } = event.data.data;
+        setSessionStorage(accessToken, refreshToken, userId);
+        // 이미가입된 회원일경우 메인화면으로 이동예정
+        history.push('/');
+      }
+    };
+    window.open(url, name, option);
+    window.addEventListener('message', receiveMessage, false);
   };
 
   return (

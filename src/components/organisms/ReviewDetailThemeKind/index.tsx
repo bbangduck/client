@@ -14,7 +14,7 @@ const ReviewDetailThemeKind = (): ReactElement => {
       <S.SubTitle>어떤 테마였나요?</S.SubTitle>
       <S.FlexBox>
         {themeKindBox.map((box) => (
-          <S.Box clicked={box.clicked} onClick={() => dispatch(themeKindCheckBoxReducer(box.id))}>
+          <S.Box key={box.id} clicked={box.clicked} onClick={() => dispatch(themeKindCheckBoxReducer(box.id))}>
             {box.content}
           </S.Box>
         ))}

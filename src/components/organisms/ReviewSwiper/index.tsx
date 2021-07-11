@@ -18,7 +18,7 @@ const ReviewSwiper = ({ playTogetherFriends }: Props): ReactElement => {
   return (
     <S.Container>
       <Swiper slidesPerView="auto" spaceBetween={12} grabCursor>
-        {playTogetherFriends.map((friend) => {
+        {playTogetherFriends?.map((friend) => {
           if (friend.profileImageThumbnailUrl) {
             return (
               <SwiperSlide className="theme-review-slide" key={friend.memberId}>

@@ -1,14 +1,25 @@
 import React, { ReactElement } from 'react';
+import useSWR from 'swr';
+import { useParams, useHistory } from 'react-router-dom';
 import MyPageSubTitle from '../MyPageSubTitle';
 import pointMark from '../../../assets/images/pointmark/pointMark.svg';
 import * as S from './style';
 import ThemeGuide from '../../atoms/ThemeGuide';
 import ThemeSmallGraph from '../../organisms/ThemeSmallGraph';
+import fetcherWithoutToken from '../../../utils/fetcherWithoutToken';
+import Loading from '../../atoms/Loading';
 
 interface Props {
   isRef: React.MutableRefObject<HTMLElement | null>;
 }
 const ThemeAnalysis = ({ isRef }: Props): ReactElement => {
+  const history = useHistory();
+  const { themeId } = useParams<ParamsTypes>();
+  const { data, error } = useSWR(`/api/themes/${themeId}/analyses`, fetcherWithoutToken);
+  const errorStatus = error?.response?.status;
+
+  if (errorStatus === (404 || 400)) history.push('/theme');
+  if (!data && !error) return <Loading />;
   return (
     <S.Section ref={isRef}>
       <MyPageSubTitle content="테마 분석" trueMargin="4px" />
@@ -19,7 +30,7 @@ const ThemeAnalysis = ({ isRef }: Props): ReactElement => {
         bgColor="#f6f6f6"
         color="#9c9c9c"
       />
-      <ThemeSmallGraph pushTo="/theme/:name/analysis" />
+      <ThemeSmallGraph pushTo="/theme/:name/analysis" graph={data} />
     </S.Section>
   );
 };

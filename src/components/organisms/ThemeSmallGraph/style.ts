@@ -85,7 +85,7 @@ export const IsPTag = Styled.p`
 
 // 없을때
 export const Aside = Styled.aside`
-  width: 320px;
+  width: 100%;
   height: 238px;
   border-radius: 8px;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.05);

@@ -1,49 +1,56 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { ReactElement } from 'react';
 import { useHistory } from 'react-router-dom';
 import * as S from './style';
 import document from '../../../assets/images/document/document.png';
 
+type ThemeAnalysisType = {
+  genre: {
+    genreId: number;
+    genreCode: string;
+    genreName: string;
+  };
+  evaluatedCount: number;
+}[];
 interface Props {
   pushTo: string;
   title?: string;
+  graph?: ThemeAnalysisType | [];
 }
-const ThemeSmallGraph = ({ pushTo, title }: Props): ReactElement => {
+const ThemeSmallGraph = ({ pushTo, title, graph }: Props): ReactElement => {
   const history = useHistory();
 
-  const graph = [
-    { id: 1, title: '스릴러', amount: 12 },
-    { id: 2, title: '공포', amount: 6 },
-    { id: 3, title: '로맨스', amount: 350 },
-    { id: 4, title: '추리', amount: 2 },
-    { id: 5, title: '판타지', amount: 24 },
-    { id: 6, title: 'SF', amount: 16 },
-  ];
-
-  const totalValue = graph.reduce((acc: number[], curr: { id: number; title: string; amount: number }) => {
-    if (!acc[0]) {
-      acc[0] = curr.amount;
-    } else if (acc[0] < curr.amount) {
-      acc[0] = curr.amount;
-    }
-    return acc;
-  }, []);
+  // const graph = [
+  //   { id: 1, title: '스릴러', amount: 12 },
+  //   { id: 2, title: '공포', amount: 6 },
+  //   { id: 3, title: '로맨스', amount: 350 },
+  //   { id: 4, title: '추리', amount: 2 },
+  //   { id: 5, title: '판타지', amount: 24 },
+  //   { id: 6, title: 'SF', amount: 16 },
+  // ];
+  let max = 0;
+  graph?.forEach((item) => {
+    const { evaluatedCount } = item;
+    if (!max) max = evaluatedCount;
+    if (max && max < evaluatedCount) max = evaluatedCount;
+  });
 
   const widthValue = (state: number): string => {
-    const myValue = (state / totalValue[0]) * 90;
+    const myValue = (state / max) * 90;
     return `${myValue}%`;
   };
 
   return (
     <>
-      {graph ? (
+      {graph?.[0] ? (
         <S.Container>
           <S.Title>{title}</S.Title>
           <S.GraphBox>
-            {graph.map((item) => (
-              <S.Box key={item.id}>
-                <S.P>{item.title}</S.P>
+            {graph.map((item: any) => (
+              <S.Box key={item.genre.genreId}>
+                <S.P>{item.genre.genreName}</S.P>
                 <S.BarBg>
-                  <S.Bar width={widthValue(item.amount)} />
+                  <S.Bar width={widthValue(item.evaluatedCount)} />
                 </S.BarBg>
               </S.Box>
             ))}

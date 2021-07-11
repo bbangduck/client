@@ -2,7 +2,7 @@
 import useSWR from 'swr';
 import fetcherWithoutToken from '../utils/fetcherWithoutToken';
 
-type DataType = {
+export type ThemeDetailDataType = {
   themeId: number;
   themeImage: {
     themeImageId: number;
@@ -42,7 +42,7 @@ type DataType = {
   activity: string;
   horrorGrade: string;
 };
-const useGetThemeDetail = (themeId?: string): { data: DataType; error: any; loading: boolean } => {
+const useGetThemeDetail = (themeId?: string): { data: ThemeDetailDataType; error: any; loading: boolean } => {
   const { data, error } = useSWR(`/api/themes/${themeId}`, themeId ? fetcherWithoutToken : null);
 
   return {

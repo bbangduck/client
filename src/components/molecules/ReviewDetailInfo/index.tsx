@@ -15,7 +15,19 @@ const ReviewDetailInfo = ({ themeId }: Props): ReactElement => {
     themeName,
     shopInfo: { franchiseInfo, areaInfo },
     themeGenres,
-  } = data;
+  } = data || {
+    themeImage: { themeImageThumbnailUrl: '' },
+    themeName: '',
+    shopInfo: {
+      franchiseInfo: {
+        franchiseName: '',
+      },
+      areaInfo: {
+        areaName: '',
+      },
+    },
+    themeGenres: [],
+  };
 
   if (loading) return <Loading />;
   return (

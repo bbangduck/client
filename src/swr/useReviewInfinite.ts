@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useSWRInfinite } from 'swr';
-import { useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import fetcher from '../utils/fetcher';
 import fetcherWithoutToken from '../utils/fetcherWithoutToken';
 
@@ -80,10 +80,21 @@ export const useReviewInfinite = (themeId: string, condition: string): ReturnTyp
     (index) => `/api/themes/${themeId}/reviews?pageNum=${index + 1}&amount=20&osrtCondition=${condition}`,
     token ? fetcher : fetcherWithoutToken,
   );
+  const [isLastReview, setIsLastReview] = useState(data?.[data.length - 1].contents.length < 20);
+
+  useEffect(() => {
+    if (data?.[data.length - 1].contents.length < 20) {
+      setIsLastReview(true);
+    } else {
+      setIsLastReview(false);
+    }
+  }, [data]);
 
   const infiniteScroll = () => {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-      setSize((prev) => prev + 1);
+      if (!isLastReview) {
+        setSize((prev) => prev + 1);
+      }
     }
   };
 
@@ -91,7 +102,7 @@ export const useReviewInfinite = (themeId: string, condition: string): ReturnTyp
     window.addEventListener('scroll', infiniteScroll);
 
     return () => window.removeEventListener('scroll', infiniteScroll);
-  }, []);
+  }, [isLastReview]);
 
   const filteredData = data
     ?.map((content) => {

@@ -1,4 +1,5 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement, useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import Nav from '../../molecules/Nav';
 import ThemeNavSwiper from '../../molecules/ThemeNavSwiper';
 import ThemesHeader from '../../molecules/ThemesHeader';
@@ -9,12 +10,31 @@ import FilterBtn from '../../atoms/filterBtn';
 import FilterSlider from '../../organisms/FilterSlider';
 import { useClickOutside } from '../../../hooks/useClickOutside';
 import BottomModal from '../../molecules/BottomModal';
+import { AppDispatch } from '../../../stores/rootReducer';
+import { filterThemeQuery } from '../../../stores/themeQueryReducer';
 
 const ThemeTemplate = (): ReactElement => {
+  const dispatch = useDispatch<AppDispatch>();
   const [filterDefault, setFilterDefault] = useState(true);
   const [filterValue, setFilterValue] = useState('최신순');
+  const [sortCondition, setSortCondition] = useState('LATEST');
   const [visibleContentRef, filterOn, setFilterOn, clickOutside] = useClickOutside(false);
   const [visibleSequenceRef, sequenceOn, setSequenceOn, clickSequenceOutside] = useClickOutside(false);
+
+  useEffect(() => {
+    if (filterValue === '최신순') setSortCondition('LATEST');
+    if (filterValue === '평점 높은순') setSortCondition('RATING_ASC');
+    if (filterValue === '평점 낮은순') setSortCondition('RATING_DESC');
+  }, [filterValue]);
+
+  useEffect(() => {
+    const query = {
+      sortCondition,
+    };
+    dispatch(filterThemeQuery(query));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sortCondition]);
+
   const onFirstBottomModalClick = () => {
     setFilterValue('최신순');
     setSequenceOn(false);

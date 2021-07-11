@@ -7,6 +7,7 @@ import FilterList from '../FilterList';
 import filterTypes from '../../../utils/themeSliderTypes';
 import * as S from './style';
 import { filterThemeQuery } from '../../../stores/themeQueryReducer';
+import { AppDispatch } from '../../../stores/rootReducer';
 
 interface Props {
   visibleContentRef: React.MutableRefObject<HTMLDivElement | null>;
@@ -22,7 +23,7 @@ const FilterSlider = ({
   filterOn,
   setFilterDefault,
 }: Props): ReactElement => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const [filterListOn, setFilterListOn] = useState(0);
   const [tryReset, setTryReset] = useState(false);
   const [themeType, setThemeType] = useState('');
@@ -32,7 +33,13 @@ const FilterSlider = ({
   const [activity, setActivity] = useState('');
 
   useEffect(() => {
-    const themeFilterQuery = `&themeType=${themeType}&rating=${rating}&numberOfPeople=${numberOfPeople}&difficulty=${difficulty}&activity=${activity}`;
+    const themeFilterQuery = {
+      themeType,
+      rating,
+      numberOfPeople,
+      difficulty,
+      activity,
+    };
 
     dispatch(filterThemeQuery(themeFilterQuery));
   }, [themeType, rating, numberOfPeople, difficulty, activity]);

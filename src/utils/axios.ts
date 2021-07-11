@@ -22,11 +22,10 @@ axiosAPI.interceptors.response.use(
     return response;
   },
   (error) => {
-    const history = useHistory();
     const { config, response } = error;
 
     const originalRequest = config;
-
+    console.log(response.data);
     if (response.status === 401) {
       const refreshToken = sessionStorage.getItem('bbangRT');
       axios({
@@ -35,7 +34,7 @@ axiosAPI.interceptors.response.use(
         data: { refreshToken },
       })
         .then((res) => {
-          const accessTokens = res.data.accessToken;
+          const accessTokens = res.data.data.accessToken;
           const accessToken = `${accessTokens.header}.${accessTokens.payload}.${accessTokens.signature}`;
 
           sessionStorage.setItem('bbangAT', accessToken);
@@ -44,11 +43,9 @@ axiosAPI.interceptors.response.use(
           return axios(originalRequest);
         })
         .catch((errorAfterRefresh) => {
-          const statusCode = Number(errorAfterRefresh.response.data.status);
-          console.log(`1432테스트${statusCode === 1432}`);
-          console.log(`1433테스트${statusCode === 1433}`);
+          const history = useHistory();
+          const statusCode = errorAfterRefresh.response.data.status;
           if (statusCode === 1432 || statusCode === 1433) {
-            console.log(`if문 성공`);
             removeSessionStorage();
             history.push('/login');
           }

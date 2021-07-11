@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useRef, useEffect } from 'react';
 import { useSWRInfinite } from 'swr';
+import { themeQueryStateType } from '../stores/themeQueryReducer';
 import fetcherWithoutToken from '../utils/fetcherWithoutToken';
 
 export type pageDataContentsType = {
@@ -32,10 +33,13 @@ type ReturnType = {
   revalidate: () => Promise<boolean>;
 };
 
-export const useThemeInfinite = (themeQuery: string): ReturnType => {
+export const useThemeInfinite = (themeQuery: themeQueryStateType): ReturnType => {
   const lastRef = useRef<null | HTMLLIElement>(null);
+  const { themeType, rating, numberOfPeople, difficulty, activity, sortCondition } = themeQuery;
+  const queryParameter = `&themeType=${themeType}&rating=${rating}&numberOfPeople=${numberOfPeople}&difficulty=${difficulty}&activity=${activity}&sortCondition=${sortCondition}`;
+
   const { data, error, size, setSize, revalidate } = useSWRInfinite(
-    (index) => `/api/themes?amount=20&&pageNum=${index + 1}${themeQuery}`,
+    (index) => `/api/themes?amount=20&&pageNum=${index + 1}${queryParameter}`,
     fetcherWithoutToken,
   );
 

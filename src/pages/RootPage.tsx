@@ -57,7 +57,7 @@ const RootPage = (): ReactElement => {
         <Route exact path="/theme" component={ThemePage} />
         <Route exact path="/theme/:themeId" component={ThemeDetailPage} /> {/* 4 */}
         <Route path="/theme/:themeId/friends" component={ThemeSearchFriendPage} />
-        <CacheRoute path="/theme/:themeId/review" component={ThemeReviewPage} when="forward" /> {/* ? */}
+        <CacheRoute path="/theme/:themeId/review" component={ThemeReviewPage} when="forward" />
         <Route path="/theme/:themeId/reviewDetail" component={ThemeDetailReviewPage} /> {/* ? */}
         <Route path="/theme/:themeId/location" component={ThemeDetailLocationPage} /> {/* ? */}
         <Route path="/theme/:themeId/analysis" component={ThemeAnalysisPage} /> {/* ? */}

@@ -1,11 +1,12 @@
 import React, { ReactElement } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import heart from '../../../assets/images/heart/heart.svg';
 import pen from '../../../assets/images/pen/whitePen.svg';
 import userExist from '../../../utils/userExist';
 import * as S from './style';
 
 const ReviewBottom = (): ReactElement => {
+  const { themeId } = useParams<ParamsTypes>();
   const history = useHistory();
 
   const onHeartClick = () => {
@@ -16,7 +17,7 @@ const ReviewBottom = (): ReactElement => {
 
   const onClickReview = () => {
     if (userExist()) {
-      history.push('/theme/:name/review');
+      history.push(`/theme/${themeId}/review`);
     } else {
       history.push('/login');
     }

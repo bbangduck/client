@@ -80,15 +80,8 @@ export const useReviewInfinite = (themeId: string, condition: string): ReturnTyp
     (index) => `/api/themes/${themeId}/reviews?pageNum=${index + 1}&amount=20&osrtCondition=${condition}`,
     token ? fetcher : fetcherWithoutToken,
   );
-  const [isLastReview, setIsLastReview] = useState(data?.[data.length - 1].contents.length < 20);
 
-  useEffect(() => {
-    if (data?.[data.length - 1].contents.length < 20) {
-      setIsLastReview(true);
-    } else {
-      setIsLastReview(false);
-    }
-  }, [data]);
+  const isLastReview = data?.[data.length - 1].contents.length < 20;
 
   const infiniteScroll = () => {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
@@ -102,7 +95,7 @@ export const useReviewInfinite = (themeId: string, condition: string): ReturnTyp
     window.addEventListener('scroll', infiniteScroll);
 
     return () => window.removeEventListener('scroll', infiniteScroll);
-  }, [isLastReview]);
+  }, [data]);
 
   const filteredData = data
     ?.map((content) => {

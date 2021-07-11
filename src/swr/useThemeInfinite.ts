@@ -43,15 +43,20 @@ export const useThemeInfinite = (themeQuery: themeQueryStateType): ReturnType =>
     fetcherWithoutToken,
   );
 
-  useEffect(() => {
-    const doAtBottom = () => {
-      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+  const isLastTheme = data?.[data.length - 1].contents.length < 20;
+
+  const doAtBottom = () => {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+      if (!isLastTheme) {
         setSize((prev) => prev + 1);
       }
-    };
+    }
+  };
+
+  useEffect(() => {
     window.addEventListener('scroll', doAtBottom);
     return () => window.removeEventListener('scroll', doAtBottom);
-  }, []);
+  }, [data]);
 
   const filteredData = data
     ?.map((content) => {

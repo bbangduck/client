@@ -7,10 +7,9 @@ import * as S from './style';
 
 interface Props {
   isRef: React.MutableRefObject<HTMLElement | null>;
-  event?: boolean;
   themeId: string;
 }
-const ThemeReview = ({ isRef, event, themeId }: Props): ReactElement => {
+const ThemeReview = ({ isRef, themeId }: Props): ReactElement => {
   const { data } = useReviewInfinite(themeId, 'LIKE_COUNT_DESC');
 
   return (

@@ -8,10 +8,9 @@ import useGetUserData from '../../../swr/useGetUserData';
 import userExist from '../../../utils/userExist';
 
 const ThemeReviewTemplate = (): ReactElement => {
-  const { themeId } = useParams<ParamsTypes>();
+  const { themeId } = useParams<ParamsTypes>() || {};
   const { errorStatus } = useGetUserData();
   const withDrawalUser = errorStatus === 403;
-
   if (!userExist() || withDrawalUser || !themeId) return <Redirect to="/login" />;
   return (
     <section>

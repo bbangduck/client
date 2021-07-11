@@ -43,7 +43,8 @@ const ReviewCheckList = ({ themeId }: Props): ReactElement => {
           frendIds,
         },
       });
-      history.push(`/theme/:themeId`);
+      history.push(`/theme/${themeId}`);
+      popAlarm('리뷰 작성을 완료하였습니다.');
     } catch (err) {
       const errorStatus = err?.response?.status;
       if (errorStatus === (401 || 403)) {
@@ -61,7 +62,7 @@ const ReviewCheckList = ({ themeId }: Props): ReactElement => {
     if (successClicked && time && hintAmount && themeScore) {
       // 방탈출에 성공했다면?
       setModalOn(true);
-    } else if (!successClicked && hintAmount && themeScore) {
+    } else if (successClicked === false && hintAmount && themeScore) {
       // 방탈출에 실패했다면?
       setModalOn(true);
     } else {
@@ -71,7 +72,7 @@ const ReviewCheckList = ({ themeId }: Props): ReactElement => {
 
   const onAddMoreReview = () => {
     setModalOn(false);
-    history.push('/theme/:name/reviewDetail');
+    history.push(`/theme/${themeId}/reviewDetail`);
   };
 
   const onStopReview = async () => {
@@ -82,23 +83,6 @@ const ReviewCheckList = ({ themeId }: Props): ReactElement => {
       // 실패했다면?
       requestReview(successClicked, hintAmount, themeScore);
     }
-    // try {
-    //   await axiosAPI({
-    //     method: 'post',
-    //     url: '/api/themes/{themeId}/reviews',
-    //     data,
-    //   });
-    //   popAlarm('리뷰작성을 완료하였습니다.');
-    // } catch (error) {
-    //   if (error.response.data.status === 5402) {
-    //     popAlarm('삭제된 테마입니다.');
-    //     history.push('/theme');
-    //   } else if (error.response.data.status === 2412) {
-    //     popAlarm('선택한 유저와 친구관계가 아닙니다.');
-    //   } else {
-    //     history.push('/error');
-    //   }
-    // }
   };
 
   return (

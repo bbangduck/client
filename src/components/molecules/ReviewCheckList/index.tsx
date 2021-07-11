@@ -2,6 +2,8 @@ import React, { ReactElement, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useClickOutside } from '../../../hooks/useClickOutside';
 import usePopAlarm from '../../../hooks/usePopAlarm';
+import axiosAPI from '../../../utils/axios';
+import removeSessionStorage from '../../../utils/removeSessionStorage';
 import ReviewChooseFriend from '../ReviewChooseFriend';
 import ReviewCompleteModal from '../ReviewCompleteModal';
 import ReviewHintAmount from '../ReviewHintAmount';
@@ -10,23 +12,56 @@ import ReviewThemeScore from '../ReviewThemeScore';
 import ReviewTime from '../ReviewTime';
 import * as S from './style';
 
-const ReviewCheckList = (): ReactElement => {
+interface Props {
+  themeId: string;
+}
+const ReviewCheckList = ({ themeId }: Props): ReactElement => {
   const history = useHistory();
-  const [successClicked, setSuccessClicked] = useState('');
+  const [successClicked, setSuccessClicked] = useState<boolean | undefined>();
   const [escapeTime, setEscapeTime] = useState('00:00:00');
   const [hintAmount, setHintAmount] = useState('');
   const [themeScore, setThemeScore] = useState(0);
   const [visibleContentRef, modalOn, setModalOn, clickOutside] = useClickOutside(false);
   const [popAlarm] = usePopAlarm();
 
+  const requestReview = async (
+    clear: boolean,
+    hintUsageCount: string,
+    rating: number,
+    clearTime?: string,
+    frendIds?: number[],
+  ) => {
+    try {
+      await axiosAPI({
+        method: 'post',
+        url: `/api/themes/${themeId}/reviews`,
+        data: {
+          clearYN: clear,
+          clearTime,
+          hintUsageCount,
+          rating,
+          frendIds,
+        },
+      });
+      history.push(`/theme/:themeId`);
+    } catch (err) {
+      const errorStatus = err?.response?.status;
+      if (errorStatus === (401 || 403)) {
+        removeSessionStorage();
+        history.push('/');
+      } else if (errorStatus === (400 || 404)) {
+        history.push('/404');
+      }
+    }
+  };
+
   const onComplete = () => {
-    const clearYN = successClicked === '성공';
     const time = Number(escapeTime.split(':').join(''));
 
-    if (clearYN && time && hintAmount && themeScore) {
+    if (successClicked && time && hintAmount && themeScore) {
       // 방탈출에 성공했다면?
       setModalOn(true);
-    } else if (!clearYN && hintAmount && themeScore) {
+    } else if (!successClicked && hintAmount && themeScore) {
       // 방탈출에 실패했다면?
       setModalOn(true);
     } else {
@@ -40,15 +75,13 @@ const ReviewCheckList = (): ReactElement => {
   };
 
   const onStopReview = async () => {
-    const clearYN = successClicked === '성공';
-    const data = {
-      clearYN,
-      clearTime: escapeTime,
-      hintUsageCount: hintAmount,
-      rating: themeScore,
-      // 변경예정
-      friendIds: [1, 2, 3],
-    };
+    if (successClicked) {
+      // 성공했다면?
+      requestReview(successClicked, hintAmount, themeScore, escapeTime);
+    } else if (successClicked !== undefined) {
+      // 실패했다면?
+      requestReview(successClicked, hintAmount, themeScore);
+    }
     // try {
     //   await axiosAPI({
     //     method: 'post',

@@ -19,7 +19,7 @@ const ThemeReviewTemplate = (): ReactElement => {
         <UpdateHeader arrow={left} content="리뷰 작성" />
       </div>
       <ReviewDetailInfo themeId={themeId} />
-      <ReviewCheckList />
+      <ReviewCheckList themeId={themeId} />
     </section>
   );
 };

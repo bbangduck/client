@@ -6,7 +6,7 @@ import * as S from './style';
 interface Props {
   setTimeState: React.Dispatch<React.SetStateAction<string>>;
   timeState: string;
-  successValue: string;
+  successValue: boolean | undefined;
 }
 const ReviewTime = ({ setTimeState, timeState, successValue }: Props): ReactElement => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -17,7 +17,7 @@ const ReviewTime = ({ setTimeState, timeState, successValue }: Props): ReactElem
   };
 
   const onFocus = () => {
-    if (successValue === '실패' && inputRef) {
+    if (!successValue && inputRef) {
       inputRef?.current?.blur();
       setTimeState('00:00:00');
       popAlarm('탈출 실패시 시간을 입력할수없습니다.');

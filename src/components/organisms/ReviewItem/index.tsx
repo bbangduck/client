@@ -24,6 +24,11 @@ interface Props {
   }[];
   like: boolean;
   likeCount: number;
+  perceivedThemeGenres: {
+    genreId: number;
+    genreCode: string;
+    genreName: string;
+  }[];
 }
 const ReviewItem = ({
   imageUrl,
@@ -36,6 +41,7 @@ const ReviewItem = ({
   playTogetherFriends,
   like,
   likeCount,
+  perceivedThemeGenres,
 }: Props): ReactElement => {
   const [moreOn, setMoreOn] = useState(false);
   const filterHint = (): string | undefined => {
@@ -61,21 +67,19 @@ const ReviewItem = ({
       <S.SqureBoxs>
         <StarBox star={rating} />
         <StatusBlock content={filterHint()} color="#4b4b4b" border padding={12} />
-        <StatusBlock content={themeClearTime} color="#4b4b4b" border padding={16} />
+        {themeClearTime ? <StatusBlock content={themeClearTime} color="#4b4b4b" border padding={16} /> : null}
       </S.SqureBoxs>
-      {comment ? (
-        <S.ReviewContent>
-          {moreOn ? comment : shortSentence(49, comment)}
-          {moreOn ? null : (
-            <S.MoreBox onClick={() => setMoreOn(true)} data-blink="blink">
-              <S.More data-blink="blink">More</S.More>
-              <img src={down} alt="더보기" data-blink="blink" />
-            </S.MoreBox>
-          )}
-        </S.ReviewContent>
-      ) : null}
+      <S.ReviewContent>
+        {moreOn ? comment : shortSentence(49, comment || '')}
+        {moreOn || !perceivedThemeGenres ? null : (
+          <S.MoreBox onClick={() => setMoreOn(true)} data-blink="blink">
+            <S.More data-blink="blink">More</S.More>
+            <img src={down} alt="더보기" data-blink="blink" />
+          </S.MoreBox>
+        )}
+      </S.ReviewContent>
       <ReviewSwiper playTogetherFriends={playTogetherFriends} />
-      <ReviewMoreInfo moreOn={moreOn} like={like} likeCount={likeCount} />
+      <ReviewMoreInfo moreOn={moreOn} like={like} likeCount={likeCount} perceivedThemeGenres={perceivedThemeGenres} />
     </S.Li>
   );
 };

@@ -20,6 +20,7 @@ const ReviewList = ({ data }: Props): ReactElement => {
           playTogetherFriends,
           like,
           likeCount,
+          perceivedThemeGenres,
         } = item;
         const { nickname, profileImageThumbnailUrl } = writerInfo;
         const filteredDate = registerTimes.split('T')[0].split('-');
@@ -37,6 +38,7 @@ const ReviewList = ({ data }: Props): ReactElement => {
             playTogetherFriends={playTogetherFriends}
             like={like}
             likeCount={likeCount}
+            perceivedThemeGenres={perceivedThemeGenres}
           />
         );
       })}

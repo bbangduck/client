@@ -19,3 +19,8 @@ export const PTag = Styled.p`
   letter-spacing: -0.14px;
   color: ${({ theme }) => theme.colors.fontGray[0]};
 `;
+
+export const Box = Styled.div`
+  position:relative;
+  left:-20px;
+`;

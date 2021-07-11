@@ -4,13 +4,13 @@ import * as S from './style';
 interface Props {
   title: string;
   firstBtn?: string;
-  secondBtn?: string;
+  secondBtn?: string | string[];
   lastBtn: string;
   visibleContentRef: React.MutableRefObject<HTMLDivElement | null>;
   clickOutside: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
-  onLastClick: () => void;
-  onFirstClick?: () => void;
-  onSecondClick?: () => void;
+  onLastClick: (content: string) => void;
+  onFirstClick?: (content: string) => void;
+  onSecondClick?: (content: string) => void;
   isOn: boolean;
 }
 const BottomModal = ({
@@ -25,16 +25,16 @@ const BottomModal = ({
   onSecondClick,
   isOn,
 }: Props): ReactElement => {
-  const onLastBtnClick = () => {
-    onLastClick();
+  const onFirstBtnClick = (e: React.MouseEvent<HTMLParagraphElement, MouseEvent>) => {
+    if (onFirstClick) onFirstClick(e.currentTarget.innerText);
   };
 
-  const onSecondBtnClick = () => {
-    if (onSecondClick) onSecondClick();
+  const onSecondBtnClick = (e: React.MouseEvent<HTMLParagraphElement, MouseEvent>) => {
+    if (onSecondClick) onSecondClick(e.currentTarget.innerText);
   };
 
-  const onFirstBtnClick = () => {
-    if (onFirstClick) onFirstClick();
+  const onLastBtnClick = (e: React.MouseEvent<HTMLParagraphElement, MouseEvent>) => {
+    onLastClick(e.currentTarget.innerText);
   };
 
   return (
@@ -42,16 +42,23 @@ const BottomModal = ({
       <S.Box ref={visibleContentRef} isOn={isOn}>
         <S.Title>{title}</S.Title>
         {firstBtn ? (
-          <S.Btn onClick={onFirstBtnClick} data-blink="blink">
+          <S.Btn onClick={(e) => onFirstBtnClick(e)} data-blink="blink">
             {firstBtn}
           </S.Btn>
         ) : null}
-        {secondBtn ? (
-          <S.Btn onClick={onSecondBtnClick} data-blink="blink">
+        {Array.isArray(secondBtn)
+          ? secondBtn?.map((btn) => (
+              <S.Btn onClick={(e) => onSecondBtnClick(e)} data-blink="blink">
+                {btn}
+              </S.Btn>
+            ))
+          : null}
+        {secondBtn && typeof secondBtn === 'string' ? (
+          <S.Btn onClick={(e) => onSecondBtnClick(e)} data-blink="blink">
             {secondBtn}
           </S.Btn>
         ) : null}
-        <S.Btn2 onClick={onLastBtnClick} data-blink="blink">
+        <S.Btn2 onClick={(e) => onLastBtnClick(e)} data-blink="blink">
           {lastBtn}
         </S.Btn2>
       </S.Box>

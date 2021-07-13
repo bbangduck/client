@@ -43,7 +43,7 @@ export const useThemeInfinite = (themeQuery: themeQueryStateType): ReturnType =>
     fetcherWithoutToken,
   );
 
-  const isLastTheme = data?.[data.length - 1].contents.length < 20;
+  const isLastTheme = data?.[data.length - 1]?.contents?.length < 20;
 
   const doAtBottom = () => {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {

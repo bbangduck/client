@@ -31,5 +31,5 @@ const store = configureStore({
 
 export default store;
 
-export type ReducerType = ReturnType<typeof reducer>;
+export type ReducerType = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

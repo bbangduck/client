@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export const scaryCheckBox = [
-  { id: 1, content: '보통', clicked: false },
-  { id: 2, content: '조금 공포', clicked: false },
-  { id: 3, content: '매우 공포', clicked: false },
+  { id: 1, content: '보통', clicked: false, api: 'NORMAL' },
+  { id: 2, content: '조금 공포', clicked: false, api: 'LITTLE_HORROR' },
+  { id: 3, content: '매우 공포', clicked: false, api: 'VERY_HORROR' },
 ];
 
 const scaryBox = createSlice({

@@ -13,7 +13,6 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    // 'consistent-return': 0,
     'no-param-reassign': 0,
     camelcase: 0,
     'jsx-a11y/no-noninteractive-element-interactions': 0,

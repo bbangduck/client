@@ -51,6 +51,7 @@ const UpdateProfileImg = (): ReactElement => {
 
     if (e.target.files) {
       const uploadFile = e.target.files[0];
+      console.log(uploadFile);
       const formData = new FormData();
       formData.append('files', uploadFile);
 

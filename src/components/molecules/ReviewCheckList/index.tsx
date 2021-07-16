@@ -46,8 +46,8 @@ const ReviewCheckList = ({ themeId }: Props): ReactElement => {
           frendIds,
         },
       });
-      // 리뷰아이디 반환시 수정예정
-      // dispatch(getReviewId(response));
+      const reviewId = response?.data?.reviewId;
+      dispatch(getReviewId(reviewId));
     } catch (err) {
       const errorStatus = err?.response?.status;
       if (errorStatus === (401 || 403)) {

@@ -1,26 +1,36 @@
-import React, { ReactElement, useState } from 'react';
+/* eslint-disable operator-assignment */
+import React, { ReactElement, useState, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import camera from '../../../assets/images/camera/grayCamera.png';
 import deleteImg from '../../../assets/images/delete/deleteGray.png';
 import * as S from './style';
 import 'swiper/swiper.scss';
 import './style.css';
+import axiosAPI from '../../../utils/axios';
 
-const EscapeMoment = (): ReactElement => {
+interface Props {
+  setImagesArray: React.Dispatch<React.SetStateAction<File[]>>;
+}
+const EscapeMoment = ({ setImagesArray }: Props): ReactElement => {
   const [newImg, setNewImg] = useState<[] | { id: number; img: string }[]>([]);
 
   const onImgChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     if (e.target.files) {
       const imgFile = e.target.files[0];
+      setImagesArray((prev) => [...prev, imgFile]);
+      // formData.append('files', imgFile);
+      // console.log(formData.getAll('files'));
+
+      // UI 이미지 나타내기
       const img = window.URL.createObjectURL(imgFile);
       setNewImg((prev) => {
         if (!prev[0]) return [{ id: 1, img }];
-
         const nextId = prev[prev.length - 1].id + 1;
         return [...prev, { id: nextId, img }];
       });
     }
+    e.target.value = '';
   };
 
   const onDelete = (clickedId: number) => {

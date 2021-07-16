@@ -6,10 +6,7 @@ const reviewIdSlice = createSlice({
   name: 'reviewId',
   initialState,
   reducers: {
-    getReviewId: (state, { payload }: PayloadAction<number>) => {
-      console.log(payload);
-      return payload;
-    },
+    getReviewId: (state, { payload }: PayloadAction<number>) => payload,
   },
 });
 

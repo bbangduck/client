@@ -4,9 +4,9 @@ import ReviewItem from '../ReviewItem';
 
 interface Props {
   data: ReviewContentType | undefined;
+  sequenceCondition: string;
 }
-const ReviewList = ({ data }: Props): ReactElement => {
-  console.log(data);
+const ReviewList = ({ data, sequenceCondition }: Props): ReactElement => {
   return (
     <ul>
       {data?.map((item) => {
@@ -23,6 +23,7 @@ const ReviewList = ({ data }: Props): ReactElement => {
           likeCount,
           perceivedThemeGenres,
           reviewImages,
+          myReview,
         } = item;
         const { nickname, profileImageThumbnailUrl } = writerInfo;
         const filteredDate = registerTimes.split('T')[0].split('-');
@@ -37,11 +38,12 @@ const ReviewList = ({ data }: Props): ReactElement => {
             hintUsageCount={hintUsageCount}
             themeClearTime={themeClearTime}
             comment={comment}
-            playTogetherFriends={playTogetherFriends}
+            reviewId={reviewId}
             like={like}
             likeCount={likeCount}
             perceivedThemeGenres={perceivedThemeGenres}
             reviewImages={reviewImages}
+            sequenceCondition={sequenceCondition}
           />
         );
       })}

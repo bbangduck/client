@@ -21,12 +21,14 @@ interface Props {
     reviewImageThumbnailUrl: string;
     reviewImageUrl: string;
   }[];
-  playTogetherFriends: {
-    memberId: number;
-    nickname: string;
-    profileImageUrl: string | null;
-    profileImageThumbnailUrl: string | null;
-  }[];
+  sequenceCondition: string;
+  // playTogetherFriends: {
+  //   memberId: number;
+  //   nickname: string;
+  //   profileImageUrl: string | null;
+  //   profileImageThumbnailUrl: string | null;
+  // }[];
+  reviewId: number;
   like: boolean;
   likeCount: number;
   perceivedThemeGenres: {
@@ -43,11 +45,12 @@ const ReviewItem = ({
   hintUsageCount,
   themeClearTime,
   comment,
-  playTogetherFriends,
+  reviewId,
   like,
   likeCount,
   perceivedThemeGenres,
   reviewImages,
+  sequenceCondition,
 }: Props): ReactElement => {
   const [moreOn, setMoreOn] = useState(false);
   const filterHint = (): string | undefined => {
@@ -84,7 +87,14 @@ const ReviewItem = ({
         )}
       </S.ReviewContent>
       <ReviewSwiper reviewImages={reviewImages} />
-      <ReviewMoreInfo moreOn={moreOn} like={like} likeCount={likeCount} perceivedThemeGenres={perceivedThemeGenres} />
+      <ReviewMoreInfo
+        reviewId={reviewId}
+        moreOn={moreOn}
+        like={like}
+        likeCount={likeCount}
+        perceivedThemeGenres={perceivedThemeGenres}
+        sequenceCondition={sequenceCondition}
+      />
     </S.Li>
   );
 };

@@ -32,7 +32,7 @@ const ThemeReview = ({ isRef, themeId }: Props): ReactElement => {
       <PlayedPeople themeId={themeId} />
       <ReviewHeader onReviewFilterClick={onReviewFilterClick} />
       {data?.[0] ? (
-        <ReviewList data={data} />
+        <ReviewList data={data} sequenceCondition={sequenceCondition} />
       ) : (
         <S.EmptyBox>
           <S.PTag>첫 리뷰를 남겨주세요</S.PTag>

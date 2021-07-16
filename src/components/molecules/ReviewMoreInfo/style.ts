@@ -17,12 +17,15 @@ export const Help = Styled.p`
   margin-bottom:8px;
 `;
 
-export const ThumbBox = Styled.div`
+interface ThumbBoxProps {
+  like: boolean;
+}
+export const ThumbBox = Styled.div<ThumbBoxProps>`
   width: 92px;
   height: 32px;
   padding: 4px 8px;
   border: solid 1px #ebebeb;
-  background-color: #ffffff;
+  background-color: ${({ like }) => (like ? 'dodgerblue' : '#ffffff')};
   display:flex;
   align-items:center;
   justify-content:space-between;

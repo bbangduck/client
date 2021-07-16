@@ -57,7 +57,6 @@ const ReviewItem = ({
     if (hintUsageCount === 'THREE_OR_MORE') return 'HINT 3+';
     return undefined;
   };
-  console.log(imageUrl);
   return (
     <S.Li>
       <S.TopBox>
@@ -77,7 +76,7 @@ const ReviewItem = ({
       </S.SqureBoxs>
       <S.ReviewContent>
         {moreOn ? comment : shortSentence(49, comment || '')}
-        {moreOn || !perceivedThemeGenres ? null : (
+        {moreOn || !comment || (comment && comment.length < 49 && comment.length > 0) ? null : (
           <S.MoreBox onClick={() => setMoreOn(true)} data-blink="blink">
             <S.More data-blink="blink">More</S.More>
             <img src={down} alt="더보기" data-blink="blink" />

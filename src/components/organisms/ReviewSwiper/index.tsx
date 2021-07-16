@@ -1,28 +1,25 @@
 import React, { ReactElement } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import test from '../../../assets/images/test/poster.jpg';
-import test2 from '../../../assets/images/test/me.jpg';
 import 'swiper/swiper.scss';
 import './style.css';
 import * as S from './style';
 
 interface Props {
-  playTogetherFriends: {
-    memberId: number;
-    nickname: string;
-    profileImageUrl: string | null;
-    profileImageThumbnailUrl: string | null;
+  reviewImages?: {
+    reviewImageId: number;
+    reviewImageThumbnailUrl: string;
+    reviewImageUrl: string;
   }[];
 }
-const ReviewSwiper = ({ playTogetherFriends }: Props): ReactElement => {
+const ReviewSwiper = ({ reviewImages }: Props): ReactElement => {
   return (
     <S.Container>
       <Swiper slidesPerView="auto" spaceBetween={12} grabCursor>
-        {playTogetherFriends?.map((friend) => {
-          if (friend.profileImageThumbnailUrl) {
+        {reviewImages?.map((img) => {
+          if (img.reviewImageThumbnailUrl) {
             return (
-              <SwiperSlide className="theme-review-slide" key={friend.memberId}>
-                <S.ImgBox image={friend.profileImageThumbnailUrl} />
+              <SwiperSlide className="theme-review-slide" key={img.reviewImageId}>
+                <S.ImgBox image={img.reviewImageThumbnailUrl} />
               </SwiperSlide>
             );
           }

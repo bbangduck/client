@@ -6,6 +6,11 @@ import fetcherWithoutToken from '../utils/fetcherWithoutToken';
 
 export type ReviewContentType = {
   reviewId: number;
+  reviewImages?: {
+    reviewImageId: number;
+    reviewImageThumbnailUrl: string;
+    reviewImageUrl: string;
+  }[];
   writerInfo: {
     memberId: number;
     nickname: string;

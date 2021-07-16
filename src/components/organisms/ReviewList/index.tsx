@@ -6,6 +6,7 @@ interface Props {
   data: ReviewContentType | undefined;
 }
 const ReviewList = ({ data }: Props): ReactElement => {
+  console.log(data);
   return (
     <ul>
       {data?.map((item) => {
@@ -21,6 +22,7 @@ const ReviewList = ({ data }: Props): ReactElement => {
           like,
           likeCount,
           perceivedThemeGenres,
+          reviewImages,
         } = item;
         const { nickname, profileImageThumbnailUrl } = writerInfo;
         const filteredDate = registerTimes.split('T')[0].split('-');
@@ -39,6 +41,7 @@ const ReviewList = ({ data }: Props): ReactElement => {
             like={like}
             likeCount={likeCount}
             perceivedThemeGenres={perceivedThemeGenres}
+            reviewImages={reviewImages}
           />
         );
       })}

@@ -16,6 +16,11 @@ interface Props {
   hintUsageCount: string;
   themeClearTime: string;
   comment?: string;
+  reviewImages?: {
+    reviewImageId: number;
+    reviewImageThumbnailUrl: string;
+    reviewImageUrl: string;
+  }[];
   playTogetherFriends: {
     memberId: number;
     nickname: string;
@@ -42,6 +47,7 @@ const ReviewItem = ({
   like,
   likeCount,
   perceivedThemeGenres,
+  reviewImages,
 }: Props): ReactElement => {
   const [moreOn, setMoreOn] = useState(false);
   const filterHint = (): string | undefined => {
@@ -51,7 +57,7 @@ const ReviewItem = ({
     if (hintUsageCount === 'THREE_OR_MORE') return 'HINT 3+';
     return undefined;
   };
-
+  console.log(imageUrl);
   return (
     <S.Li>
       <S.TopBox>
@@ -78,7 +84,7 @@ const ReviewItem = ({
           </S.MoreBox>
         )}
       </S.ReviewContent>
-      <ReviewSwiper playTogetherFriends={playTogetherFriends} />
+      <ReviewSwiper reviewImages={reviewImages} />
       <ReviewMoreInfo moreOn={moreOn} like={like} likeCount={likeCount} perceivedThemeGenres={perceivedThemeGenres} />
     </S.Li>
   );

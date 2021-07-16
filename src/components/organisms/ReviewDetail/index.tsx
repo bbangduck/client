@@ -48,7 +48,7 @@ const ReviewDetail = (): ReactElement => {
     const problem = reduceSurvey(problemBox);
     setSurveyResults({
       // genreCodes: genres,
-      genreCodes: ['RSN1'],
+      genreCodes: [],
       perceivedDifficulty: hard,
       perceivedHorrorGrade: scary,
       perceivedActivity: activity,

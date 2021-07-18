@@ -29,7 +29,7 @@ const ReviewMoreInfo = ({
 }: Props): ReactElement => {
   const { themeId } = useParams<ParamsTypes>();
   const [popAlarm] = usePopAlarm();
-  const { mutate } = useReviewInfinite(themeId, sequenceCondition);
+  const { revalidate } = useReviewInfinite(themeId, sequenceCondition);
 
   const onLikeClick = async () => {
     if (like) {
@@ -38,7 +38,7 @@ const ReviewMoreInfo = ({
           method: 'delete',
           url: `/api/reviews/${reviewId}/likes`,
         });
-        mutate();
+        revalidate();
       } catch (err) {
         if (err.response.data.status === 4432) {
           popAlarm('본인의 리뷰는 클릭할수 없습니다.');
@@ -50,7 +50,7 @@ const ReviewMoreInfo = ({
           method: 'post',
           url: `/api/reviews/${reviewId}/likes`,
         });
-        mutate();
+        revalidate();
       } catch (err) {
         if (err.response.data.status === 4432) {
           popAlarm('본인의 리뷰는 클릭할수 없습니다.');

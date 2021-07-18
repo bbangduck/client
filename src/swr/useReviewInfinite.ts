@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useSWRInfinite } from 'swr';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { MutatorCallback } from 'swr/dist/types';
 import fetcher from '../utils/fetcher';
 import fetcherWithoutToken from '../utils/fetcherWithoutToken';
@@ -78,20 +78,16 @@ export type PreviousPageDataType = {
 type ReturnType = {
   data: ReviewContentType | undefined;
   loading: boolean;
-  mutate: (
-    data?: any[] | Promise<any[]> | MutatorCallback<any[]> | undefined,
-    shouldRevalidate?: boolean | undefined,
-  ) => Promise<any[] | undefined>;
+  revalidate: () => Promise<boolean>;
 };
 
 export const useReviewInfinite = (themeId: string, condition: string): ReturnType => {
   const token = sessionStorage.getItem('bbangAT');
 
-  const { data, error, setSize, mutate } = useSWRInfinite(
+  const { data, error, setSize, revalidate } = useSWRInfinite(
     (index) => `/api/themes/${themeId}/reviews?pageNum=${index + 1}&amount=20&osrtCondition=${condition}`,
     token ? fetcher : fetcherWithoutToken,
   );
-
   const isLastReview = data?.[data.length - 1].contents.length < 20;
 
   const infiniteScroll = () => {
@@ -115,7 +111,7 @@ export const useReviewInfinite = (themeId: string, condition: string): ReturnTyp
     .flat()
     .filter((item) => item);
 
-  return { data: filteredData, loading: !error && !data, mutate };
+  return { data: filteredData, loading: !error && !data, revalidate };
 };
 
 export default useReviewInfinite;

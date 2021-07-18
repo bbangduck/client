@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { ReactElement, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { clearCache } from 'react-router-cache-route';
 import EscapeMoment from '../../molecules/EscapeMoment';
 import EscapeReviewSentence from '../../molecules/EscapeReviewSentence';
@@ -11,8 +11,11 @@ import * as S from './style';
 import { ReducerType } from '../../../stores/rootReducer';
 import usePopAlarm from '../../../hooks/usePopAlarm';
 import { themeKindCheckBox } from '../../../stores/ThemeReviewReducer/themeKind';
+import useReviewInfinite from '../../../swr/useReviewInfinite';
 
 const ReviewDetail = (): ReactElement => {
+  const { themeId } = useParams<ParamsTypes>();
+  const { data: reviewData, revalidate } = useReviewInfinite(themeId, 'LATEST');
   const history = useHistory();
   const [popAlarm] = usePopAlarm();
   const reviewId = useSelector<ReducerType, number>((state) => state.reviewIdSlice);
@@ -74,7 +77,7 @@ const ReviewDetail = (): ReactElement => {
           return { fileStorageId: info.fileId, fileName: info.fileName };
         });
 
-        await axiosAPI({
+        const response2 = await axiosAPI({
           method: 'post',
           url: `/api/reviews/${reviewId}/details`,
           data: {
@@ -82,6 +85,7 @@ const ReviewDetail = (): ReactElement => {
             comment,
           },
         });
+        console.log(response2);
       } else {
         await axiosAPI({
           method: 'post',
@@ -121,7 +125,7 @@ const ReviewDetail = (): ReactElement => {
     });
 
     if (
-      surveyResults?.genreCodes[0] &&
+      surveyResults?.genreCodes &&
       surveyResults?.interiorSatisfaction &&
       surveyResults?.perceivedActivity &&
       surveyResults?.perceivedDifficulty &&
@@ -131,6 +135,12 @@ const ReviewDetail = (): ReactElement => {
     ) {
       uploadReviewDetail(formData);
       uploadSurvey();
+      setSurveyResults(null);
+      setComment('');
+      setImagesArray([]);
+      history.push(`/theme/${themeId}`);
+      popAlarm('리뷰작성을 성공하였습니다.');
+      revalidate();
     } else if (
       !surveyResults?.genreCodes[0] &&
       !surveyResults?.interiorSatisfaction &&
@@ -141,11 +151,18 @@ const ReviewDetail = (): ReactElement => {
       !surveyResults?.scenarioSatisfaction
     ) {
       uploadReviewDetail(formData);
+      setSurveyResults(null);
+      setComment('');
+      setImagesArray([]);
+      revalidate();
+      history.push(`/theme/${themeId}`);
+      popAlarm('리뷰작성을 성공하였습니다.');
     } else {
       popAlarm('리뷰를 완성해주세요.');
     }
     clearCache();
   };
+  console.log(reviewData);
 
   return (
     <div>

@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useReviewInfinite } from '../../../swr/useReviewInfinite';
 import axiosAPI from '../../../utils/axios';
@@ -29,7 +29,8 @@ const ReviewMoreInfo = ({
 }: Props): ReactElement => {
   const { themeId } = useParams<ParamsTypes>();
   const [popAlarm] = usePopAlarm();
-  const { revalidate } = useReviewInfinite(themeId, sequenceCondition);
+  const [isValidate, setIsvalidate] = useState(false);
+  useReviewInfinite(themeId, sequenceCondition, isValidate);
 
   const onLikeClick = async () => {
     if (like) {
@@ -38,7 +39,7 @@ const ReviewMoreInfo = ({
           method: 'delete',
           url: `/api/reviews/${reviewId}/likes`,
         });
-        revalidate();
+        setIsvalidate((prev) => !prev);
       } catch (err) {
         if (err.response.data.status === 4432) {
           popAlarm('본인의 리뷰는 클릭할수 없습니다.');
@@ -50,7 +51,7 @@ const ReviewMoreInfo = ({
           method: 'post',
           url: `/api/reviews/${reviewId}/likes`,
         });
-        revalidate();
+        setIsvalidate((prev) => !prev);
       } catch (err) {
         if (err.response.data.status === 4432) {
           popAlarm('본인의 리뷰는 클릭할수 없습니다.');

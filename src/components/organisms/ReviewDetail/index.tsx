@@ -107,12 +107,11 @@ const ReviewDetail = (): ReactElement => {
 
   const uploadSurvey = async () => {
     try {
-      const response = await axiosAPI({
+      await axiosAPI({
         method: 'post',
         url: `/api/reviews/${reviewId}/surveys`,
         data: surveyResults,
       });
-      console.log(response);
     } catch (err) {
       console.log(err);
     }

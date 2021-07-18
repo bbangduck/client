@@ -81,11 +81,11 @@ type ReturnType = {
   revalidate: () => Promise<boolean>;
 };
 
-export const useReviewInfinite = (themeId: string, condition: string): ReturnType => {
+export const useReviewInfinite = (themeId: string, condition: string, isRevalidate?: boolean): ReturnType => {
   const token = sessionStorage.getItem('bbangAT');
 
-  const { data, error, setSize, revalidate } = useSWRInfinite(
-    (index) => `/api/themes/${themeId}/reviews?pageNum=${index + 1}&amount=20&osrtCondition=${condition}`,
+  const { data, error, setSize, revalidate, mutate } = useSWRInfinite(
+    (index) => `/api/themes/${themeId}/reviews?pageNum=${index + 1}&amount=20&sortCondition=${condition}`,
     token ? fetcher : fetcherWithoutToken,
   );
   const isLastReview = data?.[data.length - 1].contents.length < 20;
@@ -97,6 +97,13 @@ export const useReviewInfinite = (themeId: string, condition: string): ReturnTyp
       }
     }
   };
+
+  useEffect(() => {
+    const revalidateReviewData = async () => {
+      await mutate();
+    };
+    revalidateReviewData();
+  }, [isRevalidate]);
 
   useEffect(() => {
     window.addEventListener('scroll', infiniteScroll);

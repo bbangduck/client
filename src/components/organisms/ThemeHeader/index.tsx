@@ -54,7 +54,7 @@ const ThemeHeader = ({ themeId }: Props): ReactElement => {
     <>
       <S.Img src={themeImage?.themeImageThumbnailUrl || testImg2} alt="테마 사진" />
       <S.HeaderBox>
-        <UpdateHeader img={more} arrow={left} imgAlt="공유하기" onImgClick={onShare} />
+        <UpdateHeader img={more} arrow={left} imgAlt="공유하기" onImgClick={onShare} pushTo="/theme" />
       </S.HeaderBox>
       <S.Container>
         <S.TotalBox>

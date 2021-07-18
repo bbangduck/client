@@ -26,7 +26,7 @@ const ThemeReview = ({ isRef, themeId }: Props): ReactElement => {
     if (content === '좋아요 높은순') setSequenceCondition('LIKE_COUNT_ASC');
     if (content === '좋아요 낮은순') setSequenceCondition('LIKE_COUNT_DESC');
   };
-  console.log(data);
+
   return (
     <S.Section ref={isRef}>
       <PlayedPeople themeId={themeId} />

@@ -9,17 +9,26 @@ interface Props {
   imgAlt?: string;
   onImgClick?: () => void;
   marginBottom?: string;
+  pushTo?: string;
 }
-const UpdateHeader = ({ content, arrow, img, imgAlt, onImgClick, marginBottom }: Props): ReactElement => {
+const UpdateHeader = ({ content, arrow, img, imgAlt, onImgClick, marginBottom, pushTo }: Props): ReactElement => {
   const history = useHistory();
 
   const onImgClickHandeler = () => {
     if (onImgClick) onImgClick();
   };
 
+  const onBackClick = () => {
+    if (pushTo) {
+      history.push(pushTo);
+    } else {
+      history.goBack();
+    }
+  };
+
   return (
     <S.Header img={img} marginBottom={marginBottom || '20px'}>
-      <S.ImgBox onClick={() => history.goBack()} data-blink="blink">
+      <S.ImgBox onClick={onBackClick} data-blink="blink">
         <img src={arrow} alt="뒤로가기" data-blink="blink" />
       </S.ImgBox>
       {content ? (

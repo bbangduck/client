@@ -2,6 +2,7 @@
 import React, { ReactElement, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
+import { mutate } from 'swr';
 import { clearCache } from 'react-router-cache-route';
 import EscapeMoment from '../../molecules/EscapeMoment';
 import EscapeReviewSentence from '../../molecules/EscapeReviewSentence';
@@ -15,7 +16,6 @@ import useReviewInfinite from '../../../swr/useReviewInfinite';
 
 const ReviewDetail = (): ReactElement => {
   const { themeId } = useParams<ParamsTypes>();
-  const { data: reviewData, revalidate } = useReviewInfinite(themeId, 'LATEST');
   const history = useHistory();
   const [popAlarm] = usePopAlarm();
   const reviewId = useSelector<ReducerType, number>((state) => state.reviewIdSlice);
@@ -29,6 +29,8 @@ const ReviewDetail = (): ReactElement => {
   const [imagesArray, setImagesArray] = useState<File[]>([]);
   const [comment, setComment] = useState('');
   const [surveyResults, setSurveyResults] = useState<SurveyResultsType | null>(null);
+  const [isRevalidate, setIsRevalidate] = useState(false);
+  useReviewInfinite(themeId, 'LATEST', isRevalidate);
 
   const reduceSurvey = (surveyType: SurveyItemProps[]) => {
     const result = surveyType.reduce<string[]>((acc, curr) => {
@@ -50,8 +52,7 @@ const ReviewDetail = (): ReactElement => {
     const interior = reduceSurvey(interiorBox);
     const problem = reduceSurvey(problemBox);
     setSurveyResults({
-      // genreCodes: genres,
-      genreCodes: [],
+      genreCodes: genres,
       perceivedDifficulty: hard,
       perceivedHorrorGrade: scary,
       perceivedActivity: activity,
@@ -77,7 +78,7 @@ const ReviewDetail = (): ReactElement => {
           return { fileStorageId: info.fileId, fileName: info.fileName };
         });
 
-        const response2 = await axiosAPI({
+        await axiosAPI({
           method: 'post',
           url: `/api/reviews/${reviewId}/details`,
           data: {
@@ -85,16 +86,16 @@ const ReviewDetail = (): ReactElement => {
             comment,
           },
         });
-        console.log(response2);
+        setIsRevalidate((prev) => !prev);
       } else {
         await axiosAPI({
           method: 'post',
           url: `/api/reviews/${reviewId}/details`,
           data: {
-            reviewImages: [],
             comment,
           },
         });
+        setIsRevalidate((prev) => !prev);
       }
     } catch (error) {
       const { status } = error?.response?.data;
@@ -117,7 +118,7 @@ const ReviewDetail = (): ReactElement => {
     }
   };
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData();
     imagesArray.forEach((image) => {
@@ -140,7 +141,6 @@ const ReviewDetail = (): ReactElement => {
       setImagesArray([]);
       history.push(`/theme/${themeId}`);
       popAlarm('리뷰작성을 성공하였습니다.');
-      revalidate();
     } else if (
       !surveyResults?.genreCodes[0] &&
       !surveyResults?.interiorSatisfaction &&
@@ -154,15 +154,13 @@ const ReviewDetail = (): ReactElement => {
       setSurveyResults(null);
       setComment('');
       setImagesArray([]);
-      revalidate();
       history.push(`/theme/${themeId}`);
-      popAlarm('리뷰작성을 성공하였습니다.');
+      popAlarm('리뷰작성을 성공하였습니다.2');
     } else {
       popAlarm('리뷰를 완성해주세요.');
     }
     clearCache();
   };
-  console.log(reviewData);
 
   return (
     <div>

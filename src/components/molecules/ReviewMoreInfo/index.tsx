@@ -12,11 +12,7 @@ interface Props {
   moreOn: boolean;
   like: boolean;
   likeCount: number;
-  perceivedThemeGenres: {
-    genreId: number;
-    genreCode: string;
-    genreName: string;
-  }[];
+  perceivedThemeGenres: string[];
   sequenceCondition: string;
 }
 const ReviewMoreInfo = ({

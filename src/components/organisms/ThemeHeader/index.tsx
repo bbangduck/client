@@ -69,7 +69,7 @@ const ThemeHeader = ({ themeId }: Props): ReactElement => {
         <S.H1Tag>{themeName}</S.H1Tag>
         <S.Location>{shopName}</S.Location>
         <S.DetailBox>
-          {themeGenres.map((genre) => (
+          {themeGenres?.map((genre) => (
             <InfoBox
               key={genre.genreId}
               content={genre.genreName}

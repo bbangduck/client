@@ -2,17 +2,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useSWRInfinite } from 'swr';
 import { useEffect } from 'react';
-import { MutatorCallback } from 'swr/dist/types';
 import fetcher from '../utils/fetcher';
 import fetcherWithoutToken from '../utils/fetcherWithoutToken';
 
 export type ReviewContentType = {
   reviewId: number;
-  reviewImages?: {
-    reviewImageId: number;
-    reviewImageThumbnailUrl: string;
-    reviewImageUrl: string;
-  }[];
   writerInfo: {
     memberId: number;
     nickname: string;
@@ -46,14 +40,13 @@ export type ReviewContentType = {
   surveyYN: boolean;
   registerTimes: string;
   updateTimes: string;
-  perceivedThemeGenres: [
-    {
-      genreId: number;
-      genreCode: string;
-      genreName: string;
-    },
-  ];
+  reviewImages?: {
+    reviewImageId: number;
+    reviewImageThumbnailUrl: string;
+    reviewImageUrl: string;
+  }[];
   comment?: string;
+  perceivedThemeGenres: string[];
   perceivedDifficulty: string;
   perceivedHorrorGrade: string;
   perceivedActivity: string;

@@ -31,11 +31,7 @@ interface Props {
   reviewId: number;
   like: boolean;
   likeCount: number;
-  perceivedThemeGenres: {
-    genreId: number;
-    genreCode: string;
-    genreName: string;
-  }[];
+  perceivedThemeGenres: string[];
 }
 const ReviewItem = ({
   imageUrl,

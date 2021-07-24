@@ -11,7 +11,7 @@ export type ThemeDetailDataType = {
   };
   themeName: string;
   themeDescription: string;
-  themeGenres: [
+  themeGenres?: [
     {
       genreId: number;
       genreCode: string;

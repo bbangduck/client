@@ -12,6 +12,11 @@ interface Props {
   themeId: string;
 }
 const ThemeReview = ({ isRef, themeId }: Props): ReactElement => {
+  const sortCondition = [
+    { id: 1, content: '평점 높은순' },
+    { id: 2, content: '평점 낮은순' },
+    { id: 3, content: '좋아요 높은순' },
+  ];
   const [sequenceCondition, setSequenceCondition] = useState('LATEST');
   const [visibleContentRef, modalOn, setModalOn, clickOutside] = useClickOutside(false);
   const { data } = useReviewInfinite(themeId, sequenceCondition);
@@ -42,7 +47,7 @@ const ThemeReview = ({ isRef, themeId }: Props): ReactElement => {
         <BottomModal
           title="정렬"
           firstBtn="최신순"
-          secondBtn={['평점 높은순', '평점 낮은순', '좋아요 높은순']}
+          secondBtn={sortCondition}
           lastBtn="좋아요 낮은순"
           visibleContentRef={visibleContentRef}
           clickOutside={clickOutside}
@@ -56,4 +61,4 @@ const ThemeReview = ({ isRef, themeId }: Props): ReactElement => {
   );
 };
 
-export default ThemeReview;
+export default React.memo(ThemeReview);

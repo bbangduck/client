@@ -32,4 +32,4 @@ const ThemeEvent = ({ event, isRef }: Props): ReactElement => {
   );
 };
 
-export default ThemeEvent;
+export default React.memo(ThemeEvent);

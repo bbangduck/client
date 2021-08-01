@@ -5,7 +5,7 @@ export const useThemeObserver = (
   stateNumber: number,
 ): React.MutableRefObject<HTMLElement | null>[] => {
   const isRef = useRef<HTMLElement | null>(null);
-  const option = { threshold: 0, rootMargin: `-${document.body.scrollHeight / 2 - 1}px 0px` };
+  const option = { rootMargin: `-${window.innerHeight / 2 - 1}px 0px` };
 
   useEffect(() => {
     const observer = new IntersectionObserver((entry) => {

@@ -4,7 +4,12 @@ import * as S from './style';
 interface Props {
   title: string;
   firstBtn?: string;
-  secondBtn?: string | string[];
+  secondBtn?:
+    | string
+    | {
+        id: number;
+        content: string;
+      }[];
   lastBtn: string;
   visibleContentRef: React.MutableRefObject<HTMLDivElement | null>;
   clickOutside: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
@@ -48,8 +53,8 @@ const BottomModal = ({
         ) : null}
         {Array.isArray(secondBtn)
           ? secondBtn?.map((btn) => (
-              <S.Btn onClick={(e) => onSecondBtnClick(e)} data-blink="blink">
-                {btn}
+              <S.Btn key={btn.id} onClick={(e) => onSecondBtnClick(e)} data-blink="blink">
+                {btn.content}
               </S.Btn>
             ))
           : null}

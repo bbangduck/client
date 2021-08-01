@@ -22,4 +22,4 @@ const ThemeExplain = ({ isRef, themeId }: Props): ReactElement => {
   );
 };
 
-export default ThemeExplain;
+export default React.memo(ThemeExplain);

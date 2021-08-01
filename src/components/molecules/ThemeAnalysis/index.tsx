@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react';
-import useSWR from 'swr';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import MyPageSubTitle from '../MyPageSubTitle';
 import pointMark from '../../../assets/images/pointmark/pointMark.svg';
 import * as S from './style';
@@ -32,4 +31,4 @@ const ThemeAnalysis = ({ isRef }: Props): ReactElement => {
   );
 };
 
-export default ThemeAnalysis;
+export default React.memo(ThemeAnalysis);
